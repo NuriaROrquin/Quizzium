@@ -1,0 +1,93 @@
+body{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Bangers', cursive;
+}
+.container{
+    background: radial-gradient(50% 50% at 50% 50%, #FFD700 39.06%, #FFA500 87.2%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.characters{
+    width: 80%;
+}
+
+.buttons-area{
+    display: flex;
+    gap: 2rem;
+    margin-top: 35px;
+}
+
+.button{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #800080;
+    color: white;
+    border-radius: 20px;
+}
+
+.button-big{
+    min-width: 400px;
+    padding: 10px 48px;
+    font-size: 64px;
+}
+
+.button-small{
+    min-width: 200px;
+    padding: 10px 38px;
+    font-size: 24px;
+}
+
+
+/**************************************LOGIN******************************************/
+
+.login-area{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+}
+
+.field input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #333333;
+    transition: border-color 0.3s ease;
+    min-width: 25rem;
+}
+
+.field input:focus {
+    outline: none;
+}
+
+.field input::placeholder {
+    color: #999999;
+}
+
+.field label{
+    color: white;
+    font-size: 24px;
+}

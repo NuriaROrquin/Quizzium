@@ -1,6 +1,6 @@
 <?php
 
-class LaBandaController {
+class LobbyController {
 
     private $renderer;
 
@@ -9,6 +9,6 @@ class LaBandaController {
     }
 
     public function list() {
-        $this->renderer->render('labanda');
+        $this->renderer->render('lobby');
     }
 }
