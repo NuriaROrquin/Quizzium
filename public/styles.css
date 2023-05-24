@@ -18,6 +18,10 @@ body{
     width: 80%;
 }
 
+.characters-small{
+    width: 50%;
+}
+
 .buttons-area{
     display: flex;
     gap: 2rem;
@@ -45,16 +49,18 @@ body{
     min-width: 400px;
     padding: 10px 48px;
     font-size: 64px;
+    font-family: 'Bangers', cursive;
 }
 
 .button-small{
     min-width: 200px;
     padding: 10px 38px;
     font-size: 24px;
+    font-family: 'Bangers', cursive;
 }
 
 
-/**************************************LOGIN******************************************/
+/**************************************LOGIN & REGISTER******************************************/
 
 .login-area{
     display: flex;
@@ -90,4 +96,15 @@ body{
 .field label{
     color: white;
     font-size: 24px;
+}
+
+.field select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #333333;
+    transition: border-color 0.3s ease;
+    min-width: 25rem;
 }

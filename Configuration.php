@@ -5,6 +5,7 @@ include_once('helpers/Router.php');
 
 include_once ("model/ToursModel.php");
 include_once('model/SongsModel.php');
+include_once('model/RegisterModel.php');
 
 include_once('controller/ToursController.php');
 include_once('controller/SongsController.php');
@@ -42,7 +43,7 @@ class Configuration {
     }
 
     public function getRegisterController() {
-        return new RegisterController($this->getRenderer());
+        return new RegisterController(new RegisterModel($this->getDatabase()),$this->getRenderer());
     }
 
     private function getArrayConfig() {
