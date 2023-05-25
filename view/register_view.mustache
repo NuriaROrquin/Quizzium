@@ -7,51 +7,51 @@
     <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
         <div class="field">
             <label>Nombre Completo</label>
-            <input name="register[name]" type="text"/>
+            <input name="register[name]" type="text" required/>
         </div>
 
         <div class="field">
             <label>Fecha de nacimiento</label>
-            <input name="register[born_date]" type="date"/>
+            <input name="register[born_date]" type="date" required/>
         </div>
 
         <div class="field">
             <label>Sexo</label>
-            <select id="gender" name="register[gender]">
+            <select id="gender" name="register[gender]" required>
+                <option value="1" >Masculino</option>
                 <option value="2">Femenino</option>
-                <option value="1">Masculino</option>
-                <option value="3">Prefiero no decirlo</option>
+                <option value="3" selected >Prefiero no decirlo</option>
             </select>
         </div>
 
         <div class="field">
             <label>Pais</label>
-            <input name="register[country]" type="text"/>
+            <input name="register[country]" type="text" required/>
         </div>
 
         <div class="field">
             <label>Ciudad</label>
-            <input name="register[city]" type="text"/>
+            <input name="register[city]" type="text" required/>
         </div>
 
         <div class="field">
             <label>Nombre de usuario</label>
-            <input name="register[username]" type="text"/>
+            <input name="register[username]" type="text" required/>
         </div>
 
         <div class="field">
             <label>Mail</label>
-            <input name="register[mail]" type="email"/>
+            <input name="register[mail]" type="email" required/>
         </div>
 
         <div class="field">
             <label>Contraseña</label>
-            <input name="register[password]" type="password"/>
+            <input name="register[password]" type="password" required/>
         </div>
 
         <div class="field">
             <label>Repetir Contraseña</label>
-            <input name="register[verificated_password]" type="password"/>
+            <input name="register[verificated_password]" type="password" required/>
         </div>
 
         <button type="submit" class="button button-small">
