@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 01:40:00
+-- Tiempo de generación: 25-05-2023 a las 22:44:26
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -43,7 +43,7 @@ CREATE TABLE `categoria` (
 CREATE TABLE `cuenta` (
   `id_cuenta` int(11) NOT NULL,
   `id_genero` int(11) NOT NULL,
-  `id_rol` int(11) NOT NULL,
+  `id_rol` int(11) NOT NULL DEFAULT 3,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `mail` varchar(100) NOT NULL,
   `ciudad` varchar(100) NOT NULL,
@@ -65,7 +65,8 @@ CREATE TABLE `cuenta` (
 INSERT INTO `cuenta` (`id_cuenta`, `id_genero`, `id_rol`, `fecha_creacion`, `mail`, `ciudad`, `pais`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `esta_activa`, `fecha_validacion`) VALUES
 (1, 1, 1, '2023-05-23 23:34:56', 'administrador@gmail.com', 'Ituzaingo', 'Argentina', 'matias', '123', 'foto_perfil_1', '1997-12-14', 'Matías', 'Coco', 1, '2023-05-23 23:34:56'),
 (2, 2, 2, '2023-05-23 23:38:01', 'editor@gmail.com', 'Ramos Mejia', 'Argentina', 'victoria', '123', 'foto_perfil_2', '1995-11-21', 'Victoria', 'Gambaro', 1, '2023-05-23 23:38:01'),
-(3, 3, 3, '2023-05-23 23:38:01', 'jugador@gmail.com', 'Liniers', 'Argentina', 'Nuria', '123', 'foto_perfil_3', '1997-06-24', 'Nuria', 'Orquin', 1, '2023-05-23 23:38:01');
+(3, 3, 3, '2023-05-23 23:38:01', 'jugador@gmail.com', 'Liniers', 'Argentina', 'Nuria', '123', 'foto_perfil_3', '1997-06-24', 'Nuria', 'Orquin', 1, '2023-05-23 23:38:01'),
+(23, 1, 3, '2023-05-25 18:19:30', 'dfsadas@gmail.com', 'Ituzaingo', 'Argentina', 'mati123', '1234', '646fa6b28bc97_foto para probar.png', '2023-05-25', 'Matias Ariel', 'Coco', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -301,7 +302,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `genero`
