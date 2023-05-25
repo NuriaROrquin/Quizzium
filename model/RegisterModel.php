@@ -18,7 +18,25 @@ class RegisterModel
                         , {$fields['photo']}  , {$fields['born_date']} , {$fields['name']} , {$fields['surname']} );";*/
 
         //$this->database->query($sql);
-        echo "aca tengo que redireccionar al login o algo que diga que la cuenta fue creada correctamente y que falta validar el correo enviado mail";
+
+        //************************************************************************************
+        //VER BIEN EL TEMA DE LA REDIRECCION
+        header("Location: /login/list");
+        exit();
+    }
+
+    private function validateEmptyFields($fields)
+    {
+        $validate = true;
+
+        foreach ($fields as $field) {
+            if (empty($field)) {
+                $validate = false;
+            }
+            break;
+        }
+
+        return $validate;
     }
 
     private function validatePassword($password, $verificated_password)
@@ -43,29 +61,60 @@ class RegisterModel
         return $validate;
     }
 
+    private function validateProfilePhoto($photo)
+    {
+        $validate = false;
+
+        //esto serian los tipos de imagenes permitidas (.jpg)
+        $allowed_types = array('image/jpeg', 'image/png',);
+
+        $photo_format = $photo['type'];
+
+        //si el tipo de formato que pasamos esta en los formatos permitidos, retorna true
+        if( in_array( $photo_format , $allowed_types ) == true){
+            $validate = true;
+            $this->updatePhoto($photo);
+        }
+        return $validate;
+    }
+
+    private function updatePhoto($photo){
+        $archivo_temporal = $photo['tmp_name'];
+
+        //uniqid crea un valor unico para la foto, si o si hay que unirlo con un "_" al nombre de la foto subida
+        $nombre_archivo = uniqid() . '_' . $photo['name'];
+        $carpeta_destino = "./public/profile-pictures/";
+
+        if (!move_uploaded_file($archivo_temporal, $carpeta_destino . $nombre_archivo)) {
+            echo "Ha ocurrido un error al subir la imagen.";
+        }
+    }
+
     public function validate($fields)
     {
 
-        foreach ($fields as $field) {
-            if (empty($field)) {
-                exit("Hay campos que faltan completar");
-            }
+        $fields['photo'] = $_FILES['photo'];
+
+
+        if( !$this->validateEmptyFields($fields) ){
+            exit("Hay campos que faltan completar");
         }
 
-        if($this->validatePassword($fields['password'], $fields['verificated_password'])){
-
-            if($this->validateMail($fields['mail'])){
-                $this->insertUser($fields);
-            }
-
-            else {
-                exit("El correo electrónico no es válido");
-            }
+        if( !$this->validatePassword($fields['password'], $fields['verificated_password']) ){
+            exit("Las contraseñas ingresadas son distintas.");
         }
 
-        else {
-            exit("Las contraseñas no son iguales");
+        if( !$this->validateMail($fields['mail']) ){
+            exit("El correo electrónico no es válido.");
         }
+
+        if( !$this->validateProfilePhoto($fields['photo']) ){
+            exit("La foto ingresada debe ser de formato .png o .jpg");
+        }
+
+        $this->insertUser($fields);
     }
 }
+
+
 
