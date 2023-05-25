@@ -6,13 +6,23 @@
     <img src="../public/assets/characters.png" class="characters-small">
     <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
         <div class="field">
-            <label>Nombre Completo</label>
+            <label>Nombre</label>
             <input name="register[name]" type="text" required/>
+        </div>
+
+        <div class="field">
+            <label>Apellido</label>
+            <input name="register[surname]" type="text" required/>
         </div>
 
         <div class="field">
             <label>Fecha de nacimiento</label>
             <input name="register[born_date]" type="date" required/>
+        </div>
+
+        <div class="field">
+            <label>Foto de Perfil</label>
+            <input name="register[photo]" type="file" required/>
         </div>
 
         <div class="field">

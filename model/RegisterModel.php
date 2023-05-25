@@ -15,7 +15,7 @@ class RegisterModel
         /*$sql = "INSERT INTO `cuenta` (`id_genero`, `mail`, `ciudad`, `pais`, `usuario`, `contrasenia`,
                         `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`) VALUES ('{$fields['gender']}' ,
                         {$fields['mail']} , {$fields['city']} , {$fields['country']} , {$fields['username']} , {$fields['password']}
-                        , '' , {$fields['born_date']} , {$fields['name']} , {$fields['name']} );";*/
+                        , {$fields['photo']}  , {$fields['born_date']} , {$fields['name']} , {$fields['surname']} );";*/
 
         //$this->database->query($sql);
         echo "aca tengo que redireccionar al login o algo que diga que la cuenta fue creada correctamente y que falta validar el correo enviado mail";
