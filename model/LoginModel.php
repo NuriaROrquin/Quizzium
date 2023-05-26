@@ -40,7 +40,7 @@ class LoginModel
 
         $result = $this->database->querySelectMail($sql);
 
-        if($result['contrasenia'] == $password){
+        if ($result['contrasenia'] == $password) {
             $validate = true;
         }
 
@@ -57,9 +57,7 @@ class LoginModel
                 exit();
             }
             exit("El mail o contraseña ingresada no son correctas.");
-        }
-
-        else {
+        } else {
             exit("El mail o contraseña ingresada no son correctas.");
         }
     }

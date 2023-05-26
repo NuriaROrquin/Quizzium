@@ -15,10 +15,12 @@ include_once('controller/RegisterController.php');
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
 
-class Configuration {
+class Configuration
+{
     private $configFile = 'config/config.ini';
 
-    public function __construct() {
+    public function __construct()
+    {
     }
 
     /*public function getToursController() {
@@ -33,11 +35,13 @@ class Configuration {
             $this->getRenderer());
     }*/
 
-    public function getLobbyController() {
+    public function getLobbyController()
+    {
         return new LobbyController($this->getRenderer());
     }
 
-    public function getLoginController() {
+    public function getLoginController()
+    {
         return new LoginController(
             new LoginModel(
                 $this->getDatabase()),
@@ -46,22 +50,26 @@ class Configuration {
         //return new LoginController($this->getRenderer());
     }
 
-    public function getRegisterController() {
+    public function getRegisterController()
+    {
         return new RegisterController(
             new RegisterModel(
                 $this->getDatabase()),
-                $this->getRenderer());
+            $this->getRenderer());
     }
 
-    private function getArrayConfig() {
+    private function getArrayConfig()
+    {
         return parse_ini_file($this->configFile);
     }
 
-    private function getRenderer() {
+    private function getRenderer()
+    {
         return new MustacheRender('view/partial');
     }
 
-    public function getDatabase() {
+    public function getDatabase()
+    {
         $config = $this->getArrayConfig();
         return new MySqlDatabase(
             $config['servername'],
@@ -70,7 +78,8 @@ class Configuration {
             $config['database']);
     }
 
-    public function getRouter() {
+    public function getRouter()
+    {
         return new Router(
             $this,
             "getRegisterController",
