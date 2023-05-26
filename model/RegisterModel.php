@@ -125,6 +125,8 @@ class RegisterModel
             $fields['photo']['url'] = $urlProfilePhoto;
         }
 
+        $fields['password'] = md5($fields['password']);
+
         $this->insertUser($fields);
     }
 }
