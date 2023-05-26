@@ -17,8 +17,10 @@ class MailModel
         $this->database = $database;
     }
 
-    public function sendEmailAndInsertUser($destinatario, $asunto, $mensaje)
+    public function sendEmailAndInsertUser()
     {
+        $destinatario= $_GET['mail'];
+
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->SMTPDebug = 2;
@@ -33,13 +35,16 @@ class MailModel
         $mail->addAddress($destinatario);
 
         $mail->isHTML(true);
+
+        $asunto = "Hola Funciona";
+        $mensaje = "Prueba Quizzium de mati";
         $mail->Subject = $asunto;
         $mail->Body = $mensaje;
 
         if ($mail->send()) {
             header('location: /login/list');
         } else {
-            $this->deleteUser("mail1@gmail.com");
+            $this->deleteUser($destinatario);
         }
 
     }

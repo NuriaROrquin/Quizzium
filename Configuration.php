@@ -60,7 +60,9 @@ class Configuration
 
     public function getMailController()
     {
-        return new MailController("cocomatias6@gmail.com", "Hola Funciona", "Prueba Quizzium", new MailModel($this->getDatabase()));
+        return new MailController(
+            new MailModel($this->getDatabase())
+        );
     }
 
     private function getArrayConfig()

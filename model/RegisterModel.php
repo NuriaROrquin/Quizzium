@@ -125,11 +125,11 @@ class RegisterModel
 
 
         if ($this->insertUser($fields)) {
-            header('location: /mail/list');
+            header('location: /mail/list?mail='. urlencode($fields['mail']));
         } else {
+            exit("saliste con error");
             header('location: /register/list?error');
         }
-
     }
 }
 
