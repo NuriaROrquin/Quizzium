@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2023 a las 03:26:05
+-- Tiempo de generación: 26-05-2023 a las 16:47:32
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -63,11 +63,10 @@ CREATE TABLE `cuenta` (
 --
 
 INSERT INTO `cuenta` (`id_cuenta`, `id_genero`, `id_rol`, `fecha_creacion`, `mail`, `ciudad`, `pais`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `esta_activa`, `fecha_validacion`) VALUES
-(1, 1, 1, '2023-05-23 23:34:56', 'administrador@gmail.com', 'Ituzaingo', 'Argentina', 'matias', '123', 'foto_perfil_1', '1997-12-14', 'Matías', 'Coco', 1, '2023-05-23 23:34:56'),
-(2, 2, 2, '2023-05-23 23:38:01', 'editor@gmail.com', 'Ramos Mejia', 'Argentina', 'victoria', '123', 'foto_perfil_2', '1995-11-21', 'Victoria', 'Gambaro', 1, '2023-05-23 23:38:01'),
-(3, 3, 3, '2023-05-23 23:38:01', 'jugador@gmail.com', 'Liniers', 'Argentina', 'Nuria', '123', 'foto_perfil_3', '1997-06-24', 'Nuria', 'Orquin', 1, '2023-05-23 23:38:01'),
-(23, 1, 3, '2023-05-25 18:19:30', 'dfsadas@gmail.com', 'Ituzaingo', 'Argentina', 'mati123', '1234', '646fa6b28bc97_foto para probar.png', '2023-05-25', 'Matias Ariel', 'Coco', 0, NULL),
-(24, 1, 3, '2023-05-25 20:51:16', '123@gmail.com', 'Ituzaingo', 'Argentina', 'mati123', '123', '646fca44cd5a0_foto para probar.png', '2023-05-24', 'Matias Ariel', 'Coco', 0, NULL);
+(1, 1, 1, '2023-05-23 23:34:56', 'administrador@gmail.com', 'Ituzaingo', 'Argentina', 'matias', '202cb962ac59075b964b07152d234b70', 'foto_perfil_1', '1997-12-14', 'Matías', 'Coco', 1, '2023-05-23 23:34:56'),
+(2, 2, 2, '2023-05-23 23:38:01', 'editor@gmail.com', 'Ramos Mejia', 'Argentina', 'victoria', '202cb962ac59075b964b07152d234b70', 'foto_perfil_2', '1995-11-21', 'Victoria', 'Gambaro', 1, '2023-05-23 23:38:01'),
+(3, 3, 3, '2023-05-23 23:38:01', 'jugador@gmail.com', 'Liniers', 'Argentina', 'Nuria', '202cb962ac59075b964b07152d234b70', 'foto_perfil_3', '1997-06-24', 'Nuria', 'Orquin', 1, '2023-05-23 23:38:01'),
+(26, 1, 3, '2023-05-26 01:34:25', 'mail1@gmail.com', 'Ituzaingo', 'Argentina', 'dasdas', '202cb962ac59075b964b07152d234b70', '64700ca15501e_foto para probar.png', '2023-05-25', 'Matias Ariel', 'Coco', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -303,7 +302,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `genero`
