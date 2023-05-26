@@ -3,8 +3,7 @@ include_once('helpers/MySqlDatabase.php');
 include_once("helpers/MustacheRender.php");
 include_once('helpers/Router.php');
 
-include_once ("model/ToursModel.php");
-include_once('model/SongsModel.php');
+include_once('model/LoginModel.php');
 include_once('model/RegisterModel.php');
 
 include_once('controller/ToursController.php');
@@ -22,7 +21,7 @@ class Configuration {
     public function __construct() {
     }
 
-    public function getToursController() {
+    /*public function getToursController() {
         return new ToursController(
             new ToursModel($this->getDatabase()),
             $this->getRenderer());
@@ -32,18 +31,26 @@ class Configuration {
         return new SongsController(
             new SongsModel($this->getDatabase()),
             $this->getRenderer());
-    }
+    }*/
 
     public function getLobbyController() {
         return new LobbyController($this->getRenderer());
     }
 
     public function getLoginController() {
-        return new LoginController($this->getRenderer());
+        return new LoginController(
+            new LoginModel(
+                $this->getDatabase()),
+            $this->getRenderer());
+
+        //return new LoginController($this->getRenderer());
     }
 
     public function getRegisterController() {
-        return new RegisterController(new RegisterModel($this->getDatabase()),$this->getRenderer());
+        return new RegisterController(
+            new RegisterModel(
+                $this->getDatabase()),
+                $this->getRenderer());
     }
 
     private function getArrayConfig() {

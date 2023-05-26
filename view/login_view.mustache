@@ -2,15 +2,17 @@
 <!-- Quizzium Lobby -->
 <div class="container">
     <img src="../public/assets/characters.png" class="characters">
-    <form action="" class="login-area">
+
+    <form action="/login/validate" method="post" enctype="multipart/form-data" class="login-area">
+
         <div class="field">
-            <label>Usuario</label>
-            <input type="email"/>
+            <label>Ingrese su mail</label>
+            <input type="email" name="login[mail]"/>
         </div>
 
         <div class="field">
-            <label>Contraseña</label>
-            <input type="password"/>
+            <label>Ingrese su contraseña</label>
+            <input type="password" name="login[password]"/>
         </div>
 
         <button type="submit" class="button button-small">

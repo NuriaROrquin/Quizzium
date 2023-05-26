@@ -66,8 +66,6 @@ class RegisterModel
 
         }
 
-
-
         return $validate;
     }
 
