@@ -50,7 +50,6 @@ class LoginModel
 
     public function validate($fields)
     {
-
         if ($this->validateMailOnDatabase($fields['mail'])) {
 
             if ($this->validatePassword($fields)) {
@@ -63,7 +62,6 @@ class LoginModel
         else {
             exit("El mail o contraseña ingresada no son correctas.");
         }
-
     }
 }
 
