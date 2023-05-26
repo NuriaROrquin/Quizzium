@@ -19,11 +19,9 @@ class RegisterModel
         '{$fields['surname']}' );
         ";
 
-        $this->database->query($sql);
+        $isSuccess = $this->database->query($sql);
 
-        header("Location: /login/list");
-
-        exit();
+        return $isSuccess;
     }
 
     private function validateEmptyFields($fields)
@@ -125,7 +123,13 @@ class RegisterModel
 
         $fields['password'] = md5($fields['password']);
 
-        $this->insertUser($fields);
+
+        if ($this->insertUser($fields)) {
+            header('location: /mail/list');
+        } else {
+            header('location: /register/list?error');
+        }
+
     }
 }
 

@@ -1,9 +1,11 @@
 <?php
 
-class MySqlDatabase {
+class MySqlDatabase
+{
     private $connection;
 
-    public function __construct($serverName, $userName, $password, $databaseName) {
+    public function __construct($serverName, $userName, $password, $databaseName)
+    {
         $this->connection = mysqli_connect(
             $serverName,
             $userName,
@@ -15,15 +17,18 @@ class MySqlDatabase {
         }
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         mysqli_close($this->connection);
     }
 
-    public function query($sql) {
-        mysqli_query($this->connection, $sql);
+    public function query($sql)
+    {
+        return mysqli_query($this->connection, $sql);
     }
 
-    public function querySelectMail($sql) {
+    public function querySelectMail($sql)
+    {
         $result = mysqli_query($this->connection, $sql);
         return mysqli_fetch_assoc($result);
     }
