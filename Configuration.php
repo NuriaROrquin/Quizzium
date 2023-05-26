@@ -58,7 +58,7 @@ class Configuration
             $this->getRenderer());
     }
 
-    public function getEmailController()
+    public function getMailController()
     {
         return new MailController("cocomatias6@gmail.com", "Hola Funciona", "Prueba Quizzium", new MailModel($this->getDatabase()));
     }
