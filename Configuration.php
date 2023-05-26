@@ -46,8 +46,6 @@ class Configuration
             new LoginModel(
                 $this->getDatabase()),
             $this->getRenderer());
-
-        //return new LoginController($this->getRenderer());
     }
 
     public function getRegisterController()
