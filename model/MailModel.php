@@ -38,12 +38,12 @@ class MailModel
 
         $mail->isHTML(true);
 
-        $asunto = "Hola Funciona";
+        $asunto = "Validacion de tu cuenta en Quizzium";
         $url = 'http://localhost/login/validateToken?token=' . $token;
         $buttonHtml = '<a href="' . $url . '"><button style="padding: 10px; background-color: #337ab7; color: white; border: none;">Haz clic aquí para validar tu cuenta</button></a>';
-        $mensaje = "Haga click aqui para validar tu cuenta: " . $buttonHtml;
+
         $mail->Subject = $asunto;
-        $mail->Body = $mensaje;
+        $mail->Body = $buttonHtml;
 
         if ($mail->send()) {
             header('location: /login/list');

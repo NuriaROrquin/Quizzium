@@ -69,8 +69,11 @@ class LoginModel
 
         $result = $this->database->querySelectAssoc($sql);
 
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $formatCurrentDate = date_create()->format('Y-m-d H:i:s');
+
         if (!empty($result) && $result['esta_activa'] == 0) {
-            $sql = "UPDATE `cuenta` SET `esta_activa`='1' WHERE token='$token'";
+            $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
             $this->database->query($sql);
             header("Location: /login/list");
         }
