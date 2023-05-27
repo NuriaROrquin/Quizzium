@@ -34,10 +34,14 @@ class MailModel
         $mail->setFrom('quizzium.game@gmail.com', 'Quizzium');
         $mail->addAddress($destinatario);
 
+        $token = $this->getUserToken($destinatario);
+
         $mail->isHTML(true);
 
         $asunto = "Hola Funciona";
-        $mensaje = "Prueba Quizzium de mati";
+        $url = 'http://localhost/login/validateToken?token=' . $token;
+        $buttonHtml = '<a href="' . $url . '"><button style="padding: 10px; background-color: #337ab7; color: white; border: none;">Haz clic aquí para validar tu cuenta</button></a>';
+        $mensaje = "Haga click aqui para validar tu cuenta: " . $buttonHtml;
         $mail->Subject = $asunto;
         $mail->Body = $mensaje;
 
@@ -54,5 +58,14 @@ class MailModel
         $sql = "DELETE FROM `cuenta` WHERE mail = '{$destinatario}';";
 
         $this->database->query($sql);
+    }
+
+    private function getUserToken($destinatario)
+    {
+        $sql = "SELECT token FROM `cuenta` WHERE mail='{$destinatario}';";
+
+        $result = $this->database->querySelectAssoc($sql);
+
+        return $result['token'];
     }
 }

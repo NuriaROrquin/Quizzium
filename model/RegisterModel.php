@@ -13,10 +13,10 @@ class RegisterModel
     private function insertUser($fields)
     {
         $sql = "INSERT INTO `cuenta` (`id_genero`, `mail`, `ciudad`, `pais`, `usuario`, `contrasenia`,
-                        `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`) VALUES ('{$fields['gender']}' ,
+                        `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`) VALUES ('{$fields['gender']}' ,
                         '{$fields['mail']}' , '{$fields['city']}' , '{$fields['country']}' , '{$fields['username']}' , '{$fields['password']}'
                         , '{$fields['photo']['url']}'  , '{$fields['born_date']}' , '{$fields['name']}' ,
-        '{$fields['surname']}' );
+        '{$fields['surname']}', '{$fields['token']}' );
         ";
 
         $isSuccess = $this->database->query($sql);
@@ -123,6 +123,7 @@ class RegisterModel
 
         $fields['password'] = md5($fields['password']);
 
+        $fields['token'] = uniqid();
 
         if ($this->insertUser($fields)) {
             header('location: /mail/list?mail='. urlencode($fields['mail']));
