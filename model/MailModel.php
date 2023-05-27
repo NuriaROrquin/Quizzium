@@ -40,7 +40,7 @@ class MailModel
 
         $asunto = "Validacion de tu cuenta en Quizzium";
         $url = 'http://localhost/login/validateToken?token=' . $token;
-        $buttonHtml = '<a href="' . $url . '"><button style="padding: 10px; background-color: #337ab7; color: white; border: none;">Haz clic aquí para validar tu cuenta</button></a>';
+        $buttonHtml = '<a href="' . $url . '"><button style="padding: 10px; background-color: #337ab7; color: white; border: none; cursor: pointer;">Haz clic aquí para validar tu cuenta</button></a>';
 
         $mail->Subject = $asunto;
         $mail->Body = $buttonHtml;
