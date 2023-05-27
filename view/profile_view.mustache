@@ -36,7 +36,7 @@
                     </div>
                     <div class="qr">
                         <h2>¡Jugá con {{nombre}}!</h2>
-                        <img src="../public/assets/qr.png"/>
+                        <img src="../qr.php?id={{id_cuenta}}" />
                         <button class="button-secondary button-small">Compartir</button>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="qr">
                         <h2>Mi QR</h2>
-                        <img src="../public/assets/qr.png"/>
+                        <img src="../qr.php?id={{id_cuenta}}" />
                         <button class="button-secondary button-small">Compartir</button>
                     </div>
                 </div>
@@ -103,8 +103,8 @@
                             <span class="info-data">{{fecha_nacimiento}}</span>
                         </div>
                         <div class="info">
-                            <span class="title">Sexo:</span>
-                            <span class="info-data">Falta</span>
+                            <span class="title">Género:</span>
+                            <span class="info-data">{{tipo}}</span>
                         </div>
                         <div class="info">
                             <span class="title">País:</span>
