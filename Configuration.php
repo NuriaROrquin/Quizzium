@@ -6,6 +6,7 @@ include_once('helpers/Router.php');
 include_once('model/LoginModel.php');
 include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
+include_once('model/PerfilModel.php');
 
 include_once('controller/ToursController.php');
 include_once('controller/SongsController.php');
@@ -13,6 +14,7 @@ include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
 include_once('controller/RegisterController.php');
 include_once('controller/MailController.php');
+include_once('controller/PerfilController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -25,37 +27,41 @@ class Configuration
     {
     }
 
-    /*public function getToursController() {
-        return new ToursController(
-            new ToursModel($this->getDatabase()),
-            $this->getRenderer());
-    }
-
-    public function getSongsController() {
-        return new SongsController(
-            new SongsModel($this->getDatabase()),
-            $this->getRenderer());
-    }*/
-
     public function getLobbyController()
     {
         return new LobbyController($this->getRenderer());
     }
 
+    public function getPerfilController()
+    {
+        return new PerfilController(
+            new PerfilModel(
+                $this->getDatabase()),
+                $this->getRenderer());
+    }
+
     public function getLoginController()
     {
         return new LoginController(
+
             new LoginModel(
-                $this->getDatabase()),
-            $this->getRenderer());
+                $this->getDatabase()
+            ),
+
+            $this->getRenderer()
+        );
     }
 
     public function getRegisterController()
     {
         return new RegisterController(
+
             new RegisterModel(
-                $this->getDatabase()),
-            $this->getRenderer());
+                $this->getDatabase()
+            ),
+
+            $this->getRenderer()
+        );
     }
 
     public function getMailController()
@@ -92,4 +98,17 @@ class Configuration
             "getRegisterController",
             "list");
     }
+
+    /*public function getToursController() {
+        return new ToursController(
+            new ToursModel($this->getDatabase()),
+            $this->getRenderer());
+    }
+
+    public function getSongsController() {
+        return new SongsController(
+            new SongsModel($this->getDatabase()),
+            $this->getRenderer());
+    }*/
+
 }
