@@ -69,7 +69,8 @@ class Configuration
 
     public function getProfileController()
     {
-        return new ProfileController($this->getRenderer());
+        return new ProfileController($this->getRenderer(), new ProfileModel(
+            $this->getDatabase()));
     }
 
     private function getArrayConfig()
