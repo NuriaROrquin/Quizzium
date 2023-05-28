@@ -55,8 +55,20 @@ class LoginModel
         if ($this->validateMailOnDatabase($fields['mail'])) {
 
             if ($this->validatePassword($fields)) {
+                $hash = md5(time());
+                $carpeta_destino = "./public/";
+                $_SESSION["user"] = $fields['mail'];
+                unset($_SESSION["error"]);
+                file_put_contents($carpeta_destino."seguridad.txt", $hash);
+                setcookie("seguridad", $hash, time() + 900, '/');
                 header("Location: /lobby/list");
                 exit();
+            }
+            $fileToDelete = "./public/seguridad.txt";
+            $_SESSION["error"] = "password";
+            setcookie("seguridad", 0, time() - 1800, '/');
+            if (file_exists($fileToDelete)) {
+                unlink($fileToDelete);
             }
             exit("El mail o contraseña ingresada no son correctas.");
         } else {

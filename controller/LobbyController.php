@@ -14,10 +14,10 @@ class LobbyController
 
     public function list()
     {
-        if($_COOKIE['seguridad']){
-
-            $this->renderer->render('lobby');
-        }else{
+        $fileToCompare = "./public/seguridad.txt";
+        if (file_exists($fileToCompare) && $_COOKIE['seguridad'] == file_get_contents($fileToCompare)){
+                $this->renderer->render('lobby');
+            } else{
             header("location:/login/list");
         }
     }
