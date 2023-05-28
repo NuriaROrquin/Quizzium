@@ -14,7 +14,11 @@ class RegisterController
 
     public function list()
     {
-        $this->renderer->render('register');
+        if(!$_COOKIE['seguridad']){
+            $this->renderer->render('register');
+        }else{
+            header("location:/lobby/list");
+        }
     }
 
     public function validate()

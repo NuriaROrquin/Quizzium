@@ -4,6 +4,7 @@ include_once("helpers/MustacheRender.php");
 include_once('helpers/Router.php');
 
 include_once('model/LoginModel.php');
+include_once('model/LobbyModel.php');
 include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
@@ -29,7 +30,13 @@ class Configuration
 
     public function getLobbyController()
     {
-        return new LobbyController($this->getRenderer());
+        return new LobbyController(
+
+            new LobbyModel(
+                $this->getDatabase()
+            ),
+
+            $this->getRenderer());
     }
 
     public function getPerfilController()
