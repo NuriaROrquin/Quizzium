@@ -48,6 +48,19 @@ class LoginModel
         return $validate;
     }
 
+    private function generateSession($mail)
+    {
+        $hash = md5(time());
+        $carpeta_destino = "./public/";
+        $_SESSION["user"] = $mail;
+        unset($_SESSION["error"]);
+        unset($_SESSION["validacion"]);
+        file_put_contents($carpeta_destino."seguridad.txt", $hash);
+        setcookie("seguridad", $hash, time() + 900, '/');
+        header("Location: /lobby/list");
+        exit();
+    }
+
 
     public function validate($fields)
     {
@@ -55,14 +68,8 @@ class LoginModel
 
             if ($this->validatePassword($fields)) {
 
-                $hash = md5(time());
-                $carpeta_destino = "./public/";
-                $_SESSION["user"] = $fields['mail'];
-                unset($_SESSION["error"]);
-                file_put_contents($carpeta_destino."seguridad.txt", $hash);
-                setcookie("seguridad", $hash, time() + 900, '/');
-                header("Location: /lobby/list");
-                exit();
+                $this->generateSession($fields['mail']);
+
             }
 
             $fileToDelete = "./public/seguridad.txt";
