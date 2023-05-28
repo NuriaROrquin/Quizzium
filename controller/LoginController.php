@@ -16,6 +16,7 @@ class LoginController
     {
 
         if (isset($_SESSION['error'])) {
+            unset($_SESSION['validacion']);
             $data['contrasenia'] = $_SESSION['error'];
         }
 

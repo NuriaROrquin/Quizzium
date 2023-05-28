@@ -16,7 +16,7 @@ body {
 }
 
 .characters {
-    width: 80%;
+    width: 70%;
 }
 
 .characters-small {
@@ -79,6 +79,61 @@ body {
     font-family: 'Bangers', cursive;
 }
 
+.container-link {
+    display: flex;
+}
+
+.container-link a {
+    font-size: 16px;
+    font-family: 'Poppins';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-link a img {
+    width: 16px;
+    margin-left: 0.25rem;
+}
+
+.pb-2 {
+    padding-bottom: 2rem;
+}
+
+/**************************************ALERTS******************************************/
+
+.alert {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: 'Poppins';
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.alert .title {
+    font-size: 20px;
+}
+
+.alert .description {
+    font-size: 14px;
+}
+
 
 /**************************************LOGIN & REGISTER******************************************/
 
@@ -86,7 +141,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 3rem 0;
+    margin: 3rem 0 1rem 0;
 }
 
 .field {
@@ -312,13 +367,13 @@ body {
     color: #FFA500;
 }
 
-.container-data .container-info img{
+.container-data .container-info img {
     width: 15%;
     border: 9px solid #FFA500;
     border-radius: 20px;
     padding: 1rem;
 }
 
-.container-data a{
+.container-data a {
     align-self: center;
 }
