@@ -5,15 +5,18 @@
 
     <form action="/login/validate" method="post" enctype="multipart/form-data" class="login-area">
 
-        <div class="field">
-                {{#contrasenia}}
+        {{#contrasenia}}
+            <div class="field">
                 <p>contraseña o mail incorrectos</p>
-                {{/contrasenia}}
+            </div>
+        {{/contrasenia}}
 
-                {{#validacion}}
+        {{#validacion}}
+            <div class="field">
                 <p>cuenta validada con exito</p>
-                {{/validacion}}
-        </div>
+            </div>
+        {{/validacion}}
+
 
         <div class="field">
             <label>Ingrese su mail</label>
@@ -30,9 +33,9 @@
         </button>
     </form>
 
-        <a href="/register/list" class="button button-small">
-                    Registrarse
-                </a>
+    <a href="/register/list" class="button button-small">
+        Registrarse
+    </a>
 
 </div>
 
