@@ -6,20 +6,23 @@
     <form action="/login/validate" method="post" enctype="multipart/form-data" class="login-area">
 
         {{#contrasenia}}
-            <div class="field">
-                <p>contraseña o mail incorrectos</p>
+            <div class="alert alert-error">
+                <span class="title">Datos incorrectos</span>
+                <span class="description">Asegurate que hayas ingresado los datos correctos.</span>
             </div>
         {{/contrasenia}}
 
         {{#validacionTrue}}
-            <div class="field">
-                <p>cuenta validada con exito</p>
+            <div class="alert alert-success">
+                <span class="title">Cuenta validada con éxito!</span>
+                <span class="description">Ya podés ingresar con tu mail y contraseña.</span>
             </div>
         {{/validacionTrue}}
 
         {{#validacionFalse}}
-            <div class="field">
-                <p>Valida tu cuenta</p>
+            <div class="alert">
+                <span class="title">Validá tu cuenta</span>
+                <span class="description">Te enviamos un mail a tu correo. Hacé click en el botón que se encuentra dentro del mail para validar tu cuenta.</span>
             </div>
         {{/validacionFalse}}
 
@@ -39,9 +42,12 @@
         </button>
     </form>
 
-    <a href="/register/list" class="button button-small">
-        Registrarse
-    </a>
+    <div class="container-link">
+        <a href="/register/list">
+            No tengo cuenta
+            <img src="../public/assets/arrow-right.png"/>
+        </a>
+    </div>
 
 </div>
 
