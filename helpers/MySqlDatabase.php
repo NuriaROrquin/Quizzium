@@ -27,7 +27,7 @@ class MySqlDatabase
         return mysqli_query($this->connection, $sql);
     }
 
-    public function querySelectMail($sql)
+    public function querySelect($sql)
     {
         $result = mysqli_query($this->connection, $sql);
         return mysqli_fetch_assoc($result);
@@ -38,6 +38,8 @@ class MySqlDatabase
         $result = mysqli_query($this->connection, $sql);
         return mysqli_fetch_assoc($result);
     }
+
+
 
     /*public function query($sql) {
         $result = mysqli_query($this->connection, $sql);

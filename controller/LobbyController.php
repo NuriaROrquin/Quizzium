@@ -19,6 +19,12 @@ class LobbyController
             $this->renderer->render('lobby');
         } else {
             header("location:/login/list");
+            exit();
         }
+    }
+
+    public function exit()
+    {
+     $this->lobbyModel->exit();
     }
 }

@@ -19,7 +19,7 @@ class LoginModel
 
             $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
 
-            $result = $this->database->querySelectMail($sql);
+            $result = $this->database->querySelect($sql);
 
             if (!empty($result) && $result['esta_activa'] == 1) {
                 $validate = true;
@@ -37,10 +37,9 @@ class LoginModel
         $mail = $fields['mail'];
         $password = md5($fields['password']);
 
-
         $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
 
-        $result = $this->database->querySelectMail($sql);
+        $result = $this->database->querySelect($sql);
 
         if ($result['contrasenia'] == $password) {
             $validate = true;
@@ -55,6 +54,7 @@ class LoginModel
         if ($this->validateMailOnDatabase($fields['mail'])) {
 
             if ($this->validatePassword($fields)) {
+
                 $hash = md5(time());
                 $carpeta_destino = "./public/";
                 $_SESSION["user"] = $fields['mail'];

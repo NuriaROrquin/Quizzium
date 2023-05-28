@@ -56,7 +56,7 @@ class RegisterModel
 
             $sql = "SELECT count(mail)  FROM `cuenta` WHERE mail='$mail';";
 
-            $result = $this->database->querySelectMail($sql);
+            $result = $this->database->querySelect($sql);
 
             if ($result['count(mail)'] > 0) {
                 $validate = false;

@@ -16,7 +16,7 @@ class ProfileController
         $fileToCompare = "./public/seguridad.txt";
         if (file_exists($fileToCompare) && $_COOKIE['seguridad'] == file_get_contents($fileToCompare)) {
 
-            $id_cuenta= $_GET['id_cuenta'];
+            $id_cuenta= $this->profileModel->getID($_SESSION['user']);
 
             //soy owner del user: si el id_cuenta es el mismo id que tengo en el session llenar owner
             $data["owner"] = $this->profileModel->getProfile($id_cuenta);
