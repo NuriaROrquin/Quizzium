@@ -9,8 +9,6 @@ include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
 
-include_once('controller/ToursController.php');
-include_once('controller/SongsController.php');
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
 include_once('controller/RegisterController.php');
@@ -31,11 +29,8 @@ class Configuration
     public function getLobbyController()
     {
         return new LobbyController(
-
             new LobbyModel(
-                $this->getDatabase()
-            ),
-
+                $this->getDatabase()),
             $this->getRenderer());
     }
 
@@ -44,7 +39,7 @@ class Configuration
         return new PerfilController(
             new PerfilModel(
                 $this->getDatabase()),
-                $this->getRenderer());
+            $this->getRenderer());
     }
 
     public function getLoginController()
@@ -52,9 +47,7 @@ class Configuration
         return new LoginController(
 
             new LoginModel(
-                $this->getDatabase()
-            ),
-
+                $this->getDatabase()),
             $this->getRenderer()
         );
     }
@@ -62,11 +55,8 @@ class Configuration
     public function getRegisterController()
     {
         return new RegisterController(
-
             new RegisterModel(
-                $this->getDatabase()
-            ),
-
+                $this->getDatabase()),
             $this->getRenderer()
         );
     }
@@ -108,20 +98,7 @@ class Configuration
     {
         return new Router(
             $this,
-            "getProfileController",
+            "getLoginController",
             "list");
     }
-
-    /*public function getToursController() {
-        return new ToursController(
-            new ToursModel($this->getDatabase()),
-            $this->getRenderer());
-    }
-
-    public function getSongsController() {
-        return new SongsController(
-            new SongsModel($this->getDatabase()),
-            $this->getRenderer());
-    }*/
-
 }

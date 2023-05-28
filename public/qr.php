@@ -1,6 +1,6 @@
 <?php
 //Agregamos la libreria para genera códigos QR
-require "third-party/phpqrcode/qrlib.php";
+require "../third-party/phpqrcode/qrlib.php";
 
 //Parametros de Condiguración
 $contenido = "localhost/profile/list?id_cuenta=".$_GET['id']; //Texto

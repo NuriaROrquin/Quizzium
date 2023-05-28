@@ -102,21 +102,29 @@ class RegisterModel
         $fields['photo'] = $_FILES['photo'];
 
         if (!$this->validateEmptyFields($fields)) {
-            exit("Hay campos que faltan completar");
+            $_SESSION["empty_fields_error"] = true;
+            header("Location: /register/list");
+            //exit("Hay campos que faltan completar");
         }
 
         if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
-            exit("Las contraseñas ingresadas son distintas.");
+            $_SESSION["password_error"] = true;
+            header("Location: /register/list");
+            //exit("Las contraseñas ingresadas son distintas.");
         }
 
         if (!$this->validateMail($fields['mail'])) {
-            exit("El correo electrónico no es válido o ya esta en uso.");
+            $_SESSION["mail_error"] = true;
+            header("Location: /register/list");
+            //exit("El correo electrónico no es válido o ya esta en uso.");
         }
 
         $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
 
         if (!$urlProfilePhoto) {
-            exit("La foto ingresada debe ser de formato .png o .jpg");
+            $_SESSION["photo_error"] = true;
+            header("Location: /register/list");
+            //exit("La foto ingresada debe ser de formato .png o .jpg");
         } else {
             $fields['photo']['url'] = $urlProfilePhoto;
         }
@@ -128,8 +136,7 @@ class RegisterModel
         if ($this->insertUser($fields)) {
             header('location: /mail/list?mail='. urlencode($fields['mail']));
         } else {
-            exit("saliste con error");
-            header('location: /register/list?error');
+            exit("error al insertar el usuario");
         }
     }
 }

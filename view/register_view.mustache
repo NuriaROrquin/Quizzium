@@ -4,7 +4,15 @@
 <!-- Quizzium Lobby -->
 <div class="container">
     <img src="../public/assets/characters.png" class="characters-small">
+
     <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
+
+        {{#empty_fields_error}}
+            <div class="field">
+                <p>Hay campos que faltan completar</p>
+            </div>
+        {{/empty_fields_error}}
+
         <div class="field">
             <label>Nombre</label>
             <input name="register[name]" type="text" required/>
