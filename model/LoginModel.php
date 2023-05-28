@@ -64,9 +64,11 @@ class LoginModel
                 header("Location: /lobby/list");
                 exit();
             }
+
             $fileToDelete = "./public/seguridad.txt";
             $_SESSION["error"] = "password";
             setcookie("seguridad", 0, time() - 1800, '/');
+
             if (file_exists($fileToDelete)) {
                 unlink($fileToDelete);
             }

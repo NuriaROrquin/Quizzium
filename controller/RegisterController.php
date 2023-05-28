@@ -14,10 +14,16 @@ class RegisterController
 
     public function list()
     {
-        if(!$_COOKIE['seguridad']){
-            $this->renderer->render('register');
-        }else{
+        $fileToCompare = "./public/seguridad.txt";
+
+        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
+
+        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
+
             header("location:/lobby/list");
+
+        } else {
+            $this->renderer->render('register');
         }
     }
 
