@@ -21,4 +21,9 @@ class LoginController
     {
         $this->loginModel->validate($_POST['login']);
     }
+
+    public function validateToken()
+    {
+        $this->loginModel->validateToken($_GET['token']);
+    }
 }

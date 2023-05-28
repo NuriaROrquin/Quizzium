@@ -1,11 +1,12 @@
-body{
+body {
     width: 100%;
     min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Bangers', cursive;
 }
-.container{
+
+.container {
     background: radial-gradient(50% 50% at 50% 50%, #FFD700 39.06%, #FFA500 87.2%);
     display: flex;
     justify-content: center;
@@ -14,21 +15,21 @@ body{
     min-height: 100vh;
 }
 
-.characters{
+.characters {
     width: 80%;
 }
 
-.characters-small{
+.characters-small {
     width: 50%;
 }
 
-.buttons-area{
+.buttons-area {
     display: flex;
     gap: 2rem;
     margin-top: 35px;
 }
 
-.button{
+.button {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -43,16 +44,35 @@ body{
     background-color: #800080;
     color: white;
     border-radius: 20px;
+    height: fit-content;
 }
 
-.button-big{
+.button-secondary {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #FFA500;
+    color: white;
+    border-radius: 20px;
+    height: fit-content;
+}
+
+.button-big {
     min-width: 400px;
     padding: 10px 48px;
     font-size: 64px;
     font-family: 'Bangers', cursive;
 }
 
-.button-small{
+.button-small {
     min-width: 200px;
     padding: 10px 38px;
     font-size: 24px;
@@ -62,19 +82,19 @@ body{
 
 /**************************************LOGIN & REGISTER******************************************/
 
-.login-area{
+.login-area {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin: 3rem 0;
 }
 
-.field{
+.field {
     display: flex;
     flex-direction: column;
 }
 
-.field input{
+.field input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -93,12 +113,12 @@ body{
     color: #999999;
 }
 
-.field label{
+.field label {
     color: white;
     font-size: 24px;
 }
 
-.field select{
+.field select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -107,4 +127,198 @@ body{
     color: #333333;
     transition: border-color 0.3s ease;
     min-width: 25rem;
+}
+
+/**************************************PROFILE******************************************/
+
+.profile a {
+    font-size: 20px;
+    font-family: 'Poppins';
+    color: white;
+    align-self: baseline;
+}
+
+.profile .redirect {
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.container.profile {
+    padding: 2rem;
+    background: linear-gradient(180deg, #FFA500 39.06%, #FFD700 87.2%);
+}
+
+.container-profile {
+    gap: 2rem;
+}
+
+.profile .container-profile {
+    width: 80%;
+    background-color: white;
+    border-radius: 30px;
+    padding: 0 2rem 2rem 2rem;
+    max-width: 140rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile .description {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile .description img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.profile .description h1 {
+    font-size: 72px;
+    color: #FFA500;
+}
+
+.first-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.first-container .map {
+    width: 60%;
+}
+
+.first-container .sidebar {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.first-container .statistic-games {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFA500;
+    border-radius: 30px;
+}
+
+.first-container .statistic-games .container-statistic {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.first-container .statistic-games .container-statistic .title {
+    font-size: 24px;
+    font-family: 'Poppins';
+    color: white;
+}
+
+.first-container .statistic-games .container-statistic .number {
+    font-size: 32px;
+    color: white;
+}
+
+.first-container .qr {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: #800080;
+    border-radius: 30px;
+    height: 100%;
+}
+
+.first-container .qr h2 {
+    color: white;
+    font-family: 'Poppins';
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.first-container .qr img {
+    width: 250px;
+    height: 250px;
+}
+
+.container-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-data .header-data {
+    background-color: #800080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.container-data .header-data h3 {
+    font-size: 28px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: normal;
+}
+
+.container-data .container-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+}
+
+.container-data .container-info .data {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.container-data .container-info .data .info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-data .container-info .data .info .title {
+    font-size: 24px;
+    font-family: 'Poppins';
+    color: #FFA500;
+}
+
+.container-data .container-info .data .info .info-data {
+    font-size: 24px;
+    font-family: 'Poppins';
+    color: #FFA500;
+}
+
+.container-data .container-info img{
+    width: 15%;
+    border: 9px solid #FFA500;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.container-data a{
+    align-self: center;
 }

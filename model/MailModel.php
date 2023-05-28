@@ -34,12 +34,16 @@ class MailModel
         $mail->setFrom('quizzium.game@gmail.com', 'Quizzium');/*aca ponemos desde que  mail y el nombre de quien lo manda*/
         $mail->addAddress($destinatario); //aca ponemos el mail al que le vamos a mandar el correo
 
+        $token = $this->getUserToken($destinatario);
+
         $mail->isHTML(true);
 
-        $asunto = "Hola Funciona";
-        $mensaje = "Prueba Quizzium de mati";
+        $asunto = "Validacion de tu cuenta en Quizzium";
+        $url = 'http://localhost/login/validateToken?token=' . $token;
+        $buttonHtml = '<a href="' . $url . '"><button style="padding: 10px; background-color: #337ab7; color: white; border: none; cursor: pointer;">Haz clic aquí para validar tu cuenta</button></a>';
+
         $mail->Subject = $asunto;
-        $mail->Body = $mensaje;
+        $mail->Body = $buttonHtml;
 
         if ($mail->send()) {
             header('location: /login/list');
@@ -57,5 +61,14 @@ class MailModel
     {
         $sql = "DELETE FROM `cuenta` WHERE mail = '{$destinatario}';";
         $this->database->query($sql);
+    }
+
+    private function getUserToken($destinatario)
+    {
+        $sql = "SELECT token FROM `cuenta` WHERE mail='{$destinatario}';";
+
+        $result = $this->database->querySelectAssoc($sql);
+
+        return $result['token'];
     }
 }

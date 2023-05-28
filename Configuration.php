@@ -6,7 +6,7 @@ include_once('helpers/Router.php');
 include_once('model/LoginModel.php');
 include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
-include_once('model/PerfilModel.php');
+include_once('model/ProfileModel.php');
 
 include_once('controller/ToursController.php');
 include_once('controller/SongsController.php');
@@ -14,7 +14,7 @@ include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
 include_once('controller/RegisterController.php');
 include_once('controller/MailController.php');
-include_once('controller/PerfilController.php');
+include_once('controller/ProfileController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -71,6 +71,12 @@ class Configuration
         );
     }
 
+    public function getProfileController()
+    {
+        return new ProfileController($this->getRenderer(), new ProfileModel(
+            $this->getDatabase()));
+    }
+
     private function getArrayConfig()
     {
         return parse_ini_file($this->configFile);
@@ -95,7 +101,7 @@ class Configuration
     {
         return new Router(
             $this,
-            "getRegisterController",
+            "getProfileController",
             "list");
     }
 
