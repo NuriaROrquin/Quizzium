@@ -24,7 +24,8 @@ class LoginModel
             if (!empty($result) && $result['esta_activa'] == 1) {
                 $validate = true;
             } else {
-                exit("Tenes que validar tu cuenta");
+                $_SESSION['validacion'] = false;
+                header("Location:/login/list");
             }
         }
         return $validate;
