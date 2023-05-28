@@ -72,9 +72,9 @@ class LoginModel
             if (file_exists($fileToDelete)) {
                 unlink($fileToDelete);
             }
-            exit("El mail o contraseña ingresada no son correctas.");
-        } else {
-            exit("El mail o contraseña ingresada no son correctas.");
+            $_SESSION["error"] = 'contrasenia';
+            header("location:/login/list");
+            exit();
         }
     }
 
@@ -89,7 +89,9 @@ class LoginModel
         if (!empty($result) && $result['esta_activa'] == 0) {
             $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
             $this->database->query($sql);
+            $_SESSION['validacion'] = true;
             header("Location: /login/list");
+            exit();
         }
     }
 }
