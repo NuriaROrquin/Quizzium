@@ -6,6 +6,16 @@
     <form action="/login/validate" method="post" enctype="multipart/form-data" class="login-area">
 
         <div class="field">
+                {{#contrasenia}}
+                <p>contraseña o mail incorrectos</p>
+                {{/contrasenia}}
+
+                {{#validacion}}
+                <p>cuenta validada con exito</p>
+                {{/validacion}}
+        </div>
+
+        <div class="field">
             <label>Ingrese su mail</label>
             <input type="email" name="login[mail]"/>
         </div>
