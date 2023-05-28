@@ -14,19 +14,20 @@ class LoginController
 
     public function list()
     {
-        if(isset($_SESSION['error'])){
+
+        if (isset($_SESSION['error'])) {
             $data['contrasenia'] = $_SESSION['error'];
         }
 
-        if(isset($_SESSION['validacion']) && $_SESSION['validacion'] == true){
+        if (isset($_SESSION['validacion']) && $_SESSION['validacion'] == true) {
             $data['validacionTrue'] = $_SESSION['validacion'];
         }
-        var_dump();
-        if(isset($_SESSION['validacion']) && $_SESSION['validacion']==false){
-        $data['validacionFalse'] = true;
+
+        if (isset($_SESSION['validacion']) && $_SESSION['validacion'] == false) {
+            $data['validacionFalse'] = true;
         }
 
-        $this->renderer->render('login', $data);
+        $this->renderer->render('login', $data ?? "");
     }
 
     public function validate()
