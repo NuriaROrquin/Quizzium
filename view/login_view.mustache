@@ -11,11 +11,17 @@
             </div>
         {{/contrasenia}}
 
-        {{#validacion}}
+        {{#validacionTrue}}
             <div class="field">
                 <p>cuenta validada con exito</p>
             </div>
-        {{/validacion}}
+        {{/validacionTrue}}
+
+        {{#validacionFalse}}
+            <div class="field">
+                <p>Valida tu cuenta</p>
+            </div>
+        {{/validacionFalse}}
 
 
         <div class="field">
