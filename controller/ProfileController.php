@@ -14,6 +14,7 @@ class ProfileController
     public function list()
     {
         $fileToCompare = "./public/seguridad.txt";
+
         if (file_exists($fileToCompare) && $_COOKIE['seguridad'] == file_get_contents($fileToCompare)) {
 
             $id_cuenta= $this->profileModel->getID($_SESSION['user']);
@@ -25,12 +26,11 @@ class ProfileController
             //$data["public"] = $this->profileModel->getProfile($id_cuenta);
 
             $this->renderer->render('profile', $data);
-
-        } else {
-            header("location:/login/list");
         }
 
-
+        else {
+            header("location:/login/list");
+            exit();
+        }
     }
-
 }

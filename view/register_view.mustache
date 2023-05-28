@@ -8,34 +8,44 @@
     <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
 
         {{#empty_fields_error}}
-            <div class="field">
-                <p>Hay campos que faltan completar</p>
-            </div>
+            <p>Hay campos que faltan completar.</p>
         {{/empty_fields_error}}
+
+        {{#password_error}}
+            <p>Las contraseñas ingresadas son distintas.</p>
+        {{/password_error}}
+
+        {{#mail_error}}
+            <p>El correo electrónico no es válido o ya esta en uso.</p>
+        {{/mail_error}}
+
+        {{#photo_error}}
+            <p>La foto ingresada debe ser de formato .png o .jpg</p>
+        {{/photo_error}}
 
         <div class="field">
             <label>Nombre</label>
-            <input name="register[name]" type="text" required/>
+            <input name="register[name]" type="text"/>
         </div>
 
         <div class="field">
             <label>Apellido</label>
-            <input name="register[surname]" type="text" required/>
+            <input name="register[surname]" type="text" />
         </div>
 
         <div class="field">
             <label>Fecha de nacimiento</label>
-            <input name="register[born_date]" type="date" required/>
+            <input name="register[born_date]" type="date" />
         </div>
 
         <div class="field">
             <label>Foto de Perfil</label>
-            <input name="photo" type="file" required/>
+            <input name="photo" type="file" />
         </div>
 
         <div class="field">
             <label>Sexo</label>
-            <select id="gender" name="register[gender]" required>
+            <select id="gender" name="register[gender]" >
                 <option value="1" >Masculino</option>
                 <option value="2">Femenino</option>
                 <option value="3" selected >Prefiero no decirlo</option>
@@ -44,32 +54,32 @@
 
         <div class="field">
             <label>Pais</label>
-            <input name="register[country]" type="text" required/>
+            <input name="register[country]" type="text" />
         </div>
 
         <div class="field">
             <label>Ciudad</label>
-            <input name="register[city]" type="text" required/>
+            <input name="register[city]" type="text" />
         </div>
 
         <div class="field">
             <label>Nombre de usuario</label>
-            <input name="register[username]" type="text" required/>
+            <input name="register[username]" type="text" />
         </div>
 
         <div class="field">
             <label>Mail</label>
-            <input name="register[mail]" type="email" required/>
+            <input name="register[mail]" type="email" />
         </div>
 
         <div class="field">
             <label>Contraseña</label>
-            <input name="register[password]" type="password" required/>
+            <input name="register[password]" type="password" />
         </div>
 
         <div class="field">
             <label>Repetir Contraseña</label>
-            <input name="register[verificated_password]" type="password" required/>
+            <input name="register[verificated_password]" type="password" />
         </div>
 
         <button type="submit" class="button button-small">

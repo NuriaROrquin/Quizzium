@@ -61,7 +61,6 @@ class RegisterModel
             if ($result['count(mail)'] > 0) {
                 $validate = false;
             }
-
         }
 
         return $validate;
@@ -103,41 +102,37 @@ class RegisterModel
 
         if (!$this->validateEmptyFields($fields)) {
             $_SESSION["empty_fields_error"] = true;
-            header("Location: /register/list");
-            //exit("Hay campos que faltan completar");
         }
 
         if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
             $_SESSION["password_error"] = true;
-            header("Location: /register/list");
-            //exit("Las contraseñas ingresadas son distintas.");
         }
 
         if (!$this->validateMail($fields['mail'])) {
             $_SESSION["mail_error"] = true;
-            header("Location: /register/list");
-            //exit("El correo electrónico no es válido o ya esta en uso.");
         }
 
         $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
 
         if (!$urlProfilePhoto) {
             $_SESSION["photo_error"] = true;
-            header("Location: /register/list");
-            //exit("La foto ingresada debe ser de formato .png o .jpg");
         } else {
             $fields['photo']['url'] = $urlProfilePhoto;
         }
 
+        header("Location: /register/list");
+        exit();
+
+        /*
         $fields['password'] = md5($fields['password']);
 
         $fields['token'] = uniqid();
 
         if ($this->insertUser($fields)) {
-            header('location: /mail/list?mail='. urlencode($fields['mail']));
+            header('location: /mail/list?mail=' . urlencode($fields['mail']));
         } else {
-            exit("error al insertar el usuario");
-        }
+            exit("Hubo un problema al insertar el usuario");
+        }*/
     }
 }
 

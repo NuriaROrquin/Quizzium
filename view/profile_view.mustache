@@ -7,6 +7,7 @@
     </div>
 
     <div class="container-profile">
+        <!-- PERFIL DE OTRO PARA DESPUES
         {{#public}}
             <div class="header">
                 <div class="description">
@@ -42,11 +43,11 @@
                 </div>
             </div>
         {{/public}}
-
+        -->
         {{#owner}}
             <div class="header">
                 <div class="description">
-                    <img src="../public/profile-pictures/64739de31fc1c_foto para probar.png"/>
+                    <img src="../public/profile-pictures/{{foto_perfil}}"/>
                     <h1>{{usuario}}</h1>
                 </div>
             </div>
@@ -119,7 +120,7 @@
                             <span class="info-data">{{mail}}</span>
                         </div>
                     </div>
-                    <img src="../public/profile-pictures/64739de31fc1c_foto para probar.png">
+                    <img src="../public/profile-pictures/{{foto_perfil}}"/>
                 </div>
 
                 <a href="/profile/edit" class="button-secondary button-small">Editar perfil</a>
