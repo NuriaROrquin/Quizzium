@@ -22,8 +22,8 @@ class RegisterController
 
             header("location: /lobby/list");
             exit();
-        }
-        else {
+        } else {
+
             $data = [];
 
             if (isset($_SESSION['empty_fields_error']) && $_SESSION['empty_fields_error'] == true) {
@@ -41,15 +41,10 @@ class RegisterController
             if (isset($_SESSION["photo_error"]) && $_SESSION["photo_error"] == true) {
                 $data["photo_error"] = $_SESSION["photo_error"];
             }
-            echo "aca muestro el array data:";
-            var_dump($data);
-            session_unset(); // Eliminas los datos de la sesión
-            session_destroy(); // Destruyes la sesión
 
-            if(count($data) == 0){
+            if (count($data) == 0) {
                 $this->renderer->render('register');
-            }
-            else{
+            } else {
                 $this->renderer->render('register', $data);
             }
         }

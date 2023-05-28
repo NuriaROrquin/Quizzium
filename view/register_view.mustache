@@ -8,19 +8,31 @@
     <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
 
         {{#empty_fields_error}}
-            <p>Hay campos que faltan completar.</p>
+            <div class="alert alert-error">
+                <span class="title">Hay campos que faltan completar.</span>
+                <span class="description">Asegurate de haber completado todos los campos.</span>
+            </div>
         {{/empty_fields_error}}
 
         {{#password_error}}
-            <p>Las contraseñas ingresadas son distintas.</p>
+            <div class="alert alert-error">
+                <span class="title">Las contraseñas ingresadas son distintas.</span>
+                <span class="description">Asegurate que las contraseñas que ingreses sean idénticas.</span>
+            </div>
         {{/password_error}}
 
         {{#mail_error}}
-            <p>El correo electrónico no es válido o ya esta en uso.</p>
+            <div class="alert alert-error">
+                <span class="title">El correo electrónico ya esta en uso.</span>
+                <span class="description">Te sugerimos que inicies sesión con tu mail.</span>
+            </div>
         {{/mail_error}}
 
         {{#photo_error}}
-            <p>La foto ingresada debe ser de formato .png o .jpg</p>
+            <div class="alert alert-error">
+                <span class="title">Error en el formato de la imagen.</span>
+                <span class="description">La imagen ingresada debe ser de formato .png o .jpg</span>
+            </div>
         {{/photo_error}}
 
         <div class="field">

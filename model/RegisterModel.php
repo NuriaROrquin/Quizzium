@@ -102,28 +102,40 @@ class RegisterModel
 
         if (!$this->validateEmptyFields($fields)) {
             $_SESSION["empty_fields_error"] = true;
+            header("Location: /register/list");
+            exit();
+        }else{
+            $_SESSION["empty_fields_error"] = false;
         }
 
         if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
             $_SESSION["password_error"] = true;
+            header("Location: /register/list");
+            exit();
+        }else{
+            $_SESSION["password_error"] = false;
         }
 
         if (!$this->validateMail($fields['mail'])) {
             $_SESSION["mail_error"] = true;
+            header("Location: /register/list");
+            exit();
+        }else{
+            $_SESSION["mail_error"] = false;
         }
 
         $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
 
         if (!$urlProfilePhoto) {
             $_SESSION["photo_error"] = true;
+            header("Location: /register/list");
+            exit();
         } else {
             $fields['photo']['url'] = $urlProfilePhoto;
+            $_SESSION["photo_error"] = false;
         }
 
-        header("Location: /register/list");
-        exit();
 
-        /*
         $fields['password'] = md5($fields['password']);
 
         $fields['token'] = uniqid();
@@ -132,7 +144,7 @@ class RegisterModel
             header('location: /mail/list?mail=' . urlencode($fields['mail']));
         } else {
             exit("Hubo un problema al insertar el usuario");
-        }*/
+        }
     }
 }
 
