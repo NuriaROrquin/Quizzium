@@ -19,10 +19,7 @@ class ProfileController
 
             $id_cuenta= $this->profileModel->getID($_SESSION['user']);
 
-            //$mail = $this->profileModel->getMail($_GET['id']);
-
-            if(empty($_GET['id_cuenta'])){
-
+            if(empty($_GET['id_cuenta']) || $_GET['id_cuenta'] == $id_cuenta){
                 //soy owner del user: si el id_cuenta es el mismo id que tengo en el session llenar owner
                 $data["owner"] = $this->profileModel->getProfile($id_cuenta);
             }else{
