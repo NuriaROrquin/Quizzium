@@ -54,7 +54,19 @@ class RegisterController
 
     public function validate()
     {
-        $this->registerModel->validate($_POST['register']);
+        $fileToCompare = "./public/seguridad.txt";
 
+        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
+
+        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
+
+            header("location: /lobby/list");
+            exit();
+
+        } else {
+
+            $this->registerModel->validate($_POST['register']);
+
+        }
     }
 }

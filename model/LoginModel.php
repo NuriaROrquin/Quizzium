@@ -65,41 +65,72 @@ class LoginModel
 
     public function validate($fields)
     {
-        if ($this->validateMailOnDatabase($fields['mail'])) {
+        $fileToCompare = "./public/seguridad.txt";
 
-            if ($this->validatePassword($fields)) {
+        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
-                $this->generateSession($fields['mail']);
+        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
 
+            header("location: /lobby/list");
+            exit();
+
+        } else {
+
+            if ($this->validateMailOnDatabase($fields['mail'])) {
+
+                if ($this->validatePassword($fields)) {
+
+                    $this->generateSession($fields['mail']);
+
+                }
+                $fileToDelete = "./public/seguridad.txt";
+                setcookie("seguridad", 0, time() - 1800, '/');
+
+                if (file_exists($fileToDelete)) {
+                    unlink($fileToDelete);
+                }
+                echo("pasa por acá");
+                $_SESSION["error"] = 'contrasenia';
+                header("location:/login/list");
+                exit();
             }
 
-            $fileToDelete = "./public/seguridad.txt";
-            $_SESSION["error"] = "password";
-            setcookie("seguridad", 0, time() - 1800, '/');
-
-            if (file_exists($fileToDelete)) {
-                unlink($fileToDelete);
-            }
-            $_SESSION["error"] = 'contrasenia';
             header("location:/login/list");
             exit();
+
         }
+
     }
 
     public function validateToken($token){
-        $sql = "SELECT *  FROM `cuenta` WHERE token='$token';";
 
-        $result = $this->database->querySelectAssoc($sql);
+        $fileToCompare = "./public/seguridad.txt";
 
-        date_default_timezone_set('America/Argentina/Buenos_Aires');
-        $formatCurrentDate = date_create()->format('Y-m-d H:i:s');
+        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
-        if (!empty($result) && $result['esta_activa'] == 0) {
-            $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
-            $this->database->query($sql);
-            $_SESSION['validacion'] = true;
-            header("Location: /login/list");
+        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
+
+            header("location: /lobby/list");
             exit();
+
+        } else {
+
+            $sql = "SELECT *  FROM `cuenta` WHERE token='$token';";
+
+            $result = $this->database->querySelectAssoc($sql);
+
+            date_default_timezone_set('America/Argentina/Buenos_Aires');
+            $formatCurrentDate = date_create()->format('Y-m-d H:i:s');
+
+            if (!empty($result) && $result['esta_activa'] == 0) {
+                $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
+                $this->database->query($sql);
+                $_SESSION['validacion'] = true;
+                header("Location: /login/list");
+                exit();
+            }
+
+            header("Location: /login/list");
         }
     }
 }
