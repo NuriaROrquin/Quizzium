@@ -195,12 +195,23 @@ body {
     width: 100%;
 }
 
-.login-button{
+.login-button {
     max-width: 700px;
 }
 
-.register-button{
+.register-button {
     max-width: 700px;
+}
+
+.button-big {
+    min-width: 300px;
+    padding: 10px;
+    font-size: 1.5em;
+    font-family: 'Bangers', cursive;
+}
+
+.button {
+    width: 70%;
 }
 
 /**************************************PROFILE******************************************/
@@ -260,24 +271,36 @@ body {
 }
 
 .profile .description h1 {
-    font-size: 72px;
+    font-size: 45px;
     color: #FFA500;
+    padding: 10px;
+    margin: 0px;
 }
 
 .first-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: unset;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .first-container .map {
-    width: 60%;
+    width: 100%;
+    max-width: 900px;
+}
+
+.first-container .map img {
+    width: 100%;
 }
 
 .first-container .sidebar {
-    width: 40%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    flex-direction: unset;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .first-container .statistic-games {
@@ -286,19 +309,28 @@ body {
     flex-direction: column;
     background-color: #FFA500;
     border-radius: 30px;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1rem;
+    gap: 1rem;
 }
 
 .first-container .statistic-games .container-statistic {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .first-container .statistic-games .container-statistic .title {
     font-size: 24px;
     font-family: 'Poppins';
     color: white;
+    width: 100%;
+    text-align: center;
 }
 
 .first-container .statistic-games .container-statistic .number {
@@ -316,6 +348,7 @@ body {
     background-color: #800080;
     border-radius: 30px;
     height: 100%;
+    width: 100%;
 }
 
 .first-container .qr h2 {
@@ -357,6 +390,7 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 5rem;
+    width: 100%;
 }
 
 .container-data .container-info .data {
@@ -365,23 +399,27 @@ body {
     width: 85%;
     gap: 1rem;
     padding: 1rem;
+    width: 100%;
+    border-radius: 0px 0px 30px 30px;
+    border: 5px solid #800080;
+    border-top: 0px;
 }
 
 .container-data .container-info .data .info {
-    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .container-data .container-info .data .info .title {
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Poppins';
+    width: 100%;
     color: #FFA500;
 }
 
 .container-data .container-info .data .info .info-data {
-    font-size: 24px;
+    font-size: 16px;
     font-family: 'Poppins';
     color: #FFA500;
 }
@@ -395,24 +433,14 @@ body {
 
 .container-data a {
     align-self: center;
+    margin-top: 2rem;
 }
 
-@media (max-width: 700px) {
 
-    /**************************************LOGIN & REGISTER******************************************/
-    .button-big {
-        min-width: 300px;
-        padding: 10px;
-        font-size: 1.5em;
-        font-family: 'Bangers', cursive;
-    }
 
-    .button{
-        width: 70%;
-    }
+@media (min-width: 800px) and (max-width: 1300px) {
     /**************************************PROFILE******************************************/
-
-    .container.profile{
+    .container.profile {
         width: 100%;
         justify-content: space-around;
         align-items: center;
@@ -422,20 +450,21 @@ body {
         padding-top: 20px;
     }
 
-    .profile .container-profile{
+    .profile .container-profile {
         justify-content: space-around;
         align-items: center;
         width: 90%;
         padding: 0.5rem;
     }
 
-    .profile .redirect{
+    .profile .redirect {
         width: 90%;
     }
 
     .header {
         width: 100%;
         min-width: unset;
+        max-width: 400px;
     }
 
     .description {
@@ -443,75 +472,118 @@ body {
         min-width: unset;
     }
 
-    .profile .description h1{
+    .profile .description h1 {
         font-size: 50px;
         width: 50%;
         text-align: center;
     }
 
-    .first-container{
+    .first-container {
         width: 100%;
         flex-wrap: wrap;
+
     }
 
-    .first-container .map{
+    .first-container .map {
+        width: 90%;
+        max-width: 800px;
+    }
+
+    .first-container .map img {
         width: 100%;
     }
 
-    .first-container .map img{
-        width: 100%;
-    }
-
-    .first-container .sidebar{
-        width: 100%;
+    .first-container .sidebar {
+        width: 90%;
+        flex-wrap: wrap;
         margin-top: 2rem;
         align-items: center;
     }
 
-    .first-container .statistic-games{
+    .first-container .statistic-games {
         padding: 1rem;
         gap: 1rem;
-        width: 90%;
+        width: 40%;
+        gap: 0px;
+        margin: 0px;
+        height: 375px;
     }
 
-    .first-container .statistic-games .container-statistic{
+    .first-container .statistic-games .container-statistic {
         font-size: 20px;
-
+    }
+    .first-container .qr {
+        width: 40%;
     }
 
-    .first-container .qr{
-        max-width: 400px;
-        width: 90%;
+    .first-container .qr h2 {
+        margin: 0;
     }
 
-    .first-container .qr h2{
-        margin:0;
-    }
-
-    .container-data .container-info .info{
+    .container-data .container-info .info {
         width: 100%;
         flex-direction: unset;
         flex-wrap: wrap;
     }
 
-    .container-data .container-info .info{
+    .container-data .container-info .data {
         width: 100%;
-    }
-
-    .container-data .container-info .data{
-        width: 90%;
-        border: solid 2px #800080;
+        border: 2px solid #800080;
+        border-top: 0px;
         border-radius: 0px 0px 30px 30px;
         margin-bottom: 2rem;
     }
 
-    .container-data .container-info .data .info .title{
+    .container-data .container-info .data .info .title {
         font-size: 20px;
+    }
+
+    .container-data .container-info .data .info .info-data {
+        font-size: 16px;
         width: 100%;
     }
 
-    .container-data .container-info .data .info .info-data{
-        font-size: 16px;
+    .container-data {
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .container-data a {
+        max-width: 600px;
+        width: 70%;
+        margin: 0px;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 1300px) {
+    /**************************************PROFILE******************************************/
+    .container-profile{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .first-container .map{
+        width: 70%;
+    }
+
+    .first-container .sidebar{
+        width: 25%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0px;
+    }
+
+    .first-container .statistic-games{
         width: 100%;
+    }
+
+    .first-container .qr{
+        width: 100%;
+    }
+
+    .container-data {
+        width: 90%;
+        max-width: 1000px;
     }
 }
