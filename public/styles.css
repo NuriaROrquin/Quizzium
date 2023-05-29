@@ -274,7 +274,7 @@ body {
     font-size: 45px;
     color: #FFA500;
     padding: 10px;
-    margin: 0px;
+    margin: 0;
 }
 
 .first-container {
@@ -374,7 +374,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: 30px 30px 0 0;
 }
 
 .container-data .header-data h3 {
@@ -396,13 +396,12 @@ body {
 .container-data .container-info .data {
     display: flex;
     flex-direction: column;
-    width: 85%;
     gap: 1rem;
     padding: 1rem;
     width: 100%;
-    border-radius: 0px 0px 30px 30px;
+    border-radius: 0 0 30px 30px;
     border: 5px solid #800080;
-    border-top: 0px;
+    border-top: 0;
 }
 
 .container-data .container-info .data .info {
@@ -445,7 +444,7 @@ body {
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
-        padding: 0rem;
+        padding: 0;
         padding-bottom: 20px;
         padding-top: 20px;
     }
@@ -502,10 +501,9 @@ body {
 
     .first-container .statistic-games {
         padding: 1rem;
-        gap: 1rem;
         width: 40%;
-        gap: 0px;
-        margin: 0px;
+        gap: 0;
+        margin: 0;
         height: 375px;
     }
 
@@ -529,8 +527,8 @@ body {
     .container-data .container-info .data {
         width: 100%;
         border: 2px solid #800080;
-        border-top: 0px;
-        border-radius: 0px 0px 30px 30px;
+        border-top: 0;
+        border-radius: 0 0 30px 30px;
         margin-bottom: 2rem;
     }
 
@@ -551,7 +549,7 @@ body {
     .container-data a {
         max-width: 600px;
         width: 70%;
-        margin: 0px;
+        margin: 0;
         margin-bottom: 1rem;
     }
 }
@@ -571,7 +569,7 @@ body {
         width: 25%;
         justify-content: space-evenly;
         align-items: center;
-        margin: 0px;
+        margin: 0;
     }
 
     .first-container .statistic-games{
