@@ -93,7 +93,7 @@ class RegisterModel
         if (!move_uploaded_file($temporary_file, $destination_folder . $file_name)) {
             return false;
         }
-        return $destination_folder;
+        return $file_name;
     }
 
     public function validate($fields)
