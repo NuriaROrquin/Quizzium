@@ -89,7 +89,6 @@ class LoginModel
                 if (file_exists($fileToDelete)) {
                     unlink($fileToDelete);
                 }
-                echo("pasa por acá");
                 $_SESSION["error"] = 'contrasenia';
                 header("location:/login/list");
                 exit();
