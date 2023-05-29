@@ -84,16 +84,16 @@ class RegisterModel
 
     private function updatePhoto($photo)
     {
-        $archivo_temporal = $photo['tmp_name'];
+        $temporary_file = $photo['tmp_name'];
 
         //uniqid crea un valor unico para la foto, si o si hay que unirlo con un "_" al nombre de la foto subida
-        $nombre_archivo = uniqid() . '_' . $photo['name'];
-        $carpeta_destino = "./public/profile-pictures/";
+        $file_name = uniqid() . '_' . $photo['name'];
+        $destination_folder = "./public/profile-pictures/";
 
-        if (!move_uploaded_file($archivo_temporal, $carpeta_destino . $nombre_archivo)) {
+        if (!move_uploaded_file($temporary_file, $destination_folder . $file_name)) {
             return false;
         }
-        return $nombre_archivo;
+        return $destination_folder;
     }
 
     public function validate($fields)
@@ -102,25 +102,19 @@ class RegisterModel
 
         if (!$this->validateEmptyFields($fields)) {
             $_SESSION["empty_fields_error"] = true;
-            header("Location: /register/list");
-            exit();
-        }else{
+        } else {
             $_SESSION["empty_fields_error"] = false;
         }
 
         if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
             $_SESSION["password_error"] = true;
-            header("Location: /register/list");
-            exit();
-        }else{
+        } else {
             $_SESSION["password_error"] = false;
         }
 
         if (!$this->validateMail($fields['mail'])) {
             $_SESSION["mail_error"] = true;
-            header("Location: /register/list");
-            exit();
-        }else{
+        } else {
             $_SESSION["mail_error"] = false;
         }
 
@@ -128,13 +122,15 @@ class RegisterModel
 
         if (!$urlProfilePhoto) {
             $_SESSION["photo_error"] = true;
-            header("Location: /register/list");
-            exit();
         } else {
             $fields['photo']['url'] = $urlProfilePhoto;
             $_SESSION["photo_error"] = false;
         }
 
+        if($_SESSION["empty_fields_error"] == true || $_SESSION["password_error"] == true || $_SESSION["mail_error"] == true || $_SESSION["photo_error"] == true){
+            header("Location: /register/list");
+            exit();
+        }
 
         $fields['password'] = md5($fields['password']);
 
