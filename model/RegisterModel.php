@@ -52,7 +52,7 @@ class RegisterModel
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 
             $result = true;
-
+            
             $sql = "SELECT count(mail)  FROM `cuenta` WHERE mail='$mail';";
 
             $resultDataBase = $this->database->querySelect($sql);
@@ -71,14 +71,12 @@ class RegisterModel
 
         //esto serian los tipos de imagenes permitidas (.jpg)
         $allowed_types = array('image/jpeg', 'image/png',);
-
         $photo_format = $photo['type'];
 
         //si el tipo de formato que pasamos esta en los formatos permitidos, retorna true
         if (in_array($photo_format, $allowed_types) == true) {
             $result = $this->updatePhoto($photo);
         }
-
         return $result;
     }
 
@@ -88,6 +86,7 @@ class RegisterModel
 
         //uniqid crea un valor unico para la foto, si o si hay que unirlo con un "_" al nombre de la foto subida
         $file_name = uniqid() . '_' . $photo['name'];
+
         $destination_folder = "./public/profile-pictures/";
 
         if (!move_uploaded_file($temporary_file, $destination_folder . $file_name)) {
@@ -100,7 +99,6 @@ class RegisterModel
     {
 
         $fields['photo'] = $_FILES['photo'];
-
 
         if ( !$this->validateEmptyFields($fields) ) {
             $_SESSION["empty_fields_error"] = true;

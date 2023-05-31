@@ -6,8 +6,6 @@ class RegisterController
     private $renderer;
     private $registerModel;
 
-    private $errors = false;
-
     public function __construct($registerModel, $renderer)
     {
         $this->renderer = $renderer;
@@ -17,17 +15,13 @@ class RegisterController
     private function security()
     {
         $userIsOn = false;
-
         $fileToCompare = "./config/seguridad.txt";
-
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
         if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-
             header("location: /lobby/list");
             exit();
         }
-
         return $userIsOn;
     }
 
@@ -49,20 +43,21 @@ class RegisterController
             if (!$errors['empty_fields_error']) {
                 unset($errors['empty_fields_error']);
             }
+
             if (!$errors['password_error']) {
                 unset($errors['password_error']);
             }
+
             if (!$errors['mail_error']) {
                 unset($errors['mail_error']);
             }
+
             if (!$errors['photo_error']) {
                 unset($errors['photo_error']);
             }
 
             $this->renderer->render('register', $errors ?? []);
-
             unset($errors);
-
         }
     }
 
