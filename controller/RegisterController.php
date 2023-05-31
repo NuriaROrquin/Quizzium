@@ -31,45 +31,49 @@ class RegisterController
 
     public function list()
     {
-        if ( $this->security() == false ) {
+        if (!$this->security()) {
+            
+            $errors=[];
 
-            $data = [];
+            $errors['empty_fields_error'] = isset($_SESSION['empty_fields_error']) ?? $_SESSION['empty_fields_error'];
+            $errors["password_error"] = isset($_SESSION["password_error"]) ?? $_SESSION["password_error"];
+            $errors["mail_error"] = isset($_SESSION['mail_error']) ?? $_SESSION["mail_error"];
+            $errors["photo_error"] = isset($_SESSION['photo_error']) ?? $_SESSION["photo_error"];
 
-            if ( isset($_SESSION['empty_fields_error']) && $_SESSION['empty_fields_error'] == true) {
-                $data['empty_fields_error'] = $_SESSION['empty_fields_error'];
+            unset($_SESSION['empty_fields_error']);
+            unset($_SESSION["password_error"]);
+            unset($_SESSION["mail_error"]);
+            unset($_SESSION["photo_error"]);
+
+            if( $errors['empty_fields_error'] == false){
+                unset($errors['empty_fields_error']);
+            }
+            if( $errors['password_error'] == false){
+                unset($errors['password_error']);
+            }
+            if( $errors['mail_error'] == false){
+                unset($errors['mail_error']);
+            }
+            if( $errors['photo_error'] == false){
+                unset($errors['photo_error']);
             }
 
-            if (isset($_SESSION["password_error"]) && $_SESSION["password_error"] == true) {
-                $data["password_error"] = $_SESSION["password_error"];
-            }
+            $this->renderer->render('register', $errors ?? []);
 
-            if (isset($_SESSION["mail_error"]) && $_SESSION["mail_error"] == true) {
-                $data["mail_error"] = $_SESSION["mail_error"];
-            }
-
-            if (isset($_SESSION["photo_error"]) && $_SESSION["photo_error"] == true) {
-                $data["photo_error"] = $_SESSION["photo_error"];
-            }
-
-
-            if (count($data) == 0) {
-                $this->renderer->render('register');
-            } else{
-                $this->renderer->render('register', $data ?? "");
-                $data = [];
-            }
         }
+
     }
 
     public function validate()
     {
-        if( $this->security() == false){
+        if ( !$this->security() ) {
 
-            if( $this->registerModel->validate($_POST['register']) ){
+            if ($this->registerModel->validate($_POST['register'])) {
                 header('location: /mail/list?mail=' . urlencode($_POST['register']['mail']));
                 exit();
             }
-            header("Location: /register/list");
+
+            header('location: /register/list');
         }
     }
 }

@@ -104,13 +104,47 @@ class RegisterModel
 
         if ( !$this->validateEmptyFields($fields) ) {
             $_SESSION["empty_fields_error"] = true;
+        }
+
+        if ( !$this->validatePassword($fields['password'], $fields['verificated_password']) ) {
+            $_SESSION["password_error"] = true;
+        }
+
+        if ( !$this->validateMail($fields['mail']) ) {
+            $_SESSION["mail_error"] = true;
+        }
+
+        $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
+
+        if ( !$urlProfilePhoto ) {
+            $_SESSION["photo_error"] = true;
+        } else {
+            $fields['photo']['url'] = $urlProfilePhoto;
+        }
+
+        $fields['password'] = md5($fields['password']);
+
+        $fields['token'] = uniqid();
+
+        if( empty($_SESSION["empty_fields_error"]) && empty($_SESSION["password_error"]) && empty($_SESSION["mail_error"]) && empty($_SESSION["photo_error"])){
+            $result = $this->insertUser($fields);
+        }
+        else{
+            $result = false;
+        }
+
+        return $result;
+
+        /*
+        if ( !$this->validateEmptyFields($fields) ) {
+            $_SESSION["empty_fields_error"] = true;
         } else {
             unset($_SESSION["empty_fields_error"]);
         }
 
         if ( !$this->validatePassword($fields['password'], $fields['verificated_password']) ) {
             $_SESSION["password_error"] = true;
-        } else {
+        }else {
             unset($_SESSION["password_error"]);
         }
 
@@ -139,9 +173,7 @@ class RegisterModel
         else{
             $result = false;
         }
-
-        return $result;
-
+        */
     }
 }
 
