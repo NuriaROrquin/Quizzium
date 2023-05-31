@@ -12,12 +12,23 @@ class LobbyController
         $this->lobbyModel = $lobbyModel;
     }
 
+    private function security()
+    {
+        $userIsOn = false;
+        $fileToCompare = "./config/seguridad.txt";
+        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
+
+        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
+            $userIsOn = true;
+        }
+        return $userIsOn;
+    }
+
     public function list()
     {
         $fileToCompare = "./config/seguridad.txt";
 
-        if (file_exists($fileToCompare) && $_COOKIE['seguridad'] == file_get_contents($fileToCompare)) {
-
+        if ($this->security()) {
             $this->renderer->render('lobby');
         }
 

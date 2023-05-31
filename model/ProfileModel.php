@@ -20,7 +20,7 @@ class ProfileModel
         return $id["id_cuenta"];
     }
 
-    public function getMail($id)
+    public function getMail($id_cuenta)
     {
         $id = $this->database->querySelect("SELECT mail FROM cuenta WHERE id_cuenta = '$id_cuenta'");
         return $id["mail"];

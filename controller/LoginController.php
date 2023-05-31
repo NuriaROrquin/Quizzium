@@ -19,8 +19,7 @@ class LoginController
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
         if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-            header("location: /lobby/list");
-            exit();
+            $userIsOn = true;
         }
         return $userIsOn;
     }
@@ -31,9 +30,9 @@ class LoginController
         if (!$this->security()) {
 
             if (isset($_SESSION['error'])) {
-                unset($_SESSION['validacion']);
                 $data['contrasenia'] = $_SESSION['error'];
                 unset($_SESSION['error']);
+                unset($_SESSION['validacion']);
             }
 
             if(isset($_SESSION['validacion'])){
@@ -49,6 +48,11 @@ class LoginController
             }
 
             $this->renderer->render('login', $data ?? "");
+        }
+
+        else{
+            header("location: /lobby/list");
+            exit();
         }
     }
 

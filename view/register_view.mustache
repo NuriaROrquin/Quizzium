@@ -37,12 +37,12 @@
 
         <div class="field">
             <label>Nombre</label>
-            <input name="register[name]" type="text" required/>
+            <input name="register[name]" type="text" placeholder="Ingrese su nombre" required/>
         </div>
 
         <div class="field">
             <label>Apellido</label>
-            <input name="register[surname]" type="text" required/>
+            <input name="register[surname]" placeholder="Ingrese su apellido" type="text" required/>
         </div>
 
         <div class="field">
@@ -58,40 +58,40 @@
         <div class="field">
             <label>Sexo</label>
             <select id="gender" name="register[gender]" required>
-                <option value="1" >Masculino</option>
+                <option value="1" selected>Masculino</option>
                 <option value="2">Femenino</option>
-                <option value="3" selected >Prefiero no decirlo</option>
+                <option value="3">Prefiero no decirlo</option>
             </select>
         </div>
 
         <div class="field">
             <label>Pais</label>
-            <input name="register[country]" type="text" required/>
+            <input name="register[country]" type="text" placeholder="Ingrese su pais" required/>
         </div>
 
         <div class="field">
             <label>Ciudad</label>
-            <input name="register[city]" type="text" required/>
+            <input name="register[city]" type="text" placeholder="Ingrese su ciudad" required/>
         </div>
 
         <div class="field">
             <label>Nombre de usuario</label>
-            <input name="register[username]" type="text" required/>
+            <input name="register[username]" type="text" placeholder="Ingrese su usuario" required/>
         </div>
 
         <div class="field">
             <label>Mail</label>
-            <input name="register[mail]" type="email" required/>
+            <input name="register[mail]" type="email" placeholder="Ingrese su mail" />
         </div>
 
         <div class="field">
             <label>Contraseña</label>
-            <input name="register[password]" type="password" required/>
+            <input name="register[password]" type="password" placeholder="Ingrese su contraseña" required/>
         </div>
 
         <div class="field">
             <label>Repetir Contraseña</label>
-            <input name="register[verificated_password]" type="password" required/>
+            <input name="register[verificated_password]" type="password" placeholder="Repita su contraseña" required/>
         </div>
 
         <button type="submit" class="button button-small register-button" name="send">
