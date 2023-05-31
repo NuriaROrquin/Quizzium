@@ -12,9 +12,11 @@ class RegisterController
         $this->registerModel = $registerModel;
     }
 
-    public function list()
+    private function security()
     {
-        $fileToCompare = "./public/seguridad.txt";
+        $userIsOn = false;
+
+        $fileToCompare = "./config/seguridad.txt";
 
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
@@ -22,11 +24,18 @@ class RegisterController
 
             header("location: /lobby/list");
             exit();
-        } else {
+        }
+
+        return $userIsOn;
+    }
+
+    public function list()
+    {
+        if ( $this->security() == false ) {
 
             $data = [];
 
-            if (isset($_SESSION['empty_fields_error']) && $_SESSION['empty_fields_error'] == true) {
+            if ( isset($_SESSION['empty_fields_error']) && $_SESSION['empty_fields_error'] == true) {
                 $data['empty_fields_error'] = $_SESSION['empty_fields_error'];
             }
 
@@ -42,31 +51,25 @@ class RegisterController
                 $data["photo_error"] = $_SESSION["photo_error"];
             }
 
+
             if (count($data) == 0) {
                 $this->renderer->render('register');
-            } else {
-                $this->renderer->render('register', $data);
+            } else{
+                $this->renderer->render('register', $data ?? "");
+                $data = [];
             }
         }
-
-
     }
 
     public function validate()
     {
-        $fileToCompare = "./public/seguridad.txt";
+        if( $this->security() == false){
 
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-
-            header("location: /lobby/list");
-            exit();
-
-        } else {
-
-            $this->registerModel->validate($_POST['register']);
-
+            if( $this->registerModel->validate($_POST['register']) ){
+                header('location: /mail/list?mail=' . urlencode($_POST['register']['mail']));
+                exit();
+            }
+            header("Location: /register/list");
         }
     }
 }

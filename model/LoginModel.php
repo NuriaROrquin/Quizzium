@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 class LoginModel
 {
 
@@ -13,95 +13,79 @@ class LoginModel
 
     private function validateMailOnDatabase($mail)
     {
-        $validate = false;
+        $result = false;
 
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 
             $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
 
-            $result = $this->database->querySelect($sql);
+            $resultDataBase = $this->database->querySelect($sql);
 
-            if (!empty($result) && $result['esta_activa'] == 1) {
-                $validate = true;
-            } else {
-                $_SESSION['validacion'] = false;
-                header("Location:/login/list");
+            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
+                $result = true;
             }
         }
-        return $validate;
+
+        return $result;
     }
 
     private function validatePassword($fields)
     {
-        $validate = false;
+        $result = false;
 
         $mail = $fields['mail'];
         $password = md5($fields['password']);
 
         $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
 
-        $result = $this->database->querySelect($sql);
+        $resultDataBase = $this->database->querySelect($sql);
 
-        if ($result['contrasenia'] == $password) {
-            $validate = true;
+        if ($resultDataBase['contrasenia'] == $password) {
+            $result = true;
         }
 
-        return $validate;
+        return $result;
     }
 
     private function generateSession($mail)
     {
         $hash = md5(time());
-        $carpeta_destino = "./public/";
+        $carpeta_destino = "./config/";
         $_SESSION["user"] = $mail;
-        unset($_SESSION["error"]);
-        unset($_SESSION["validacion"]);
-        file_put_contents($carpeta_destino."seguridad.txt", $hash);
-        setcookie("seguridad", $hash, time() + 900, '/');
-        header("Location: /lobby/list");
-        exit();
+        file_put_contents($carpeta_destino . "seguridad.txt", $hash);
+        setcookie("seguridad", $hash, time() + 1000, '/');
+        return true;
     }
 
 
     public function validate($fields)
     {
-        $fileToCompare = "./public/seguridad.txt";
+        $result = false;
 
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
+        if ($this->validateMailOnDatabase($fields['mail'])) {
 
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
+            if ($this->validatePassword($fields)) {
 
-            header("location: /lobby/list");
-            exit();
+                $result = $this->generateSession($fields['mail']);
+            }
 
-        } else {
+            else{
 
-            if ($this->validateMailOnDatabase($fields['mail'])) {
-
-                if ($this->validatePassword($fields)) {
-
-                    $this->generateSession($fields['mail']);
-
-                }
-                $fileToDelete = "./public/seguridad.txt";
+                $fileToDelete = "./config/seguridad.txt";
                 setcookie("seguridad", 0, time() - 1800, '/');
 
                 if (file_exists($fileToDelete)) {
                     unlink($fileToDelete);
                 }
-                $_SESSION["error"] = 'contrasenia';
-                header("location:/login/list");
-                exit();
+                //$_SESSION["error"] = 'contrasenia'; LOS ERRORES DESPUES LOS VEMOS
             }
-
-            header("location:/login/list");
-            exit();
-
         }
-
+        return $result;
     }
 
-    public function validateToken($token){
+    public
+    function validateToken($token)
+    {
 
         $fileToCompare = "./public/seguridad.txt";
 

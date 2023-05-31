@@ -19,56 +19,55 @@ class RegisterModel
         '{$fields['surname']}', '{$fields['token']}' );
         ";
 
-        $isSuccess = $this->database->query($sql);
-
-        return $isSuccess;
+        return $this->database->query($sql);
     }
 
     private function validateEmptyFields($fields)
     {
-        $validate = true;
+        $result = true;
 
         foreach ($fields as $field) {
             if (empty($field)) {
-                $validate = false;
+                $result = false;
             }
             break;
         }
-        return $validate;
+        return $result;
     }
 
     private function validatePassword($password, $verificated_password)
     {
-        $validate = false;
+        $result = false;
 
         if ($password == $verificated_password) {
-            $validate = true;
+            $result = true;
         }
-        return $validate;
+        return $result;
     }
 
     private function validateMail($mail)
     {
-        $validate = false;
+        $result = false;
 
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            $validate = true;
+
+            $result = true;
 
             $sql = "SELECT count(mail)  FROM `cuenta` WHERE mail='$mail';";
 
-            $result = $this->database->querySelect($sql);
+            $resultDataBase = $this->database->querySelect($sql);
 
-            if ($result['count(mail)'] > 0) {
-                $validate = false;
+            if ($resultDataBase['count(mail)'] > 0) {
+                $result = false;
             }
         }
 
-        return $validate;
+        return $result;
     }
 
     private function validateProfilePhoto($photo)
     {
-        $validate = false;
+        $result = false;
 
         //esto serian los tipos de imagenes permitidas (.jpg)
         $allowed_types = array('image/jpeg', 'image/png',);
@@ -77,9 +76,10 @@ class RegisterModel
 
         //si el tipo de formato que pasamos esta en los formatos permitidos, retorna true
         if (in_array($photo_format, $allowed_types) == true) {
-            $validate = $this->updatePhoto($photo);
+            $result = $this->updatePhoto($photo);
         }
-        return $validate;
+
+        return $result;
     }
 
     private function updatePhoto($photo)
@@ -98,49 +98,50 @@ class RegisterModel
 
     public function validate($fields)
     {
+        $result = true;
+
         $fields['photo'] = $_FILES['photo'];
 
-        if (!$this->validateEmptyFields($fields)) {
+        if ( !$this->validateEmptyFields($fields) ) {
             $_SESSION["empty_fields_error"] = true;
         } else {
-            $_SESSION["empty_fields_error"] = false;
+            unset($_SESSION["empty_fields_error"]);
         }
 
-        if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
+        if ( !$this->validatePassword($fields['password'], $fields['verificated_password']) ) {
             $_SESSION["password_error"] = true;
         } else {
-            $_SESSION["password_error"] = false;
+            unset($_SESSION["password_error"]);
         }
 
-        if (!$this->validateMail($fields['mail'])) {
+        if ( !$this->validateMail($fields['mail']) ) {
             $_SESSION["mail_error"] = true;
         } else {
-            $_SESSION["mail_error"] = false;
+            unset($_SESSION["mail_error"]);
         }
 
         $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
 
-        if (!$urlProfilePhoto) {
+        if ($urlProfilePhoto == false) {
             $_SESSION["photo_error"] = true;
         } else {
             $fields['photo']['url'] = $urlProfilePhoto;
-            $_SESSION["photo_error"] = false;
-        }
-
-        if($_SESSION["empty_fields_error"] == true || $_SESSION["password_error"] == true || $_SESSION["mail_error"] == true || $_SESSION["photo_error"] == true){
-            header("Location: /register/list");
-            exit();
+            unset($_SESSION["photo_error"]);
         }
 
         $fields['password'] = md5($fields['password']);
 
         $fields['token'] = uniqid();
 
-        if ($this->insertUser($fields)) {
-            header('location: /mail/list?mail=' . urlencode($fields['mail']));
-        } else {
-            exit("Hubo un problema al insertar el usuario");
+        if( empty($_SESSION["empty_fields_error"]) && empty($_SESSION["password_error"]) && empty($_SESSION["mail_error"]) && empty($_SESSION["photo_error"])){
+            $result = $this->insertUser($fields);
         }
+        else{
+            $result = false;
+        }
+
+        return $result;
+
     }
 }
 

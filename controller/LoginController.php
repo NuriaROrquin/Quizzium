@@ -14,7 +14,7 @@ class LoginController
 
     public function list()
     {
-        $fileToCompare = "./public/seguridad.txt";
+        $fileToCompare = "./config/seguridad.txt";
 
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
@@ -22,8 +22,10 @@ class LoginController
 
             header("location: /lobby/list");
             exit();
-        } else {
 
+        }
+        else {
+            /*
             if (isset($_SESSION['error'])) {
                 unset($_SESSION['validacion']);
                 $data['contrasenia'] = $_SESSION['error'];
@@ -37,13 +39,19 @@ class LoginController
                 $data['validacionFalse'] = true;
             }
 
+            LOS ERRORES DESPUES LOS VEMOS*/
             $this->renderer->render('login', $data ?? "");
         }
     }
 
     public function validate()
     {
-        $this->loginModel->validate($_POST['login']);
+        if( $this->loginModel->validate($_POST['login']) ){
+            header("Location: /lobby/list");
+            exit();
+        }
+        header("Location: /login/list");
+        exit();
     }
 
     public function validateToken()
