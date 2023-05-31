@@ -25,20 +25,30 @@ class RegisterController
         return $userIsOn;
     }
 
+    private function unsetErrorsSessions(){
+        unset($_SESSION['empty_fields_error']);
+        unset($_SESSION["password_error"]);
+        unset($_SESSION["mail_error"]);
+        unset($_SESSION["photo_error"]);
+    }
+
+    private function setErrors($errors){
+        $errors['empty_fields_error'] = isset($_SESSION['empty_fields_error']) ?? $_SESSION['empty_fields_error'];
+        $errors["password_error"] = isset($_SESSION["password_error"]) ?? $_SESSION["password_error"];
+        $errors["mail_error"] = isset($_SESSION['mail_error']) ?? $_SESSION["mail_error"];
+        $errors["photo_error"] = isset($_SESSION['photo_error']) ?? $_SESSION["photo_error"];
+        return $errors;
+    }
+
     public function list()
     {
+        $errors=[];
+
         if (!$this->security()) {
 
-            $errors = [];
-            $errors['empty_fields_error'] = isset($_SESSION['empty_fields_error']) ?? $_SESSION['empty_fields_error'];
-            $errors["password_error"] = isset($_SESSION["password_error"]) ?? $_SESSION["password_error"];
-            $errors["mail_error"] = isset($_SESSION['mail_error']) ?? $_SESSION["mail_error"];
-            $errors["photo_error"] = isset($_SESSION['photo_error']) ?? $_SESSION["photo_error"];
+            $errors = $this->setErrors($errors);
 
-            unset($_SESSION['empty_fields_error']);
-            unset($_SESSION["password_error"]);
-            unset($_SESSION["mail_error"]);
-            unset($_SESSION["photo_error"]);
+            $this->unsetErrorsSessions();
 
             if (!$errors['empty_fields_error']) {
                 unset($errors['empty_fields_error']);
@@ -56,7 +66,7 @@ class RegisterController
                 unset($errors['photo_error']);
             }
 
-            $this->renderer->render('register', $errors ?? []);
+            $this->renderer->render('register', $errors );
             unset($errors);
         }
     }
@@ -64,10 +74,7 @@ class RegisterController
 
     public function validate()
     {
-        unset($_SESSION['empty_fields_error']);
-        unset($_SESSION["password_error"]);
-        unset($_SESSION["mail_error"]);
-        unset($_SESSION["photo_error"]);
+        $this->unsetErrorsSessions();
 
         if (!$this->security() && isset($_POST['send'])) {
 

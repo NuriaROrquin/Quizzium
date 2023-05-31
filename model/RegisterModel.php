@@ -52,7 +52,7 @@ class RegisterModel
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 
             $result = true;
-            
+
             $sql = "SELECT count(mail)  FROM `cuenta` WHERE mail='$mail';";
 
             $resultDataBase = $this->database->querySelect($sql);
