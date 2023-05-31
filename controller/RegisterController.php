@@ -6,6 +6,8 @@ class RegisterController
     private $renderer;
     private $registerModel;
 
+    private $errors = false;
+
     public function __construct($registerModel, $renderer)
     {
         $this->renderer = $renderer;
@@ -32,9 +34,8 @@ class RegisterController
     public function list()
     {
         if (!$this->security()) {
-            
-            $errors=[];
 
+            $errors = [];
             $errors['empty_fields_error'] = isset($_SESSION['empty_fields_error']) ?? $_SESSION['empty_fields_error'];
             $errors["password_error"] = isset($_SESSION["password_error"]) ?? $_SESSION["password_error"];
             $errors["mail_error"] = isset($_SESSION['mail_error']) ?? $_SESSION["mail_error"];
@@ -45,35 +46,43 @@ class RegisterController
             unset($_SESSION["mail_error"]);
             unset($_SESSION["photo_error"]);
 
-            if( $errors['empty_fields_error'] == false){
+            if (!$errors['empty_fields_error']) {
                 unset($errors['empty_fields_error']);
             }
-            if( $errors['password_error'] == false){
+            if (!$errors['password_error']) {
                 unset($errors['password_error']);
             }
-            if( $errors['mail_error'] == false){
+            if (!$errors['mail_error']) {
                 unset($errors['mail_error']);
             }
-            if( $errors['photo_error'] == false){
+            if (!$errors['photo_error']) {
                 unset($errors['photo_error']);
             }
 
             $this->renderer->render('register', $errors ?? []);
 
-        }
+            unset($errors);
 
+        }
     }
+
 
     public function validate()
     {
-        if ( !$this->security() ) {
+        unset($_SESSION['empty_fields_error']);
+        unset($_SESSION["password_error"]);
+        unset($_SESSION["mail_error"]);
+        unset($_SESSION["photo_error"]);
+
+        if (!$this->security() && isset($_POST['send'])) {
 
             if ($this->registerModel->validate($_POST['register'])) {
                 header('location: /mail/list?mail=' . urlencode($_POST['register']['mail']));
                 exit();
             }
-
-            header('location: /register/list');
         }
+        header('location: /register/list');
+        exit();
     }
+
 }

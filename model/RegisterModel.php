@@ -98,9 +98,9 @@ class RegisterModel
 
     public function validate($fields)
     {
-        $result = true;
 
         $fields['photo'] = $_FILES['photo'];
+
 
         if ( !$this->validateEmptyFields($fields) ) {
             $_SESSION["empty_fields_error"] = true;
@@ -135,45 +135,6 @@ class RegisterModel
 
         return $result;
 
-        /*
-        if ( !$this->validateEmptyFields($fields) ) {
-            $_SESSION["empty_fields_error"] = true;
-        } else {
-            unset($_SESSION["empty_fields_error"]);
-        }
-
-        if ( !$this->validatePassword($fields['password'], $fields['verificated_password']) ) {
-            $_SESSION["password_error"] = true;
-        }else {
-            unset($_SESSION["password_error"]);
-        }
-
-        if ( !$this->validateMail($fields['mail']) ) {
-            $_SESSION["mail_error"] = true;
-        } else {
-            unset($_SESSION["mail_error"]);
-        }
-
-        $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
-
-        if ($urlProfilePhoto == false) {
-            $_SESSION["photo_error"] = true;
-        } else {
-            $fields['photo']['url'] = $urlProfilePhoto;
-            unset($_SESSION["photo_error"]);
-        }
-
-        $fields['password'] = md5($fields['password']);
-
-        $fields['token'] = uniqid();
-
-        if( empty($_SESSION["empty_fields_error"]) && empty($_SESSION["password_error"]) && empty($_SESSION["mail_error"]) && empty($_SESSION["photo_error"])){
-            $result = $this->insertUser($fields);
-        }
-        else{
-            $result = false;
-        }
-        */
     }
 }
 

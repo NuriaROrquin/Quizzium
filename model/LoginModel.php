@@ -87,7 +87,7 @@ class LoginModel
     function validateToken($token)
     {
 
-        $fileToCompare = "./public/seguridad.txt";
+        $fileToCompare = "./config/seguridad.txt";
 
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
