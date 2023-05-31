@@ -1,0 +1,108 @@
+{{> header}}
+
+<!-- Quizzium Lobby -->
+<div class="container profile">
+    <div class="redirect">
+        <a href="/lobby/list">Ir al lobby</a>
+    </div>
+
+    <div class="container-profile">
+
+        <div class="header">
+            <div class="description">
+                <img src="../public/profile-pictures/{{foto_perfil}}"/>
+                <h1>{{usuario}}</h1>
+            </div>
+        </div>
+
+        <div class="first-container">
+
+            <div class="map">
+                <img src="../public/assets/map.png"/>
+            </div>
+
+            <div class="sidebar">
+
+                <div class="statistic-games">
+
+                    <div class="container-statistic">
+                        <span class="title">Partidas realizadas</span>
+                        <span class="number">128</span>
+                    </div>
+
+                    <div class="container-statistic">
+                        <span class="title">Puntaje total</span>
+                        <span class="number">1890</span>
+                    </div>
+
+                    <div class="container-statistic">
+                        <span class="title">Posición en ranking</span>
+                        <span class="number">119</span>
+                    </div>
+
+                </div>
+
+                <div class="qr">
+
+                    <h2>Mi QR</h2>
+                    <img src="../public/qr.php?id={{id_cuenta}}" />
+                    <button class="button-secondary button-small">Compartir</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-data">
+            <div class="header-data">
+                <h3>Datos de mi perfil</h3>
+            </div>
+
+            <div class="container-info">
+                <div class="data">
+
+                    <div class="info">
+                        <span class="title">Nombre de usuario:</span>
+                        <span class="info-data">{{usuario}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">Nombre:</span>
+                        <span class="info-data">{{nombre}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">Apellido:</span>
+                        <span class="info-data">{{apellido}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">Fecha de nacimiento:</span>
+                        <span class="info-data">{{fecha_nacimiento}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">Género:</span>
+                        <span class="info-data">{{tipo}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">País:</span>
+                        <span class="info-data">{{pais}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">Ciudad:</span>
+                        <span class="info-data">{{ciudad}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="title">Mail:</span>
+                        <span class="info-data">{{mail}}</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="/profile/edit" class="button-secondary button-small">Editar perfil</a>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- End Page Content -->
+</div>
+{{> footer}}

@@ -7,43 +7,7 @@
     </div>
 
     <div class="container-profile">
-        {{#public}}
-            <div class="header">
-                <div class="description">
-                    <img src="../public/profile-pictures/{{foto_perfil}}"/>
-                    <h1>{{usuario}}</h1>
-                </div>
-            </div>
 
-            <div class="first-container">
-                <div class="map">
-                    <img src="../public/assets/map.png"/>
-                </div>
-                <div class="sidebar">
-                    <div class="statistic-games">
-                        <div class="container-statistic">
-                            <span class="title">Partidas realizadas</span>
-                            <span class="number">128</span>
-                        </div>
-                        <div class="container-statistic">
-                            <span class="title">Puntaje total</span>
-                            <span class="number">1890</span>
-                        </div>
-                        <div class="container-statistic">
-                            <span class="title">Posición en ranking</span>
-                            <span class="number">119</span>
-                        </div>
-                    </div>
-                    <div class="qr">
-                        <h2>¡Jugá con {{nombre}}!</h2>
-                        <img src="../public/qr.php?id={{id_cuenta}}" />
-                        <button class="button-secondary button-small">Compartir</button>
-                    </div>
-                </div>
-            </div>
-        {{/public}}
-
-        {{#owner}}
             <div class="header">
                 <div class="description">
                     <img src="../public/profile-pictures/{{foto_perfil}}"/>
@@ -134,8 +98,6 @@
 
                 <a href="/profile/edit" class="button-secondary button-small">Editar perfil</a>
             </div>
-        {{/owner}}
-
     </div>
 </div>
 
