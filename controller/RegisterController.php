@@ -2,7 +2,6 @@
 
 class RegisterController
 {
-
     private $renderer;
     private $registerModel;
 
@@ -71,7 +70,6 @@ class RegisterController
         }
     }
 
-
     public function validate()
     {
         $this->unsetErrorsSessions();
@@ -86,5 +84,4 @@ class RegisterController
         header('location: /register/list');
         exit();
     }
-
 }

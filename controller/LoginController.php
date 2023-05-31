@@ -12,41 +12,49 @@ class LoginController
         $this->loginModel = $loginModel;
     }
 
-    public function list()
+    private function security()
     {
+        $userIsOn = false;
         $fileToCompare = "./config/seguridad.txt";
-
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
 
         if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-
             header("location: /lobby/list");
             exit();
-
         }
-        else {
-            /*
+        return $userIsOn;
+    }
+
+
+    public function list()
+    {
+        if (!$this->security()) {
+
             if (isset($_SESSION['error'])) {
                 unset($_SESSION['validacion']);
                 $data['contrasenia'] = $_SESSION['error'];
+                unset($_SESSION['error']);
             }
 
-            if (isset($_SESSION['validacion']) && $_SESSION['validacion'] == true) {
-                $data['validacionTrue'] = $_SESSION['validacion'];
+            if(isset($_SESSION['validacion'])){
+
+                if($_SESSION['validacion'] == true){
+                    $data['validacionTrue'] = $_SESSION['validacion'];
+                    unset($_SESSION['validacion']);
+                }
+                else{
+                    $data['validacionFalse'] = $_SESSION['validacion'];
+                    unset($_SESSION['validacion']);
+                }
             }
 
-            if (isset($_SESSION['validacion']) && $_SESSION['validacion'] == false) {
-                $data['validacionFalse'] = true;
-            }
-
-            LOS ERRORES DESPUES LOS VEMOS*/
             $this->renderer->render('login', $data ?? "");
         }
     }
 
     public function validate()
     {
-        if( $this->loginModel->validate($_POST['login']) ){
+        if ($this->loginModel->validate($_POST['login'])) {
             header("Location: /lobby/list");
             exit();
         }

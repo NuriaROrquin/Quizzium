@@ -46,14 +46,11 @@ class MailModel
         $mail->Body = $buttonHtml;
 
         if ($mail->send()) {
-            header('location: /login/list');
+            header('location: https://accounts.google.com/AccountChooser/identifier?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser');
             exit();
         } else {
             $this->deleteUser($destinatario);
             exit();
-            /*aca no va a entrar nunca, a no ser que haya un problema con gmail y no se pueda mandar el mail, si el
-            mail no existe aca no entra, y te "enviaria el mail" y te mandaria al login porque devuelve true el
-            $mail->send()*/
         }
     }
 

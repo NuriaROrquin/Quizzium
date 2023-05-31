@@ -67,9 +67,7 @@ class LoginModel
             if ($this->validatePassword($fields)) {
 
                 $result = $this->generateSession($fields['mail']);
-            }
-
-            else{
+            } else {
 
                 $fileToDelete = "./config/seguridad.txt";
                 setcookie("seguridad", 0, time() - 1800, '/');
@@ -77,14 +75,14 @@ class LoginModel
                 if (file_exists($fileToDelete)) {
                     unlink($fileToDelete);
                 }
-                //$_SESSION["error"] = 'contrasenia'; LOS ERRORES DESPUES LOS VEMOS
+
+                $_SESSION["error"] = true;
             }
         }
         return $result;
     }
 
-    public
-    function validateToken($token)
+    public function validateToken($token)
     {
 
         $fileToCompare = "./config/seguridad.txt";

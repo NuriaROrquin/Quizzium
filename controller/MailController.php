@@ -11,6 +11,10 @@ class MailController
 
     public function list()
     {
-        $this->mailModel->sendEmailAndInsertUser();
+        if( isset($_POST['send']) ){
+            $this->mailModel->sendEmailAndInsertUser();
+        }
+        header("location: /login/list");
     }
+
 }
