@@ -38,11 +38,11 @@ class LoginController
             if(isset($_SESSION['validacion'])){
 
                 if($_SESSION['validacion'] == true){
-                    $data['validacionTrue'] = $_SESSION['validacion'];
+                    $data['validacionTrue'] = true;
                     unset($_SESSION['validacion']);
                 }
                 else{
-                    $data['validacionFalse'] = $_SESSION['validacion'];
+                    $data['validacionFalse'] = true;
                     unset($_SESSION['validacion']);
                 }
             }

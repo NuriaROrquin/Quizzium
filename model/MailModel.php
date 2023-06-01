@@ -46,7 +46,7 @@ class MailModel
         $mail->Body = $buttonHtml;
 
         if($mail->send()){
-            return true;
+            $result = true;
         }
         else{
             $result = false;

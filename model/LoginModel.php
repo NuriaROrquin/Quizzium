@@ -24,6 +24,9 @@ class LoginModel
             if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
                 $result = true;
             }
+            else{
+                $_SESSION['validacion'] = false;
+            }
         }
 
         return $result;

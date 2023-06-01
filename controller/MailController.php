@@ -27,7 +27,8 @@ class MailController
     {
         if (!$this->security()) {
             if ($this->mailModel->sendEmailAndInsertUser()) {
-                header('location: /mail/sendMail&send=1');
+                $_SESSION['send'] = true;
+                header('location: /mail/sendMail');
                 exit();
             }
         }
@@ -37,10 +38,13 @@ class MailController
     public function sendMail()
     {
         //ver porque si escribo /mail/sendMail&send=1 entra a esta pagina sin hacer el register
-        if( !$this->security() && $_GET['send'] == 1){
-            $this->renderer->render('mail');
+        if( !$this->security() && !empty($_SESSION['send']) ){
+            unset($_SESSION['send']);
+            $this->renderer->render('sendMail');
         }
-
+        else{
+            header("location: /login/list");
+            exit();
+        }
     }
-
 }
