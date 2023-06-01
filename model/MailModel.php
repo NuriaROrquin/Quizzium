@@ -45,20 +45,16 @@ class MailModel
         $mail->Subject = $asunto;
         $mail->Body = $buttonHtml;
 
-        if ($mail->send()) {
-            header('location: https://accounts.google.com/AccountChooser/identifier?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser');
-            exit();
-        } else {
-            $this->deleteUser($destinatario);
-            exit();
+        if($mail->send()){
+            return true;
         }
+        else{
+            $result = false;
+        }
+
+        return $result;
     }
 
-    private function deleteUser($destinatario)
-    {
-        $sql = "DELETE FROM `cuenta` WHERE mail = '{$destinatario}';";
-        $this->database->query($sql);
-    }
 
     private function getUserToken($destinatario)
     {

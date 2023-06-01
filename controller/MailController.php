@@ -3,10 +3,12 @@
 class MailController
 {
     private $mailModel;
+    private $renderer;
 
-    public function __construct($mailModel)
+    public function __construct($mailModel, $renderer)
     {
         $this->mailModel = $mailModel;
+        $this->renderer = $renderer;
     }
 
     private function security()
@@ -23,10 +25,22 @@ class MailController
 
     public function list()
     {
-        if( !$this->security() ){
-            $this->mailModel->sendEmailAndInsertUser();
+        if (!$this->security()) {
+            if ($this->mailModel->sendEmailAndInsertUser()) {
+                header('location: /mail/sendMail&send=1');
+                exit();
+            }
         }
         header("location: /login/list");
+    }
+
+    public function sendMail()
+    {
+        //ver porque si escribo /mail/sendMail&send=1 entra a esta pagina sin hacer el register
+        if( !$this->security() && $_GET['send'] == 1){
+            $this->renderer->render('mail');
+        }
+
     }
 
 }
