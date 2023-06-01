@@ -46,7 +46,6 @@ class LoginController
                     unset($_SESSION['validacion']);
                 }
             }
-
             $this->renderer->render('login', $data ?? "");
         }
 
@@ -68,6 +67,17 @@ class LoginController
 
     public function validateToken()
     {
-        $this->loginModel->validateToken($_GET['token']);
+        if ($this->security()) {
+            header("Location: /lobby/list");
+            exit();
+        }
+
+        if($this->loginModel->validateToken($_GET['token'])){
+            $this->renderer->render('login', $data ?? "");
+        }
+
+        header("Location: /login/list");
+        exit();
+
     }
 }

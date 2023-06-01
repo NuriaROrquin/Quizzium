@@ -67,6 +67,7 @@ class LoginModel
             if ($this->validatePassword($fields)) {
 
                 $result = $this->generateSession($fields['mail']);
+
             } else {
 
                 $fileToDelete = "./config/seguridad.txt";
@@ -84,7 +85,27 @@ class LoginModel
 
     public function validateToken($token)
     {
+        $result = false;
 
+        $sql = "SELECT *  FROM `cuenta` WHERE token='$token';";
+
+        $resultDatabase = $this->database->querySelectAssoc($sql);
+
+        if (!empty($resultDatabase) && $resultDatabase['esta_activa'] == 0) {
+
+            date_default_timezone_set('America/Argentina/Buenos_Aires');
+            $formatCurrentDate = date_create()->format('Y-m-d H:i:s');
+
+            $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
+            $this->database->query($sql);
+
+            $_SESSION['validacion'] = true;
+            $result = true;
+        }
+        return $result;
+    }
+}
+/*
         $fileToCompare = "./config/seguridad.txt";
 
         $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
@@ -114,7 +135,8 @@ class LoginModel
             header("Location: /login/list");
         }
     }
-}
+*/
+
 
 
 

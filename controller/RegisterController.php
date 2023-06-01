@@ -78,6 +78,7 @@ class RegisterController
         $this->unsetErrorsSessions();
 
         if (!$this->security() && isset($_POST['send'])) {
+            //aca entro
 
             if ($this->registerModel->validate($_POST['register'])) {
                 header('location: /mail/list?mail=' . urlencode($_POST['register']['mail']));

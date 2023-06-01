@@ -26,8 +26,6 @@ class LobbyController
 
     public function list()
     {
-        $fileToCompare = "./config/seguridad.txt";
-
         if ($this->security()) {
             $this->renderer->render('lobby');
         }
