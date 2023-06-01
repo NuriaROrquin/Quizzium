@@ -12,6 +12,13 @@
             </div>
         {{/contrasenia}}
 
+        {{#sendMail}}
+            <div class="alert alert-success">
+                <span class="title">¡Estás a un paso!</span>
+                <span class="description">Validá tu mail y comenzá a jugar</span>
+            </div>
+        {{/sendMail}}
+
         {{#validacionTrue}}
             <div class="alert alert-success">
                 <span class="title">Cuenta validada con éxito!</span>

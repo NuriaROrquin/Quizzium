@@ -33,17 +33,22 @@ class LoginController
                 unset($_SESSION['validacion']);
             }
 
+            if (isset($_SESSION['sendMail'])) {
+                $data['sendMail'] = $_SESSION['sendMail'];
+                unset($_SESSION['sendMail']);
+            }
+
             if(isset($_SESSION['validacion'])){
 
                 if($_SESSION['validacion'] == true){
                     $data['validacionTrue'] = true;
-                    unset($_SESSION['validacion']);
                 }
                 else{
                     $data['validacionFalse'] = true;
-                    unset($_SESSION['validacion']);
                 }
+                unset($_SESSION['validacion']);
             }
+
             $this->renderer->render('login', $data ?? "");
         }
 

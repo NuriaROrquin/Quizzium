@@ -27,14 +27,16 @@ class MailController
     {
         if (!$this->security()) {
             if ($this->mailModel->sendEmailAndInsertUser()) {
-                $_SESSION['send'] = true;
-                header('location: /mail/sendMail');
+                $_SESSION['sendMail'] = true;
+                header('location: /login/list');
                 exit();
             }
         }
         header("location: /login/list");
+        exit();
     }
 
+/*
     public function sendMail()
     {
         //ver porque si escribo /mail/sendMail&send=1 entra a esta pagina sin hacer el register
@@ -47,4 +49,5 @@ class MailController
             exit();
         }
     }
+*/
 }
