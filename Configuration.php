@@ -8,12 +8,14 @@ include_once('model/LobbyModel.php');
 include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
+include_once('model/PlayModel.php');
 
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
 include_once('controller/RegisterController.php');
 include_once('controller/MailController.php');
 include_once('controller/ProfileController.php');
+include_once('controller/PlayController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -70,8 +72,18 @@ class Configuration
 
     public function getProfileController()
     {
-        return new ProfileController($this->getRenderer(), new ProfileModel(
-            $this->getDatabase()));
+        return new ProfileController(
+            $this->getRenderer(),
+            new ProfileModel($this->getDatabase())
+        );
+    }
+
+    public function getPlayController()
+    {
+        return new PlayController(
+            $this->getRenderer(),
+            new PlayModel($this->getDatabase())
+        );
     }
 
     private function getArrayConfig()

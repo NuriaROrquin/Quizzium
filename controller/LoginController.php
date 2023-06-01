@@ -28,7 +28,7 @@ class LoginController
         if (!$this->security()) {
 
             if (isset($_SESSION['error'])) {
-                $data['contrasenia'] = $_SESSION['error'];
+                $data['errorContrasenia'] = $_SESSION['error'];
                 unset($_SESSION['error']);
                 unset($_SESSION['validacion']);
             }
@@ -38,9 +38,9 @@ class LoginController
                 unset($_SESSION['sendMail']);
             }
 
-            if(isset($_SESSION['validacion'])){
+            if( isset($_SESSION['validacion']) ){
 
-                if($_SESSION['validacion'] == true){
+                if( $_SESSION['validacion'] ){
                     $data['validacionTrue'] = true;
                 }
                 else{
@@ -48,10 +48,8 @@ class LoginController
                 }
                 unset($_SESSION['validacion']);
             }
-
             $this->renderer->render('login', $data ?? "");
         }
-
         else{
             header("location: /lobby/list");
             exit();
@@ -78,6 +76,7 @@ class LoginController
         if($this->loginModel->validateToken($_GET['token'])){
             $this->renderer->render('login', $data ?? "");
         }
+
         header("Location: /login/list");
         exit();
     }

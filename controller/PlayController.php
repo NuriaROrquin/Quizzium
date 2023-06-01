@@ -31,5 +31,7 @@ class PlayController
             exit();
         }
 
+        $this->renderer->render('play');
+
     }
 }
