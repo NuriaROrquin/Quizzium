@@ -28,7 +28,6 @@ class LoginModel
                 $_SESSION['validacion'] = false;
             }
         }
-
         return $result;
     }
 

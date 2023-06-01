@@ -2,7 +2,6 @@
 
 class LoginController
 {
-
     private $renderer;
     private $loginModel;
 
@@ -23,7 +22,6 @@ class LoginController
         }
         return $userIsOn;
     }
-
 
     public function list()
     {
@@ -75,9 +73,7 @@ class LoginController
         if($this->loginModel->validateToken($_GET['token'])){
             $this->renderer->render('login', $data ?? "");
         }
-
         header("Location: /login/list");
         exit();
-
     }
 }
