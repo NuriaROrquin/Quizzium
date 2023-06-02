@@ -1,27 +1,21 @@
 {{> header}}
 
-<!-- Quizzium Lobby -->
-<div class="container profile">
+<!-- Quizzium play -->
 
-    <div class="container">
+<form class="container">
 
-        <label class="question">
-            <p>{{question}}</p>
-        </label>
+    <label class="question">
+        <p>{{question}}</p>
+    </label>
 
-        <div class="answersContainer">
-            <button  class="answer" > opcion 1 - {{question-one}}</button>
-            <button  class="answer" > opcion 2 - {{question-two}}</button>
-            <button  class="answer" > opcion 3 - {{question-three}}</button>
-            <button  class="answer" > opcion 4 - {{question-four}}</button>
-        </div>
-
+    <div class="answersContainer">
+        <button class="answer"> opcion 1 - {{question-one}}</button>
+        <button class="answer"> opcion 2 - {{question-two}}</button>
+        <button class="answer"> opcion 3 - {{question-three}}</button>
+        <button class="answer"> opcion 4 - {{question-four}}</button>
     </div>
 
-
-
-</div>
+</form>
 
 <!-- End Page Content -->
-</div>
 {{> footer}}
