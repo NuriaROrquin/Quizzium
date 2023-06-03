@@ -43,7 +43,7 @@ class PlayController
                 } else {
                     $puntuacion = $_SESSION['puntuacion'];
                     unset($_SESSION['puntuacion']);
-
+                    var_dump($puntuacion);
                 }
             }else{
                 $question = $this->playModel->play();
