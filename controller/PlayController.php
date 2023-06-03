@@ -32,9 +32,6 @@ class PlayController
         } else {
             $answer = $_POST['option'] ?? false;
 
-            var_dump($_POST['option']);
-
-
             if($answer){
                 $isCorrect = $this->playModel->verificateAnswer($answer);
 
