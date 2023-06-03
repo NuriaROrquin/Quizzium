@@ -32,7 +32,7 @@ class PlayController
         } else {
             $answer = $_POST['option'] ?? false;
 
-            if($answer){
+            if ($answer) {
                 $isCorrect = $this->playModel->verificateAnswer($answer);
 
 
@@ -45,7 +45,7 @@ class PlayController
                     unset($_SESSION['puntuacion']);
                     var_dump($puntuacion);
                 }
-            }else{
+            } else {
                 $question = $this->playModel->play();
                 $this->renderer->render('play', $question ?? "");
             }
