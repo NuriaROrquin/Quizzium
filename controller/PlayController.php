@@ -32,10 +32,23 @@ class PlayController
         }
 
         else{
+            $question = $this->playModel->play();
+            $this->renderer->render('play', $question ?? "");
+        }
+    }
 
-            if( $this->playModel->play() ){
-                $this->renderer->render('play', $data ?? "");
-            }
+    public function response()
+    {
+
+        if ( !$this->security() ) {
+            header("location:/login/list");
+            exit();
+        }
+
+        else{
+            $_POST['answer'] = 
+            $question = $this->playModel->play();
+            $this->renderer->render('play', $question ?? "");
         }
     }
 }

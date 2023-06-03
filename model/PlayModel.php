@@ -44,6 +44,8 @@ class PlayModel
         $questionIDs = $this->randomQuestionIDs();
 
         $question = $this->bringQuestions($questionIDs[0][0]);
+
+        return $question;
     }
 }
 
