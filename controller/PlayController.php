@@ -23,32 +23,35 @@ class PlayController
         return $userIsOn;
     }
 
-    public function list()
+    public function game()
     {
 
-        if ( !$this->security() ) {
+        if (!$this->security()) {
             header("location:/login/list");
             exit();
-        }
+        } else {
+            $answer = $_POST['option'] ?? false;
 
-        else{
-            $question = $this->playModel->play();
-            $this->renderer->render('play', $question ?? "");
-        }
-    }
+            var_dump($_POST['option']);
 
-    public function response()
-    {
 
-        if ( !$this->security() ) {
-            header("location:/login/list");
-            exit();
-        }
+            if($answer){
+                $isCorrect = $this->playModel->verificateAnswer($answer);
 
-        else{
-            $_POST['answer'] = 
-            $question = $this->playModel->play();
-            $this->renderer->render('play', $question ?? "");
+
+                if ($isCorrect) {
+                    $question = $this->playModel->play();
+
+                    $this->renderer->render('play', $question ?? "");
+                } else {
+                    $puntuacion = $_SESSION['puntuacion'];
+                    unset($_SESSION['puntuacion']);
+
+                }
+            }else{
+                $question = $this->playModel->play();
+                $this->renderer->render('play', $question ?? "");
+            }
         }
     }
 }

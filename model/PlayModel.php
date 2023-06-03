@@ -1,4 +1,5 @@
 <?php
+
 class PlayModel
 {
 
@@ -9,14 +10,16 @@ class PlayModel
         $this->database = $database;
     }
 
-    private function randomQuestionIDs (){
+    private function randomQuestionIDs()
+    {
         $sql = "SELECT p.`id_pregunta` FROM `pregunta` p ORDER BY RAND() LIMIT 1;";
         return $this->database->querySelectAll($sql);
     }
 
-    private function bringQuestions ($idString){
+    private function bringQuestions($idString)
+    {
         $sql = "SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta` FROM `pregunta` p JOIN `opcion` o
-         ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = ". $idString . ";";
+         ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idString . ";";
 
         $questions = $this->database->query($sql);
 
@@ -29,9 +32,9 @@ class PlayModel
         $question['opcion3'] = $fila[2]['opcion'];
         $question['opcion4'] = $fila[3]['opcion'];
 
-        foreach ( $fila as $clave => $respuesta ) {
-            if( $respuesta['es_correcta'] == 1 ){
-                $question['opcionCorrecta'] = $clave;
+        foreach ($fila as $clave => $respuesta) {
+            if ($respuesta['es_correcta'] == 1) {
+                $_SESSION['opcionCorrecta'] = $clave;
                 break;
             }
         }
@@ -39,13 +42,31 @@ class PlayModel
         return $question;
     }
 
-    public function play ()
+    public function play()
     {
         $questionIDs = $this->randomQuestionIDs();
 
         $question = $this->bringQuestions($questionIDs[0][0]);
 
         return $question;
+    }
+
+    public function verificateAnswer($answer)
+    {
+
+        if (!isset($_SESSION['puntuacion'])) {
+            $_SESSION['puntuacion'] = 0;
+        }
+
+        $isCorrect = false;
+        if ($answer == $_SESSION['opcionCorrecta']) {
+            unset($_SESSION['opcionCorrecta']);
+            $isCorrect = true;
+
+            $_SESSION['puntuacion'] = $_SESSION['puntuacion'] + 1;
+
+        }
+        return $isCorrect;
     }
 }
 

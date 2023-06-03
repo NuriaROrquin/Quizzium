@@ -2,18 +2,20 @@
 
 <!-- Quizzium play -->
 
-<form class="container" method="post" enctype="multipart/form-data" action="/play/response">
+<form class="container" method="post" enctype="multipart/form-data" action="/play/game">
 
     <label class="question">
         <p>{{id}}</p>
         <p>{{question}}</p>
     </label>
 
+    <input type="hidden" name="answer[idQuestion]" value={{id}}>
+
     <div class="answersContainer">
-        <button class="answer" name="opcionUno" >{{opcion1}}</button>
-        <button class="answer" name="opcionDos" >{{opcion2}}</button>
-        <button class="answer" name="opcionTres" >{{opcion3}}</button>
-        <button class="answer" name="opcionCuatro" >{{opcion4}}</button>
+        <button class="answer" name="option" value="0" >{{opcion1}}</button>
+        <button class="answer" name="option" value="1" >{{opcion2}}</button>
+        <button class="answer" name="option" value="2" >{{opcion3}}</button>
+        <button class="answer" name="option" value="3" >{{opcion4}}</button>
     </div>
 
 </form>
