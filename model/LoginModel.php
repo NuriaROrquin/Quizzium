@@ -19,7 +19,7 @@ class LoginModel
 
             $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
 
-            $resultDataBase = $this->database->querySelect($sql);
+            $resultDataBase = $this->database->querySelectAssoc($sql);
 
             if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
                 $result = true;
@@ -40,20 +40,32 @@ class LoginModel
 
         $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
 
-        $resultDataBase = $this->database->querySelect($sql);
+        $resultDataBase = $this->database->querySelectAssoc($sql);
 
         if ($resultDataBase['contrasenia'] == $password) {
             $result = true;
+
         }
 
         return $result;
     }
 
-    private function generateSession($mail)
+    private function searchUserIDOnDB($mail){
+        $sql = "SELECT id_cuenta  FROM `cuenta` WHERE mail='$mail';";
+        return $this->database->querySelectAssoc($sql);
+    }
+
+
+    private function generateSession($fields)
     {
         $hash = md5(time());
+
         $carpeta_destino = "./config/";
-        $_SESSION["user"] = $mail;
+
+        $_SESSION["user"] = $fields['mail'];
+
+        $_SESSION['userID'] = $this->searchUserIDOnDB($fields['mail']);
+
         file_put_contents($carpeta_destino . "seguridad.txt", $hash);
         setcookie("seguridad", $hash, time() + 1000, '/');
         return true;
@@ -68,7 +80,7 @@ class LoginModel
 
             if ($this->validatePassword($fields)) {
 
-                $result = $this->generateSession($fields['mail']);
+                $result = $this->generateSession($fields);
 
             } else {
 
@@ -78,7 +90,6 @@ class LoginModel
                 if (file_exists($fileToDelete)) {
                     unlink($fileToDelete);
                 }
-
                 $_SESSION["error"] = true;
             }
         }
@@ -107,37 +118,6 @@ class LoginModel
         return $result;
     }
 }
-/*
-        $fileToCompare = "./config/seguridad.txt";
-
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-
-            header("location: /lobby/list");
-            exit();
-
-        } else {
-
-            $sql = "SELECT *  FROM `cuenta` WHERE token='$token';";
-
-            $result = $this->database->querySelectAssoc($sql);
-
-            date_default_timezone_set('America/Argentina/Buenos_Aires');
-            $formatCurrentDate = date_create()->format('Y-m-d H:i:s');
-
-            if (!empty($result) && $result['esta_activa'] == 0) {
-                $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
-                $this->database->query($sql);
-                $_SESSION['validacion'] = true;
-                header("Location: /login/list");
-                exit();
-            }
-
-            header("Location: /login/list");
-        }
-    }
-*/
 
 
 

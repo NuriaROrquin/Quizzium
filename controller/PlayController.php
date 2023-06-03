@@ -26,12 +26,16 @@ class PlayController
     public function list()
     {
 
-        if (!$this->security()) {
+        if ( !$this->security() ) {
             header("location:/login/list");
             exit();
         }
 
-        $this->renderer->render('play');
+        else{
 
+            if( $this->playModel->play() ){
+                $this->renderer->render('play', $data ?? "");
+            }
+        }
     }
 }

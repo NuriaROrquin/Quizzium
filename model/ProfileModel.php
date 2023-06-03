@@ -16,13 +16,13 @@ class ProfileModel
 
     public function getID($mail)
     {
-        $id = $this->database->querySelect("SELECT id_cuenta FROM cuenta WHERE mail = '$mail'");
+        $id = $this->database->querySelectAssoc("SELECT id_cuenta FROM cuenta WHERE mail = '$mail'");
         return $id["id_cuenta"];
     }
 
     public function getMail($id_cuenta)
     {
-        $id = $this->database->querySelect("SELECT mail FROM cuenta WHERE id_cuenta = '$id_cuenta'");
+        $id = $this->database->querySelectAssoc("SELECT mail FROM cuenta WHERE id_cuenta = '$id_cuenta'");
         return $id["mail"];
     }
 

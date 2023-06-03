@@ -27,16 +27,21 @@ class MySqlDatabase
         return mysqli_query($this->connection, $sql);
     }
 
-    public function querySelect($sql)
-    {
-        $result = mysqli_query($this->connection, $sql);
-        return mysqli_fetch_assoc($result);
-    }
-
     public function querySelectAssoc($sql)
     {
         $result = mysqli_query($this->connection, $sql);
         return mysqli_fetch_assoc($result);
     }
 
+    public function querySelectAll($sql)
+    {
+        $result = mysqli_query($this->connection, $sql);
+        return mysqli_fetch_all($result);
+    }
+
+    public function querySelectFields($sql)
+    {
+        $result = mysqli_query($this->connection, $sql);
+        return mysqli_fetch_fields($result);
+    }
 }

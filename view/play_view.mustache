@@ -2,17 +2,17 @@
 
 <!-- Quizzium play -->
 
-<form class="container">
+<form class="container" method="post" enctype="multipart/form-data">
 
     <label class="question">
         <p>{{question}}</p>
     </label>
 
     <div class="answersContainer">
-        <button class="answer"> opcion 1 - {{question-one}}</button>
-        <button class="answer"> opcion 2 - {{question-two}}</button>
-        <button class="answer"> opcion 3 - {{question-three}}</button>
-        <button class="answer"> opcion 4 - {{question-four}}</button>
+        <button class="answer" name="opcionUno" > opcion 1 - {{question-one}}</button>
+        <button class="answer" name="opcionDos" > opcion 2 - {{question-two}}</button>
+        <button class="answer" name="opcionTres" > opcion 3 - {{question-three}}</button>
+        <button class="answer" name="opcionCuatro" > opcion 4 - {{question-four}}</button>
     </div>
 
 </form>
