@@ -50,27 +50,10 @@ class LoginModel
         return $result;
     }
 
-    private function searchUserIDOnDB($mail){
+    public function searchUserIDOnDB($mail){
         $sql = "SELECT id_cuenta  FROM `cuenta` WHERE mail='$mail';";
         return $this->database->querySelectAssoc($sql);
     }
-
-
-    private function generateSession($fields)
-    {
-        $hash = md5(time());
-
-        $carpeta_destino = "./config/";
-
-        $_SESSION["user"] = $fields['mail'];
-
-        $_SESSION['userID'] = $this->searchUserIDOnDB($fields['mail']);
-
-        file_put_contents($carpeta_destino . "seguridad.txt", $hash);
-        setcookie("seguridad", $hash, time() + 1000, '/');
-        return true;
-    }
-
 
     public function validate($fields)
     {
@@ -79,18 +62,7 @@ class LoginModel
         if ($this->validateMailOnDatabase($fields['mail'])) {
 
             if ($this->validatePassword($fields)) {
-
-                $result = $this->generateSession($fields);
-
-            } else {
-
-                $fileToDelete = "./config/seguridad.txt";
-                setcookie("seguridad", 0, time() - 1800, '/');
-
-                if (file_exists($fileToDelete)) {
-                    unlink($fileToDelete);
-                }
-                $_SESSION["error"] = true;
+                $result = true;
             }
         }
         return $result;

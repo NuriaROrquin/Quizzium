@@ -58,12 +58,19 @@ class LoginController
 
     public function validate()
     {
-        if ($this->loginModel->validate($_POST['login'])) {
+        $fieldsOFLogin = $_POST['login'];
+
+        if ($this->loginModel->validate($fieldsOFLogin)) {
+
+            $this->generateSession($fieldsOFLogin);
             header("Location: /lobby/list");
             exit();
         }
-        header("Location: /login/list");
-        exit();
+        else{
+            $this->deleteSession();
+            header("Location: /login/list");
+            exit();
+        }
     }
 
     public function validateToken()
@@ -79,5 +86,30 @@ class LoginController
 
         header("Location: /login/list");
         exit();
+    }
+
+    private function generateSession($fields)
+    {
+        $hash = md5(time());
+
+        $carpeta_destino = "./config/";
+
+        $_SESSION["user"] = $fields['mail'];
+
+        $_SESSION['userID'] = $this->loginModel->searchUserIDOnDB($fields['mail']);
+
+        file_put_contents($carpeta_destino . "seguridad.txt", $hash);
+        setcookie("seguridad", $hash, time() + 1000, '/');
+        return true;
+    }
+
+    private function deleteSession(){
+        $fileToDelete = "./config/seguridad.txt";
+        setcookie("seguridad", 0, time() - 1800, '/');
+
+        if (file_exists($fileToDelete)) {
+            unlink($fileToDelete);
+        }
+        $_SESSION["error"] = true;
     }
 }

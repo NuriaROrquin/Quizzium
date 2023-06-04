@@ -19,7 +19,7 @@ class RegisterModel
         '{$fields['surname']}', '{$fields['token']}' );
         ";
 
-        return $this->database->query($sql);
+        $this->database->query($sql);
     }
 
     private function validateEmptyFields($fields)
@@ -69,12 +69,10 @@ class RegisterModel
     {
         $result = false;
 
-        //esto serian los tipos de imagenes permitidas (.jpg)
         $allowed_types = array('image/jpeg', 'image/png',);
         $photo_format = $photo['type'];
 
-        //si el tipo de formato que pasamos esta en los formatos permitidos, retorna true
-        if (in_array($photo_format, $allowed_types) == true) {
+        if ( in_array($photo_format, $allowed_types) ) {
             $result = $this->updatePhoto($photo);
         }
         return $result;
@@ -84,7 +82,6 @@ class RegisterModel
     {
         $temporary_file = $photo['tmp_name'];
 
-        //uniqid crea un valor unico para la foto, si o si hay que unirlo con un "_" al nombre de la foto subida
         $file_name = uniqid() . '_' . $photo['name'];
 
         $destination_folder = "./public/profile-pictures/";
@@ -97,25 +94,25 @@ class RegisterModel
 
     public function validate($fields)
     {
-
+        $errors = [];
         $fields['photo'] = $_FILES['photo'];
 
-        if ( !$this->validateEmptyFields($fields) ) {
-            $_SESSION["empty_fields_error"] = true;
+        if (!$this->validateEmptyFields($fields)) {
+            $errors['empty_fields_error'] = true;
         }
 
-        if ( !$this->validatePassword($fields['password'], $fields['verificated_password']) ) {
-            $_SESSION["password_error"] = true;
+        if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
+            $errors['password_error'] = true;
         }
 
-        if ( !$this->validateMail($fields['mail']) ) {
-            $_SESSION["mail_error"] = true;
+        if (!$this->validateMail($fields['mail'])) {
+            $errors['mail_error'] = true;
         }
 
         $urlProfilePhoto = $this->validateProfilePhoto($fields['photo']);
 
-        if ( !$urlProfilePhoto ) {
-            $_SESSION["photo_error"] = true;
+        if (!$urlProfilePhoto) {
+            $errors['photo_error'] = true;
         } else {
             $fields['photo']['url'] = $urlProfilePhoto;
         }
@@ -124,15 +121,10 @@ class RegisterModel
 
         $fields['token'] = uniqid();
 
-        if( empty($_SESSION["empty_fields_error"]) && empty($_SESSION["password_error"]) && empty($_SESSION["mail_error"]) && empty($_SESSION["photo_error"])){
-            $result = $this->insertUser($fields);
+        if (empty($errors["empty_fields_error"]) && empty($errors["password_error"]) && empty($errors["mail_error"]) && empty($errors["photo_error"])) {
+            $this->insertUser($fields);
         }
-        else{
-            $result = false;
-        }
-
-        return $result;
-
+        return $errors;
     }
 }
 
