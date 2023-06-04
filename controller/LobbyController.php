@@ -5,11 +5,13 @@ class LobbyController
 
     private $renderer;
     private $lobbyModel;
+    private $profileModel;
 
-    public function __construct($lobbyModel, $renderer)
+    public function __construct($lobbyModel, $renderer, $profileModel)
     {
         $this->renderer = $renderer;
         $this->lobbyModel = $lobbyModel;
+        $this->profileModel = $profileModel;
     }
 
     private function security()
@@ -27,10 +29,12 @@ class LobbyController
     public function list()
     {
         if ($this->security()) {
-            $this->renderer->render('lobby');
-        }
 
-        else {
+            $id_cuenta = $this->profileModel->getID($_SESSION['user']);
+            $data["owner"] = $this->profileModel->getProfile($id_cuenta);
+
+            $this->renderer->render('lobby', $data);
+        } else {
             header("location:/login/list");
             exit();
         }
@@ -38,10 +42,10 @@ class LobbyController
 
     public function exit()
     {
-      if($this->lobbyModel->exit()){
-          header("Location: /login/list");
-          exit();
-      }
+        if ($this->lobbyModel->exit()) {
+            header("Location: /login/list");
+            exit();
+        }
         $this->renderer->render('lobby');
     }
 }

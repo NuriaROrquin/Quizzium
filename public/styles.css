@@ -4,10 +4,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Bangers', cursive;
+    background: radial-gradient(50% 50% at 50% 50%, #FFD700 39.06%, #FFA500 87.2%);
 }
 
 .container {
-    background: radial-gradient(50% 50% at 50% 50%, #FFD700 39.06%, #FFA500 87.2%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,10 +24,11 @@ body {
     width: 50%;
 }
 
-.buttons-area {
+.buttons-game {
     display: flex;
+    flex-direction: row;
     gap: 2rem;
-    margin-top: 35px;
+    margin: 35px 0;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
@@ -50,6 +51,7 @@ body {
     border-radius: 20px;
     height: fit-content;
     width: 40%;
+    max-width: fit-content;
 }
 
 .button-secondary {
@@ -105,6 +107,76 @@ body {
 .pb-2 {
     padding-bottom: 2rem;
 }
+
+/**************************************LOBBY******************************************/
+
+.go-to-ranking {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    gap: 0.5rem;
+}
+
+.go-to-ranking .profile {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 20px;
+    align-items: center;
+    padding: 2rem;
+
+    text-decoration: none;
+}
+
+.go-to-ranking .container-anchor {
+    width: 100%;
+    display: flex;
+}
+
+.go-to-ranking .container-anchor a {
+    width: 100%;
+    max-width: none;
+}
+
+.go-to-ranking .profile .description {
+    padding: 0;
+}
+
+.go-to-ranking .description img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.go-to-ranking .description span {
+    font-size: 36px;
+    color: #FFA500;
+    font-weight: normal;
+    font-family: 'Poppins';
+}
+
+.go-to-ranking .position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.go-to-ranking .position span:nth-of-type(1) {
+    font-size: 72px;
+    color: #FFA500;
+    font-weight: lighter;
+}
+
+.go-to-ranking .position span:nth-of-type(2) {
+    font-size: 24px;
+    color: #FFA500;
+    font-weight: lighter;
+}
+
 
 /**************************************ALERTS******************************************/
 
@@ -435,6 +507,133 @@ body {
     margin-top: 2rem;
 }
 
+/**************************************PARTIDA******************************************/
+
+.game {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game .left-sidebar {
+    border-radius: 20px;
+    background-color: white;
+    width: 20%;
+    height: fit-content;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.game .left-sidebar .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game .left-sidebar .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.game .left-sidebar .profile span {
+    font-size: 24px;
+    color: #FFA500;
+    font-family: 'Poppins';
+}
+
+.game .left-sidebar .answers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game .left-sidebar .answers span:nth-of-type(1) {
+    font-size: 64px;
+    color: #800080;
+}
+
+.game .left-sidebar .answers span:nth-of-type(2) {
+    font-size: 24px;
+    color: #800080;
+}
+
+
+.game .right-sidebar {
+    width: 20%;
+}
+
+.game .right-sidebar .timer {
+    border-radius: 20px;
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.game .right-sidebar .timer span:nth-of-type(1) {
+    font-size: 20px;
+    color: #800080;
+}
+
+.game .right-sidebar .timer span:nth-of-type(2) {
+    font-size: 56px;
+    color: #800080;
+}
+
+.game .round {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game .round .question {
+    width: 100%;
+    background: #FF69B4;
+    border-radius: 30px 30px 0px 0px;
+    padding: 2rem 1rem;
+}
+
+.game .round .question span {
+    font-size: 24px;
+    font-family: 'Poppins';
+    color: white;
+}
+
+.game .round form {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0px 0px 30px 30px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+}
+
+.game .round .answer {
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    background: #800080;
+    border-radius: 20px;
+    color: white;
+    padding: 1rem;
+    font-weight: 400;
+    font-size: 20px;
+}
 
 
 @media (min-width: 800px) and (max-width: 1300px) {
@@ -510,6 +709,7 @@ body {
     .first-container .statistic-games .container-statistic {
         font-size: 20px;
     }
+
     .first-container .qr {
         width: 40%;
     }
@@ -556,27 +756,27 @@ body {
 
 @media (min-width: 1300px) {
     /**************************************PROFILE******************************************/
-    .container-profile{
+    .container-profile {
         align-items: center;
         justify-content: center;
     }
 
-    .first-container .map{
+    .first-container .map {
         width: 70%;
     }
 
-    .first-container .sidebar{
+    .first-container .sidebar {
         width: 25%;
         justify-content: space-evenly;
         align-items: center;
         margin: 0;
     }
 
-    .first-container .statistic-games{
+    .first-container .statistic-games {
         width: 100%;
     }
 
-    .first-container .qr{
+    .first-container .qr {
         width: 100%;
     }
 

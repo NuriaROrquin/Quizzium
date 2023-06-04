@@ -33,7 +33,9 @@ class Configuration
         return new LobbyController(
             new LobbyModel(
                 $this->getDatabase()),
-            $this->getRenderer());
+            $this->getRenderer(),
+            new ProfileModel(
+                $this->getDatabase()));
     }
 
     public function getPerfilController()
