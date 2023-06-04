@@ -17,9 +17,8 @@ class MailModel
         $this->database = $database;
     }
 
-    public function sendEmailAndInsertUser()
+    public function sendEmailAndInsertUser($destinatario)
     {
-        $destinatario= $_GET['mail'];
 
         $mail = new PHPMailer();
         $mail->isSMTP();

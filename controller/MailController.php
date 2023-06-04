@@ -24,12 +24,12 @@ class MailController
     public function list()
     {
         if (!$this->security()) {
-            if ($this->mailModel->sendEmailAndInsertUser()) {
 
+            $destinatario = $_GET['mail'];
+
+            if ($this->mailModel->sendEmailAndInsertUser($destinatario)) {
                 $_SESSION['send_mail_to_validate'] = true;
-
                 header('location: /login/list');
-
                 exit();
             }
         }
