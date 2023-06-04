@@ -21,11 +21,11 @@ class LoginModel
         $errors = [];
 
         if ( !$this->validateMailOnDatabase($fields['mail']) ) {
-            $errors['incorrect_data'] = true;
+            $errors['mail_not_validated'] = true;
         }
         else{
             if(!$this->validatePassword($fields)){
-                $errors['mail_not_validated'] = true;
+                $errors['incorrect_data'] = true;
             }
         }
         return $errors;
