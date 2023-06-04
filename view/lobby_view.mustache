@@ -6,27 +6,26 @@
         <a class="button button-big" href="/play/game">Individual</a>
         <a class="button button-big">Multijugador</a>
     </div>
-{{#owner}}
-    <div class="go-to-ranking">
-        <a href="/profile/list" class="profile">
-            <div class="description">
-                <img src="../public/profile-pictures/{{foto_perfil}}">
-                <span>{{usuario}}</span>
-            </div>
-            <div class="position">
-                <span>120</span>
-                <span>Posición</span>
-            </div>
-        </a>
+    {{#owner}}
+        <div class="go-to-ranking">
+            <a href="/profile/list" class="profile">
+                <div class="description">
+                    <img src="../public/profile-pictures/{{foto_perfil}}">
+                    <span>{{usuario}}</span>
+                </div>
+                <div class="position">
+                    <span>120</span>
+                    <span>Posición</span>
+                </div>
+            </a>
 
-        <div class="container-anchor">
-            <a href="/ranking/list" class="button button-small" href="/ranking/list">Ver Ranking</a>
+            <div class="container-anchor">
+                <a href="/ranking/list" class="button button-small" href="/ranking/list">Ver Ranking</a>
+            </div>
         </div>
-    </div>
     {{/owner}}
 
-    <a class="button button-small" href="/profile/list">Ver Perfil</a>
-    <a class="button button-small" href="/lobby/exit">Salir</a>
+    <a class="button button-small mt-2 mb-2" href="/lobby/exit">Cerrar sesión</a>
 </div>
 
 <!-- End Page Content -->
