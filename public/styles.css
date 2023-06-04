@@ -17,7 +17,7 @@ body {
 }
 
 .characters {
-    width: 70%;
+    width: 50%;
 }
 
 .characters-small {
@@ -114,7 +114,6 @@ body {
     display: flex;
     flex-direction: column;
     width: 30%;
-    margin: auto;
     gap: 0.5rem;
 }
 
@@ -125,7 +124,7 @@ body {
     justify-content: space-between;
     border-radius: 20px;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
 
     text-decoration: none;
 }
@@ -152,10 +151,11 @@ body {
 }
 
 .go-to-ranking .description span {
-    font-size: 36px;
+    font-size: 24px;
     color: #FFA500;
     font-weight: normal;
     font-family: 'Poppins';
+    word-break: break-all;
 }
 
 .go-to-ranking .position {
@@ -166,7 +166,7 @@ body {
 }
 
 .go-to-ranking .position span:nth-of-type(1) {
-    font-size: 72px;
+    font-size: 36px;
     color: #FFA500;
     font-weight: lighter;
 }
@@ -637,17 +637,17 @@ body {
     font-size: 20px;
 }
 
-.container-link{
+.container-link {
     display: flex;
     width: 100%;
     margin-top: 1rem;
 }
 
-.container-link img{
+.container-link img {
     margin-right: 0.5rem;
 }
 
-.block-reverse{
+.block-reverse {
     display: flex;
     flex-direction: row-reverse;
     width: 70%;
@@ -657,8 +657,38 @@ body {
 
 @media (min-width: 800px) and (max-width: 1300px) {
     /**************************************LOBBY******************************************/
+    .go-to-ranking {
+        width: 50%;
+        justify-content: space-between;
+    }
 
+    .go-to-ranking .profile {
+        padding: 1rem;
+        gap: 1rem;
+    }
 
+    .go-to-ranking .description {
+        width: auto;
+    }
+
+    .go-to-ranking .description img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .go-to-ranking .description span {
+        font-size: 24px;
+        word-break: break-all;
+    }
+
+    .go-to-ranking .position {
+        flex-direction: row-reverse;
+        gap: 0.5rem;
+    }
+
+    .go-to-ranking .position span:nth-of-type(1) {
+        font-size: 36px;
+    }
 
     /**************************************PROFILE******************************************/
     .container.profile {
@@ -777,8 +807,7 @@ body {
     }
 
     /**************************************PARTIDA******************************************/
-
-    .block-reverse{
+    .block-reverse {
         flex-direction: row-reverse;
         width: 100%;
         align-items: flex-start;
@@ -786,7 +815,7 @@ body {
         position: relative;
     }
 
-    .game{
+    .game {
         flex-direction: column;
         justify-content: center;
     }
@@ -826,7 +855,7 @@ body {
         position: absolute;
     }
 
-    .game .round{
+    .game .round {
         width: 100%;
     }
 
@@ -838,7 +867,7 @@ body {
         font-size: 40px;
     }
 
-    .game .round .question span{
+    .game .round .question span {
         padding-right: 15%;
         display: flex;
         justify-content: normal;
@@ -846,19 +875,55 @@ body {
 }
 
 @media (max-width: 800px) {
-    /**************************************LOBBY******************************************/
 
+
+    /**************************************LOBBY******************************************/
+    .characters {
+        width: 90%;
+    }
+
+    .go-to-ranking {
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    .go-to-ranking .profile {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .go-to-ranking .description {
+        width: auto;
+    }
+
+    .go-to-ranking .description img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .go-to-ranking .description span {
+        font-size: 24px;
+        word-break: break-all;
+    }
+
+    .go-to-ranking .position {
+        flex-direction: row-reverse;
+        gap: 0.5rem;
+    }
+
+    .go-to-ranking .position span:nth-of-type(1) {
+        font-size: 36px;
+    }
 
     /**************************************PARTIDA******************************************/
-
-    .block-reverse{
+    .block-reverse {
         flex-direction: column;
         width: 90%;
         align-items: flex-start;
         gap: 0.5rem;
     }
 
-    .game{
+    .game {
         flex-direction: column;
         justify-content: center;
     }
@@ -896,7 +961,7 @@ body {
         width: 100%;
     }
 
-    .game .round{
+    .game .round {
         width: 100%;
     }
 
@@ -908,7 +973,7 @@ body {
         font-size: 40px;
     }
 
-    .game .round .question span{
+    .game .round .question span {
         display: flex;
         justify-content: normal;
     }
