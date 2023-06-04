@@ -5,33 +5,33 @@
 
     <form action="/login/validate" method="post" enctype="multipart/form-data" class="login-area">
 
-        {{#errorContrasenia}}
+        {{#incorrect_data}}
             <div class="alert alert-error">
                 <span class="title">Datos incorrectos</span>
                 <span class="description">Asegurate que hayas ingresado los datos correctos.</span>
             </div>
-        {{/errorContrasenia}}
+        {{/incorrect_data}}
 
-        {{#sendMail}}
+        {{#send_mail_to_validate}}
             <div class="alert alert-success">
                 <span class="title">¡Estás a un paso!</span>
                 <span class="description">Validá tu mail y comenzá a jugar</span>
             </div>
-        {{/sendMail}}
+        {{/send_mail_to_validate}}
 
-        {{#validacionTrue}}
+        {{#validated_account}}
             <div class="alert alert-success">
                 <span class="title">Cuenta validada con éxito!</span>
                 <span class="description">Ya podés ingresar con tu mail y contraseña.</span>
             </div>
-        {{/validacionTrue}}
+        {{/validated_account}}
 
-        {{#validacionFalse}}
+        {{#mail_not_validated}}
             <div class="alert alert-error">
                 <span class="title">Validá tu cuenta</span>
                 <span class="description">Te enviamos un mail a tu correo. Hacé click en el botón que se encuentra dentro del mail para validar tu cuenta.</span>
             </div>
-        {{/validacionFalse}}
+        {{/mail_not_validated}}
 
 
         <div class="field">

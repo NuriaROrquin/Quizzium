@@ -34,7 +34,6 @@ class RegisterController
             }
 
             $this->renderer->render('register', $errors);
-            unset($errors);
             $this->unsetErrorsSessions();
 
         } else {

@@ -67,8 +67,7 @@ class Configuration
     public function getMailController()
     {
         return new MailController(
-            new MailModel($this->getDatabase()),
-            $this->getRenderer()
+            new MailModel($this->getDatabase())
         );
     }
 
