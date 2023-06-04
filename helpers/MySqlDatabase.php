@@ -44,4 +44,19 @@ class MySqlDatabase
         $result = mysqli_query($this->connection, $sql);
         return mysqli_fetch_fields($result);
     }
+
+    public function queryWithID($sql)
+    {
+        $ultimoID = false;
+        $result = mysqli_query($this->connection, $sql);
+
+        if($result){
+            $ultimoID = $this->getLastInsertedID();
+        }
+        return $ultimoID;
+    }
+
+    private  function getLastInsertedID(){
+        return mysqli_insert_id($this->connection);
+    }
 }

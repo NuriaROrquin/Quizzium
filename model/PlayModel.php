@@ -84,6 +84,15 @@ class PlayModel
 
     }
 
+    public function startGame($id_cuenta)
+    {
+        $id_partida = $this->database->queryWithID("INSERT INTO `partida` VALUES ();");
+
+        $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
+
+        return $id_partida;
+    }
+
 }
 
 
