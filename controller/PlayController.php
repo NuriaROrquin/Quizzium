@@ -62,10 +62,22 @@ class PlayController
 
                     $this->renderer->render('play', $question ?? "");
                 } else {
-                    $puntuacion = $_SESSION['puntuacion'];
+                    $data['mostrarFinalPartida'] = true;
+                    $data['puntuacionFinal'] = $_SESSION['puntuacion'];
+                    $data['opcionCorrecta'] = $_SESSION['textoOpcionCorrecta'];
+                    $data['puntuacion'] = $_SESSION['puntuacion'];
+
+                    $id_cuenta = $_SESSION['userID']['id_cuenta'];
+
+                    $userinfo = $this->playModel->getUserData($id_cuenta);
+
+                    $data['foto_perfil'] = $userinfo['foto_perfil'];
+                    $data['usuario'] = $userinfo['usuario'];
+
                     unset($_SESSION['puntuacion']);
                     unset($_SESSION['old_question']);
-                    echo "Su puntuacion fue de:" . $puntuacion;
+
+                    $this->renderer->render('play', $data ?? "");
                 }
 
             } else {
@@ -109,6 +121,7 @@ class PlayController
         $isCorrect = false;
         if ($answer == $_SESSION['opcionCorrecta']) {
             unset($_SESSION['opcionCorrecta']);
+            unset($_SESSION['textoOpcionCorrecta']);
             $isCorrect = true;
         }
         return $isCorrect;

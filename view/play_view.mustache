@@ -1,5 +1,17 @@
 {{> header}}
 
+{{#mostrarFinalPartida}}
+    <div class="overlay"></div>
+    <div class="popup">
+        <h1>Perdiste!</h1>
+        <p class="emphasis">La respuesta correcta era:</p>
+        <p>{{opcionCorrecta}}</p>
+
+        <p class="emphasis">Tu puntaje: {{puntuacion}}</p>
+        <a href="/lobby/list" class="button button-small">Volver al lobby</a>
+    </div>
+{{/mostrarFinalPartida}}
+
 <!-- Quizzium play -->
 
 <div class="game">
@@ -13,41 +25,63 @@
             <span>Respuestas Correctas</span>
         </div>
     </div>
+    {{^mostrarFinalPartida}}
+        <div class="block-reverse">
+            <div class="right-sidebar">
+                <div class="timer">
+                    <span>Cronómetro</span>
+                    <span>20''</span>
+                </div>
+            </div>
 
-<div class="block-reverse">
-    <div class="right-sidebar">
-        <div class="timer">
-            <span>Cronómetro</span>
-            <span>20''</span>
+            <div class="round">
+                <div class="question" style="{{categoryColor}}">
+                    <span>{{question}}</span>
+                </div>
+
+                <form method="post" enctype="multipart/form-data" action="/play/game">
+
+                    <input type="hidden" name="idQuestion" value={{id}}>
+
+                    <button class="answer" name="option" value="1">{{opcion1}}</button>
+                    <button class="answer" name="option" value="2">{{opcion2}}</button>
+                    <button class="answer" name="option" value="3">{{opcion3}}</button>
+                    <button class="answer" name="option" value="4">{{opcion4}}</button>
+
+
+                </form>
+                <div class="container-link">
+                    <a href="/play/report">
+                        <img src="../public/assets/exclamation.png"/>
+                        Reportar esta pregunta
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="round">
-        <div class="question" style="{{categoryColor}}">
-            <span>{{question}}</span>
-        </div>
-
-        <form method="post" enctype="multipart/form-data" action="/play/game">
-
-            <input type="hidden" name="idQuestion" value={{id}}>
-
-            <button class="answer" name="option" value="1">{{opcion1}}</button>
-            <button class="answer" name="option" value="2">{{opcion2}}</button>
-            <button class="answer" name="option" value="3">{{opcion3}}</button>
-            <button class="answer" name="option" value="4">{{opcion4}}</button>
-
-
-        </form>
-        <div class="container-link">
-            <a href="/play/report">
-                <img src="../public/assets/exclamation.png"/>
-                Reportar esta pregunta
-            </a>
-        </div>
-    </div>
+    {{/mostrarFinalPartida}}
 </div>
 
-</div>
+<script>
+    function mostrarPopup() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'block';
+        popup.style.display = 'block';
+        disableButton.disabled = true;
+    }
+
+    function cerrarPopup() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'none';
+        popup.style.display = 'none';
+        disableButton.disabled = false;
+    }
+</script>
 
 <!-- End Page Content -->
 {{> footer}}

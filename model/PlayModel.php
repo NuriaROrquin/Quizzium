@@ -36,6 +36,7 @@ class PlayModel
         foreach ($fila as $clave => $respuesta) {
             if ($respuesta['es_correcta'] == 1) {
                 $_SESSION['opcionCorrecta'] = $clave + 1;
+                $_SESSION['textoOpcionCorrecta'] = $respuesta['opcion'];
                 break;
             }
         }

@@ -223,6 +223,56 @@ body {
     font-size: 14px;
 }
 
+/**************************************POPUPS******************************************/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.disable-button {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.popup h1 {
+    color: #FFA500;
+    font-size: 40px;
+}
+
+.popup p {
+    color: #FFA500;
+    font-family: 'Poppins';
+    font-size: 24px;
+}
+
+.popup p.emphasis{
+    font-weight: 600;
+}
+
 
 /**************************************LOGIN & REGISTER******************************************/
 
