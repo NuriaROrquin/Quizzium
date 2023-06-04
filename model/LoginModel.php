@@ -20,14 +20,13 @@ class LoginModel
     {
         $errors = [];
 
-
         if ( !$this->validateMailOnDatabase($fields['mail']) ) {
-            $errors['mail_not_validated'] = true;
+            $errors['incorrect_data'] = true;
         }
         else{
-            if ( !$this->validatePassword($fields) ) {
-                $errors['incorrect_data'] = true;
-            } 
+            if(!$this->validatePassword($fields)){
+                $errors['mail_not_validated'] = true;
+            }
         }
         return $errors;
     }
@@ -63,7 +62,7 @@ class LoginModel
 
             $resultDataBase = $this->database->querySelectAssoc($sql);
 
-            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
+            if ( !empty($resultDataBase) && $resultDataBase['esta_activa'] == 1 ) {
                 $result = true;
             }
 
