@@ -30,7 +30,9 @@ class LobbyController
     {
         if ($this->security()) {
 
-            $id_cuenta = $this->profileModel->getID($_SESSION['user']);
+            $mail = $_SESSION['user'];
+            $id_cuenta = $this->profileModel->getID($mail);
+
             $data["owner"] = $this->profileModel->getProfile($id_cuenta);
 
             $this->renderer->render('lobby', $data);
@@ -42,10 +44,17 @@ class LobbyController
 
     public function exit()
     {
-        if ($this->lobbyModel->exit()) {
+
+        $fileToDelete = "./config/seguridad.txt";
+        setcookie("seguridad", 0, time() - 1800, '/');
+
+        if (file_exists($fileToDelete)) {
+            unlink($fileToDelete);
             header("Location: /login/list");
             exit();
         }
-        $this->renderer->render('lobby');
+        else{
+            $this->renderer->render('lobby');
+        }
     }
 }
