@@ -566,9 +566,8 @@ body {
     color: #800080;
 }
 
-
 .game .right-sidebar {
-    width: 20%;
+    width: 33.3%;
 }
 
 .game .right-sidebar .timer {
@@ -593,7 +592,7 @@ body {
 }
 
 .game .round {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -611,6 +610,9 @@ body {
     font-size: 24px;
     font-family: 'Poppins';
     color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .game .round form {
@@ -635,8 +637,29 @@ body {
     font-size: 20px;
 }
 
+.container-link{
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.container-link img{
+    margin-right: 0.5rem;
+}
+
+.block-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+}
 
 @media (min-width: 800px) and (max-width: 1300px) {
+    /**************************************LOBBY******************************************/
+
+
+
     /**************************************PROFILE******************************************/
     .container.profile {
         width: 100%;
@@ -752,36 +775,141 @@ body {
         margin: 0;
         margin-bottom: 1rem;
     }
-}
 
-@media (min-width: 1300px) {
-    /**************************************PROFILE******************************************/
-    .container-profile {
-        align-items: center;
+    /**************************************PARTIDA******************************************/
+
+    .block-reverse{
+        flex-direction: row-reverse;
+        width: 100%;
+        align-items: flex-start;
+        gap: 2rem;
+        position: relative;
+    }
+
+    .game{
+        flex-direction: column;
         justify-content: center;
     }
 
-    .first-container .map {
-        width: 70%;
+    .game .left-sidebar {
+        width: 96.3%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1rem 0;
     }
 
-    .first-container .sidebar {
-        width: 25%;
-        justify-content: space-evenly;
-        align-items: center;
-        margin: 0;
+    .game .left-sidebar .profile {
+        flex-direction: row;
     }
 
-    .first-container .statistic-games {
+    .game .left-sidebar .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .game .left-sidebar .answers {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .game .left-sidebar .answers span:nth-of-type(1) {
+        font-size: 52px;
+    }
+
+    .game .left-sidebar .answers span:nth-of-type(2) {
+        font-size: 22px;
+    }
+
+    .game .right-sidebar {
+        width: 10%;
+        margin-top: 1rem;
+        position: absolute;
+    }
+
+    .game .round{
         width: 100%;
     }
 
-    .first-container .qr {
-        width: 100%;
+    .game .right-sidebar .timer span:nth-of-type(1) {
+        display: none;
     }
 
-    .container-data {
+    .game .right-sidebar .timer span:nth-of-type(2) {
+        font-size: 40px;
+    }
+
+    .game .round .question span{
+        padding-right: 15%;
+        display: flex;
+        justify-content: normal;
+    }
+}
+
+@media (max-width: 800px) {
+    /**************************************LOBBY******************************************/
+
+
+    /**************************************PARTIDA******************************************/
+
+    .block-reverse{
+        flex-direction: column;
         width: 90%;
-        max-width: 1000px;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .game{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .game .left-sidebar {
+        width: 80%;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+    }
+
+    .game .left-sidebar .profile {
+        flex-direction: row;
+    }
+
+    .game .left-sidebar .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .game .left-sidebar .answers {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .game .left-sidebar .answers span:nth-of-type(1) {
+        font-size: 52px;
+    }
+
+    .game .left-sidebar .answers span:nth-of-type(2) {
+        font-size: 22px;
+    }
+
+    .game .right-sidebar {
+        width: 100%;
+    }
+
+    .game .round{
+        width: 100%;
+    }
+
+    .game .right-sidebar .timer span:nth-of-type(1) {
+        display: none;
+    }
+
+    .game .right-sidebar .timer span:nth-of-type(2) {
+        font-size: 40px;
+    }
+
+    .game .round .question span{
+        display: flex;
+        justify-content: normal;
     }
 }
