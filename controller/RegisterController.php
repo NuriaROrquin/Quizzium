@@ -57,14 +57,14 @@ class RegisterController
                 header('location: /mail/list&mail=' . urlencode($_POST['register']['mail']));
                 exit();
             } else {
-                $this->setErrores($result);
+                $this->setErrors($result);
             }
         }
         header('location: /register/list');
         exit();
     }
 
-    private function setErrores($errores)
+    private function setErrors($errores)
     {
 
         if (isset($errores['empty_fields_error'])) {
