@@ -61,7 +61,9 @@ class PlayController
                     $question['usuario'] = $userinfo['usuario'];
 
                     $this->renderer->render('play', $question ?? "");
-                } else {
+                }
+
+                else {
                     $data['mostrarFinalPartida'] = true;
                     $data['puntuacionFinal'] = $_SESSION['puntuacion'];
                     $data['opcionCorrecta'] = $_SESSION['textoOpcionCorrecta'];
@@ -79,8 +81,9 @@ class PlayController
 
                     $this->renderer->render('play', $data ?? "");
                 }
+            }
 
-            } else {
+            else {
 
                 unset($_SESSION['old_question']);
 
