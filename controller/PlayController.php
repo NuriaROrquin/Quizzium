@@ -33,25 +33,32 @@ class PlayController
 
             $answer = $_POST['option'] ?? false;
 
+            echo "answer";
+            var_dump($answer);
+
             $currentQuestion = $_POST['idQuestion'] ?? "";
 
-            $oldQuestion = $_SESSION['id_question'] ?? false;
+            echo "currentQuestionGame";
+            var_dump($currentQuestion);
 
-            var_dump($answer, $currentQuestion , $oldQuestion);
-            var_dump($currentQuestion != $oldQuestion);
+            $oldQuestion = $_SESSION['old_question'] ?? "";
 
+            echo "oldQuestionGame";
+            var_dump($oldQuestion);
 
-            if ( $answer && $currentQuestion != $oldQuestion ) {
+            if ( $answer && $currentQuestion == $oldQuestion ) {
 
                 $isCorrect = $this->verificateAnswer( $answer );
 
                 if ($isCorrect) {
 
+                    $this->addScore();
+
                     unset($_POST['option']);
 
                     $question = $this->playModel->play();
 
-                    $_SESSION['id_question'] = $question['id'];
+                    $_SESSION['old_question'] = $question['id'];
 
                     $question['puntuacion'] = $_SESSION['puntuacion'];
 
@@ -75,6 +82,8 @@ class PlayController
 
             else {
 
+                unset($_SESSION['old_question']);
+
                 $id_cuenta = $_SESSION['userID']['id_cuenta'];
 
                 //$_SESSION['id_partida'] = $this->playModel->startGame($id_cuenta);
@@ -83,7 +92,7 @@ class PlayController
 
                 $question = $this->playModel->play();
 
-                $_SESSION['id_question'] = $question['id'];
+                $_SESSION['old_question'] = $question['id'];
 
                 $question['puntuacion'] = 0;
 
@@ -94,9 +103,14 @@ class PlayController
                 $question['foto_perfil'] = $userinfo['foto_perfil'];
                 $question['usuario'] = $userinfo['usuario'];
 
+                echo "oldQuestionELSE";
+                var_dump($_SESSION['old_question']);
+
                 $this->renderer->render('play', $question ?? "");
             }
         }
+
+
     }
 
     private
@@ -111,11 +125,13 @@ class PlayController
         if ($answer == $_SESSION['opcionCorrecta']) {
             unset($_SESSION['opcionCorrecta']);
             $isCorrect = true;
-
-            $_SESSION['puntuacion'] = $_SESSION['puntuacion'] + 1;
-
         }
         return $isCorrect;
+    }
+
+    private function addScore(){
+
+        $_SESSION['puntuacion'] = $_SESSION['puntuacion'] + 1;
     }
 
 }
