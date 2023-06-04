@@ -5,7 +5,7 @@
 <div class="container pb-2">
     <img src="../public/assets/characters.png" class="characters-small">
 
-    <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
+    <form class="login-area" method="post" action="">
 
         {{#empty_fields_error}}
             <div class="alert alert-error">
@@ -64,15 +64,7 @@
             </select>
         </div>
 
-        <div class="field">
-            <label>Pais</label>
-            <input name="register[country]" type="text" placeholder="Ingrese su pais" required/>
-        </div>
-
-        <div class="field">
-            <label>Ciudad</label>
-            <input name="register[city]" type="text" placeholder="Ingrese su ciudad" required/>
-        </div>
+        <div id="map" style="width: 600px; height: 400px;"></div>
 
         <div class="field">
             <label>Nombre de usuario</label>
@@ -81,7 +73,7 @@
 
         <div class="field">
             <label>Mail</label>
-            <input name="register[mail]" type="email" placeholder="Ingrese su mail" />
+            <input name="register[mail]" type="email" placeholder="Ingrese su mail"/>
         </div>
 
         <div class="field">
@@ -94,7 +86,7 @@
             <input name="register[verificated_password]" type="password" placeholder="Repita su contraseña" required/>
         </div>
 
-        <button type="submit" class="button button-small register-button" name="send">
+        <button onclick="capturarDatos()" class="button button-small register-button" name="send">
             Registrarme
         </button>
     </form>
@@ -107,6 +99,102 @@
 
 </div>
 
+<script>
+
+    var map = L.map('map').setView([-34.67019736429832, -58.56253720848442], 16);
+    var marker = null;
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
+
+    map.on('click', function (e) {
+        var latlng = e.latlng;
+
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        marker = L.marker(latlng).addTo(map);
+    });
+
+    function eliminarMarcador() {
+        if (marker) {
+            map.removeLayer(marker);
+            marker = null;
+        }
+    }
+
+    function capturarDatos() {
+        var name = document.getElementById('name').value;
+        var surname = document.getElementById('surname').value;
+        var born_date = document.getElementById('born_date').value;
+        var photo = document.getElementById('photo').value;
+        var gender = document.getElementById('gender').value;
+        var username = document.getElementById('username').value;
+        var mail = document.getElementById('mail').value;
+        var password = document.getElementById('password').value;
+        var verificated_password = document.getElementById('verificated_password').value;
+        var center = map.getBounds().getCenter();
+        var lat = center.lat;
+        var lng = center.lng;
+
+
+        enviarDatos(
+            lat, lng,
+                name,
+                surname,
+                born_date,
+                photo,
+                gender,
+                username,
+                mail,
+                password,
+                verificated_password);
+    }
+
+    function enviarDatos(lat,
+                               lng,
+                               name,
+                               surname,
+                               born_date,
+                               photo,
+                               gender,
+                               username,
+                               mail,
+                               password,
+                               verificated_password) {
+
+        var formData = new FormData();
+        formData.append('name', name);
+        formData.append('surname', surname);
+        formData.append('born_date', born_date);
+        formData.append('photo', photo);
+        formData.append('gender', gender);
+        formData.append('username', username);
+        formData.append('mail', mail);
+        formData.append('password', password);
+        formData.append('verificated_password', verificated_password);
+        formData.append('latitud', lat);
+        formData.append('longitud', lng);
+
+        console.log(formData);
+
+        // Realizar solicitud AJAX al endpoint en PHP
+        /*var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/register/validate', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var respuesta = xhr.responseText;
+                console.log('Respuesta del endpoint:', respuesta);
+            }
+        };
+        xhr.send(formData);*/
+    }
+
+
+</script>
 <!-- End Page Content -->
 </div>
 {{> footer}}
