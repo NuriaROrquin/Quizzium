@@ -20,11 +20,10 @@ class LoginModel
     {
         $errors = [];
 
-        if ( !$this->validateMailOnDatabase($fields['mail']) ) {
+        if ($this->unvalidatedMail($fields['mail'])) {
             $errors['mail_not_validated'] = true;
-        }
-        else{
-            if(!$this->validatePassword($fields)){
+        } else {
+            if (!$this->validateMailOnDatabase($fields['mail']) || !$this->validatePassword($fields)) {
                 $errors['incorrect_data'] = true;
             }
         }
@@ -62,7 +61,7 @@ class LoginModel
 
             $resultDataBase = $this->database->querySelectAssoc($sql);
 
-            if ( !empty($resultDataBase) && $resultDataBase['esta_activa'] == 1 ) {
+            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
                 $result = true;
             }
 
@@ -70,7 +69,25 @@ class LoginModel
         return $result;
     }
 
-    private function validatePassword($fields)
+    private function unvalidatedMail($mail)
+    {
+        $result = false;
+
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+
+            $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
+
+            $resultDataBase = $this->database->querySelectAssoc($sql);
+
+            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 0) {
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
+    private
+    function validatePassword($fields)
     {
         $result = false;
 
