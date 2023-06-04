@@ -4,13 +4,11 @@ class LobbyController
 {
 
     private $renderer;
-    private $lobbyModel;
     private $profileModel;
 
-    public function __construct($lobbyModel, $renderer, $profileModel)
+    public function __construct($renderer, $profileModel)
     {
         $this->renderer = $renderer;
-        $this->lobbyModel = $lobbyModel;
         $this->profileModel = $profileModel;
     }
 
