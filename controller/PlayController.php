@@ -32,7 +32,10 @@ class PlayController
 
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
 
-        if( !isset($_POST['option']) ){
+        $oldQuestion = $_SESSION['old_question'] ?? "";
+        $questionRespondida = $_POST['idQuestion'] ?? "";
+
+        if( !isset($_POST['option']) && $questionRespondida == $oldQuestion){
 
             $_SESSION['puntuacion'] = 0;
 
@@ -40,7 +43,7 @@ class PlayController
 
             $dataQuestionAndUser = $this->playModel->play();
 
-            //$_SESSION['old_question'] = $dataQuestionAndUser['id'];
+            $_SESSION['old_question'] = isset($_SESSION['old_question']) ?? $dataQuestionAndUser['id_pregunta'];
 
             $dataQuestionAndUser['puntuacion'] = $_SESSION['puntuacion'];
 
@@ -72,7 +75,7 @@ class PlayController
 
                 $dataQuestionAndUser = $this->playModel->play();
 
-                //$_SESSION['old_question'] = $dataQuestionAndUser['id_question'];
+                $_SESSION['old_question'] = isset($_SESSION['old_question']) ?? $dataQuestionAndUser['id_pregunta'];
 
                 $dataQuestionAndUser['puntuacion'] = $_SESSION['puntuacion'];
 
@@ -82,7 +85,6 @@ class PlayController
 
                 $dataQuestionAndUser['usuario'] = $userinfo['usuario'];
 
-                $this->renderer->render('play', $dataQuestionAndUser ?? "");
             }
 
             else{
@@ -97,10 +99,11 @@ class PlayController
 
                 unset($_POST['option']);
                 unset($_SESSION['puntuacion']);
-                //unset($_SESSION['old_question']);
+                unset($_SESSION['old_question']);
 
-                $this->renderer->render('play', $dataQuestionAndUser ?? "");
             }
+            
+            $this->renderer->render('play', $dataQuestionAndUser ?? "");
         }
     }
 
