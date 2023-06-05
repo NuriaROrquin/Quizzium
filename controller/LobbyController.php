@@ -29,12 +29,15 @@ class LobbyController
         if ($this->security()) {
 
             $mail = $_SESSION['user'];
+
             $id_cuenta = $this->profileModel->getID($mail);
 
             $data["owner"] = $this->profileModel->getProfile($id_cuenta);
 
             $this->renderer->render('lobby', $data);
-        } else {
+        }
+
+        else {
             header("location:/login/list");
             exit();
         }

@@ -23,6 +23,20 @@ class PlayController
         return $userIsOn;
     }
 
+    public function game(){
+
+        if (!$this->security()) {
+            header("location:/login/list");
+            exit();
+        }
+
+        $answer = $_POST['option'] ?? false;
+
+        var_dump($answer);
+        exit();
+    }
+
+    /*
     public function game()
     {
 
@@ -38,6 +52,8 @@ class PlayController
             if ($answer && $questionRespondida == $_SESSION['old_question']) {
 
                 $isCorrect = $this->verificateAnswer($answer);
+
+
 
                 if ($isCorrect) {
 
@@ -113,10 +129,8 @@ class PlayController
 
     }
 
-    private
-    function verificateAnswer($answer)
+    private function verificateAnswer($answer)
     {
-
         if (!isset($_SESSION['puntuacion'])) {
             $_SESSION['puntuacion'] = 0;
         }
@@ -132,8 +146,8 @@ class PlayController
 
     private function addScore()
     {
-
         $_SESSION['puntuacion'] = $_SESSION['puntuacion'] + 1;
     }
+    */
 
 }
