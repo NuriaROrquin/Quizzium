@@ -10,6 +10,7 @@ class PlayModel
         $this->database = $database;
     }
 
+
     private function randomQuestionIDs()
     {
         $sql = "SELECT p.`id_pregunta` FROM `pregunta` p ORDER BY RAND() LIMIT 1;";
@@ -19,13 +20,13 @@ class PlayModel
     private function bringQuestions($idString)
     {
         $sql = "SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
-         ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idString . ";";
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idString . ";";
 
         $questions = $this->database->query($sql);
 
         $fila = $questions->fetch_all(MYSQLI_ASSOC);
 
-        $question['id'] = $fila[0]['id_pregunta'];
+        $question['id_question'] = $fila[0]['id_pregunta'];
         $question['question'] = $fila[0]['pregunta'];
         $question['opcion1'] = $fila[0]['opcion'];
         $question['opcion2'] = $fila[1]['opcion'];
@@ -35,22 +36,21 @@ class PlayModel
 
         foreach ($fila as $clave => $respuesta) {
             if ($respuesta['es_correcta'] == 1) {
-                $_SESSION['opcionCorrecta'] = $clave + 1;
-                $_SESSION['textoOpcionCorrecta'] = $respuesta['opcion'];
+                $question['es_correcta'] = $clave + 1;
+                $question['textoOpcionCorrecta'] = $respuesta['opcion'];
                 break;
             }
         }
-
         return $question;
     }
 
     public function play()
     {
-        $questionIDs = $this->randomQuestionIDs();
+        $questionID= $this->randomQuestionIDs();
 
-        $question = $this->bringQuestions($questionIDs[0][0]);
+        $questionData = $this->bringQuestions($questionID[0][0]);
 
-        return $question;
+        return $questionData;
     }
 
     public function showCategory($category)
@@ -76,14 +76,14 @@ class PlayModel
                 break;
 
         }
-        return 'background-color:'.$color.';';
+        return 'background-color:'. $color .';';
     }
 
     public function getUserData($id_cuenta)
     {
        return $this->database->querySelectAssoc("SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '$id_cuenta'");
-
     }
+
 
     public function startGame($id_cuenta)
     {
@@ -92,6 +92,22 @@ class PlayModel
         $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
 
         return $id_partida;
+    }
+
+    public function verificateAnswer($selectedAnswer , $correctOpcion){
+
+        $result = false;
+
+        if($selectedAnswer == $correctOpcion){
+            $result = true;
+        }
+        return $result;
+    }
+
+    public function addScore($score)
+    {
+        $score++;
+        return $score;
     }
 
 }

@@ -30,10 +30,78 @@ class PlayController
             exit();
         }
 
-        $answer = $_POST['option'] ?? false;
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
 
-        var_dump($answer);
-        exit();
+        if( !isset($_POST['option']) ){
+
+            $_SESSION['puntuacion'] = 0;
+
+            $this->playModel->startGame($id_cuenta);
+
+            $dataQuestionAndUser = $this->playModel->play();
+
+            //$_SESSION['old_question'] = $dataQuestionAndUser['id'];
+
+            $dataQuestionAndUser['puntuacion'] = $_SESSION['puntuacion'];
+
+            $dataQuestionAndUser['categoryColor'] = $this->playModel->showCategory($dataQuestionAndUser['categoria']);
+
+            $userinfo = $this->playModel->getUserData($id_cuenta);
+
+            $dataQuestionAndUser['foto_perfil'] = $userinfo['foto_perfil'];
+
+            $dataQuestionAndUser['usuario'] = $userinfo['usuario'];
+
+            $this->renderer->render('play', $dataQuestionAndUser ?? "");
+        }
+        else {
+
+            $selectedAnswer = $_POST['option'];
+
+            $dataQuestionAndUser = $this->playModel->play();
+
+            $correctOpcion = $dataQuestionAndUser['es_correcta'];
+
+            $isCorrect = $this->playModel->verificateAnswer($selectedAnswer, $correctOpcion);
+
+            if( $isCorrect ){
+
+                $score = $_SESSION['puntuacion'];
+
+                $_SESSION['puntuacion'] = $this->playModel->addScore($score);
+
+                $dataQuestionAndUser = $this->playModel->play();
+
+                //$_SESSION['old_question'] = $dataQuestionAndUser['id_question'];
+
+                $dataQuestionAndUser['puntuacion'] = $_SESSION['puntuacion'];
+
+                $userinfo = $this->playModel->getUserData($id_cuenta);
+
+                $dataQuestionAndUser['foto_perfil'] = $userinfo['foto_perfil'];
+
+                $dataQuestionAndUser['usuario'] = $userinfo['usuario'];
+
+                $this->renderer->render('play', $dataQuestionAndUser ?? "");
+            }
+
+            else{
+
+                $dataQuestionAndUser = $this->playModel->play();
+                $dataQuestionAndUser['mostrarFinalPartida'] = true;
+                $dataQuestionAndUser['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
+
+                $userinfo = $this->playModel->getUserData($id_cuenta);
+                $dataQuestionAndUser['foto_perfil'] = $userinfo['foto_perfil'];
+                $dataQuestionAndUser['usuario'] = $userinfo['usuario'];
+
+                unset($_POST['option']);
+                unset($_SESSION['puntuacion']);
+                //unset($_SESSION['old_question']);
+
+                $this->renderer->render('play', $dataQuestionAndUser ?? "");
+            }
+        }
     }
 
     /*
@@ -52,8 +120,6 @@ class PlayController
             if ($answer && $questionRespondida == $_SESSION['old_question']) {
 
                 $isCorrect = $this->verificateAnswer($answer);
-
-
 
                 if ($isCorrect) {
 
