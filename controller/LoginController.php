@@ -11,90 +11,65 @@ class LoginController
         $this->loginModel = $loginModel;
     }
 
-    private function security()
-    {
-        $userIsOn = false;
-        $fileToCompare = "./config/seguridad.txt";
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-            $userIsOn = true;
-        }
-        return $userIsOn;
-    }
-
     public function list()
     {
         $alerts = [];
 
-        if (!$this->security()) {
-
-
-            if (isset($_SESSION['mail_not_validated'])) {
-                $alerts['mail_not_validated'] = true;
-            }
-
-            if (isset($_SESSION['incorrect_data'])) {
-                $alerts['incorrect_data'] = true;
-            }
-
-            if (isset($_SESSION['send_mail_to_validate'])) {
-                $alerts['send_mail_to_validate'] = true;
-            }
-
-            if (isset($_SESSION['validated_account'])) {
-                $alerts['validated_account'] = true;
-            }
-
-            $this->renderer->render('login', $alerts ?? "");
-            $this->unsetAlertSessions();
+        if (isset($_SESSION['mail_not_validated'])) {
+            $alerts['mail_not_validated'] = true;
         }
 
-        else {
-            header("location: /lobby/list");
-            exit();
+        if (isset($_SESSION['incorrect_data'])) {
+            $alerts['incorrect_data'] = true;
         }
 
+        if (isset($_SESSION['send_mail_to_validate'])) {
+            $alerts['send_mail_to_validate'] = true;
+        }
+
+        if (isset($_SESSION['validated_account'])) {
+            $alerts['validated_account'] = true;
+        }
+
+        $this->renderer->render('login', $alerts ?? "");
+        $this->unsetAlertSessions();
     }
 
     public function validate()
     {
         $datosIngresadosPorElUsuario = $_POST['login'];
 
-        $result = $this->loginModel->validate($datosIngresadosPorElUsuario);
+        if( !empty($datosIngresadosPorElUsuario) ){
+            $result = $this->loginModel->validate($datosIngresadosPorElUsuario);
 
-        if (empty($result)) {
-            $this->generateSession($datosIngresadosPorElUsuario);
-            header("Location: /lobby/list");
+            if (empty($result)) {
+                $this->generateSession($datosIngresadosPorElUsuario);
+                header("Location: /lobby/list");
+            }
+            else {
+                $this->deleteSession();
+                $this->setAlerts($result);
+                header("Location: /login/list");
+            }
             exit();
         }
-        else {
-            $this->deleteSession();
-            $this->setAlerts($result);
-            header("Location: /login/list");
-            exit();
-        }
-    }
-
-    public function validateToken()
-    {
-        if ($this->security()) {
-            header("Location: /lobby/list");
-            exit();
-        }
-
-        if ( $this->loginModel->validateToken($_GET['token']) ) {
-
-            $_SESSION['validated_account'] = true;
-            $this->renderer->render('login', $data ?? "");
-
-        }
-
         header("Location: /login/list");
         exit();
 
     }
 
+    public function validateToken()
+    {
+
+        if ($this->loginModel->validateToken($_GET['token'])) {
+
+            $_SESSION['validated_account'] = true;
+            $this->renderer->render('login', $data ?? "");
+        }
+
+        header("Location: /login/list");
+        exit();
+    }
 
 
     //***********************************  FUNCIONES PRIVADAS  ***********************************
@@ -158,4 +133,5 @@ class LoginController
             unset($_SESSION['validated_account']);
         }
     }
+
 }

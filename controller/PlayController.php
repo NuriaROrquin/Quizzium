@@ -11,6 +11,7 @@ class PlayController
         $this->playModel = $playModel;
     }
 
+    /*
     private function security()
     {
         $userIsOn = false;
@@ -22,16 +23,11 @@ class PlayController
         }
         return $userIsOn;
     }
+    */
 
-    public function game(){
-
-        if (!$this->security()) {
-            header("location:/login/list");
-            exit();
-        }
+    public function playGame(){
 
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
-
         $oldQuestion = $_SESSION['old_question'] ?? "";
         $questionRespondida = $_POST['idQuestion'] ?? "";
 
@@ -39,7 +35,7 @@ class PlayController
 
             $_SESSION['puntuacion'] = 0;
 
-            $this->playModel->startGame($id_cuenta);
+            $_SESSION['id_partida'] = $this->playModel->startGame($id_cuenta);
 
             $dataQuestionAndUser = $this->playModel->play();
 
@@ -47,7 +43,7 @@ class PlayController
 
             $dataQuestionAndUser['puntuacion'] = $_SESSION['puntuacion'];
 
-            $dataQuestionAndUser['categoryColor'] = $this->playModel->showCategory($dataQuestionAndUser['categoria']);
+            $dataQuestionAndUser['categoryColor'] = $this->playModel->setCategoryColor($dataQuestionAndUser['categoria']);
 
             $userinfo = $this->playModel->getUserData($id_cuenta);
 
@@ -71,7 +67,9 @@ class PlayController
 
                 $score = $_SESSION['puntuacion'];
 
-                $_SESSION['puntuacion'] = $this->playModel->addScore($score);
+                $id_partida = $_SESSION['id_partida'];
+
+                $_SESSION['puntuacion'] = $this->playModel->updateScore($score, $id_partida);
 
                 $dataQuestionAndUser = $this->playModel->play();
 

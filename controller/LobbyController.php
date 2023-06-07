@@ -12,35 +12,17 @@ class LobbyController
         $this->profileModel = $profileModel;
     }
 
-    private function security()
-    {
-        $userIsOn = false;
-        $fileToCompare = "./config/seguridad.txt";
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-            $userIsOn = true;
-        }
-        return $userIsOn;
-    }
-
     public function list()
     {
-        if ($this->security()) {
 
-            $mail = $_SESSION['user'];
+        $mail = $_SESSION['user'];
 
-            $id_cuenta = $this->profileModel->getID($mail);
+        $id_cuenta = $this->profileModel->getID($mail);
 
-            $data["owner"] = $this->profileModel->getProfile($id_cuenta);
+        $data["owner"] = $this->profileModel->getProfile($id_cuenta);
 
-            $this->renderer->render('lobby', $data);
-        }
+        $this->renderer->render('lobby', $data);
 
-        else {
-            header("location:/login/list");
-            exit();
-        }
     }
 
     public function exit()
@@ -53,8 +35,7 @@ class LobbyController
             unlink($fileToDelete);
             header("Location: /login/list");
             exit();
-        }
-        else{
+        } else {
             $this->renderer->render('lobby');
         }
     }

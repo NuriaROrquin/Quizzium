@@ -3,6 +3,7 @@
 </FilesMatch>
 
 <IfModule mod_rewrite.c >
+
     RewriteEngine On
     RewriteBase /
     RewriteRule ^(public)($|) - [L,NC]
@@ -11,5 +12,5 @@
     RewriteRule ^(.*)/(.*)/(.*)$ index.php?module=$1&action=$2&$3 [L,QSA]
     RewriteRule ^(.*)/(.*)$ index.php?module=$1&action=$2 [L,QSA]
     RewriteRule ^(.*)/(.*)$ index.php?module=$1 [L,QSA]
-
+    RewriteRule ^(.*)/(.*)$ index.php [L,QSA]
 </IfModule>

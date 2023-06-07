@@ -11,6 +11,7 @@ class ProfileController
         $this->profileModel = $profileModel;
     }
 
+    /*
     private function security()
     {
         $userIsOn = false;
@@ -22,14 +23,10 @@ class ProfileController
         }
         return $userIsOn;
     }
+    */
 
     public function list()
     {
-
-        if (!$this->security()) {
-            header("location:/login/list");
-            exit();
-        }
 
         $id_cuenta= $this->profileModel->getID($_SESSION['user']);
 
@@ -42,6 +39,5 @@ class ProfileController
         }
 
         $this->renderer->render('profile', $data);
-        
     }
 }

@@ -15,38 +15,31 @@ class RegisterController
     {
         $errors = [];
 
-        if (!$this->security()) {
-
-            if (isset($_SESSION['empty_fields_error'])) {
-                $errors['empty_fields_error'] = true;
-            }
-
-            if (isset($_SESSION['password_error'])) {
-                $errors['password_error'] = true;
-            }
-
-            if (isset($_SESSION['mail_error'])) {
-                $errors['mail_error'] = true;
-            }
-
-            if (isset($_SESSION['photo_error'])) {
-                $errors['photo_error'] = true;
-            }
-
-            $this->renderer->render('register', $errors);
-            $this->unsetErrorsSessions();
-
-        } else {
-            header("location: /lobby/list");
-            exit();
+        if (isset($_SESSION['empty_fields_error'])) {
+            $errors['empty_fields_error'] = true;
         }
+
+        if (isset($_SESSION['password_error'])) {
+            $errors['password_error'] = true;
+        }
+
+        if (isset($_SESSION['mail_error'])) {
+            $errors['mail_error'] = true;
+        }
+
+        if (isset($_SESSION['photo_error'])) {
+            $errors['photo_error'] = true;
+        }
+
+        $this->renderer->render('register', $errors);
+        $this->unsetErrorsSessions();
     }
 
     public function validate()
     {
         $this->unsetErrorsSessions();
 
-        if (!$this->security() && isset($_POST['send'])) {
+        if (isset($_POST['send'])) {
 
             $datosIngresadosPorElUsuario = $_POST['register'];
 
@@ -97,17 +90,5 @@ class RegisterController
         unset($_SESSION["password_error"]);
         unset($_SESSION["mail_error"]);
         unset($_SESSION["photo_error"]);
-    }
-
-    private function security()
-    {
-        $userIsOn = false;
-        $fileToCompare = "./config/seguridad.txt";
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-            $userIsOn = true;
-        }
-        return $userIsOn;
     }
 }

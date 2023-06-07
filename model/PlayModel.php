@@ -53,7 +53,7 @@ class PlayModel
         return $questionData;
     }
 
-    public function showCategory($category)
+    public function showCategoryColor($category)
     {
         switch($category){
             case '1':
@@ -104,12 +104,14 @@ class PlayModel
         return $result;
     }
 
-    public function addScore($score)
+    public function updateScore($score, $id_partida)
     {
         $score++;
+
+        $this->database->query("UPDATE `juego` SET puntaje = " . $score . " WHERE id_partida = ". $id_partida . ";");
+
         return $score;
     }
-
 }
 
 
