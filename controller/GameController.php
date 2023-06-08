@@ -22,13 +22,9 @@ class GameController
 
         $questionRespondida = $_POST['idQuestion'] ?? "";
 
-        var_dump($_POST['idQuestion']);
-
-        //var_dump($oldQuestion, $questionRespondida, $answer);
-
         $_SESSION['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
 
-        if( $questionRespondida == $oldQuestion && !$answer ){
+        if( $questionRespondida != $oldQuestion || !$answer ){
 
             $_SESSION['puntuacion'] = 0;
 
@@ -78,7 +74,6 @@ class GameController
                 $data['usuario'] = $userinfo['usuario'];
 
                 unset($_SESSION['puntuacion']);
-                unset($_SESSION['inicio']);
                 unset($_POST['option']);
                 unset($_POST['idQuestion']);
                 unset($_SESSION['old_question']);
@@ -86,6 +81,7 @@ class GameController
         }
 
         $this->renderer->render('game', $data ?? "");
+
     }
 
     private function setData($id_cuenta){

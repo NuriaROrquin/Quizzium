@@ -55,6 +55,7 @@ class Router
                 $this->changeURL($module, $method);
                 break;
         }
+
         $controller = $this->getControllerFrom($module);
         $this->executeMethodFromController($controller, $method);
     }
@@ -87,8 +88,6 @@ class Router
     private function executeMethodFromController($controller, $method)
     {
         $validMethod = method_exists($controller, $method) ? $method : $this->defaultMethod;
-        //ver el tema aca porque tendria que haber un header para cambiar la url cuando no existe el metodo
         call_user_func(array($controller, $validMethod));
     }
-
 }
