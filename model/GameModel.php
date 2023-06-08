@@ -1,6 +1,6 @@
 <?php
 
-class PlayModel
+class GameModel
 {
 
     private $database;
@@ -53,7 +53,7 @@ class PlayModel
         return $questionData;
     }
 
-    public function showCategoryColor($category)
+    public function setCategoryColor($category)
     {
         switch($category){
             case '1':

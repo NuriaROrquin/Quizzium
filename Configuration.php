@@ -7,14 +7,14 @@ include_once('model/LoginModel.php');
 include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
-include_once('model/PlayModel.php');
+include_once('model/GameModel.php');
 
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
 include_once('controller/RegisterController.php');
 include_once('controller/MailController.php');
 include_once('controller/ProfileController.php');
-include_once('controller/PlayController.php');
+include_once('controller/GameController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -69,11 +69,11 @@ class Configuration
         );
     }
 
-    public function getPlayController()
+    public function getGameController()
     {
-        return new PlayController(
+        return new GameController(
             $this->getRenderer(),
-            new PlayModel($this->getDatabase())
+            new GameModel($this->getDatabase())
         );
     }
 

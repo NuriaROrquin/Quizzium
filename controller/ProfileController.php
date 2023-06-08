@@ -10,24 +10,8 @@ class ProfileController
         $this->renderer = $renderer;
         $this->profileModel = $profileModel;
     }
-
-    /*
-    private function security()
-    {
-        $userIsOn = false;
-        $fileToCompare = "./config/seguridad.txt";
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-            $userIsOn = true;
-        }
-        return $userIsOn;
-    }
-    */
-
     public function list()
     {
-
         $id_cuenta= $this->profileModel->getID($_SESSION['user']);
 
         if (empty($_GET['id_cuenta']) || $_GET['id_cuenta'] == $id_cuenta) {
@@ -37,7 +21,6 @@ class ProfileController
             //no soy owner del user: si el id_cuenta no es el mismo id que tengo en el session llenar public
             $data["public"] = $this->profileModel->getProfile($_GET['id_cuenta']);
         }
-
         $this->renderer->render('profile', $data);
     }
 }

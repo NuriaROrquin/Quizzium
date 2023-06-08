@@ -30,19 +30,17 @@ class Router
                     $method = "list";
                     $this->changeURL($module, $method);
                 }
-
                 break;
 
             case "lobby":
             case "profile":
-            case "play":
+            case "game":
 
                 if ( !$userIsOn ) {
                     $module = "login";
                     $method = "list";
                     $this->changeURL($module, $method);
                 }
-
                 break;
 
             default:
@@ -57,7 +55,6 @@ class Router
                 $this->changeURL($module, $method);
                 break;
         }
-
         $controller = $this->getControllerFrom($module);
         $this->executeMethodFromController($controller, $method);
     }
