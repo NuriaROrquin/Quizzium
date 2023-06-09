@@ -36,20 +36,20 @@
 
             <div class="round">
                 <div class="question" style="{{categoryColor}}">
-                    <span>{{question}}</span>
+                    <span id="question">{{question}}</span>
                 </div>
 
                 <form method="post" enctype="multipart/form-data" action="/game/list">
 
                     <input type="hidden" name="idQuestion" value={{id_question}}>
 
-                    <button class="answer" name="option" value="1">{{opcion1}}</button>
-                    <button class="answer" name="option" value="2">{{opcion2}}</button>
-                    <button class="answer" name="option" value="3">{{opcion3}}</button>
-                    <button class="answer" name="option" value="4">{{opcion4}}</button>
-
+                    <button onclick="play()" id="option_1" class="answer" name="option" value="1">{{opcion1}}</button>
+                    <button onclick="play()" id="option_2" class="answer" name="option" value="2">{{opcion2}}</button>
+                    <button onclick="play()" id="option_3" class="answer" name="option" value="3">{{opcion3}}</button>
+                    <button onclick="play()" id="option_4" class="answer" name="option" value="4">{{opcion4}}</button>
 
                 </form>
+
                 <div class="container-link">
                     <a href="/play/report">
                         <img src="../public/assets/exclamation.png"/>
@@ -80,6 +80,32 @@
         popupBackground.style.display = 'none';
         popup.style.display = 'none';
         disableButton.disabled = false;
+    }
+</script>
+
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script>
+    function play() {
+        $.ajax({
+            //en url creo que va la direccion de donde tenemos las preguntas o lo que se tiene que ejecutar para
+            // obtener una pregunta (una cosa como abajo)
+            //hay que verlo bien porque me lo cambia esto al back creo
+            url: 'http://localhost/game/nuevaPregunta',
+            method: 'get',
+            success: function (data) {
+                // Manejar la respuesta del backend aquí
+                alert(data); //data bi muestra bada
+                $('#question').text(data.question);
+                $('#option_1').text(data.opcion1);
+                $('#option_2').text(data.opcion2);
+                $('#option_3').text(data.opcion3);
+                $('#option_4').text(data.opcion4);
+            },
+            error: function (xhr, status, error) {
+                // Manejar errores aquí
+                alert('Se rompió todo');
+            }
+        });
     }
 </script>
 

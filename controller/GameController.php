@@ -103,4 +103,9 @@ class GameController
         return $data;
     }
 
+    public function nuevaPregunta (){
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
+        return $data = $this->setData($id_cuenta);
+    }
+
 }
