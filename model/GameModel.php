@@ -101,6 +101,13 @@ class GameModel
         return 'background-color:'. $color .';';
     }
 
+    public function getCategoryName($id_categoria){
+        $result = $this->database->querySelectAssoc("SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '$id_categoria'");
+
+
+        return $result['nombre_categoria'];
+    }
+
     public function getUserData($id_cuenta)
     {
        return $this->database->querySelectAssoc("SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '$id_cuenta'");

@@ -22,9 +22,6 @@ class GameController
 
         $correctOpcion = $_SESSION['oldData']['es_correcta'] ?? false;
 
-        var_dump($newQuestion);
-        var_dump($oldQuestion);
-
         if( $newQuestion != $oldQuestion || !$selectedAnswer ){
 
             $data['puntuacion'] = 0;
@@ -81,6 +78,8 @@ class GameController
         $data['id_juego'] = $_SESSION['id_juego'] ?? null;
 
         $data['categoryColor'] = $this->gameModel->setCategoryColor($data['categoria']);
+
+        $data['categoryName'] = $this->gameModel->getCategoryName($data['categoria']);
 
         $userinfo = $this->gameModel->getUserData($id_cuenta);
 

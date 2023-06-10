@@ -9,6 +9,7 @@ include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
 include_once('model/GameModel.php');
 include_once('model/RankingModel.php');
+include_once('model/LobbyModel.php');
 
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
@@ -33,7 +34,7 @@ class Configuration
     {
         return new LobbyController(
             $this->getRenderer(),
-            new ProfileModel(
+            new LobbyModel(
                 $this->getDatabase())
         );
     }

@@ -15,7 +15,10 @@
 <!-- Quizzium play -->
 
 <div class="game">
+
     <div class="left-sidebar">
+
+
         <div class="profile">
             <img src="../public/profile-pictures/{{foto_perfil}}">
             <span>{{usuario}}</span>
@@ -35,6 +38,15 @@
             </div>
 
             <div class="round">
+                <!--   Tirarlo para la izquierda con tipografía de sugerir pregunta -->
+                <div class="redirect">
+                    <a href="/lobby/list">Ir al lobby</a>
+                </div>
+
+                <!--   Tirarlo para la derecha más grande -->
+                <div class="categoria">
+                    <span id="question">{{categoryName}}</span>
+                </div>
                 <div class="question" style="{{categoryColor}}">
                     <span id="question">{{question}}</span>
                 </div>
@@ -60,6 +72,7 @@
         </div>
     {{/mostrarFinalPartida}}
 </div>
+
 
 <script>
     function mostrarPopup() {

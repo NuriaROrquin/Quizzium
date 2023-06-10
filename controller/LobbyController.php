@@ -4,12 +4,12 @@ class LobbyController
 {
 
     private $renderer;
-    private $profileModel;
+    private $lobbyModel;
 
-    public function __construct($renderer, $profileModel)
+    public function __construct($renderer, $lobbyModel)
     {
         $this->renderer = $renderer;
-        $this->profileModel = $profileModel;
+        $this->lobbyModel = $lobbyModel;
     }
 
     public function list()
@@ -17,9 +17,11 @@ class LobbyController
 
         $mail = $_SESSION['user'];
 
-        $id_cuenta = $this->profileModel->getID($mail);
+        $id_cuenta = $this->lobbyModel->getID($mail);
 
-        $data["owner"] = $this->profileModel->getProfile($id_cuenta);
+        $data["owner"] = $this->lobbyModel->getProfile($id_cuenta);
+
+        $data["rankingPosition"] = $this->lobbyModel->getRankingPosition($id_cuenta);
 
         $this->renderer->render('lobby', $data);
 
