@@ -717,6 +717,12 @@ body {
 }
 
 /**************************************RANKING******************************************/
+
+body:has(.container-ranking) {
+    background: linear-gradient(180deg, #FFA500 39.06%, #FFD700 75.52%);
+}
+
+
 .container-ranking {
     margin: auto;
     min-height: 100vh;
