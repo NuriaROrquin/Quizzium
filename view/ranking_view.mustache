@@ -7,7 +7,7 @@
     <div class="ranking-list">
 
         {{#rankingList}}
-            <a href="/profile/list?id_cuenta=2" class="container-position" style="{{style}}">
+            <a href="/profile/list?id_cuenta={{id_cuenta}}" class="container-position" style="{{style}}">
                 <div class="description">
                     <div class="position">{{index}}</div>
                     <div class="detail-responsive">
@@ -18,7 +18,7 @@
 
                 <div class="score">
                 <span class="number">
-                    1870
+                    {{puntaje_maximo}}
                 </span>
                     <span class="description">Puntos</span>
                 </div>
