@@ -18,7 +18,25 @@ class GameModel
                                             FROM respuesta
                                             WHERE id_cuenta =" .$id_cuenta .")
                 ORDER BY RAND() LIMIT 1;";
-        return $this->database->querySelectAll($sql);
+
+        $result = $this->database->querySelectAll($sql);
+
+        if($result == null){
+
+            $this->resetQuestions($id_cuenta);
+
+            $result = $this->database->querySelectAll($sql);
+
+        }
+        return $result;
+    }
+
+    private function resetQuestions($id_cuenta){
+
+        $sql = "DELETE FROM `respuesta` 
+                WHERE id_cuenta =" . $id_cuenta .";";
+
+        $this->database->query($sql);
     }
 
     private function bringQuestions($idString)

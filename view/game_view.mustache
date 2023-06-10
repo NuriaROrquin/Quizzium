@@ -87,9 +87,7 @@
 <script>
     function play() {
         $.ajax({
-            //en url creo que va la direccion de donde tenemos las preguntas o lo que se tiene que ejecutar para
-            // obtener una pregunta (una cosa como abajo)
-            //hay que verlo bien porque me lo cambia esto al back creo
+
             url: 'http://localhost/game/nuevaPregunta',
             method: 'get',
             success: function (data) {
