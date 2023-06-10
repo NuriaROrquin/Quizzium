@@ -28,6 +28,8 @@ class GameController
 
             $_SESSION['puntuacion'] = 0;
 
+            $data['puntuacion'] = 0;
+
             // $_SESSION['id_partida'] = $this->gameModel->startGame($id_cuenta);
 
             $_SESSION['id_partida'] = 1;
@@ -48,6 +50,7 @@ class GameController
 
                 $_SESSION['old_question'] = $data['id_question'];
 
+                unset($_POST['idQuestion']);
             }
 
             else{
