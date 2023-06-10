@@ -8,6 +8,7 @@ include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
 include_once('model/GameModel.php');
+include_once('model/RankingModel.php');
 
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
@@ -81,7 +82,9 @@ class Configuration
     public function getRankingController()
     {
         return new RankingController(
-            $this->getRenderer()
+            $this->getRenderer(),
+            new RankingModel($this->getDatabase()),
+            new ProfileModel($this->getDatabase())
         );
     }
 

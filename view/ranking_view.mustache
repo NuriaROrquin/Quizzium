@@ -5,40 +5,43 @@
     </div>
 
     <div class="ranking-list">
-
-        <a href="/profile/list?id_cuenta=2" class="container-position">
-            <div class="description">
-                <div class="position">1</div>
-                <div class="detail-responsive">
-                    <img src="/public/profile-pictures/6476a1964d65b_avatar.png">
-                    <span class="name">Vicky</span>
+        {{#owner}}
+            <a href="/profile/list" class="container-position">
+                <div class="description">
+                    <div class="position">1</div>
+                    <div class="detail-responsive">
+                        <img src="../public/profile-pictures/{{foto_perfil}}">
+                        <span class="name">{{usuario}}</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="score">
+                <div class="score">
                 <span class="number">
                     1890
                 </span>
-                <span class="description">Puntos</span>
-            </div>
-        </a>
-
-        <a href="/profile/list?id_cuenta=1" class="container-position">
-            <div class="description">
-                <div class="position">2</div>
-                <div class="detail-responsive">
-                    <img src="/public/profile-pictures/6476a1964d65b_avatar.png">
-                    <span class="name">Mati</span>
+                    <span class="description">Puntos</span>
                 </div>
-            </div>
+            </a>
+        {{/owner}}
 
-            <div class="score">
+        {{#rankingList}}
+            <a href="/profile/list?id_cuenta=2" class="container-position">
+                <div class="description">
+                    <div class="position">{{index}}</div>
+                    <div class="detail-responsive">
+                        <img src="/public/profile-pictures/6476a1964d65b_avatar.png">
+                        <span class="name">Mati</span>
+                    </div>
+                </div>
+
+                <div class="score">
                 <span class="number">
                     1870
                 </span>
-                <span class="description">Puntos</span>
-            </div>
-        </a>
+                    <span class="description">Puntos</span>
+                </div>
+            </a>
+        {{/rankingList}}
 
     </div>
 </div>

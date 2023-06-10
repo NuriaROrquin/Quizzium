@@ -30,7 +30,7 @@ class GameController
 
             $data['puntuacion'] = 0;
 
-            // $_SESSION['id_partida'] = $this->gameModel->startGame($id_cuenta);
+            $_SESSION['id_partida'] = $this->gameModel->startGame($id_cuenta);
 
             $_SESSION['id_partida'] = 1;
 
