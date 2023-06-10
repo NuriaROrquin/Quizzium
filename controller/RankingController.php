@@ -19,11 +19,7 @@ class RankingController
 
         $id_cuenta = $this->profileModel->getID($mail);
 
-        //$data["owner"] = $this->profileModel->getProfile($id_cuenta);
-
-        $data["rankingList"] = $this->rankingModel->getRanking();
-
-        var_dump($data['rankingList']);
+        $data = $this->rankingModel->getRanking($id_cuenta);
 
         $this->renderer->render('ranking', $data);
     }

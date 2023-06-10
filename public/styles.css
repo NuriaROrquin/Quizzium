@@ -776,6 +776,7 @@ body {
     display: flex;
     justify-content: space-between;
     text-decoration: none;
+    color: #FFA500;
 }
 
 .container-position .description {
@@ -792,7 +793,6 @@ body {
     font-family: 'Bangers';
     font-weight: 400;
     font-size: 42px;
-    color: #FFA500;
 }
 
 .container-position .description .detail-responsive {
@@ -812,7 +812,6 @@ body {
     font-family: 'Poppins';
     font-weight: 300;
     font-size: 28px;
-    color: #FFA500;
 }
 
 .container-position .score {
@@ -830,14 +829,12 @@ body {
     font-family: 'Bangers';
     font-weight: 400;
     font-size: 64px;
-    color: #FFA500;
 }
 
 .container-position .score .description {
     font-family: 'Bangers';
     font-weight: 400;
     font-size: 36px;
-    color: #FFA500;
     width: min-content;
     margin-right: 2rem;
 }

@@ -5,32 +5,14 @@
     </div>
 
     <div class="ranking-list">
-        {{#owner}}
-            <a href="/profile/list" class="container-position">
-                <div class="description">
-                    <div class="position">1</div>
-                    <div class="detail-responsive">
-                        <img src="../public/profile-pictures/{{foto_perfil}}">
-                        <span class="name">{{usuario}}</span>
-                    </div>
-                </div>
-
-                <div class="score">
-                <span class="number">
-                    1890
-                </span>
-                    <span class="description">Puntos</span>
-                </div>
-            </a>
-        {{/owner}}
 
         {{#rankingList}}
-            <a href="/profile/list?id_cuenta=2" class="container-position">
+            <a href="/profile/list?id_cuenta=2" class="container-position" style="{{style}}">
                 <div class="description">
                     <div class="position">{{index}}</div>
                     <div class="detail-responsive">
-                        <img src="/public/profile-pictures/6476a1964d65b_avatar.png">
-                        <span class="name">Mati</span>
+                        <img src="../public/profile-pictures/{{foto_perfil}}">
+                        <span class="name">{{usuario}}</span>
                     </div>
                 </div>
 
