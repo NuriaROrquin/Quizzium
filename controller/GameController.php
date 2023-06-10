@@ -11,20 +11,20 @@ class GameController
         $this->gameModel = $gameModel;
     }
 
+
     public function list()
     {
-
-        $answer = $_POST['option'] ?? false;
-
-        $id_cuenta = $_SESSION['userID']['id_cuenta'];
-
-        $oldQuestion = $_SESSION['old_question'] ?? "";
-
+        $selectedAnswer = $_POST['option'] ?? false;
         $questionRespondida = $_POST['idQuestion'] ?? "";
-
+        $oldQuestion = $_SESSION['old_question'] ?? "";
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
         $_SESSION['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
 
-        if( $questionRespondida != $oldQuestion || !$answer ){
+        $data = $this->setData($id_cuenta);
+
+        $correctOpcion = $data['es_correcta'];
+
+        if( $questionRespondida != $oldQuestion || !$selectedAnswer ){
 
             $_SESSION['puntuacion'] = 0;
 
@@ -32,19 +32,11 @@ class GameController
 
             $_SESSION['id_partida'] = 1;
 
-            $data = $this->setData($id_cuenta);
-
             $_SESSION['old_question'] = $data['id_question'];
 
         }
 
         else{
-
-            $data = $this->setData($id_cuenta);
-
-            $selectedAnswer = $answer;
-
-            $correctOpcion = $data['es_correcta'];
 
             $isCorrect = $this->gameModel->verificateAnswer($selectedAnswer, $correctOpcion);
 
@@ -54,43 +46,37 @@ class GameController
 
                 $data['puntuacion'] = $_SESSION['puntuacion'];
 
-                $userinfo = $this->gameModel->getUserData($id_cuenta);
-
-                $data['foto_perfil'] = $userinfo['foto_perfil'];
-
-                $data['usuario'] = $userinfo['usuario'];
-
                 $_SESSION['old_question'] = $data['id_question'];
 
             }
 
             else{
 
-                $data = $this->setData($id_cuenta);
-                $data['mostrarFinalPartida'] = true;
+                $data =  $_SESSION['oldData'];
 
-                $userinfo = $this->gameModel->getUserData($id_cuenta);
-                $data['foto_perfil'] = $userinfo['foto_perfil'];
-                $data['usuario'] = $userinfo['usuario'];
+                $data['mostrarFinalPartida'] = true;
 
                 unset($_SESSION['puntuacion']);
                 unset($_POST['option']);
                 unset($_POST['idQuestion']);
                 unset($_SESSION['old_question']);
+                unset($_SESSION['oldData']);
             }
         }
 
         $this->renderer->render('game', $data ?? "");
 
+        $_SESSION['oldData'] = $data;
+
     }
 
     private function setData($id_cuenta){
 
-        $data = $this->gameModel->play();
+        $data = $this->gameModel->getQuestion();
 
         $data['puntuacion'] = $_SESSION['puntuacion'];
 
-        $data['id_partida'] = $_SESSION['id_partida'];
+        $data['id_partida'] = $_SESSION['id_partida'] ?? null;
 
         $data['categoryColor'] = $this->gameModel->setCategoryColor($data['categoria']);
 
@@ -107,5 +93,6 @@ class GameController
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
         return $data = $this->setData($id_cuenta);
     }
+
 
 }

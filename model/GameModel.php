@@ -44,7 +44,7 @@ class GameModel
         return $question;
     }
 
-    public function play()
+    public function getQuestion()
     {
         $questionID= $this->randomQuestionIDs();
 
