@@ -15,6 +15,7 @@ include_once('controller/RegisterController.php');
 include_once('controller/MailController.php');
 include_once('controller/ProfileController.php');
 include_once('controller/GameController.php');
+include_once('controller/RankingController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -74,6 +75,13 @@ class Configuration
         return new GameController(
             $this->getRenderer(),
             new GameModel($this->getDatabase())
+        );
+    }
+
+    public function getRankingController()
+    {
+        return new RankingController(
+            $this->getRenderer()
         );
     }
 
