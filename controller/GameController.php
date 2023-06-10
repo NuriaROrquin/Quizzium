@@ -30,9 +30,7 @@ class GameController
 
             $data['puntuacion'] = 0;
 
-            $_SESSION['id_partida'] = $this->gameModel->startGame($id_cuenta);
-
-            $_SESSION['id_partida'] = 1;
+            $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
 
             $_SESSION['old_question'] = $data['id_question'];
 
@@ -42,11 +40,15 @@ class GameController
 
             $isCorrect = $this->gameModel->verificateAnswer($selectedAnswer, $correctOpcion);
 
+            $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
+
             if($isCorrect){
 
-                $_SESSION['puntuacion'] = $_SESSION['puntuacion'] +1;
+                $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
 
-                $data['puntuacion'] = $_SESSION['puntuacion'];
+                var_dump($puntuacion);
+
+                $data['puntuacion'] = $puntuacion;
 
                 $_SESSION['old_question'] = $data['id_question'];
 
@@ -75,11 +77,9 @@ class GameController
 
     private function setData($id_cuenta){
 
-        $data = $this->gameModel->getQuestion();
+        $data = $this->gameModel->getQuestion($id_cuenta);
 
-        $data['puntuacion'] = $_SESSION['puntuacion'];
-
-        $data['id_partida'] = $_SESSION['id_partida'] ?? null;
+        $data['id_juego'] = $_SESSION['id_juego'] ?? null;
 
         $data['categoryColor'] = $this->gameModel->setCategoryColor($data['categoria']);
 

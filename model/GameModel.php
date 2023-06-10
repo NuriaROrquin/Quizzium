@@ -11,9 +11,13 @@ class GameModel
     }
 
 
-    private function randomQuestionIDs()
+    private function randomQuestionIDs($id_cuenta)
     {
-        $sql = "SELECT p.`id_pregunta` FROM `pregunta` p ORDER BY RAND() LIMIT 1;";
+        $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta =" .$id_cuenta .")
+                ORDER BY RAND() LIMIT 1;";
         return $this->database->querySelectAll($sql);
     }
 
@@ -44,9 +48,9 @@ class GameModel
         return $question;
     }
 
-    public function getQuestion()
+    public function getQuestion($id_cuenta)
     {
-        $questionID= $this->randomQuestionIDs();
+        $questionID= $this->randomQuestionIDs($id_cuenta);
 
         $questionData = $this->bringQuestions($questionID[0][0]);
 
@@ -87,11 +91,12 @@ class GameModel
 
     public function startGame($id_cuenta)
     {
+
         $id_partida = $this->database->queryWithID("INSERT INTO `partida` VALUES ();");
 
-        $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
+        $id_juego = $this->database->queryWithID("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
 
-        return $id_partida;
+        return $id_juego;
     }
 
     public function verificateAnswer($selectedAnswer , $correctOpcion){
@@ -104,13 +109,23 @@ class GameModel
         return $result;
     }
 
-    public function updateScore($score, $id_partida)
+    public function updateScore($id_juego)
     {
-        $score++;
 
-        $this->database->query("UPDATE `juego` SET puntaje = " . $score . " WHERE id_partida = ". $id_partida . ";");
+        $this->database->query("UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = " .$id_juego .";");
 
-        return $score;
+        $score = $this->database->querySelectAssoc("SELECT `puntaje` FROM `juego` WHERE `id_juego` = " .$id_juego .";");
+
+        return $score['puntaje'];
+    }
+
+    public function insertAnswer($isCorrect, $id_cuenta, $id_pregunta)
+    {
+        if($isCorrect){
+            $this->database->query("INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (".$id_pregunta ."," .$id_cuenta .", 1);");
+        }else{
+            $this->database->query("INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (".$id_pregunta ."," .$id_cuenta .");");
+        }
     }
 }
 
