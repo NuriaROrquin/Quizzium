@@ -31,6 +31,8 @@ class LobbyModel
 
         $index = 1;
 
+        $data ['rankingPosition'] = "-";
+
         while ($fila = $statement->fetch_assoc()) {
             $fila['index'] = $index;
 

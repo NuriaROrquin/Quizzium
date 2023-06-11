@@ -58,9 +58,10 @@ class GameModel
     private function randomQuestionIDs($id_cuenta)
     {
 
-        $this->questionDifficulty($id_cuenta);
+        //FALTA HACER ESTO ********************************************************
+        //$this->questionDifficulty($id_cuenta);
 
-        $this->userDifficulty($id_cuenta);
+        //$this->userDifficulty($id_cuenta);
 
         $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
                 WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta

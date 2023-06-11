@@ -62,6 +62,22 @@ class GameController
             }
         }
 
+        //revisar mañana la logica
+        $tiempo = 20;
+
+        if ($tiempo == 0){
+
+            //terminame la partida master
+            $data =  $_SESSION['oldData'];
+
+            $data['mostrarFinalPartida'] = true;
+
+            unset($_POST['option']);
+            unset($_POST['idQuestion']);
+            unset($_SESSION['old_question']);
+            unset($_SESSION['oldData']);
+        }
+
         $this->renderer->render('game', $data ?? "");
 
         $_SESSION['oldData'] = $data;

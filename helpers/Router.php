@@ -27,7 +27,7 @@ class Router
 
                 if ( $userIsOn ) {
                     $module = "lobby";
-                    $method = "list";
+                    $method = $this->defaultMethod;
                     $this->changeURL($module, $method);
                 }
                 break;
@@ -39,7 +39,7 @@ class Router
 
                 if ( !$userIsOn ) {
                     $module = "login";
-                    $method = "list";
+                    $method = $this->defaultMethod;
                     $this->changeURL($module, $method);
                 }
                 break;
