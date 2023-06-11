@@ -33,7 +33,7 @@
             <div class="right-sidebar">
                 <div class="timer">
                     <span>Cronómetro</span>
-                    <span>20''</span>
+                    <span id="cronometro">20</span>
                 </div>
             </div>
 
@@ -97,28 +97,54 @@
 </script>
 
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script>
-    function play() {
-        $.ajax({
 
-            url: 'http://localhost/game/nuevaPregunta',
-            method: 'get',
-            success: function (data) {
-                // Manejar la respuesta del backend aquí
-                alert(data); //data bi muestra bada
-                $('#question').text(data.question);
-                $('#option_1').text(data.opcion1);
-                $('#option_2').text(data.opcion2);
-                $('#option_3').text(data.opcion3);
-                $('#option_4').text(data.opcion4);
-            },
-            error: function (xhr, status, error) {
-                // Manejar errores aquí
-                alert('Se rompió todo');
+
+
+<script>
+
+    window.onload = function() {
+        let tiempo = 19; // tiempo inicial en segundos
+
+        let intervalo = setInterval(function() {
+
+            $('#cronometro').text(tiempo);
+            tiempo--;
+
+            if(tiempo < 0){
+                clearInterval(intervalo);
+                //aca tiene que mandarte que perdiste y mostrarte el pop up
+                //y hacer la logica de cargar la pregunta que respondio mal el usuario
             }
-        });
+
+        }, 1000);
     }
+
+
 </script>
 
 <!-- End Page Content -->
 {{> footer}}
+
+
+<!--
+function play() {
+$.ajax({
+
+url: 'http://localhost/game/nuevaPregunta',
+method: 'get',
+success: function (data) {
+// Manejar la respuesta del backend aquí
+alert(data); //data bi muestra bada
+$('#question').text(data.question);
+$('#option_1').text(data.opcion1);
+$('#option_2').text(data.opcion2);
+$('#option_3').text(data.opcion3);
+$('#option_4').text(data.opcion4);
+},
+error: function (xhr, status, error) {
+// Manejar errores aquí
+alert('Se rompió todo');
+}
+});
+}
+-->

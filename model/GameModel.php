@@ -10,9 +10,58 @@ class GameModel
         $this->database = $database;
     }
 
+    private function userDifficulty($id_cuenta){
+
+        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_cuenta =" . $id_cuenta  .";";
+
+        $totalPreguntasRespondidas = $this->database->querySelectAssoc($sql)['cantRtas'];
+
+        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_cuenta =" . $id_cuenta  . " AND fue_correcta = 1;";
+
+        $totalPreguntasCorrectas = $this->database->querySelectAssoc($sql)['cantRtas'];
+
+        $dificultad = ( $totalPreguntasCorrectas * 100 ) / $totalPreguntasRespondidas;
+
+        if ( $dificultad > 70 ) {
+            echo "usuario experto";
+        } else{
+            echo "usuario principiante";
+        }
+
+        var_dump($dificultad);
+        exit();
+    }
+
+    private function questionDifficulty($id_pregunta){
+
+        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_pregunta =" . $id_pregunta  .";";
+
+        $totalPreguntas = $this->database->querySelectAssoc($sql)['cantRtas'];
+
+        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_pregunta =" . $id_pregunta  . " AND fue_correcta = 1;";
+
+        $totalPreguntasCorrectas = $this->database->querySelectAssoc($sql)['cantRtas'];
+
+        $dificultad = ( $totalPreguntasCorrectas * 100 ) / $totalPreguntas;
+
+        if ( $dificultad > 70 ) {
+            echo "pregunta facil";
+        } else{
+            echo "pregunta dificil";
+        }
+
+        var_dump($dificultad);
+        exit();
+    }
+
 
     private function randomQuestionIDs($id_cuenta)
     {
+
+        $this->questionDifficulty($id_cuenta);
+
+        $this->userDifficulty($id_cuenta);
+
         $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
                 WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
                                             FROM respuesta

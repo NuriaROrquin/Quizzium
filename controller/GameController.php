@@ -53,9 +53,6 @@ class GameController
 
                 $data =  $_SESSION['oldData'];
 
-                //var_dump($data);
-                //exit();
-
                 $data['mostrarFinalPartida'] = true;
 
                 unset($_POST['option']);
@@ -88,10 +85,5 @@ class GameController
         $data['usuario'] = $userinfo['usuario'];
 
         return $data;
-    }
-
-    public function nuevaPregunta (){
-        $id_cuenta = $_SESSION['userID']['id_cuenta'];
-        return $data = $this->setData($id_cuenta);
     }
 }
