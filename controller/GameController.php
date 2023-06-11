@@ -17,57 +17,14 @@ class GameController
         $newQuestion = $_POST['idQuestion'] ?? "";
         $oldQuestion = $_SESSION['old_question'] ?? "";
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
+        $cronometro = $_POST['cronometroEnCero'] ?? false;
 
         $data = $this->setData($id_cuenta);
 
         $correctOpcion = $_SESSION['oldData']['es_correcta'] ?? false;
 
-        if( $newQuestion != $oldQuestion || !$selectedAnswer ){
+        if( $cronometro == "1"){
 
-            $data['puntuacion'] = 0;
-
-            $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
-
-            $_SESSION['old_question'] = $data['id_question'];
-
-        }
-
-        else{
-
-            $isCorrect = $this->gameModel->verificateAnswer($selectedAnswer, $correctOpcion);
-
-            $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
-
-            if($isCorrect){
-
-                $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
-
-                $data['puntuacion'] = $puntuacion;
-
-                $_SESSION['old_question'] = $data['id_question'];
-
-                unset($_POST['idQuestion']);
-            }
-
-            else{
-
-                $data =  $_SESSION['oldData'];
-
-                $data['mostrarFinalPartida'] = true;
-
-                unset($_POST['option']);
-                unset($_POST['idQuestion']);
-                unset($_SESSION['old_question']);
-                unset($_SESSION['oldData']);
-            }
-        }
-
-        //revisar mañana la logica
-        $tiempo = 20;
-
-        if ($tiempo == 0){
-
-            //terminame la partida master
             $data =  $_SESSION['oldData'];
 
             $data['mostrarFinalPartida'] = true;
@@ -76,6 +33,48 @@ class GameController
             unset($_POST['idQuestion']);
             unset($_SESSION['old_question']);
             unset($_SESSION['oldData']);
+
+        } else {
+            if(  $newQuestion != $oldQuestion || !$selectedAnswer ){
+
+                $data['puntuacion'] = 0;
+
+                $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
+
+                $_SESSION['old_question'] = $data['id_question'];
+
+            }
+
+            else{
+
+                $isCorrect = $this->gameModel->verificateAnswer($selectedAnswer, $correctOpcion);
+
+                $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
+
+                if($isCorrect){
+
+                    $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
+
+                    $data['puntuacion'] = $puntuacion;
+
+                    $_SESSION['old_question'] = $data['id_question'];
+
+                    unset($_POST['idQuestion']);
+                }
+
+                else{
+
+                    $data =  $_SESSION['oldData'];
+
+                    $data['mostrarFinalPartida'] = true;
+
+                    unset($_POST['option']);
+                    unset($_POST['idQuestion']);
+                    unset($_SESSION['old_question']);
+                    unset($_SESSION['oldData']);
+                }
+            }
+
         }
 
         $this->renderer->render('game', $data ?? "");
@@ -101,5 +100,10 @@ class GameController
         $data['usuario'] = $userinfo['usuario'];
 
         return $data;
+    }
+
+    public function fin(){
+        echo "termino el tiempo";
+        exit();
     }
 }

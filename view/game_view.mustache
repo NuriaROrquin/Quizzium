@@ -51,9 +51,10 @@
                     <span id="question">{{question}}</span>
                 </div>
 
-                <form method="post" enctype="multipart/form-data" action="/game/list">
+                <form id="form-game" method="post" enctype="multipart/form-data" action="/game/list">
 
                     <input type="hidden" name="idQuestion" value={{id_question}}>
+                    <input type="hidden" id="cronometro" name="cronometroEnCero" value="1">
 
                     <button  id="option_1" class="answer" name="option" value="1">{{opcion1}}</button>
                     <button  id="option_2" class="answer" name="option" value="2">{{opcion2}}</button>
@@ -98,32 +99,29 @@
 
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 
-
-
-<script>
-
-    window.onload = function() {
-        let tiempo = 19; // tiempo inicial en segundos
-
-        let intervalo = setInterval(function() {
-
-            $('#cronometro').text(tiempo);
-            tiempo--;
-
-            if(tiempo < 0){
-                clearInterval(intervalo);
-                //aca tiene que mandarte que perdiste y mostrarte el pop up
-                //y hacer la logica de cargar la pregunta que respondio mal el usuario
-            }
-
-        }, 1000);
-    }
-
-
-</script>
+<script src='../helpers/cronometro.js'></script>
 
 <!-- End Page Content -->
 {{> footer}}
+
+<!--
+<script>
+    window.addEventListener('load', function() {
+        let tiempo = 19;
+
+        let cronometro = setInterval(function() {
+            document.getElementById('cronometro').textContent = tiempo;
+            tiempo--;
+
+            if(tiempo < 0){
+                clearInterval(cronometro);
+                document.getElementById('form-game').submit();
+            }
+        }, 1000);
+    });
+</script>
+-->
+
 
 
 <!--
