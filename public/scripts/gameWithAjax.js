@@ -14,6 +14,7 @@ $(document).ready(function() {
             type: 'POST',
             data: data,
             success: function(response) {
+                console.log(JSON.stringify(response));
                 $('#respuesta').html(response);
 
             },

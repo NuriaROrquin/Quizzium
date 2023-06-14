@@ -100,18 +100,19 @@ class GameController
         $this->gameModel->insertAnswer( $isCorrect, $id_cuenta, $oldQuestion );
 
         if( $isCorrect ){
-            echo "fue correcta";
+
+            $data = $this->setData($id_cuenta);
 
             $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
-
             $data['puntuacion'] = $puntuacion;
 
             $_SESSION['old_question'] = $data['id_question'];
 
             unset($_POST['idQuestion']);
+
+
         }
         else{
-            echo "fue incorrecta";
             $data = $_SESSION['oldData'];
 
             $data['mostrarFinalPartida'] = true;
@@ -121,8 +122,9 @@ class GameController
             unset($_SESSION['old_question']);
             unset($_SESSION['oldData']);
         }
+        $encodedata = json_encode($data);
 
-        return $data;
+        echo utf8_encode($encodedata);
 
         /*
         $correctOpcion = $_SESSION['oldData']['es_correcta'] ?? false;
