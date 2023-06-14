@@ -14,13 +14,72 @@ $(document).ready(function() {
             type: 'POST',
             data: data,
             success: function(response) {
-                console.log(JSON.stringify(response));
-                $('#respuesta').html(response);
+
+                var data = JSON.parse(response);
+
+                data = setCategoryColor(data);
+
+                $('#puntuacion').text(data.puntuacion);
+
+                $('#categoria').text(data.categoryName);
+
+                $('#id_question').val(data.id_question);
+
+                $('#question').text(data.question);
+
+                $('#option_1').text(data.opcion1);
+                $('#option_2').text(data.opcion2);
+                $('#option_3').text(data.opcion3);
+                puntuacion
+
+                $('#option_1').val(data.id_opcion1);
+                $('#option_2').val(data.id_opcion2);
+                $('#option_3').val(data.id_opcion3);
+                $('#option_4').val(data.id_opcion4);
+
+                console.log(data);
+
+                if(data.mostrarFinalPartida == true){
+                    console.log("logica para abrir el pop up de perdiste y mostrar el puntaje");
+                }
 
             },
             error: function(xhr, status, error) {
-
             }
         });
     });
 });
+
+function setCategoryColor(data){
+
+    switch (data.categoryName){
+
+        case "ciencia":
+            $('#categoryColor').css({'background-color': '#008639'});
+            break;
+
+        case "historia":
+            $('#categoryColor').css({'background-color': '#BEA821'});
+            break;
+
+        case "arte":
+            $('#categoryColor').css({'background-color': '#DC0000'});
+            break;
+
+        case "geografia":
+            $('#categoryColor').css({'background-color': '#0176D2'});
+            break;
+
+        case "entretenimiento":
+            $('#categoryColor').css({'background-color': '#FF69B4'});
+            break;
+
+        default:
+            $('#categoryColor').css({'background-color': '#FF9400'});
+            break;
+    }
+
+    return data;
+}
+
+

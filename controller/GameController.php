@@ -122,18 +122,10 @@ class GameController
             unset($_SESSION['old_question']);
             unset($_SESSION['oldData']);
         }
-        $encodedata = json_encode($data);
 
-        echo utf8_encode($encodedata);
+        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-        /*
-        $correctOpcion = $_SESSION['oldData']['es_correcta'] ?? false;
-        $newQuestion = $_POST['idQuestion'] ?? "";
-        $oldQuestion = $_SESSION['old_question'] ?? "";
-        */
+        echo $data;
 
-
-
-        $opcionSeleccionada = "1";
     }
 }

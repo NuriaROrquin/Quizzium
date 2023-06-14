@@ -24,7 +24,7 @@
             <span>{{usuario}}</span>
         </div>
         <div class="answers">
-            <span>{{puntuacion}}</span>
+            <span id="puntuacion">{{puntuacion}}</span>
             <span>Respuestas Correctas</span>
         </div>
     </div>
@@ -45,9 +45,9 @@
 
                 <!--   Tirarlo para la derecha más grande  method="post" enctype="multipart/form-data" action="/game/list"-->
                 <div class="categoria">
-                    <span id="question">{{categoryName}}</span>
+                    <span id="categoria">{{categoryName}}</span>
                 </div>
-                <div class="question" style="{{categoryColor}}">
+                <div id="categoryColor" class="question" style="{{categoryColor}}">
                     <span id="question">{{question}}</span>
                 </div>
 
@@ -63,7 +63,7 @@
 
                 </form>
 
-                <div id="respuesta"></div>
+                <!-- <div id="respuesta"></div> -->
 
                 <div class="container-link">
                     <a href="/play/report">
