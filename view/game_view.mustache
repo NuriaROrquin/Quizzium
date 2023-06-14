@@ -43,7 +43,7 @@
                     <a href="/lobby/list">Ir al lobby</a>
                 </div>
 
-                <!--   Tirarlo para la derecha más grande -->
+                <!--   Tirarlo para la derecha más grande  method="post" enctype="multipart/form-data" action="/game/list"-->
                 <div class="categoria">
                     <span id="question">{{categoryName}}</span>
                 </div>
@@ -51,17 +51,19 @@
                     <span id="question">{{question}}</span>
                 </div>
 
-                <form id="form-game" method="post" enctype="multipart/form-data" action="/game/list">
 
-                    <input type="hidden" name="idQuestion" value={{id_question}}>
-                    <input type="hidden" id="cronometro" name="cronometroEnCero" value="1">
+                <form id="form-game">
 
-                    <button  id="option_1" class="answer" name="option" value="1">{{opcion1}}</button>
-                    <button  id="option_2" class="answer" name="option" value="2">{{opcion2}}</button>
-                    <button  id="option_3" class="answer" name="option" value="3">{{opcion3}}</button>
-                    <button  id="option_4" class="answer" name="option" value="4">{{opcion4}}</button>
+                    <input type="hidden" id="id_question" name="idQuestion" value={{id_question}}>
+
+                    <button  id="option_1" class="answer" name="option" value="{{id_opcion1}}" >{{opcion1}}</button>
+                    <button  id="option_2" class="answer" name="option" value="{{id_opcion2}}" >{{opcion2}}</button>
+                    <button  id="option_3" class="answer" name="option" value="{{id_opcion3}}" >{{opcion3}}</button>
+                    <button  id="option_4" class="answer" name="option" value="{{id_opcion4}}" >{{opcion4}}</button>
 
                 </form>
+
+                <div id="respuesta"></div>
 
                 <div class="container-link">
                     <a href="/play/report">
@@ -74,6 +76,7 @@
     {{/mostrarFinalPartida}}
 </div>
 
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 
 <script>
     function mostrarPopup() {
@@ -97,9 +100,8 @@
     }
 </script>
 
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 
-<script src='../public/scripts/cronometro.js'></script>
+<script src='../public/scripts/gameWithAjax.js'></script>
 
 <!-- End Page Content -->
 {{> footer}}
@@ -125,4 +127,6 @@ alert('Se rompió todo');
 }
 });
 }
+
+<script src='../public/scripts/cronometro.js'></script>
 -->

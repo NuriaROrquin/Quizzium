@@ -1,13 +1,13 @@
-window.addEventListener('load', function() {
+$(window).on('load', function() {
     let tiempo = 19;
 
     let cronometro = setInterval(function() {
-        document.getElementById('cronometro').textContent = tiempo;
+        $('#cronometro').text(tiempo);
         tiempo--;
 
-        if(tiempo < 0){
+        if (tiempo < 0) {
             clearInterval(cronometro);
-            document.getElementById('form-game').submit();
+            let value = $('#cronometro').val();
         }
     }, 1000);
 });

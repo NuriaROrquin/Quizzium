@@ -17,65 +17,50 @@ class GameController
         $newQuestion = $_POST['idQuestion'] ?? "";
         $oldQuestion = $_SESSION['old_question'] ?? "";
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
-        $cronometro = $_POST['cronometroEnCero'] ?? false;
 
         $data = $this->setData($id_cuenta);
 
         $correctOpcion = $_SESSION['oldData']['es_correcta'] ?? false;
 
-        if( $cronometro == "1"){
 
-            $data =  $_SESSION['oldData'];
+        if ($newQuestion != $oldQuestion || !$selectedAnswer) {
 
-            $data['mostrarFinalPartida'] = true;
+            $data['puntuacion'] = 0;
 
-            unset($_POST['option']);
-            unset($_POST['idQuestion']);
-            unset($_SESSION['old_question']);
-            unset($_SESSION['oldData']);
+            $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
+
+            $_SESSION['old_question'] = $data['id_question'];
 
         } else {
-            if(  $newQuestion != $oldQuestion || !$selectedAnswer ){
 
-                $data['puntuacion'] = 0;
+            $isCorrect = $this->gameModel->verificateAnswer($selectedAnswer, $correctOpcion);
 
-                $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
+            $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
+
+            if ($isCorrect) {
+
+                $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
+
+                $data['puntuacion'] = $puntuacion;
 
                 $_SESSION['old_question'] = $data['id_question'];
 
+                unset($_POST['idQuestion']);
+
+            } else {
+
+                $data = $_SESSION['oldData'];
+
+                $data['mostrarFinalPartida'] = true;
+
+
+                unset($_POST['option']);
+                unset($_POST['idQuestion']);
+                unset($_SESSION['old_question']);
+                unset($_SESSION['oldData']);
             }
-
-            else{
-
-                $isCorrect = $this->gameModel->verificateAnswer($selectedAnswer, $correctOpcion);
-
-                $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
-
-                if($isCorrect){
-
-                    $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
-
-                    $data['puntuacion'] = $puntuacion;
-
-                    $_SESSION['old_question'] = $data['id_question'];
-
-                    unset($_POST['idQuestion']);
-                }
-
-                else{
-
-                    $data =  $_SESSION['oldData'];
-
-                    $data['mostrarFinalPartida'] = true;
-
-                    unset($_POST['option']);
-                    unset($_POST['idQuestion']);
-                    unset($_SESSION['old_question']);
-                    unset($_SESSION['oldData']);
-                }
-            }
-
         }
+
 
         $this->renderer->render('game', $data ?? "");
 
@@ -83,7 +68,8 @@ class GameController
 
     }
 
-    private function setData($id_cuenta){
+    private function setData($id_cuenta)
+    {
 
         $data = $this->gameModel->getQuestion($id_cuenta);
 
@@ -102,8 +88,50 @@ class GameController
         return $data;
     }
 
-    public function fin(){
-        echo "termino el tiempo";
-        exit();
+    public function answer()
+    {
+        $selectedAnswer = $_POST['selectedOption'] ?? false;
+        $id_pregunta = $_POST['id_question'] ?? false;
+        $oldQuestion = $_SESSION['old_question'] ?? "";
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
+
+
+        $isCorrect = $this->gameModel->verificateAnswer($id_pregunta, $selectedAnswer);
+        $this->gameModel->insertAnswer( $isCorrect, $id_cuenta, $oldQuestion );
+
+        if( $isCorrect ){
+            echo "fue correcta";
+
+            $puntuacion = $this->gameModel->updateScore($_SESSION['id_juego']);
+
+            $data['puntuacion'] = $puntuacion;
+
+            $_SESSION['old_question'] = $data['id_question'];
+
+            unset($_POST['idQuestion']);
+        }
+        else{
+            echo "fue incorrecta";
+            $data = $_SESSION['oldData'];
+
+            $data['mostrarFinalPartida'] = true;
+
+            unset($_POST['option']);
+            unset($_POST['idQuestion']);
+            unset($_SESSION['old_question']);
+            unset($_SESSION['oldData']);
+        }
+
+        return $data;
+
+        /*
+        $correctOpcion = $_SESSION['oldData']['es_correcta'] ?? false;
+        $newQuestion = $_POST['idQuestion'] ?? "";
+        $oldQuestion = $_SESSION['old_question'] ?? "";
+        */
+
+
+
+        $opcionSeleccionada = "1";
     }
 }
