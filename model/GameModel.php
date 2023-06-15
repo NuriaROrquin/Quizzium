@@ -91,29 +91,41 @@ class GameModel
 
     private function bringQuestions($idString)
     {
-        $sql = "SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+
+
+        $sql = "SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
         ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idString . ";";
 
-        $questions = $this->database->query($sql);
+        $question = $this->database->query($sql);
 
-        $fila = $questions->fetch_all(MYSQLI_ASSOC);
+        $fila = $question->fetch_all(MYSQLI_ASSOC);
 
-        $question['id_question'] = $fila[0]['id_pregunta'];
-        $question['question'] = $fila[0]['pregunta'];
-        $question['opcion1'] = $fila[0]['opcion'];
-        $question['opcion2'] = $fila[1]['opcion'];
-        $question['opcion3'] = $fila[2]['opcion'];
-        $question['opcion4'] = $fila[3]['opcion'];
-        $question['categoria'] = $fila[0]['id_categoria'];
+
+        $dataQuestion['id_question'] = $fila[0]['id_pregunta'];
+
+        $dataQuestion['question'] = $fila[0]['pregunta'];
+
+        $dataQuestion['opcion1'] = $fila[0]['opcion'];
+        $dataQuestion['opcion2'] = $fila[1]['opcion'];
+        $dataQuestion['opcion3'] = $fila[2]['opcion'];
+        $dataQuestion['opcion4'] = $fila[3]['opcion'];
+
+        $dataQuestion['id_opcion1'] = $fila[0]['id_opcion'];
+        $dataQuestion['id_opcion2'] = $fila[1]['id_opcion'];
+        $dataQuestion['id_opcion3'] = $fila[2]['id_opcion'];
+        $dataQuestion['id_opcion4'] = $fila[3]['id_opcion'];
+
+        $dataQuestion['categoria'] = $fila[0]['id_categoria'];
 
         foreach ($fila as $clave => $respuesta) {
             if ($respuesta['es_correcta'] == 1) {
-                $question['es_correcta'] = $clave + 1;
-                $question['textoOpcionCorrecta'] = $respuesta['opcion'];
+                $dataQuestion['es_correcta'] = $clave + 1;
+                $dataQuestion['textoOpcionCorrecta'] = $respuesta['opcion'];
                 break;
             }
         }
-        return $question;
+
+        return $dataQuestion;
     }
 
     public function getQuestion($id_cuenta)
@@ -174,6 +186,7 @@ class GameModel
         return $id_juego;
     }
 
+    /*
     public function verificateAnswer($selectedAnswer , $correctOpcion){
 
         $result = false;
@@ -183,6 +196,7 @@ class GameModel
         }
         return $result;
     }
+    */
 
     public function updateScore($id_juego)
     {
@@ -201,6 +215,25 @@ class GameModel
         }else{
             $this->database->query("INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (".$id_pregunta ."," .$id_cuenta .");");
         }
+    }
+
+    public function verificateAnswer( $id_pregunta, $selectedAnswer ){
+
+
+        $result = false;
+
+        $sql = "SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = " . $id_pregunta .
+            " AND O.es_correcta = 1;";
+
+
+        $correctAnswer = $this->database->querySelectAssoc($sql);
+
+
+        if($correctAnswer['id_opcion'] == $selectedAnswer){
+            $result = true;
+        }
+
+        return $result;
     }
 }
 
