@@ -107,6 +107,9 @@ class GameController
             unset($_SESSION['old_question']);
             unset($_SESSION['puntuacion']);
 
+            $isCorrect = $this->gameModel->verificateAnswer($id_pregunta, $selectedAnswer);
+            $this->gameModel->insertAnswer( $isCorrect, $id_cuenta, $oldQuestion );
+
         }
 
         else{
