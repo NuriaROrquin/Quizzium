@@ -1,19 +1,61 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('.answer').click(function(event) {
+
+    $(window).on('load', function () {
+        let tiempo = 19;
+
+        let cronometro = setInterval(function () {
+            $('#cronometro').text(tiempo);
+            tiempo--;
+
+            if (tiempo < 0) {
+                clearInterval(cronometro);
+
+                let id_question = $('#id_question').val();
+
+                let data = "id_question=" + id_question  + "&cronometroEnCero=1";
+
+                $.ajax({
+                    url: '/game/answer',
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+
+                        var data = JSON.parse(response);
+
+                        $('#form-game').css({'display': 'none'});
+                        $('.timer').css({'display': 'none'});
+                        $('.categoria').css({'display': 'none'});
+                        $('#categoryColor').css({'display': 'none'});
+
+                        $('#mostrarFinalPartida').css({'display': 'block'});
+                        $('#puntuacionFinal').text(data.puntuacion);
+                        $('#textoOpcionCorrecta').text(data.textoOpcionCorrecta);
+
+
+                    },
+                    error: function (xhr, status, error) {
+                    }
+                });
+            }
+        }, 1000);
+    });
+
+
+    $('.answer').click(function (event) {
 
         event.preventDefault();
 
         let id_question = $('#id_question').val();
         let selectedOption = $(this).val();
 
-        let data = "id_question="+id_question+"&selectedOption="+selectedOption;
+        let data = "id_question=" + id_question + "&selectedOption=" + selectedOption;
 
         $.ajax({
             url: '/game/answer',
             type: 'POST',
             data: data,
-            success: function(response) {
+            success: function (response) {
 
                 var data = JSON.parse(response);
 
@@ -37,10 +79,7 @@ $(document).ready(function() {
                 $('#option_3').val(data.id_opcion3);
                 $('#option_4').val(data.id_opcion4);
 
-
-                console.log(data);
-
-                if(data.mostrarFinalPartida == true){
+                if (data.mostrarFinalPartida == true) {
 
 
                     $('#form-game').css({'display': 'none'});
@@ -55,15 +94,15 @@ $(document).ready(function() {
                 }
 
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
             }
         });
     });
 });
 
-function setCategoryColor(data){
+function setCategoryColor(data) {
 
-    switch (data.categoryName){
+    switch (data.categoryName) {
 
         case "ciencia":
             $('#categoryColor').css({'background-color': '#008639'});
