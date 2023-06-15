@@ -1,10 +1,11 @@
-$(document).ready(function () {
+$(window).on('load', function () {
 
+    let tiempo = 19;
+    let cronometro;
 
-    $(window).on('load', function () {
-        let tiempo = 19;
+    function iniciarCronometro() {
 
-        let cronometro = setInterval(function () {
+        cronometro = setInterval(function () {
             $('#cronometro').text(tiempo);
             tiempo--;
 
@@ -13,7 +14,7 @@ $(document).ready(function () {
 
                 let id_question = $('#id_question').val();
 
-                let data = "id_question=" + id_question  + "&cronometroEnCero=1";
+                let data = "id_question=" + id_question + "&cronometroEnCero=1";
 
                 $.ajax({
                     url: '/game/answer',
@@ -39,10 +40,17 @@ $(document).ready(function () {
                 });
             }
         }, 1000);
-    });
+    }
 
+    iniciarCronometro();
 
     $('.answer').click(function (event) {
+
+        clearInterval(cronometro);
+        $('#cronometro').text(20);
+
+        tiempo=19;
+        iniciarCronometro();
 
         event.preventDefault();
 
