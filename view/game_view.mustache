@@ -1,15 +1,13 @@
 {{> header}}
 
-
-
 <div id="mostrarFinalPartida" style="display: none">
     <div class="overlay"></div>
     <div class="popup">
         <h1>Perdiste!</h1>
-        <p class="emphasis" >La respuesta correcta era:</p>
+        <p class="emphasis">La respuesta correcta era:</p>
         <p id="textoOpcionCorrecta">{{textoOpcionCorrecta}}</p>
 
-        <p class="emphasis" >Tu puntaje fue:</p>
+        <p class="emphasis">Tu puntaje fue:</p>
         <p class="emphasis" id="puntuacionFinal">{{puntuacion}}</p>
         <a href="/lobby/list" class="button button-small">Volver al lobby</a>
     </div>
@@ -21,8 +19,11 @@
 <div class="game">
 
     <div class="left-sidebar">
-
-
+        <div class="redirect-md">
+            <a href="/lobby/list">
+                Ir al lobby
+            </a>
+        </div>
         <div class="profile">
             <img src="../public/profile-pictures/{{foto_perfil}}">
             <span>{{usuario}}</span>
@@ -43,16 +44,20 @@
         </div>
 
         <div class="round">
-            <!--   Tirarlo para la izquierda con tipografía de sugerir pregunta -->
-            <div class="redirect">
-                <a href="/lobby/list">Ir al lobby</a>
+
+            <div class="redirect-lg">
+                <a href="/lobby/list">
+                    <img src="../public/assets/arrow-right.png"/>
+                    Ir al lobby
+                </a>
             </div>
 
-            <!--   Tirarlo para la derecha más grande  method="post" enctype="multipart/form-data" action="/game/list"-->
-            <div class="categoria">
-                <span id="categoria">{{categoryName}}</span>
+            <div class="categoryTitle" id="categoryTitle" style="color:{{categoryColor}}">
+                <span>
+                    {{categoryName}}
+                </span>
             </div>
-            <div id="categoryColor" class="question" style="{{categoryColor}}">
+            <div id="categoryColor" class="question" style="background-color:{{categoryColor}}">
                 <span id="question">{{question}}</span>
             </div>
 
@@ -108,30 +113,5 @@
 
 <script src='../public/scripts/gameWithAjax.js'></script>
 
-<!-- End Page Content -->
+
 {{> footer}}
-
-<!--
-function play() {
-$.ajax({
-
-url: 'http://localhost/game/nuevaPregunta',
-method: 'get',
-success: function (data) {
-// Manejar la respuesta del backend aquí
-alert(data); //data bi muestra bada
-$('#question').text(data.question);
-$('#option_1').text(data.opcion1);
-$('#option_2').text(data.opcion2);
-$('#option_3').text(data.opcion3);
-$('#option_4').text(data.opcion4);
-},
-error: function (xhr, status, error) {
-// Manejar errores aquí
-alert('Se rompió todo');
-}
-});
-}
-
-<script src='../public/scripts/cronometro.js'></script>
--->

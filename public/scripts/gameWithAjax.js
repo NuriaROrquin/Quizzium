@@ -59,8 +59,6 @@ $(window).on('load', function () {
 
                 var data = JSON.parse(response);
 
-                data = setCategoryColor(data);
-
                 siguientePregunta(data);
 
                 if ( data.mostrarFinalPartida ) {
@@ -80,6 +78,7 @@ function finalizarPartida(data){
     $('.timer').css({'display': 'none'});
     $('.categoria').css({'display': 'none'});
     $('#categoryColor').css({'display': 'none'});
+    $('#categoryTitle').css({'display': 'none'});
 
     $('#mostrarFinalPartida').css({'display': 'block'});
     $('#puntuacionFinal').text(data.puntuacion);
@@ -106,39 +105,3 @@ function siguientePregunta(data){
     $('#option_3').val(data.id_opcion3);
     $('#option_4').val(data.id_opcion4);
 }
-
-
-
-function setCategoryColor(data) {
-
-    switch (data.categoryName) {
-
-        case "ciencia":
-            $('#categoryColor').css({'background-color': '#008639'});
-            break;
-
-        case "historia":
-            $('#categoryColor').css({'background-color': '#BEA821'});
-            break;
-
-        case "arte":
-            $('#categoryColor').css({'background-color': '#DC0000'});
-            break;
-
-        case "geografia":
-            $('#categoryColor').css({'background-color': '#0176D2'});
-            break;
-
-        case "entretenimiento":
-            $('#categoryColor').css({'background-color': '#FF69B4'});
-            break;
-
-        default:
-            $('#categoryColor').css({'background-color': '#FF9400'});
-            break;
-    }
-
-    return data;
-}
-
-

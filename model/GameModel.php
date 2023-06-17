@@ -160,7 +160,7 @@ class GameModel
                 break;
 
         }
-        return 'background-color:'. $color .';';
+        return $color;
     }
 
     public function getCategoryName($id_categoria){
