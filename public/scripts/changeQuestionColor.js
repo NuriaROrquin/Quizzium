@@ -1,7 +1,7 @@
 $(window).on('load', function () {
     changeBackgroundColor();
 
-    $('.form-select').click(function (event) {
+    $('#categoria').click(function (event) {
         changeBackgroundColor(event);
     })
 });
