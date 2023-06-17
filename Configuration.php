@@ -10,6 +10,7 @@ include_once('model/ProfileModel.php');
 include_once('model/GameModel.php');
 include_once('model/RankingModel.php');
 include_once('model/LobbyModel.php');
+include_once('model/FactoryModel.php');
 
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
@@ -18,6 +19,7 @@ include_once('controller/MailController.php');
 include_once('controller/ProfileController.php');
 include_once('controller/GameController.php');
 include_once('controller/RankingController.php');
+include_once('controller/FactoryController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -86,6 +88,14 @@ class Configuration
             $this->getRenderer(),
             new RankingModel($this->getDatabase()),
             new ProfileModel($this->getDatabase())
+        );
+    }
+
+    public function getFactoryController()
+    {
+        return new FactoryController(
+            $this->getRenderer(),
+            new FactoryModel($this->getDatabase())
         );
     }
 

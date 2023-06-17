@@ -24,15 +24,7 @@ $(window).on('load', function () {
 
                         var data = JSON.parse(response);
 
-                        $('#form-game').css({'display': 'none'});
-                        $('.timer').css({'display': 'none'});
-                        $('.categoria').css({'display': 'none'});
-                        $('#categoryColor').css({'display': 'none'});
-
-                        $('#mostrarFinalPartida').css({'display': 'block'});
-                        $('#puntuacionFinal').text(data.puntuacion);
-                        $('#textoOpcionCorrecta').text(data.textoOpcionCorrecta);
-
+                        finalizarPartida(data);
 
                     },
                     error: function (xhr, status, error) {
@@ -67,38 +59,10 @@ $(window).on('load', function () {
 
                 var data = JSON.parse(response);
 
-                data = setCategoryColor(data);
+                siguientePregunta(data);
 
-                $('.puntuacion').text(data.puntuacion);
-
-                $('#categoria').text(data.categoryName);
-
-                $('#id_question').val(data.id_question);
-
-                $('#question').text(data.question);
-
-                $('#option_1').text(data.opcion1);
-                $('#option_2').text(data.opcion2);
-                $('#option_3').text(data.opcion3);
-                $('#option_4').text(data.opcion4);
-
-                $('#option_1').val(data.id_opcion1);
-                $('#option_2').val(data.id_opcion2);
-                $('#option_3').val(data.id_opcion3);
-                $('#option_4').val(data.id_opcion4);
-
-                if (data.mostrarFinalPartida == true) {
-
-
-                    $('#form-game').css({'display': 'none'});
-                    $('.timer').css({'display': 'none'});
-                    $('.categoria').css({'display': 'none'});
-                    $('#categoryColor').css({'display': 'none'});
-
-                    $('#mostrarFinalPartida').css({'display': 'block'});
-                    $('#puntuacionFinal').text(data.puntuacion);
-                    $('#textoOpcionCorrecta').text(data.textoOpcionCorrecta);
-
+                if ( data.mostrarFinalPartida ) {
+                    finalizarPartida(data)
                 }
 
             },
@@ -108,36 +72,36 @@ $(window).on('load', function () {
     });
 });
 
-function setCategoryColor(data) {
 
-    switch (data.categoryName) {
+function finalizarPartida(data){
+    $('#form-game').css({'display': 'none'});
+    $('.timer').css({'display': 'none'});
+    $('.categoria').css({'display': 'none'});
+    $('#categoryColor').css({'display': 'none'});
+    $('#categoryTitle').css({'display': 'none'});
 
-        case "ciencia":
-            $('#categoryColor').css({'background-color': '#008639'});
-            break;
-
-        case "historia":
-            $('#categoryColor').css({'background-color': '#BEA821'});
-            break;
-
-        case "arte":
-            $('#categoryColor').css({'background-color': '#DC0000'});
-            break;
-
-        case "geografia":
-            $('#categoryColor').css({'background-color': '#0176D2'});
-            break;
-
-        case "entretenimiento":
-            $('#categoryColor').css({'background-color': '#FF69B4'});
-            break;
-
-        default:
-            $('#categoryColor').css({'background-color': '#FF9400'});
-            break;
-    }
-
-    return data;
+    $('#mostrarFinalPartida').css({'display': 'block'});
+    $('#puntuacionFinal').text(data.puntuacion);
+    $('#textoOpcionCorrecta').text(data.textoOpcionCorrecta);
 }
 
 
+function siguientePregunta(data){
+    $('.puntuacion').text(data.puntuacion);
+
+    $('#categoria').text(data.categoryName);
+
+    $('#id_question').val(data.id_question);
+
+    $('#question').text(data.question);
+
+    $('#option_1').text(data.opcion1);
+    $('#option_2').text(data.opcion2);
+    $('#option_3').text(data.opcion3);
+    $('#option_4').text(data.opcion4);
+
+    $('#option_1').val(data.id_opcion1);
+    $('#option_2').val(data.id_opcion2);
+    $('#option_3').val(data.id_opcion3);
+    $('#option_4').val(data.id_opcion4);
+}

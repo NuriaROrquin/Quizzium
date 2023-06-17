@@ -201,7 +201,7 @@ class GameModel
                 break;
 
         }
-        return 'background-color:'. $color .';';
+        return $color;
     }
 
     public function getCategoryName($id_categoria){
@@ -226,18 +226,6 @@ class GameModel
 
         return $id_juego;
     }
-
-    /*
-    public function verificateAnswer($selectedAnswer , $correctOpcion){
-
-        $result = false;
-
-        if($selectedAnswer == $correctOpcion){
-            $result = true;
-        }
-        return $result;
-    }
-    */
 
     public function updateScore($id_juego)
     {

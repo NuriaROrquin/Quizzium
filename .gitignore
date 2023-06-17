@@ -2,5 +2,6 @@
 .htaccess
 
 config/config.ini
+config/seguridad.txt
 
 public/profile-pictures/
