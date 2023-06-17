@@ -1,0 +1,88 @@
+{{> header}}
+
+<div class="factory">
+    <div class="left-sidebar">
+        <span>¡Sugerí tu pregunta!</span>
+        <img src="../public/assets/willy.webp"/>
+        <p>
+            <span>¡Bienvenidos!</span>
+            Yo soy Willy y estoy buscando una pregunta desafiante con cuatro opciones de respuesta.
+            Si tenés en mente una pregunta interesante y sus respectivas opciones, por favor compartilas conmigo.
+            <span>¡Gracias por tu participación!</span>
+        </p>
+    </div>
+    <div class="container-form" id="form-container-question">
+        <div class="redirect-to-lobby">
+            <a href="/lobby/list">
+                <img src="../public/assets/arrow-right.png"/>
+                Ir al lobby
+            </a>
+        </div>
+        <form method="post" class="form-container-question" id="form-question">
+            <div class="form-field">
+                <label class="form-label" for="categoria">Categoría:</label>
+                <select class="form-select" id="categoria">
+                    <option value="1">Ciencia</option>
+                    <option value="2">Historia</option>
+                    <option value="3">Arte</option>
+                    <option value="4">Geografía</option>
+                    <option value="5">Entretenimiento</option>
+                    <option value="6">Deporte</option>
+                </select>
+                <span id="categoria-error" class="error"></span>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="pregunta">Pregunta:</label>
+                <input class="form-input" type="text" id="pregunta">
+                <span id="pregunta-error" class="error"></span>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="respuesta1">Respuesta 1:</label>
+                <input class="form-input" type="text" id="respuesta1">
+                <span id="respuesta1-error" class="error"></span>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="respuesta2">Respuesta 2:</label>
+                <input class="form-input" type="text" id="respuesta2">
+                <span id="respuesta2-error" class="error"></span>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="respuesta3">Respuesta 3:</label>
+                <input class="form-input" type="text" id="respuesta3">
+                <span id="respuesta3-error" class="error"></span>
+            </div>
+
+
+            <div class="form-field">
+                <label class="form-label" for="respuesta4">Respuesta 4:</label>
+                <input class="form-input" type="text" id="respuesta4">
+                <span id="respuesta4-error" class="error"></span>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="correcta">Respuesta Correcta:</label>
+                <select class="form-select" id="correcta">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <span id="correcta-error" class="error"></span>
+            </div>
+
+
+            <div class="redirect">
+                <button class="button button-small" type="button" id="submitButton">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='/public/scripts/changeQuestionColor.js'></script>
+<script src='/public/scripts/questionSendAjax.js'></script>
+{{> footer}}
