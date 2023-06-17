@@ -568,6 +568,7 @@ body {
     font-size: 16px;
     font-family: 'Poppins';
     color: #FFA500;
+    width: 100%;
 }
 
 .container-data .container-info img {
@@ -1209,6 +1210,10 @@ body:has(.container-ranking) {
         font-size: 20px;
     }
 
+    .container-data .container-info .data .info {
+        width: 100%;
+    }
+
     .container-data .container-info .data .info .info-data {
         font-size: 16px;
         width: 100%;
@@ -1578,10 +1583,7 @@ body:has(.container-ranking) {
         font-size: 20px;
     }
 
-    .container-data .container-info .data .info .info-data {
-        font-size: 16px;
-        width: 100%;
-    }
+
 
     .container-data {
         width: 90%;
