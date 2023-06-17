@@ -38,15 +38,16 @@ class ProfileController
 
         if($result){
 
-            $this->profileModel->updateData($dataPerfil);
+          // $this->profileModel->updateData($dataPerfil);
 
         } else {
-            $_SESSION['mailExistente'] = true;
+
+            $data['mailExistente'] = true;
         }
 
         $data = json_encode($dataPerfil, JSON_UNESCAPED_UNICODE);
 
-        echo $data;
+        echo $result;
 
     }
 }

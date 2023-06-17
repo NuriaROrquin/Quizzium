@@ -26,4 +26,20 @@ class ProfileModel
         return $id["mail"];
     }
 
+    public function checkMail($newMail, $mailUser){
+        $result = false;
+
+        $sql = "SELECT mail FROM cuenta WHERE mail ='$newMail';";
+
+        $checkMailinDatabase = $this->database->querySelectAssoc($sql);
+
+
+        if($newMail == $mailUser || $checkMailinDatabase == null){
+            $result = true;
+        }else{
+            $result = false;
+        }
+        return $result;
+    }
+
 }

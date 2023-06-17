@@ -96,7 +96,7 @@
 
                 <div class="container-info">
 
-                    <form class="data" action="/profile/edit" method="POST" enctype="multipart/form-data">
+                    <div class="data">
 
                         <div class="info">
                             <span class="title">Nombre de usuario:</span>
@@ -138,10 +138,10 @@
                             <input class="info-data" name="mail" value="{{mail}}">
                         </div>
 
-                        <button id="editProfile" type="submit" class="button-secondary button-small">Editar
+                        <button id="editProfile" class="button-secondary button-small">Editar
                             perfil</button>
 
-                    </form>
+                    </div>
 
                 </div>
 
@@ -154,4 +154,6 @@
 
 <!-- End Page Content -->
 </div>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='../public/scripts/profile.js'></script>
 {{> footer}}
