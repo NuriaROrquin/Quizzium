@@ -10,26 +10,62 @@ class GameModel
         $this->database = $database;
     }
 
-    private function userDifficulty($id_cuenta){
+    private function updateUserAnswersQuantity($id_cuenta, $isCorrect){
 
-        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_cuenta =" . $id_cuenta  .";";
-
-        $totalPreguntasRespondidas = $this->database->querySelectAssoc($sql)['cantRtas'];
-
-        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_cuenta =" . $id_cuenta  . " AND fue_correcta = 1;";
-
-        $totalPreguntasCorrectas = $this->database->querySelectAssoc($sql)['cantRtas'];
-
-        $dificultad = ( $totalPreguntasCorrectas * 100 ) / $totalPreguntasRespondidas;
-
-        if ( $dificultad > 70 ) {
-            echo "usuario experto";
-        } else{
-            echo "usuario principiante";
+        if($isCorrect){
+            $sql = "UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = " . $id_cuenta  .";";
+        }else{
+            $sql = "UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = " . $id_cuenta  .";";
         }
+        $this->database->query($sql);
 
-        var_dump($dificultad);
-        exit();
+        $this->updateUserDifficultty($id_cuenta);
+    }
+
+    private function updateUserDifficultty($id_cuenta){
+        $sql = "SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =" . $id_cuenta  .";";
+
+        $cantRtas = $this->database->querySelectAssoc($sql)['cantRtas'];
+        $cantCorrectas = $this->database->querySelectAssoc($sql)['cantCorrectas'];
+        $dificultad = ($cantCorrectas * 100)/ $cantRtas;
+
+        $sql = "UPDATE cuenta SET `dificultad` = " . $dificultad ." WHERE id_cuenta = " . $id_cuenta  .";";
+
+        $this->database->query($sql);
+
+    }
+
+    private function updateQuestionQuantity($id_pregunta, $isCorrect){
+
+        if(!$isCorrect){
+            $sql = "UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_inorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = " . $id_pregunta  .";";
+        }else{
+            $sql = "UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = " . $id_pregunta  .";";
+        }
+        $this->database->query($sql);
+
+        $this->updateQuestionDifficultty($id_pregunta);
+    }
+
+    private function updateQuestionDifficultty($id_pregunta){
+        $sql = "SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =" . $id_pregunta  .";";
+
+        $cantRtas = $this->database->querySelectAssoc($sql)['cantRtas'];
+        $cantIncorrectas = $this->database->querySelectAssoc($sql)['cantIncorrectas'];
+        $dificultad = ($cantIncorrectas * 100)/ $cantRtas;
+
+        $sql = "UPDATE pregunta SET `dificultad` = " . $dificultad ." WHERE id_pregunta = " . $id_pregunta  .";";
+
+        $this->database->query($sql);
+
+    }
+
+    private function getUserDifficulty($id_cuenta){
+        $sql = "SELECT dificultad FROM `cuenta` WHERE id_cuenta =" . $id_cuenta  .";";
+
+        $dificultad = $this->database->querySelectAssoc($sql)['dificultad'];
+
+        return $dificultad;
     }
 
     private function questionDifficulty($id_pregunta){
@@ -54,20 +90,23 @@ class GameModel
         exit();
     }
 
-
-    private function randomQuestionIDs($id_cuenta)
+    private function randomQuestionIDs($id_cuenta, $dificultadUsuario)
     {
-
-        //FALTA HACER ESTO ********************************************************
-        //$this->questionDifficulty($id_cuenta);
-
-        //$this->userDifficulty($id_cuenta);
-
-        $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
+        if($dificultadUsuario < 70){
+            $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
                 WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
                                             FROM respuesta
                                             WHERE id_cuenta =" .$id_cuenta .")
+                AND dificultad < 70
                 ORDER BY RAND() LIMIT 1;";
+        }else{
+            $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta =" .$id_cuenta .")
+                AND dificultad > 70
+                ORDER BY RAND() LIMIT 1;";
+        }
 
         $result = $this->database->querySelectAll($sql);
 
@@ -130,7 +169,9 @@ class GameModel
 
     public function getQuestion($id_cuenta)
     {
-        $questionID= $this->randomQuestionIDs($id_cuenta);
+        $dificultadUsuario = $this->getUserDifficulty($id_cuenta);
+
+        $questionID= $this->randomQuestionIDs($id_cuenta, $dificultadUsuario);
 
         $questionData = $this->bringQuestions($questionID[0][0]);
 
@@ -215,6 +256,10 @@ class GameModel
         }else{
             $this->database->query("INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (".$id_pregunta ."," .$id_cuenta .");");
         }
+
+        $this->updateUserAnswersQuantity($id_cuenta, $isCorrect);
+        $this->updateQuestionQuantity($id_pregunta, $isCorrect);
+
     }
 
     public function verificateAnswer( $id_pregunta, $selectedAnswer ){
