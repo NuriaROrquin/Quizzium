@@ -48,7 +48,7 @@
             <div class="header">
                 <div class="description">
                     <img src="../public/profile-pictures/{{foto_perfil}}"/>
-                    <h1>{{usuario}}</h1>
+                    <h1 id="nombreDeUsuario">{{usuario}}</h1>
                 </div>
             </div>
 
@@ -100,53 +100,93 @@
 
                         <div class="info">
                             <span class="title">Nombre de usuario:</span>
-                            <input class="info-data" name="usuario" value="{{usuario}}">
+                            <input id="campoUnoFormularioPerfil" class="info-data" name="usuario" value="{{usuario}}">
+                        </div>
+
+                        <div class="info">
+                            <span class="title">Contraseña:</span>
+                            <input id="campoDosFormularioPerfil" class="info-data" name="contrasenia"
+                                   type="password">
                         </div>
 
                         <div class="info">
                             <span class="title">Nombre:</span>
-                            <input class="info-data" name="nombre" value="{{nombre}}">
+                            <input id="campoTresFormularioPerfil" class="info-data" name="nombre" value="{{nombre}}">
                         </div>
 
                         <div class="info">
                             <span class="title">Apellido:</span>
-                            <input class="info-data" name="apellido" value="{{apellido}}">
+                            <input id="campoCuatroFormularioPerfil" class="info-data" name="apellido"
+                                   value="{{apellido}}">
                         </div>
 
                         <div class="info">
                             <span class="title">Fecha de nacimiento:</span>
-                            <input class="info-data" name="fecha_nacimiento" value="{{fecha_nacimiento}}">
+                            <input id="campoCincoFormularioPerfil" class="info-data" name="fecha_nacimiento"
+                                   value="{{fecha_nacimiento}}">
                         </div>
 
-                        <div class="info">
-                            <span class="title">Género:</span>
-                            <input class="info-data" name="tipo" value="{{tipo}}">
-                        </div>
+                        {{#masculino}}
+                            <div class="info">
+                                <span class="title">Género:</span>
+                                <select id="campoSeisFormularioPerfil" class="info-data" name="tipo">
+                                    <option value="1" selected>{{tipo}}</option>
+                                    <option value="2">Famenino</option>
+                                    <option value="3">Prefiero no decirlo</option>
+                                </select>
+                            </div>
+                        {{/masculino}}
+
+                        {{#femenino}}
+                            <div class="info">
+                                <span class="title">Género:</span>
+                                <select id="campoSeisFormularioPerfil" class="info-data" name="tipo">
+                                    <option value="1">Masculino</option>
+                                    <option value="2" selected>{{tipo}}</option>
+                                    <option value="3">Prefiero no decirlo</option>
+                                </select>
+                            </div>
+                        {{/femenino}}
+
+                        {{#otro}}
+                            <div class="info">
+                                <span class="title">Género:</span>
+                                <select id="campoSeisFormularioPerfil" class="info-data" name="tipo">
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Famenino</option>
+                                    <option value="3" selected>{{tipo}}</option>
+                                </select>
+
+                            </div>
+                        {{/otro}}
 
                         <div class="info">
                             <span class="title">País:</span>
-                            <input class="info-data" name="pais" value="{{pais}}">
+                            <input id="campoSieteFormularioPerfil" class="info-data" name="pais" value="{{pais}}">
                         </div>
 
                         <div class="info">
                             <span class="title">Ciudad:</span>
-                            <input class="info-data" name="ciudad" value="{{ciudad}}">
+                            <input id="campoOchoFormularioPerfil" class="info-data" name="ciudad" value="{{ciudad}}">
                         </div>
 
                         <div class="info">
                             <span class="title">Mail:</span>
-                            <input class="info-data" name="mail" value="{{mail}}">
+                            <p id="mailExistente" style="display: none">Mail existente, ingrese otro mail</p>
+                            <input id="campoNueveFormularioPerfil" class="info-data" name="mail" value="{{mail}}">
                         </div>
 
-                        <button id="editProfile" class="button-secondary button-small">Editar
+                        <p id="operacionExitosa" style="display: none">Cambios realizados correctamente</p>
+
+                        <button id="editProfile" class="button-secondary button-small">Actualizar
                             perfil</button>
 
                     </div>
 
                 </div>
 
-
             </div>
+
         {{/owner}}
 
     </div>

@@ -2,16 +2,18 @@ $('#editProfile').click(function (event) {
 
     event.preventDefault();
 
-    let usuario = $('.campoUnoFormularioPerfil').val();
-    let nombre = $('.campoDosFormularioPerfil').val();
-    let apellido = $('.campoTresFormularioPerfil').val();
-    let fecha_nacimiento = $('.campoCuatroFormularioPerfil').val();
-    let genero = $('.campoCincoFormularioPerfil').val();
-    let pais = $('.campoSeisFormularioPerfil').val();
-    let ciudad = $('.campoSieteFormularioPerfil').val();
-    let mail = $('.campoOchoFormularioPerfil').val();
+    let usuario = $('#campoUnoFormularioPerfil').val();
+    let contrasenia = $('#campoDosFormularioPerfil').val();
+    let nombre = $('#campoTresFormularioPerfil').val();
+    let apellido = $('#campoCuatroFormularioPerfil').val();
+    let fecha_nacimiento = $('#campoCincoFormularioPerfil').val();
+    let genero = $('#campoSeisFormularioPerfil').val();
+    let pais = $('#campoSieteFormularioPerfil').val();
+    let ciudad = $('#campoOchoFormularioPerfil').val();
+    let mail = $('#campoNueveFormularioPerfil').val();
 
     let data = "usuario=" + usuario +
+        "&contrasenia=" + contrasenia +
         "&nombre=" + nombre +
         "&apellido=" + apellido +
         "&fecha_nacimiento=" + fecha_nacimiento +
@@ -28,24 +30,65 @@ $('#editProfile').click(function (event) {
 
             var data = JSON.parse(response);
 
-            console.log(data);
+            $('#nombreDeUsuario').text(data.usuario);
 
+            mailExistente(data)
 
         },
         error: function (xhr, status, error) {
         }
     });
+
+
 });
 
 
 function mailExistente(data) {
-    $('#form-game').css({'display': 'none'});
-    $('.timer').css({'display': 'none'});
-    $('.categoria').css({'display': 'none'});
-    $('#categoryColor').css({'display': 'none'});
-    $('#categoryTitle').css({'display': 'none'});
 
-    $('#mostrarFinalPartida').css({'display': 'block'});
-    $('#puntuacionFinal').text(data.puntuacion);
-    $('#textoOpcionCorrecta').text(data.textoOpcionCorrecta);
+    $('#operacionExitosa').css({
+        'display': 'none',
+    });
+
+    $('#mailExistente').css({
+        'display': 'none',
+    });
+
+    if (data.mailExistente == true) {
+
+        $('#campoNueveFormularioPerfil').css({
+            'border-color': 'red',
+            'color': 'red'
+        });
+
+        $('#mailExistente').css({
+            'display': 'block',
+            'color': 'red'
+        });
+
+        $('#operacionExitosa').css({
+            'display': 'none',
+        });
+
+    }
+    else {
+        $('#campoNueveFormularioPerfil').css({
+            'border-color': '#FFA500',
+            'color': '#FFA500'
+        });
+
+        $('#mailExistente').css({
+            'display': 'none',
+        });
+
+        $('#operacionExitosa').css({
+            'display': 'block',
+            'background-color': '#dff0d8',
+            'color': '#3c763d',
+            'padding': '10px',
+            'margin-bottom': '10px',
+            'font-size': '16px',
+            'text-align': 'center'
+        });
+    }
+
 }
