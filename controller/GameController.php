@@ -135,6 +135,11 @@ class GameController
 
     public function reportarPregunta(){
         $data = $_POST;
-        var_dump($_SESSION['user']);
+        $userID = $_SESSION["userID"]["id_cuenta"];
+
+
+        if($this->gameModel->addQuestionReported($data,$userID)){
+            header("location:/lobby/list");
+        }
     }
 }
