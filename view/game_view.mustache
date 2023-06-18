@@ -13,6 +13,18 @@
     </div>
 </div>
 
+<form id="mostrarReporte" style="display: none" method="POST" action="/game/reportarPregunta" enctype="multipart/form-data">
+    <div class="overlay"></div>
+    <div class="popup">
+        <p class="emphasis">Contanos que está mal en
+            la pregunta</p>
+        <p id="preguntaAReportar">{{question}}</p>
+        <input type="hidden" id="id_question" name="idQuestion" value={{id_question}}>
+        <textarea name="reporte" placeholder="Ingrese su reporte aquí"></textarea>
+        <button type="submit" class="button button-small">Reportar pregunta</button>
+    </div>
+</form>
+
 
 <!-- Quizzium play -->
 
@@ -76,10 +88,9 @@
             <!-- <div id="respuesta"></div> -->
 
             <div class="container-link">
-                <a href="/play/report">
-                    <img src="../public/assets/exclamation.png"/>
+                <button class="report">
                     Reportar esta pregunta
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -100,6 +111,26 @@
     }
 
     function cerrarPopup() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'none';
+        popup.style.display = 'none';
+        disableButton.disabled = false;
+    }
+
+    function mostrarReporte() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'block';
+        popup.style.display = 'block';
+        disableButton.disabled = true;
+    }
+
+    function ocultarReporte() {
         var popupBackground = document.getElementById('popup-background');
         var popup = document.getElementById('popup');
         var disableButton = document.getElementById('disable-button');

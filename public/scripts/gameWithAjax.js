@@ -70,6 +70,13 @@ $(window).on('load', function () {
             }
         });
     });
+
+    $('.report').click(function (event) {
+
+        event.preventDefault();
+        clearInterval(cronometro);
+        reportarPregunta();
+    });
 });
 
 
@@ -83,6 +90,11 @@ function finalizarPartida(data){
     $('#mostrarFinalPartida').css({'display': 'block'});
     $('#puntuacionFinal').text(data.puntuacion);
     $('#textoOpcionCorrecta').text(data.textoOpcionCorrecta);
+}
+
+function reportarPregunta(data){
+
+    $('#mostrarReporte').css({'display': 'block'});
 }
 
 
