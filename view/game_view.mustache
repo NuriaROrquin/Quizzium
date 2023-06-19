@@ -19,11 +19,7 @@
 <div class="game">
 
     <div class="left-sidebar">
-        <div class="redirect-md">
-            <a href="/lobby/list">
-                Ir al lobby
-            </a>
-        </div>
+
         <div class="profile">
             <img src="../public/profile-pictures/{{foto_perfil}}">
             <span>{{usuario}}</span>
@@ -52,28 +48,23 @@
                 </a>
             </div>
 
-            <div class="categoryTitle" id="categoryTitle" style="color:{{categoryColor}}">
-                <span>
+            <div class="categoryTitle">
+                <span id="categoryName" style="color:{{categoryColor}}">
                     {{categoryName}}
                 </span>
             </div>
+
             <div id="categoryColor" class="question" style="background-color:{{categoryColor}}">
                 <span id="question">{{question}}</span>
             </div>
 
-
             <form id="form-game">
-
                 <input type="hidden" id="id_question" name="idQuestion" value={{id_question}}>
-
                 <button id="option_1" class="answer" name="option" value="{{id_opcion1}}">{{opcion1}}</button>
                 <button id="option_2" class="answer" name="option" value="{{id_opcion2}}">{{opcion2}}</button>
                 <button id="option_3" class="answer" name="option" value="{{id_opcion3}}">{{opcion3}}</button>
                 <button id="option_4" class="answer" name="option" value="{{id_opcion4}}">{{opcion4}}</button>
-
             </form>
-
-            <!-- <div id="respuesta"></div> -->
 
             <div class="container-link">
                 <a href="/play/report">
