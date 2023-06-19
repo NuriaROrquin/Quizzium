@@ -1157,7 +1157,7 @@ CREATE TABLE `reporte` (
 
 INSERT INTO `reporte` (`id_reporte`, `id_cuenta`, `id_pregunta`, `fecha_reporte`, `descripcion`, `fue_visto`) VALUES
 (1, 1, 92, '2023-06-18 23:35:06', 'hola', 0),
-(2, 1, 47, '2023-06-18 23:40:59', 'no me gusto chupapija', 0),
+(2, 1, 47, '2023-06-18 23:40:59', 'no me gusto', 0),
 (3, 1, 29, '2023-06-19 17:23:49', '', 0);
 
 -- --------------------------------------------------------

@@ -1,0 +1,98 @@
+{{> header}}
+<div class="approval">
+    <div class="banner">
+        <img src="/public/assets/reportadas.png">
+    </div>
+    <div class="list">
+        {{#questions}}
+            <div class="accordion" id="accordion-report">
+                <input type="checkbox" id='{{id_pregunta}}'/>
+                <label class="accordion-label" for='{{id_pregunta}}' name={{id_pregunta}}>{{pregunta}}</label>
+                <div class="accordion-content">
+
+                    <div class="report">
+                        <span class="report-title">Razon del reporte:</span>
+                        <span class="description">{{descripcion}}</span>
+                    </div>
+
+
+                    <form method="post" class="form-container-report" id="form-report-editor">
+                        <div class="form-field">
+                            <label class="form-label" for="categoria-report{{id_pregunta}}">Categoría:</label>
+                            <select class="form-select-report" id="categoria-report{{id_pregunta}}">
+                                <option value="1">Ciencia</option>
+                                <option value="2">Historia</option>
+                                <option value="3">Arte</option>
+                                <option value="4">Geografía</option>
+                                <option value="5">Entretenimiento</option>
+                                <option value="6">Deporte</option>
+                            </select>
+                            <span id="categoria-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+                        <input type="text" id='fecha-creacion-report{{id_pregunta}}' hidden="hidden" value={{fecha_creacion}}/>
+
+                        <div class="form-field">
+                            <label class="form-label" for="pregunta-report{{id_pregunta}}">Pregunta:</label>
+                            <input class="form-input" type="text" id="pregunta-report{{id_pregunta}}">
+                            <span id="pregunta-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta1-report{{id_pregunta}}">Respuesta 1:</label>
+                            <input class="form-input" type="text" id="respuesta1-report{{id_pregunta}}">
+                            <input type="text" id='answer-one-report{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta1-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta2-report{{id_pregunta}}">Respuesta 2:</label>
+                            <input class="form-input" type="text" id="respuesta2-report{{id_pregunta}}">
+                            <input type="text" id='answer-two-report{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta2-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta3-report{{id_pregunta}}">Respuesta 3:</label>
+                            <input class="form-input" type="text" id="respuesta3-report{{id_pregunta}}">
+                            <input type="text" id='answer-three-report{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta3-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta4-report{{id_pregunta}}">Respuesta 4:</label>
+                            <input class="form-input" type="text" id="respuesta4-report{{id_pregunta}}">
+                            <input type="text" id='answer-four-report{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta4-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="correcta-report{{id_pregunta}}">Respuesta Correcta:</label>
+                            <select class="form-select-report" id="correcta-report{{id_pregunta}}">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <span id="correcta-error-report{{id_pregunta}}" class="error"></span>
+                        </div>
+
+
+                        <div class="redirect">
+                            <button class="button button-small delete-report" type="button" id="delete-report{{id_pregunta}}" name={{id_pregunta}}>Borrar pregunta</button>
+                            <button class="button button-small modify-report" type="button" id="modify-report{{id_pregunta}}" name={{id_pregunta}}>Modificar pregunta</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        {{/questions}}
+    </div>
+</div>
+
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='/public/scripts/changeQuestionColor.js'></script>
+<script src='/public/scripts/questionSendAjax.js'></script>
+<script src="/public/scripts/accordionReport.js"></script>
+{{> footer}}

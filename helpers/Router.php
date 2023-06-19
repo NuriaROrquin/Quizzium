@@ -37,6 +37,7 @@ class Router
             case "game":
             case "ranking":
             case "factory":
+            case "report":
 
                 if ( !$userIsOn ) {
                     $module = "login";
