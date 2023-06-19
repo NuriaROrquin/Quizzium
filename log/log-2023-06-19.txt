@@ -1,0 +1,611 @@
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:26:21', '0', 'asda')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('124', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('124', 's', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('124', 'd', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('124', 'f', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:32:36', '0', 'asasd?')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '1', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '3', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '4', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Ejecutando query: UPDATE `pregunta` SET `id_categoria` = '1', `fecha_creacion` = '2023-06-19', `esta_activa` = '1', `pregunta` = 'asdasdasd' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '1', `es_correcta` = '1' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '2', `es_correcta` = '0' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '3', `es_correcta` = '0' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '4', `es_correcta` = '0' WHERE `id_pregunta` = ''
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Ejecutando query: UPDATE `pregunta` SET `id_categoria` = '1', `fecha_creacion` = '2023-06-19', `esta_activa` = '1', `pregunta` = 'asasd?' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = 'asdasd', `es_correcta` = '1' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '2', `es_correcta` = '0' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '3', `es_correcta` = '0' WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '4', `es_correcta` = '0' WHERE `id_pregunta` = ''
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Ejecutando query: UPDATE `pregunta` SET `id_categoria` = '1', `fecha_creacion` = '2023-06-19', `esta_activa` = '1', `pregunta` = 'asasd?' WHERE `id_pregunta` = '101'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = 'asdasdasd', `es_correcta` = '1' WHERE `id_pregunta` = '101'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '2', `es_correcta` = '0' WHERE `id_pregunta` = '101'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '3', `es_correcta` = '0' WHERE `id_pregunta` = '101'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '0', `opcion` = '4', `es_correcta` = '0' WHERE `id_pregunta` = '101'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:40:55', '0', 'pregunta')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '1', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '3', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '4', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Ejecutando query: UPDATE `pregunta` SET `id_categoria` = '3', `fecha_creacion` = '2023-06-19', `esta_activa` = '1', `pregunta` = 'preguntaaaaaaaaaa' WHERE `id_pregunta` = '102'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '1', `es_correcta` = '0' WHERE `id_pregunta` = '102'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '2', `es_correcta` = '0' WHERE `id_pregunta` = '102'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '3', `es_correcta` = '0' WHERE `id_pregunta` = '102'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = 'blabla correcta', `es_correcta` = '1' WHERE `id_pregunta` = '102'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:43:46', '0', 'A')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', 'A', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', 'A', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', 'A', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', 'A', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = 'A', `es_correcta` = '0' WHERE `id_pregunta` = '103'
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = 'A', `es_correcta` = '0' WHERE `id_pregunta` = '103'
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = 'A', `es_correcta` = '1' WHERE `id_pregunta` = '103'
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = 'A', `es_correcta` = '0' WHERE `id_pregunta` = '103'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:49:41', '0', 'ciencia')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', '4', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '104', `opcion` = 'respuesta1', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '104', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '104', `opcion` = '3', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '104', `opcion` = '4', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:51:10', '0', 'a')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', 'a', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', 'a', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]105
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]105
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]105
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]105
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]a
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]a
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]a
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]a
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '105', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:53:11', '0', 'asd')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', 'asd', '1')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '106', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:56:07', '0', 'asd')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', 'sad', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', 'asd', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'sad', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'sad', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '107', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 08:58:03', '0', 's')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', 'd', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', 'f', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', 'g', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]108
+[2023-06-19][INFO]108
+[2023-06-19][INFO]108
+[2023-06-19][INFO]108
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'f', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'g', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'f', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'g', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'd', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'f', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'g', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = '1'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'd', `es_correcta` = '1' WHERE `id_opcion` = '1'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'f', `es_correcta` = '0' WHERE `id_opcion` = '1'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '108', `opcion` = 'g', `es_correcta` = '0' WHERE `id_opcion` = '1'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('5', '2023-06-19 09:01:44', '0', 'Pregunta de entretenimiento')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '4', '0')
+[2023-06-19][ERROR]Se produjo un error en el sistema.
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = 'resp1', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = '3', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = '4', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]0
+[2023-06-19][INFO]109
+[2023-06-19][INFO]4
+[2023-06-19][INFO]0
+[2023-06-19][INFO]5
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Pregunta de entretenimiento
+[2023-06-19][INFO]100
+[2023-06-19][INFO]0
+[2023-06-19][INFO]109
+[2023-06-19][INFO]4
+[2023-06-19][INFO]0
+[2023-06-19][INFO]5
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Pregunta de entretenimiento
+[2023-06-19][INFO]100
+[2023-06-19][INFO]0
+[2023-06-19][INFO]109
+[2023-06-19][INFO]4
+[2023-06-19][INFO]0
+[2023-06-19][INFO]5
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Pregunta de entretenimiento
+[2023-06-19][INFO]100
+[2023-06-19][INFO]0
+[2023-06-19][INFO]109
+[2023-06-19][INFO]4
+[2023-06-19][INFO]0
+[2023-06-19][INFO]5
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]Pregunta de entretenimiento
+[2023-06-19][INFO]100
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = 'resp1', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = '3', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '109', `opcion` = '4', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:05:53', '0', 'c')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('110', 'c', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('110', 'c', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('110', 'c', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('110', 'c', '0')
+[2023-06-19][INFO]0
+[2023-06-19][INFO]110
+[2023-06-19][INFO]c
+[2023-06-19][INFO]1
+[2023-06-19][INFO]1
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]pregunta
+[2023-06-19][INFO]100
+[2023-06-19][INFO]0
+[2023-06-19][INFO]110
+[2023-06-19][INFO]c
+[2023-06-19][INFO]0
+[2023-06-19][INFO]1
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]pregunta
+[2023-06-19][INFO]100
+[2023-06-19][INFO]0
+[2023-06-19][INFO]110
+[2023-06-19][INFO]c
+[2023-06-19][INFO]0
+[2023-06-19][INFO]1
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]pregunta
+[2023-06-19][INFO]100
+[2023-06-19][INFO]0
+[2023-06-19][INFO]110
+[2023-06-19][INFO]c
+[2023-06-19][INFO]0
+[2023-06-19][INFO]1
+[2023-06-19][INFO]2023-06-19 00:00:00
+[2023-06-19][INFO]1
+[2023-06-19][INFO]pregunta
+[2023-06-19][INFO]100
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '110', `opcion` = 'c', `es_correcta` = '1' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '110', `opcion` = 'c', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '110', `opcion` = 'c', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '110', `opcion` = 'c', `es_correcta` = '0' WHERE `id_opcion` = '0'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:07:47', '0', 'a')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('111', 'a', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('111', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('111', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('111', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:08:43', '0', 'a')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('112', 'a', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('112', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('112', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('112', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:12:07', '0', 'sd')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', 'asd', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:15:22', '0', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '2', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '3', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '4', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '5', '0')
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Array
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '113', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:25:20', '0', 'sdf')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('115', 'sdf', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('115', 'sdf', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('115', 'sdf', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('115', 'sdf', '0')
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'sdf', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'sdf', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'sdf', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'sdf', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'sdf', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = 'sdf', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = '1', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = '3', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '115', `opcion` = '4', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:28:23', '0', 'sdf')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('116', 'sdf', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('116', 'dfgfh', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('116', 'ghj', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('116', 'jk', '1')
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'sdf', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'dfgfh', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'ghj', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'jk', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'asd', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'dfgfh', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'ghj', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '116', `opcion` = 'jk', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:29:51', '0', 'as')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('117', 'a', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('117', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('117', 'a', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('117', 'a', '0')
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '117', `opcion` = 'resp', `es_correcta` = '1' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '117', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '117', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '117', `opcion` = 'a', `es_correcta` = '0' WHERE `id_opcion` = ''
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:31:00', '0', 'pregunta de ciencia?')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('118', 'es la ultima', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('118', 'es el intento', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('118', 'el que', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('118', 'vale', '0')
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'vbla', `es_correcta` = '0' WHERE `id_opcion` = '896'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'es el intento', `es_correcta` = '1' WHERE `id_opcion` = '897'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'el que', `es_correcta` = '0' WHERE `id_opcion` = '898'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'vale', `es_correcta` = '0' WHERE `id_opcion` = '899'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'vbla', `es_correcta` = '0' WHERE `id_opcion` = '896'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'es el intento', `es_correcta` = '0' WHERE `id_opcion` = '897'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'esta va a ser la correcta', `es_correcta` = '1' WHERE `id_opcion` = '898'
+[2023-06-19][INFO]896
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '118', `opcion` = 'vale', `es_correcta` = '0' WHERE `id_opcion` = '899'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:39:07', '0', 'ciencia?')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '3', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '4', '1')
+[2023-06-19][INFO]441
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '101', `opcion` = '1', `es_correcta` = '0' WHERE `id_opcion` = '441'
+[2023-06-19][INFO]441
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '101', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = '442'
+[2023-06-19][INFO]441
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '101', `opcion` = '3', `es_correcta` = '0' WHERE `id_opcion` = '443'
+[2023-06-19][INFO]441
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '101', `opcion` = '4', `es_correcta` = '1' WHERE `id_opcion` = '444'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:39:31', '0', 'c')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '5', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '9', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('102', '7', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('3', '2023-06-19 09:39:44', '0', 'arte')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', 'as', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', '2', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('103', '63', '0')
+[2023-06-19][INFO]445
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '1', `es_correcta` = '0' WHERE `id_opcion` = '445'
+[2023-06-19][INFO]445
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '5', `es_correcta` = '1' WHERE `id_opcion` = '446'
+[2023-06-19][INFO]445
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '9', `es_correcta` = '0' WHERE `id_opcion` = '447'
+[2023-06-19][INFO]445
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '102', `opcion` = '7', `es_correcta` = '0' WHERE `id_opcion` = '448'
+[2023-06-19][INFO]449
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = 'as', `es_correcta` = '0' WHERE `id_opcion` = '449'
+[2023-06-19][INFO]449
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = '1', `es_correcta` = '0' WHERE `id_opcion` = '450'
+[2023-06-19][INFO]449
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = '2', `es_correcta` = '1' WHERE `id_opcion` = '451'
+[2023-06-19][INFO]449
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '103', `opcion` = '63', `es_correcta` = '0' WHERE `id_opcion` = '452'
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 09:40:03', '0', 'asd')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '0')

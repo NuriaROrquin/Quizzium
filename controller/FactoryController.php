@@ -1,5 +1,7 @@
 <?php
 
+include_once('helpers/RolEnum.php');
+
 class FactoryController
 {
     private $renderer;
@@ -15,7 +17,25 @@ class FactoryController
 
     public function list()
     {
-        $this->renderer->render('factory');
+        $userId = $_SESSION['userID']['id_cuenta'];
+        $user['rol'] = $this->profileModel->getRol($userId);
+
+        switch ($user['rol']) {
+            case RolEnum::ADMINISTRADOR:
+                $data['administrador'] = true;
+                $data['editor'] = true;
+                $this->renderer->render('factory', $data);
+                break;
+            case RolEnum::EDITOR:
+                $data['editor'] = true;
+                $data['questions'] = $this->factoryModel->getPendingQuestions();
+                $this->renderer->render('factory', $data);
+                break;
+            default:
+                $this->renderer->render('factory');
+                break;
+        }
+
     }
 
     public function sendQuestion()
@@ -32,7 +52,7 @@ class FactoryController
 
         if (!empty($errors)) {
             $data = json_encode($errors, JSON_UNESCAPED_UNICODE);
-        }else{
+        } else {
             $result = $this->factoryModel->sendQuestion($question);
             $data = json_encode($result, JSON_UNESCAPED_UNICODE);
         }
@@ -40,11 +60,45 @@ class FactoryController
         echo $data;
     }
 
-    public function getQuestions(){
-        $userId = $_SESSION['userID']['id_cuenta'];
-        $rol['editor'] = $this->profileModel->getRol($userId);
+    public function getInfoPendingQuestion()
+    {
 
-        $this->renderer->render('factory', $rol);
+        $id = $_GET['id'] ?? "";
+
+        $results = $this->factoryModel->getInfoPendingQuestions($id);
+
+        $data = json_encode($results, JSON_UNESCAPED_UNICODE);
+
+        echo $data;
+    }
+
+    public function updateQuestion()
+    {
+        $question['id'] = $_POST['id'] ?? "";
+        $question['action'] = $_POST['action'] ?? "";
+        $question['createdDate'] = $_POST['createdDate'] ?? "";
+        $question['category'] = $_POST['category'] ?? "";
+        $question['title'] = $_POST['title'] ?? "";
+        $question['answerOne'] = $_POST['answerOne'] ?? "";
+        $question['answerTwo'] = $_POST['answerTwo'] ?? "";
+        $question['answerThree'] = $_POST['answerThree'] ?? "";
+        $question['answerFour'] = $_POST['answerFour'] ?? "";
+        $question['correctAnswer'] = $_POST['correctAnswer'] ?? "";
+        $question['idAnswerOne'] = $_POST['idAnswerOne'] ?? "";
+        $question['idAnswerTwo'] = $_POST['idAnswerTwo'] ?? "";
+        $question['idAnswerThree'] = $_POST['idAnswerThree'] ?? "";
+        $question['idAnswerFour'] = $_POST['idAnswerFour'] ?? "";
+
+        $errors = $this->factoryModel->validate($question);
+
+        if (!empty($errors)) {
+            $data = json_encode($errors, JSON_UNESCAPED_UNICODE);
+        } else {
+            $result = $this->factoryModel->acceptQuestion($question);
+            $data = json_encode($result, JSON_UNESCAPED_UNICODE);
+        }
+
+        echo $data;
     }
 
 }

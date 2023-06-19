@@ -23,7 +23,7 @@ class Logger {
         return "[" . self::getDate() . "][". $level ."]" . $log . "\n";
     }
 
-    private static function writeLogFile(string $message): void {
+    private static function writeLogFile(string $message) {
         $filename = "log/log-" . self::getDate() . ".txt";
         file_put_contents($filename, $message, FILE_APPEND);
     }

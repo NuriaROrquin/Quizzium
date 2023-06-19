@@ -6,14 +6,15 @@
             <img src="/public/assets/questions.png">
         </div>
         <div class="list">
-            <div class="accordion">
-                <input type="checkbox" id="tab1"/>
-                <label class="accordion-label" for="tab1">Item 1</label>
+            {{#questions}}
+            <div class="accordion" id="accordion">
+                <input type="checkbox" id='{{id_pregunta}}'/>
+                <label class="accordion-label" for='{{id_pregunta}}' name={{id_pregunta}}>{{pregunta}}</label>
                 <div class="accordion-content">
-                    <form method="post" class="form-container-question" id="form-question">
+                    <form method="post" class="form-container-question" id="form-question-editor">
                         <div class="form-field">
-                            <label class="form-label" for="categoria">Categoría:</label>
-                            <select class="form-select-questions" id="categoria">
+                            <label class="form-label" for="categoria-question{{id_pregunta}}">Categoría:</label>
+                            <select class="form-select-questions" id="categoria-question{{id_pregunta}}">
                                 <option value="1">Ciencia</option>
                                 <option value="2">Historia</option>
                                 <option value="3">Arte</option>
@@ -21,63 +22,71 @@
                                 <option value="5">Entretenimiento</option>
                                 <option value="6">Deporte</option>
                             </select>
-                            <span id="categoria-error" class="error"></span>
+                            <span id="categoria-error-question{{id_pregunta}}" class="error"></span>
+                        </div>
+
+                        <input type="text" id='fecha-creacion-question{{id_pregunta}}' hidden="hidden" value={{fecha_creacion}}/>
+
+                        <div class="form-field">
+                            <label class="form-label" for="pregunta-question{{id_pregunta}}">Pregunta:</label>
+                            <input class="form-input" type="text" id="pregunta-question{{id_pregunta}}">
+                            <span id="pregunta-error-question{{id_pregunta}}" class="error"></span>
                         </div>
 
                         <div class="form-field">
-                            <label class="form-label" for="pregunta">Pregunta:</label>
-                            <input class="form-input" type="text" id="pregunta">
-                            <span id="pregunta-error" class="error"></span>
+                            <label class="form-label" for="respuesta1-question{{id_pregunta}}">Respuesta 1:</label>
+                            <input class="form-input" type="text" id="respuesta1-question{{id_pregunta}}">
+                            <input type="text" id='answer-one-question{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta1-error-question{{id_pregunta}}" class="error"></span>
                         </div>
 
                         <div class="form-field">
-                            <label class="form-label" for="respuesta1">Respuesta 1:</label>
-                            <input class="form-input" type="text" id="respuesta1">
-                            <span id="respuesta1-error" class="error"></span>
+                            <label class="form-label" for="respuesta2-question{{id_pregunta}}">Respuesta 2:</label>
+                            <input class="form-input" type="text" id="respuesta2-question{{id_pregunta}}">
+                            <input type="text" id='answer-two-question{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta2-error-question{{id_pregunta}}" class="error"></span>
                         </div>
 
                         <div class="form-field">
-                            <label class="form-label" for="respuesta2">Respuesta 2:</label>
-                            <input class="form-input" type="text" id="respuesta2">
-                            <span id="respuesta2-error" class="error"></span>
-                        </div>
-
-                        <div class="form-field">
-                            <label class="form-label" for="respuesta3">Respuesta 3:</label>
-                            <input class="form-input" type="text" id="respuesta3">
-                            <span id="respuesta3-error" class="error"></span>
+                            <label class="form-label" for="respuesta3-question{{id_pregunta}}">Respuesta 3:</label>
+                            <input class="form-input" type="text" id="respuesta3-question{{id_pregunta}}">
+                            <input type="text" id='answer-three-question{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta3-error-question{{id_pregunta}}" class="error"></span>
                         </div>
 
 
                         <div class="form-field">
-                            <label class="form-label" for="respuesta4">Respuesta 4:</label>
-                            <input class="form-input" type="text" id="respuesta4">
-                            <span id="respuesta4-error" class="error"></span>
+                            <label class="form-label" for="respuesta4-question{{id_pregunta}}">Respuesta 4:</label>
+                            <input class="form-input" type="text" id="respuesta4-question{{id_pregunta}}">
+                            <input type="text" id='answer-four-question{{id_pregunta}}' hidden="hidden"/>
+                            <span id="respuesta4-error-question{{id_pregunta}}" class="error"></span>
                         </div>
 
                         <div class="form-field">
-                            <label class="form-label" for="correcta">Respuesta Correcta:</label>
-                            <select class="form-select-questions" id="correcta">
+                            <label class="form-label" for="correcta-question{{id_pregunta}}">Respuesta Correcta:</label>
+                            <select class="form-select-questions" id="correcta-question{{id_pregunta}}">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                             </select>
-                            <span id="correcta-error" class="error"></span>
+                            <span id="correcta-error-question{{id_pregunta}}" class="error"></span>
                         </div>
 
 
                         <div class="redirect">
-                            <button class="button button-small" type="button" id="submitButton">Enviar</button>
+                            <button class="button button-small deny" type="button" id="deny-question{{id_pregunta}}" name={{id_pregunta}}>Rechazar</button>
+                            <button class="button button-small accept" type="button" id="accept-question{{id_pregunta}}" name={{id_pregunta}}>Aceptar</button>
                         </div>
 
                     </form>
                 </div>
             </div>
+            {{/questions}}
         </div>
     </div>
-
 {{/editor}}
+
 <div class="factory">
     <div class="left-sidebar">
         <span>¡Sugerí tu pregunta!</span>
@@ -153,7 +162,7 @@
             </div>
 
 
-            <div class="redirect">
+            <div class="redirect" id="sendQuestion">
                 <button class="button button-small" type="button" id="submitButton">Enviar</button>
             </div>
 

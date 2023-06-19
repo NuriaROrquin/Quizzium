@@ -2,6 +2,7 @@
 include_once('helpers/MySqlDatabase.php');
 include_once("helpers/MustacheRender.php");
 include_once('helpers/Router.php');
+include_once('helpers/Logger.php');
 
 include_once('model/LoginModel.php');
 include_once('model/RegisterModel.php');
