@@ -914,7 +914,7 @@ body:has(.container-ranking) {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(180deg, #FFA500 39.06%, #FFD700 87.2%);
+    background: linear-gradient(180deg, #FFD700 39.06%, #FFA500 87.2%)
 }
 
 .factory .error {
@@ -1018,7 +1018,7 @@ body:has(.container-ranking) {
     align-items: center;
 }
 
-.form-container-question {
+.factory .form-container-question {
     width: 100%;
     height: 100%;
     padding: 3rem 1rem;
@@ -1031,22 +1031,22 @@ body:has(.container-ranking) {
     justify-content: center;
 }
 
-.form-container-question .form-field {
+.factory .form-container-question .form-field {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.form-container-question .form-label {
+.factory .form-container-question .form-label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     color: #fff;
 }
 
-.form-container-question .form-select,
-.form-container-question .form-input {
+.factory .form-container-question .form-select,
+.factory .form-container-question .form-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -1054,15 +1054,15 @@ body:has(.container-ranking) {
     font-size: 14px;
 }
 
-.form-container-question .form-select {
+.factory .form-container-question .form-select {
     background-color: #f7f7f7;
 }
 
-.form-container-question .form-input {
+.factory .form-container-question .form-input {
     background-color: #fff;
 }
 
-.form-container-question .form-submit-btn {
+.factory .form-container-question .form-submit-btn {
     background-color: #4CAF50;
     color: #fff;
     padding: 10px 20px;
@@ -1072,7 +1072,125 @@ body:has(.container-ranking) {
     font-size: 14px;
 }
 
-.form-container-question .redirect button {
+.factory .form-container-question .redirect button {
+    align-self: center;
+    justify-self: center;
+}
+
+/**************************************EDITOR******************************************/
+
+/**************************************Preguntas para aprobar******************************************/
+
+.approval{
+    width: 100%;
+    height: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #FFA500 39.06%, #FFD700 87.2%);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: -webkit-center;
+}
+
+.list{
+    overflow-y: auto;
+    width: 85%;
+    display: block;
+}
+
+.approval .list .accordion input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.accordion {
+    background-color: #FFA500;
+    text-decoration: none;
+    color: white;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    color: #FFA500;
+}
+.accordion-content {
+    max-height: 0;
+    padding: 0 1em;
+    background: #FFA500;
+    transition: all 0.35s;
+    display: flex;
+}
+.approval .list .accordion input[type="checkbox"]:checked ~ .accordion-content {
+    max-height: 100vh;
+    padding: 1em;
+}
+
+.accordion-content .form-container-question {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 1rem;
+    font-family: Arial, sans-serif;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion-content .form-container-question .form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.accordion-content .form-container-question .form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.accordion-content .form-container-question .form-select-questions,
+.accordion-content .form-container-question .form-input {
+    width: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.accordion-content .form-container-question .form-select-questions {
+    background-color: #f7f7f7;
+}
+
+.accordion-content .form-container-question .form-input {
+    background-color: #fff;
+}
+
+.accordion-content .form-container-question .form-submit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.accordion-content .form-container-question .redirect button {
     align-self: center;
     justify-self: center;
 }

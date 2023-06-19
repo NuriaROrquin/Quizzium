@@ -24,6 +24,7 @@ class MySqlDatabase
 
     public function query($sql)
     {
+        Logger::info('Ejecutando query: ' . $sql);
         return mysqli_query($this->connection, $sql);
     }
 
@@ -47,6 +48,7 @@ class MySqlDatabase
 
     public function queryWithID($sql)
     {
+        Logger::info('Ejecutando query: ' . $sql);
         $ultimoID = false;
         $result = mysqli_query($this->connection, $sql);
 

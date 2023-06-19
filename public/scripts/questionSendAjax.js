@@ -1,4 +1,4 @@
-$('.redirect').click(function (event) {
+$('#sendQuestion').click(function (event) {
 
     event.preventDefault();
 
@@ -26,8 +26,6 @@ $('.redirect').click(function (event) {
                 $("#form-question").hide();
                 $(".container-form").append('<div class="msg-success"><h3>¡Gracias por enviarnos tu pregunta!</h3><p>Pronto la evaluaremos y, si es apta, la verás en el juego.</p> <img src="/public/assets/personajes.webp" /></div>');
             }
-
-            console.log(data);
         },
         error: function (xhr, status, error) {
         }
