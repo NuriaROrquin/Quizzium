@@ -49,12 +49,14 @@ class FactoryController
         $question['correctAnswer'] = $_POST['correctAnswer'] ?? "";
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
 
+        $id_rol = $this->factoryModel->getRole($id_cuenta);
+
         $errors = $this->factoryModel->validate($question);
 
         if (!empty($errors)) {
             $data = json_encode($errors, JSON_UNESCAPED_UNICODE);
         } else {
-            $result = $this->factoryModel->sendQuestion($question, $id_cuenta);
+            $result = $this->factoryModel->sendQuestion($question, $id_cuenta, $id_rol);
             $data = json_encode($result, JSON_UNESCAPED_UNICODE);
         }
 

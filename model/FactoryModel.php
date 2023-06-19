@@ -52,10 +52,22 @@ class FactoryModel
         return $fieldsEmpty;
     }
 
-    public function sendQuestion($question, $id_cuenta)
+    public function getRole($id_cuenta){
+        $sql = "SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '$id_cuenta';";
+
+        return $this->database->querySelectAssoc($sql)['id_rol'];
+
+    }
+
+    public function sendQuestion($question, $id_cuenta, $id_rol)
     {
         $id_categoria = $question['category'];
         $esta_activa = 0;
+        $fue_visto = 0;
+        if($id_rol==2){
+            $esta_activa = 1;
+            $fue_visto = 1;
+        }
         $pregunta = $question['title'];
         $answers = [
             $question['answerOne'],
@@ -71,7 +83,7 @@ class FactoryModel
 
             $id_pregunta = $this->database->queryWithID($queryQuestion);
 
-            $querySuggestion = "INSERT INTO `sugerencia`(`id_cuenta`, `id_pregunta`) VALUES ('$id_cuenta','$id_pregunta')";
+            $querySuggestion = "INSERT INTO `sugerencia`(`id_cuenta`, `id_pregunta`, `fue_visto`) VALUES ('$id_cuenta','$id_pregunta', $fue_visto)";
             $this->database->query($querySuggestion);
 
             foreach ($answers as $index => $answer) {
