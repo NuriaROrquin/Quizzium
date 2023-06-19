@@ -18,6 +18,7 @@ $('#sendQuestion').click(function (event) {
         type: 'POST',
         data: data,
         success: function (response) {
+            console.log(response);
             var data = JSON.parse(response);
 
             if (!data['bd-success']) {

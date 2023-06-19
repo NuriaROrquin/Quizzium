@@ -47,13 +47,14 @@ class FactoryController
         $question['answerThree'] = $_POST['answerThree'] ?? "";
         $question['answerFour'] = $_POST['answerFour'] ?? "";
         $question['correctAnswer'] = $_POST['correctAnswer'] ?? "";
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
 
         $errors = $this->factoryModel->validate($question);
 
         if (!empty($errors)) {
             $data = json_encode($errors, JSON_UNESCAPED_UNICODE);
         } else {
-            $result = $this->factoryModel->sendQuestion($question);
+            $result = $this->factoryModel->sendQuestion($question, $id_cuenta);
             $data = json_encode($result, JSON_UNESCAPED_UNICODE);
         }
 

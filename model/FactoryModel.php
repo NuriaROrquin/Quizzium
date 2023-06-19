@@ -52,10 +52,9 @@ class FactoryModel
         return $fieldsEmpty;
     }
 
-    public function sendQuestion($question)
+    public function sendQuestion($question, $id_cuenta)
     {
         $id_categoria = $question['category'];
-        $fecha_creacion = date('Y-m-d H:i:s');
         $esta_activa = 0;
         $pregunta = $question['title'];
         $answers = [
@@ -66,14 +65,19 @@ class FactoryModel
         ];
         $correctAnswer = $question['correctAnswer'];
 
+
         try {
-            $queryQuestion = "INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('$id_categoria', '$fecha_creacion', '$esta_activa', '$pregunta')";
+            $queryQuestion = "INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('$id_categoria', '$esta_activa', '$pregunta')";
+
             $id_pregunta = $this->database->queryWithID($queryQuestion);
+
+            $querySuggestion = "INSERT INTO `sugerencia`(`id_cuenta`, `id_pregunta`) VALUES ('$id_cuenta','$id_pregunta')";
+            $this->database->query($querySuggestion);
 
             foreach ($answers as $index => $answer) {
                 $isCorrect = ($correctAnswer == $index + 1) ? 1 : 0;
                 $query = "INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('$id_pregunta', '$answer', '$isCorrect')";
-                $this->database->queryWithID($query);
+                $this->database->query($query);
             }
 
             $database['bd-success'] = "Se mandó la sugerencia de la pregunta.";
@@ -81,13 +85,16 @@ class FactoryModel
             $this->database->rollback();
             $database['bd-error'] = "Ocurrió un error durante las inserciones: " . $e->getMessage();
         }
-
         return $database;
     }
 
     public function getPendingQuestions()
     {
-        $sql = "SELECT * FROM `pregunta` WHERE esta_activa = 0;";
+        $sql = "SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0";
 
         $question = $this->database->query($sql);
 
@@ -110,7 +117,6 @@ class FactoryModel
     public function updateQuestion($question)
     {
         $id_categoria = $question['category'];
-        $fecha_creacion = $question['createdDate'];
         $esta_activa = 1;
         $pregunta = $question['title'];
         $answers = [
@@ -129,8 +135,11 @@ class FactoryModel
         $idQuestion = $question['id'];
 
         try {
-            $queryQuestion = "UPDATE `pregunta` SET `id_categoria` = '$id_categoria', `fecha_creacion` = '$fecha_creacion', `esta_activa` = '$esta_activa', `pregunta` = '$pregunta' WHERE `id_pregunta` = '$idQuestion'";
+            $queryQuestion = "UPDATE `pregunta` SET `id_categoria` = '$id_categoria', `esta_activa` = '$esta_activa', `pregunta` = '$pregunta' WHERE `id_pregunta` = '$idQuestion';";
             $this->database->query($queryQuestion);
+
+            $querySuggestion = "UPDATE `sugerencia` SET `fue_visto`= 1 WHERE `id_pregunta` = '$idQuestion';";
+            $this->database->query($querySuggestion);
 
             foreach ($answers as $index => $answer) {
                 $isCorrect = ($correctAnswer == $index + 1) ? 1 : 0;
@@ -156,11 +165,14 @@ class FactoryModel
 
         try {
 
-            $queryQuestion = "DELETE FROM `opcion` WHERE `id_pregunta` = '$idQuestion'";
+            $querySuggestion = "UPDATE `sugerencia` SET `fue_visto`= 1 WHERE `id_pregunta` = '$idQuestion';";
+            $this->database->query($querySuggestion);
+
+            /*$queryQuestion = "DELETE FROM `opcion` WHERE `id_pregunta` = '$idQuestion'";
             $this->database->query($queryQuestion);
 
             $queryQuestion = "DELETE FROM `pregunta` WHERE `id_pregunta` = '$idQuestion'";
-            $this->database->query($queryQuestion);
+            $this->database->query($queryQuestion);*/
 
             $database['bd-success'] = "Se rechazó la pregunta.";
         } catch (Exception $e) {

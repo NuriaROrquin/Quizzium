@@ -697,3 +697,670 @@
 [2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = '104'
 [2023-06-19][INFO]{"bd-success":"Se rechazó la pregunta."}
 [2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 16:40:28', '0', '¿Cuántos años tiene la corteza terrestre')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', 'mil millones', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', 'dos mil millones', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '5 millones', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('101', '10 millones', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('1', '2023-06-19 16:48:40', '0', '¿Cuántos años tiene la corteza terrestre?')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', 'mil millones', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', 'dos mil millones', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '5 millones', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '10 millones', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('4', '2023-06-19 16:49:44', '0', 'fl')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '3', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '4', '1')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 80;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (205,1);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (80,1, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 23;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 201;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (23,1);
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '102';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '102';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 88;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (206,2);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (88,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 93;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (93,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 74;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (74,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 42;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (42,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 26;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (26,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 94;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (94,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 85;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (85,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 48;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (48,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 84;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (84,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 103;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (,2, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 20;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 202;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (20,2);
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('4', '2023-06-19 17:18:42', '0', 'aaa')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('1', '4', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('3', '2023-06-19 17:20:11', '0', 'aaa')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('105', '4', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('3', '2023-06-19 17:20:38', '0', 'aaa')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('106', '4', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 60;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (207,1);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (60,1, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 75;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 203;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (75,1, 1);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 3;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 203;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (3,1);
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 29;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (208,1);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `reporte`( `id_cuenta`, `id_pregunta`, `descripcion`) VALUES (1 , 29 , '');
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 1;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (209,1);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (1,1, 1);
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 64.516129032258 WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 33.333333333333 WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 205;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (1,1, 1);
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 65.625 WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 25 WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 205;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (1,1);
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 63.636363636364 WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_inorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 25 WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 1;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (210,1);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (1,1);
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 61.764705882353 WHERE id_cuenta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_inorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 25 WHERE id_pregunta = 1;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '102';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '102';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '103';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '105';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '105';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '106';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '106';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 40;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (211,2);
+[2023-06-19][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 35;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `partida` VALUES ();
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (212,2);
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (35,2);
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = 2;
+[2023-06-19][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 0 WHERE id_cuenta = 2;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_inorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = 35;
+[2023-06-19][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = NAN WHERE id_pregunta = 35;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `fecha_creacion`, `esta_activa`, `pregunta`) VALUES ('5', '2023-06-19 18:09:45', '0', 'sss')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('107', '4', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('5', '0', 'www')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', '3', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('108', '4', '1')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('4', '0', 'qqq')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('109', '4', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('4', '0', 'aaa')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('110', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('1', '0', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('111', '1', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('4', '0', 'zzz')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('112', '1', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('6', '0', 'ccc')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', '1', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', '3', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('113', '4', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `pregunta`(`id_categoria`, `esta_activa`, `pregunta`) VALUES ('3', '0', 'vvv')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `sugerencia`(`id_cuenta`, `id_pregunta`) VALUES ('1','114')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '2', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '4', '1')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', 'hola', '0')
+[2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('114', '-', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '101';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '109';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '109';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '108';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '108';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '106';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '106';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '111';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '110';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '109';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '109';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '110';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '111';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '113';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '113';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '110';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '110';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '113';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '113';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '112';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '111';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '111';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '110';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '110';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: UPDATE `cuenta` SET
+                        `id_genero`= '1',
+                        `mail`= 'editor@gmail.com',
+                        `ciudad`= 'Ramos Mejia',
+                        `pais`= 'Argentina',
+                        `usuario`= 'victoria',
+                        `contrasenia`= '202cb962ac59075b964b07152d234b70',
+                        `fecha_nacimiento`= '1995-11-21',
+                        `nombre`= 'Victoria',
+                        `apellido`='Gambaro'
+                        WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: UPDATE `cuenta` SET
+                        `id_genero`= '3',
+                        `mail`= 'editor@gmail.com',
+                        `ciudad`= 'Ramos Mejia',
+                        `pais`= 'Argentina',
+                        `usuario`= 'victoria',
+                        `contrasenia`= '202cb962ac59075b964b07152d234b70',
+                        `fecha_nacimiento`= '1995-11-21',
+                        `nombre`= 'Victoria',
+                        `apellido`='Gambaro'
+                        WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: UPDATE `cuenta` SET
+                        `id_genero`= '2',
+                        `mail`= 'editor@gmail.com',
+                        `ciudad`= 'Ramos Mejia',
+                        `pais`= 'Argentina',
+                        `usuario`= 'victoria',
+                        `contrasenia`= '202cb962ac59075b964b07152d234b70',
+                        `fecha_nacimiento`= '1995-11-21',
+                        `nombre`= 'Victoria',
+                        `apellido`='Gambaro'
+                        WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0 
+                WHERE p.esta_activa = 0
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: UPDATE `pregunta` SET `id_categoria` = '3', `fecha_creacion` = '2023-06-19', `esta_activa` = '1', `pregunta` = 'vvv' WHERE `id_pregunta` = '114'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = '446'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = '4', `es_correcta` = '1' WHERE `id_opcion` = '447'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'hola', `es_correcta` = '0' WHERE `id_opcion` = '448'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = '-', `es_correcta` = '0' WHERE `id_opcion` = '449'
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0 
+                WHERE p.esta_activa = 0
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: UPDATE `sugerencia` SET `fue_visto`= 1 WHERE `id_pregunta` = '114';
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-19][INFO]Ejecutando query: UPDATE `pregunta` SET `id_categoria` = '3', `esta_activa` = '1', `pregunta` = 'vvv' WHERE `id_pregunta` = '114';
+[2023-06-19][INFO]Ejecutando query: UPDATE `sugerencia` SET `fue_visto`= 1 WHERE `id_pregunta` = '114';
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = '2', `es_correcta` = '0' WHERE `id_opcion` = '446'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = '4', `es_correcta` = '1' WHERE `id_opcion` = '447'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = 'hola', `es_correcta` = '0' WHERE `id_opcion` = '448'
+[2023-06-19][INFO]446
+[2023-06-19][INFO]Ejecutando query: UPDATE `opcion` SET `id_pregunta` = '114', `opcion` = '-', `es_correcta` = '0' WHERE `id_opcion` = '449'
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-19][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';

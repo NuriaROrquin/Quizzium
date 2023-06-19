@@ -251,16 +251,12 @@ class GameModel
     }
 
     public function verificateAnswer( $id_pregunta, $selectedAnswer ){
-
-
         $result = false;
 
         $sql = "SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = " . $id_pregunta .
             " AND O.es_correcta = 1;";
 
-
         $correctAnswer = $this->database->querySelectAssoc($sql);
-
 
         if($correctAnswer['id_opcion'] == $selectedAnswer){
             $result = true;
@@ -282,7 +278,6 @@ class GameModel
         }
 
         return $result;
-
     }
 }
 
