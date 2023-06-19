@@ -1,5 +1,83 @@
 {{> header}}
 
+{{#editor}}
+    <div class="approval">
+        <div class="banner">
+            <img src="/public/assets/questions.png">
+        </div>
+        <div class="list">
+            <div class="accordion">
+                <input type="checkbox" id="tab1"/>
+                <label class="accordion-label" for="tab1">Item 1</label>
+                <div class="accordion-content">
+                    <form method="post" class="form-container-question" id="form-question">
+                        <div class="form-field">
+                            <label class="form-label" for="categoria">Categoría:</label>
+                            <select class="form-select-questions" id="categoria">
+                                <option value="1">Ciencia</option>
+                                <option value="2">Historia</option>
+                                <option value="3">Arte</option>
+                                <option value="4">Geografía</option>
+                                <option value="5">Entretenimiento</option>
+                                <option value="6">Deporte</option>
+                            </select>
+                            <span id="categoria-error" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="pregunta">Pregunta:</label>
+                            <input class="form-input" type="text" id="pregunta">
+                            <span id="pregunta-error" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta1">Respuesta 1:</label>
+                            <input class="form-input" type="text" id="respuesta1">
+                            <span id="respuesta1-error" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta2">Respuesta 2:</label>
+                            <input class="form-input" type="text" id="respuesta2">
+                            <span id="respuesta2-error" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta3">Respuesta 3:</label>
+                            <input class="form-input" type="text" id="respuesta3">
+                            <span id="respuesta3-error" class="error"></span>
+                        </div>
+
+
+                        <div class="form-field">
+                            <label class="form-label" for="respuesta4">Respuesta 4:</label>
+                            <input class="form-input" type="text" id="respuesta4">
+                            <span id="respuesta4-error" class="error"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="correcta">Respuesta Correcta:</label>
+                            <select class="form-select-questions" id="correcta">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <span id="correcta-error" class="error"></span>
+                        </div>
+
+
+                        <div class="redirect">
+                            <button class="button button-small" type="button" id="submitButton">Enviar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{/editor}}
 <div class="factory">
     <div class="left-sidebar">
         <span>¡Sugerí tu pregunta!</span>
@@ -82,7 +160,9 @@
         </form>
     </div>
 </div>
+
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script src='/public/scripts/changeQuestionColor.js'></script>
 <script src='/public/scripts/questionSendAjax.js'></script>
+<script src="/public/scripts/accordion.js"></script>
 {{> footer}}

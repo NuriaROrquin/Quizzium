@@ -4,11 +4,13 @@ class FactoryController
 {
     private $renderer;
     private $factoryModel;
+    private $profileModel;
 
-    public function __construct($renderer, $factoryModel)
+    public function __construct($renderer, $factoryModel, $profileModel)
     {
         $this->renderer = $renderer;
         $this->factoryModel = $factoryModel;
+        $this->profileModel = $profileModel;
     }
 
     public function list()
@@ -36,6 +38,13 @@ class FactoryController
         }
 
         echo $data;
+    }
+
+    public function getQuestions(){
+        $userId = $_SESSION['userID']['id_cuenta'];
+        $rol['editor'] = $this->profileModel->getRol($userId);
+
+        $this->renderer->render('factory', $rol);
     }
 
 }

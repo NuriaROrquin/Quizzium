@@ -95,7 +95,8 @@ class Configuration
     {
         return new FactoryController(
             $this->getRenderer(),
-            new FactoryModel($this->getDatabase())
+            new FactoryModel($this->getDatabase()),
+            new ProfileModel($this->getDatabase())
         );
     }
 

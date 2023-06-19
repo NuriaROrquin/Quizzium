@@ -26,4 +26,10 @@ class ProfileModel
         return $id["mail"];
     }
 
+    public function getRol($id_cuenta)
+    {
+        $id = $this->database->querySelectAssoc("SELECT id_rol FROM cuenta WHERE id_cuenta = '$id_cuenta'");
+        return $id["id_rol"];
+    }
+
 }
