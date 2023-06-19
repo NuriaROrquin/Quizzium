@@ -123,7 +123,6 @@ class GameController
 
     }
 
-
     private function unsetVariables()
     {
         unset($_POST['option']);
@@ -132,5 +131,15 @@ class GameController
         unset($_SESSION['puntuacion']);
         unset($_SESSION['timestamp']);
         unset($_SESSION['id_juego']);
+    }
+
+    public function reportarPregunta(){
+        $data = $_POST;
+        $userID = $_SESSION["userID"]["id_cuenta"];
+
+
+        if($this->gameModel->addQuestionReported($data,$userID)){
+            header("location:/lobby/list");
+        }
     }
 }

@@ -223,6 +223,22 @@ class GameModel
 
         return $result;
     }
+
+    public function addQuestionReported($data,$userID){
+        $result = false;
+        $idQuestion = $data['idQuestion'];
+        $reportText = $data['reportText'];
+
+        $sql = "INSERT INTO `reporte`( `id_cuenta`, `id_pregunta`, `descripcion`) VALUES (" .$userID ." , "  .$idQuestion ." , '$reportText');";
+
+        var_dump($sql);
+        if($this->database->query($sql)){
+            $result = true;
+        }
+
+        return $result;
+
+    }
 }
 
 
