@@ -87,11 +87,18 @@ class GameModel
 
         if($result == null){
 
-            $this->resetQuestions($id_cuenta);
+            $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = " . $id_cuenta . ")
+                ORDER BY RAND() LIMIT 1;";
 
             $result = $this->database->querySelectAll($sql);
 
-
+            if($result == null){
+                $this->resetQuestions($id_cuenta);
+                $result = $this->database->querySelectAll($sql);
+            }
         }
         return $result;
     }

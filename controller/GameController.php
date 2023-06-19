@@ -60,7 +60,6 @@ class GameController
 
     public function answer()
     {
-
         $cronometroEnCero = $_POST['cronometroEnCero'] ?? false;
         $selectedAnswer = $_POST['selectedOption'] ?? false;
         $id_pregunta = $_POST['id_question'] ?? false;
