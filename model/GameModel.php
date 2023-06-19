@@ -52,7 +52,7 @@ class GameModel
 
         $cantRtas = $this->database->querySelectAssoc($sql)['cantRtas'];
         $cantIncorrectas = $this->database->querySelectAssoc($sql)['cantIncorrectas'];
-        $dificultad = ($cantIncorrectas * 100)/ $cantRtas;
+        $dificultad = 100 - (($cantIncorrectas * 100)/ $cantRtas);
 
         $sql = "UPDATE pregunta SET `dificultad` = " . $dificultad ." WHERE id_pregunta = " . $id_pregunta  .";";
 
@@ -68,45 +68,20 @@ class GameModel
         return $dificultad;
     }
 
-    private function questionDifficulty($id_pregunta){
-
-        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_pregunta =" . $id_pregunta  .";";
-
-        $totalPreguntas = $this->database->querySelectAssoc($sql)['cantRtas'];
-
-        $sql = "SELECT COUNT(`id_respuesta`) AS cantRtas FROM `respuesta` WHERE id_pregunta =" . $id_pregunta  . " AND fue_correcta = 1;";
-
-        $totalPreguntasCorrectas = $this->database->querySelectAssoc($sql)['cantRtas'];
-
-        $dificultad = ( $totalPreguntasCorrectas * 100 ) / $totalPreguntas;
-
-        if ( $dificultad > 70 ) {
-            echo "pregunta facil";
-        } else{
-            echo "pregunta dificil";
-        }
-
-        var_dump($dificultad);
-        exit();
-    }
 
     private function randomQuestionIDs($id_cuenta, $dificultadUsuario)
     {
-        if($dificultadUsuario < 70){
-            $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
-                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
-                                            FROM respuesta
-                                            WHERE id_cuenta =" .$id_cuenta .")
-                AND dificultad < 70
-                ORDER BY RAND() LIMIT 1;";
-        }else{
-            $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
-                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
-                                            FROM respuesta
-                                            WHERE id_cuenta =" .$id_cuenta .")
-                AND dificultad > 70
-                ORDER BY RAND() LIMIT 1;";
+        if($dificultadUsuario <= 70){
+            $dificultad = 'dificultad > 30';
+        }else {
+            $dificultad = 'dificultad <= 30';
         }
+        $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta =" . $id_cuenta . ")
+                AND ".$dificultad
+                ." ORDER BY RAND() LIMIT 1;";
 
         $result = $this->database->querySelectAll($sql);
 
@@ -115,6 +90,8 @@ class GameModel
             $this->resetQuestions($id_cuenta);
 
             $result = $this->database->querySelectAll($sql);
+
+
 
         }
         return $result;
