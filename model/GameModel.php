@@ -38,7 +38,7 @@ class GameModel
     private function updateQuestionQuantity($id_pregunta, $isCorrect){
 
         if(!$isCorrect){
-            $sql = "UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_inorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = " . $id_pregunta  .";";
+            $sql = "UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_incorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = " . $id_pregunta  .";";
         }else{
             $sql = "UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = " . $id_pregunta  .";";
         }
@@ -80,8 +80,8 @@ class GameModel
                 WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
                                             FROM respuesta
                                             WHERE id_cuenta =" . $id_cuenta . ")
-                AND ".$dificultad
-                ." ORDER BY RAND() LIMIT 1;";
+                AND " . $dificultad .
+              " ORDER BY RAND() LIMIT 1;";
 
         $result = $this->database->querySelectAll($sql);
 
@@ -90,7 +90,6 @@ class GameModel
             $this->resetQuestions($id_cuenta);
 
             $result = $this->database->querySelectAll($sql);
-
 
 
         }
@@ -107,8 +106,6 @@ class GameModel
 
     private function bringQuestions($idString)
     {
-
-
         $sql = "SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
         ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idString . ";";
 

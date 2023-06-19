@@ -60,6 +60,7 @@ class GameController
 
     public function answer()
     {
+
         $cronometroEnCero = $_POST['cronometroEnCero'] ?? false;
         $selectedAnswer = $_POST['selectedOption'] ?? false;
         $id_pregunta = $_POST['id_question'] ?? false;
@@ -95,7 +96,9 @@ class GameController
                 $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
 
             } else {
+
                 $isCorrect = $this->gameModel->verificateAnswer($id_pregunta, $selectedAnswer);
+
                 $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
 
                 if ($isCorrect) {
@@ -136,7 +139,6 @@ class GameController
     public function reportarPregunta(){
         $data = $_POST;
         $userID = $_SESSION["userID"]["id_cuenta"];
-
 
         if($this->gameModel->addQuestionReported($data,$userID)){
             header("location:/lobby/list");

@@ -56,7 +56,7 @@ $(window).on('load', function () {
             type: 'POST',
             data: data,
             success: function (response) {
-
+                
                 var data = JSON.parse(response);
 
                 siguientePregunta(data);
