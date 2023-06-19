@@ -44,10 +44,11 @@
         {{/public}}
 
         {{#owner}}
+
             <div class="header">
                 <div class="description">
                     <img src="../public/profile-pictures/{{foto_perfil}}"/>
-                    <h1>{{usuario}}</h1>
+                    <h1 id="nombreDeUsuario">{{usuario}}</h1>
                 </div>
             </div>
 
@@ -63,17 +64,17 @@
 
                         <div class="container-statistic">
                             <span class="title">Partidas realizadas</span>
-                            <span class="number">128</span>
+                            <span class="number">128</span><!-- TRAER LOS DATOS DE LA BASE DE DATOS -->
                         </div>
 
                         <div class="container-statistic">
                             <span class="title">Puntaje total</span>
-                            <span class="number">1890</span>
+                            <span class="number">1890</span><!-- TRAER LOS DATOS DE LA BASE DE DATOS -->
                         </div>
 
                         <div class="container-statistic">
                             <span class="title">Posición en ranking</span>
-                            <span class="number">119</span>
+                            <span class="number">119</span> <!-- TRAER LOS DATOS DE LA BASE DE DATOS -->
                         </div>
 
                     </div>
@@ -94,46 +95,98 @@
                 </div>
 
                 <div class="container-info">
+
                     <div class="data">
 
                         <div class="info">
                             <span class="title">Nombre de usuario:</span>
-                            <span class="info-data">{{usuario}}</span>
+                            <input id="campoUnoFormularioPerfil" class="info-data" name="usuario" value="{{usuario}}">
                         </div>
+
+                        <div class="info">
+                            <span class="title">Contraseña:</span>
+                            <input id="campoDosFormularioPerfil" class="info-data" name="contrasenia"
+                                   type="password">
+                        </div>
+
                         <div class="info">
                             <span class="title">Nombre:</span>
-                            <span class="info-data">{{nombre}}</span>
+                            <input id="campoTresFormularioPerfil" class="info-data" name="nombre" value="{{nombre}}">
                         </div>
+
                         <div class="info">
                             <span class="title">Apellido:</span>
-                            <span class="info-data">{{apellido}}</span>
+                            <input id="campoCuatroFormularioPerfil" class="info-data" name="apellido"
+                                   value="{{apellido}}">
                         </div>
+
                         <div class="info">
                             <span class="title">Fecha de nacimiento:</span>
-                            <span class="info-data">{{fecha_nacimiento}}</span>
+                            <input id="campoCincoFormularioPerfil" class="info-data" name="fecha_nacimiento"
+                                   value="{{fecha_nacimiento}}">
                         </div>
-                        <div class="info">
-                            <span class="title">Género:</span>
-                            <span class="info-data">{{tipo}}</span>
-                        </div>
+
+                        {{#masculino}}
+                            <div class="info">
+                                <span class="title">Género:</span>
+                                <select id="campoSeisFormularioPerfil" class="info-data" name="tipo">
+                                    <option value="1" selected>{{tipo}}</option>
+                                    <option value="2">Famenino</option>
+                                    <option value="3">Prefiero no decirlo</option>
+                                </select>
+                            </div>
+                        {{/masculino}}
+
+                        {{#femenino}}
+                            <div class="info">
+                                <span class="title">Género:</span>
+                                <select id="campoSeisFormularioPerfil" class="info-data" name="tipo">
+                                    <option value="1">Masculino</option>
+                                    <option value="2" selected>{{tipo}}</option>
+                                    <option value="3">Prefiero no decirlo</option>
+                                </select>
+                            </div>
+                        {{/femenino}}
+
+                        {{#otro}}
+                            <div class="info">
+                                <span class="title">Género:</span>
+                                <select id="campoSeisFormularioPerfil" class="info-data" name="tipo">
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Famenino</option>
+                                    <option value="3" selected>{{tipo}}</option>
+                                </select>
+
+                            </div>
+                        {{/otro}}
+
                         <div class="info">
                             <span class="title">País:</span>
-                            <span class="info-data">{{pais}}</span>
+                            <input id="campoSieteFormularioPerfil" class="info-data" name="pais" value="{{pais}}">
                         </div>
+
                         <div class="info">
                             <span class="title">Ciudad:</span>
-                            <span class="info-data">{{ciudad}}</span>
+                            <input id="campoOchoFormularioPerfil" class="info-data" name="ciudad" value="{{ciudad}}">
                         </div>
+
                         <div class="info">
                             <span class="title">Mail:</span>
-                            <span class="info-data">{{mail}}</span>
+                            <p id="mailExistente" style="display: none">Mail existente, ingrese otro mail</p>
+                            <input id="campoNueveFormularioPerfil" class="info-data" name="mail" value="{{mail}}">
                         </div>
+
+                        <p id="operacionExitosa" style="display: none">Cambios realizados correctamente</p>
+
+                        <button id="editProfile" class="button-secondary button-small">Actualizar
+                            perfil</button>
+
                     </div>
 
                 </div>
 
-                <a href="/profile/edit" class="button-secondary button-small">Editar perfil</a>
             </div>
+
         {{/owner}}
 
     </div>
@@ -141,4 +194,6 @@
 
 <!-- End Page Content -->
 </div>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='../public/scripts/profile.js'></script>
 {{> footer}}

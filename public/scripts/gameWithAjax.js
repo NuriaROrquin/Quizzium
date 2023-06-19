@@ -64,7 +64,6 @@ $(window).on('load', function () {
                 if ( data.mostrarFinalPartida ) {
                     finalizarPartida(data)
                 }
-
             },
             error: function (xhr, status, error) {
             }
@@ -74,11 +73,15 @@ $(window).on('load', function () {
 
 
 function finalizarPartida(data){
+
+    clearInterval(cronometro);
+
     $('#form-game').css({'display': 'none'});
     $('.timer').css({'display': 'none'});
     $('.categoria').css({'display': 'none'});
-    $('#categoryColor').css({'display': 'none'});
-    $('#categoryTitle').css({'display': 'none'});
+    $('#categoryName').css({'display': 'none'});
+    $('.categoryTitle').css({'display': 'none'});
+    $('.question').css({'display': 'none'});
 
     $('#mostrarFinalPartida').css({'display': 'block'});
     $('#puntuacionFinal').text(data.puntuacion);
@@ -87,9 +90,13 @@ function finalizarPartida(data){
 
 
 function siguientePregunta(data){
+
     $('.puntuacion').text(data.puntuacion);
 
-    $('#categoria').text(data.categoryName);
+    $('#categoryName').text(data.categoryName);
+
+    $('#categoryColor').css({'background-color': data.categoryColor});
+    $('#categoryName').css({'color': data.categoryColor});
 
     $('#id_question').val(data.id_question);
 
@@ -104,4 +111,6 @@ function siguientePregunta(data){
     $('#option_2').val(data.id_opcion2);
     $('#option_3').val(data.id_opcion3);
     $('#option_4').val(data.id_opcion4);
+
 }
+
