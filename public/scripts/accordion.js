@@ -8,8 +8,14 @@ accordionItems.forEach(item => {
 });
 
 $(window).on('load', function () {
-    $('.accept').click(function (event) {
-        updateQuestionInfo($(this).attr('name'), 'accept')
+    $('.accept-question').click(function (event) {
+        console.log("accept")
+        updateQuestionInfo($(this).attr('name'))
+    })
+
+    $('.deny-question').click(function (event) {
+
+        denyQuestion($(this).attr('name'))
     })
 
     $('.accordion-label').on('click', function (event) {
@@ -60,7 +66,7 @@ function setData(data) {
 }
 
 function updateQuestionInfo(id, action) {
-    var url = '/factory/updateQuestion&id=' + encodeURIComponent(id);
+    var url = '/factory/acceptQuestion&id=' + encodeURIComponent(id);
 
     let createdDate = $('#fecha-creacion-question' + id).val();
     let category = $('#categoria-question' + id).val();
@@ -100,7 +106,10 @@ function updateQuestionInfo(id, action) {
                 showErrors(data, id);
                 console.log(data['bd-error'])
             } else {
-                window.location.reload("/factory/list");
+                console.log("Se aceptó la pregunta")
+                setTimeout(function() {
+                    window.location.reload("/factory/list");
+                }, 3000);
             }
         },
         error: function (xhr, status, error) {
@@ -133,4 +142,32 @@ function showErrors(data, id) {
     if (data.answerFour) {
         $('#respuesta4-error-question' + id).text("Completa este campo");
     }
+}
+
+function denyQuestion(id){
+    var url = '/factory/denyQuestion&id=' + encodeURIComponent(id);
+
+    console.log("deny", id)
+
+    $.ajax({
+        url: url,
+        type: 'DELETE',
+        success: function (response) {
+            var data = JSON.parse(response);
+
+            console.log(data, response)
+
+            if (!data['bd-success']) {
+                console.log(data['bd-error'])
+            } else {
+                console.log("Se eliminó la pregunta")
+                setTimeout(function() {
+                    window.location.reload("/factory/list");
+                }, 3000);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log(error)
+        }
+    });
 }

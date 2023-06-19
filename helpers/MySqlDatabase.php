@@ -24,6 +24,7 @@ class MySqlDatabase
 
     public function query($sql)
     {
+        Logger::info('Ejecutando query: ' . $sql);
         return mysqli_query($this->connection, $sql);
     }
 

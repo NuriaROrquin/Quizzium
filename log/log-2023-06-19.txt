@@ -609,3 +609,91 @@
 [2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '0')
 [2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '0')
 [2023-06-19][INFO]Ejecutando query: INSERT INTO `opcion`(`id_pregunta`, `opcion`, `es_correcta`) VALUES ('104', 'asd', '0')
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-19][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se aceptó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se aceptó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se aceptó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se aceptó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se aceptó la pregunta."}
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se aceptó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se rechazó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se rechazó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = ''
+[2023-06-19][INFO]{"bd-success":"Se rechazó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '104';
+[2023-06-19][INFO]104
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `opcion` WHERE `id_pregunta` = '104'
+[2023-06-19][INFO]Ejecutando query: DELETE FROM `pregunta` WHERE `id_pregunta` = '104'
+[2023-06-19][INFO]{"bd-success":"Se rechazó la pregunta."}
+[2023-06-19][INFO]Ejecutando query: SELECT * FROM `pregunta` WHERE esta_activa = 0;

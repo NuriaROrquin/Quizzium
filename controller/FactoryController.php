@@ -72,7 +72,7 @@ class FactoryController
         echo $data;
     }
 
-    public function updateQuestion()
+    public function acceptQuestion()
     {
         $question['id'] = $_POST['id'] ?? "";
         $question['action'] = $_POST['action'] ?? "";
@@ -94,10 +94,18 @@ class FactoryController
         if (!empty($errors)) {
             $data = json_encode($errors, JSON_UNESCAPED_UNICODE);
         } else {
-            $result = $this->factoryModel->acceptQuestion($question);
+            $result = $this->factoryModel->updateQuestion($question);
             $data = json_encode($result, JSON_UNESCAPED_UNICODE);
         }
 
+        echo $data;
+    }
+
+    public function denyQuestion()
+    {
+        $question['id'] = $_REQUEST['id'] ?? "";
+        $result = $this->factoryModel->deleteQuestion($question);
+        $data = json_encode($result, JSON_UNESCAPED_UNICODE);
         echo $data;
     }
 

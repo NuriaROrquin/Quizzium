@@ -107,7 +107,7 @@ class FactoryModel
         return $fila;
     }
 
-    public function acceptQuestion($question)
+    public function updateQuestion($question)
     {
         $id_categoria = $question['category'];
         $fecha_creacion = $question['createdDate'];
@@ -142,6 +142,27 @@ class FactoryModel
 
             $database['bd-success'] = "Se aceptó la pregunta.";
 
+        } catch (Exception $e) {
+            $this->database->rollback();
+            $database['bd-error'] = "Ocurrió un error durante las inserciones: " . $e->getMessage();
+        }
+
+        return $database;
+    }
+
+    public function deleteQuestion($question)
+    {
+        $idQuestion = $question['id'];
+
+        try {
+
+            $queryQuestion = "DELETE FROM `opcion` WHERE `id_pregunta` = '$idQuestion'";
+            $this->database->query($queryQuestion);
+
+            $queryQuestion = "DELETE FROM `pregunta` WHERE `id_pregunta` = '$idQuestion'";
+            $this->database->query($queryQuestion);
+
+            $database['bd-success'] = "Se rechazó la pregunta.";
         } catch (Exception $e) {
             $this->database->rollback();
             $database['bd-error'] = "Ocurrió un error durante las inserciones: " . $e->getMessage();
