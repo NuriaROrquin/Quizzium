@@ -8,23 +8,24 @@ accordionItems.forEach(item => {
 });
 
 $(window).on('load', function () {
-    $('.accept-question').click(function (event) {
-        console.log("accept")
+    $('.accordion-label').on('click', function (event) {
+        getQuestionInfo($(this).attr('name'))
+    });
+
+    $('.modify-question').click(function (event) {
         updateQuestionInfo($(this).attr('name'))
     })
 
-    $('.deny-question').click(function (event) {
-
-        denyQuestion($(this).attr('name'))
+    $('.delete-question').click(function (event) {
+        deleteQuestion($(this).attr('name'))
     })
 
-    $('.accordion-label').on('click', function (event) {
-        getQuestionInfo($(this).attr('name'))
+    $('.ignore-report').on('click', function (event) {
+        ignoreReport($(this).attr('name'))
     });
 });
 
 function getQuestionInfo(id) {
-console.log(id)
     var url = '/report/getInfoPendingQuestion?id=' + encodeURIComponent(id);
 
     $.ajax({
@@ -66,20 +67,20 @@ function setData(data) {
 }
 
 function updateQuestionInfo(id, action) {
-    var url = '/factory/acceptQuestion&id=' + encodeURIComponent(id);
+    var url = '/report/updateQuestion&id=' + encodeURIComponent(id);
 
-    let createdDate = $('#fecha-creacion-question' + id).val();
-    let category = $('#categoria-question' + id).val();
-    let title = $('#pregunta-question' + id).val();
-    let answerOne = $('#respuesta1-question' + id).val();
-    let answerTwo = $('#respuesta2-question' + id).val();
-    let answerThree = $('#respuesta3-question' + id).val();
-    let answerFour = $('#respuesta4-question' + id).val();
-    let correctAnswer = $('#correcta-question' + id).val();
-    let idAnswerOne = $('#answer-one-question' + id).val();
-    let idAnswerTwo = $('#answer-two-question' + id).val();
-    let idAnswerThree = $('#answer-three-question' + id).val();
-    let idAnswerFour = $('#answer-four-question' + id).val();
+    let createdDate = $('#fecha-creacion-report' + id).val();
+    let category = $('#categoria-report' + id).val();
+    let title = $('#pregunta-report' + id).val();
+    let answerOne = $('#respuesta1-report' + id).val();
+    let answerTwo = $('#respuesta2-report' + id).val();
+    let answerThree = $('#respuesta3-report' + id).val();
+    let answerFour = $('#respuesta4-report' + id).val();
+    let correctAnswer = $('#correcta-report' + id).val();
+    let idAnswerOne = $('#answer-one-report' + id).val();
+    let idAnswerTwo = $('#answer-two-report' + id).val();
+    let idAnswerThree = $('#answer-three-report' + id).val();
+    let idAnswerFour = $('#answer-four-report' + id).val();
 
     let data = "id=" + id +
         "&category=" + category +
@@ -106,9 +107,9 @@ function updateQuestionInfo(id, action) {
                 showErrors(data, id);
                 console.log(data['bd-error'])
             } else {
-                console.log("Se aceptó la pregunta")
+                console.log("Se modificó la pregunta")
                 setTimeout(function() {
-                    window.location.reload("/factory/list");
+                    window.location.reload("/report/list");
                 }, 3000);
             }
         },
@@ -144,10 +145,8 @@ function showErrors(data, id) {
     }
 }
 
-function denyQuestion(id){
-    var url = '/factory/denyQuestion&id=' + encodeURIComponent(id);
-
-    console.log("deny", id)
+function deleteQuestion(id){
+    var url = '/report/deleteQuestion&id=' + encodeURIComponent(id);
 
     $.ajax({
         url: url,
@@ -155,14 +154,37 @@ function denyQuestion(id){
         success: function (response) {
             var data = JSON.parse(response);
 
-            console.log(data, response)
-
             if (!data['bd-success']) {
                 console.log(data['bd-error'])
             } else {
                 console.log("Se eliminó la pregunta")
                 setTimeout(function() {
-                    window.location.reload("/factory/list");
+                    window.location.reload("/report/list");
+                }, 3000);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log(error)
+        }
+    });
+}
+
+function ignoreReport(idQuestion){
+    let reportId = $('#id-report' + idQuestion).val();
+    var url = '/report/ignoreReport&id_report=' + reportId + "&id_question=" + idQuestion;
+
+    $.ajax({
+        url: url,
+        type: 'DELETE',
+        success: function (response) {
+            var data = JSON.parse(response);
+
+            if (!data['bd-success']) {
+                console.log(data['bd-error'])
+            } else {
+                console.log("Se ignoró el reporte")
+                setTimeout(function() {
+                    window.location.reload("/report/list");
                 }, 3000);
             }
         },

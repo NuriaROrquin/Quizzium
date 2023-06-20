@@ -49,4 +49,50 @@ class ReportController
 
         echo $data;
     }
+
+    public function updateQuestion()
+    {
+        $question['id'] = $_POST['id'] ?? "";
+        $question['action'] = $_POST['action'] ?? "";
+        $question['createdDate'] = $_POST['createdDate'] ?? "";
+        $question['category'] = $_POST['category'] ?? "";
+        $question['title'] = $_POST['title'] ?? "";
+        $question['answerOne'] = $_POST['answerOne'] ?? "";
+        $question['answerTwo'] = $_POST['answerTwo'] ?? "";
+        $question['answerThree'] = $_POST['answerThree'] ?? "";
+        $question['answerFour'] = $_POST['answerFour'] ?? "";
+        $question['correctAnswer'] = $_POST['correctAnswer'] ?? "";
+        $question['idAnswerOne'] = $_POST['idAnswerOne'] ?? "";
+        $question['idAnswerTwo'] = $_POST['idAnswerTwo'] ?? "";
+        $question['idAnswerThree'] = $_POST['idAnswerThree'] ?? "";
+        $question['idAnswerFour'] = $_POST['idAnswerFour'] ?? "";
+
+        $errors = $this->reportModel->validate($question);
+
+        if (!empty($errors)) {
+            $data = json_encode($errors, JSON_UNESCAPED_UNICODE);
+        } else {
+            $result = $this->reportModel->updateQuestion($question);
+            $data = json_encode($result, JSON_UNESCAPED_UNICODE);
+        }
+
+        echo $data;
+    }
+
+    public function deleteQuestion()
+    {
+        $question['id'] = $_REQUEST['id'] ?? "";
+        $result = $this->reportModel->deleteQuestion($question);
+        $data = json_encode($result, JSON_UNESCAPED_UNICODE);
+        echo $data;
+    }
+
+    public function ignoreReport()
+    {
+        $question['id_report'] = $_REQUEST['id_report'] ?? "";
+        $question['id_question'] = $_REQUEST['id_question'] ?? "";
+        $result = $this->reportModel->ignoreReport($question);
+        $data = json_encode($result, JSON_UNESCAPED_UNICODE);
+        echo $data;
+    }
 }

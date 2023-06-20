@@ -31,6 +31,7 @@
                         </div>
 
                         <input type="text" id='fecha-creacion-report{{id_pregunta}}' hidden="hidden" value={{fecha_creacion}}/>
+                        <input type="text" id='id-report{{id_pregunta}}' hidden="hidden" value={{id_reporte}}/>
 
                         <div class="form-field">
                             <label class="form-label" for="pregunta-report{{id_pregunta}}">Pregunta:</label>
@@ -80,8 +81,9 @@
 
 
                         <div class="redirect">
-                            <button class="button button-small delete-report" type="button" id="delete-report{{id_pregunta}}" name={{id_pregunta}}>Borrar pregunta</button>
-                            <button class="button button-small modify-report" type="button" id="modify-report{{id_pregunta}}" name={{id_pregunta}}>Modificar pregunta</button>
+                            <button class="button button-small delete-question" type="button" id="delete-question{{id_pregunta}}" name={{id_pregunta}}>Borrar pregunta</button>
+                            <button class="button button-small modify-question" type="button" id="modify-question{{id_pregunta}}" name={{id_pregunta}}>Modificar pregunta</button>
+                            <button class="button button-small ignore-report" type="button" id="ignore-report{{id_pregunta}}" name={{id_pregunta}}>Ignorar reporte</button>
                         </div>
 
                     </form>
