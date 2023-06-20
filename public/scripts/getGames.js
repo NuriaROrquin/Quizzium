@@ -1,13 +1,11 @@
 $(window).on('load', function () {
 
     $.ajax({
-        url: '/lobby/getGames', // Ruta al archivo PHP en el servidor
+        url: '/lobby/getGames',
         type: 'GET',
         success: function (response) {
 
             var historialPartidas = JSON.parse(response);
-
-            console.log(historialPartidas);
 
             var listaPartidas = $('#lista-partidas');
             listaPartidas.empty();
@@ -18,7 +16,7 @@ $(window).on('load', function () {
 
                    var listItem = $('<li>').addClass('box');
                    var puntaje = $('<p>').text('Puntaje: ' + data[0]);
-                   var nombreJugador = $('<p>').text(data[1]);
+                   var nombreJugador = $('<h3>').text(data[1]);
 
                    listItem.append(nombreJugador, puntaje);
                    listaPartidas.append(listItem);
@@ -34,7 +32,6 @@ $(window).on('load', function () {
                listItem.append(partida);
                listaPartidas.append(listItem);
            }
-
 
         },
         error: function () {
