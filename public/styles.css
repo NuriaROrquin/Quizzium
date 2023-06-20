@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     width: 100%;
     min-height: 100vh;
@@ -1767,4 +1771,43 @@ body:has(.container-ranking) {
         margin-left: 1rem;
         width: 25%;
     }
+}
+
+
+
+
+
+
+/* ************************* DESPEUS BORRAR ************************** */
+.container-box{
+    background-color: red;
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.titulo-historial{
+    margin-top: 0px;
+    background-color: grey;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.historial{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+}
+
+.box{
+    background-color: grey;
+    width: 30%;
+    padding: 15px;
+    text-align: center;
+    margin: 10px;
 }
