@@ -2787,3 +2787,4 @@
         ON j.id_cuenta = c.id_cuenta 
         GROUP BY j.id_cuenta
         ORDER BY puntaje_maximo DESC;
+[2023-06-19][INFO]Ejecutando query: UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '2023-06-19 22:50:41' WHERE token='649105e1dd067'

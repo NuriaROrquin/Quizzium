@@ -25,7 +25,7 @@
         </div>
     {{/owner}}
 
-    <div style="display: flex; gap: 1rem">
+    <div style="display: flex; gap: 1rem; justify-content: center; align-items: center">
         <a href="/factory/list" class="button button-small button-orange mt-1" style="display: block">Ir a fábrica de preguntas</a>
     </div>
 
@@ -33,27 +33,16 @@
 
     <div class="container-box">
 
-        <h3 class="titulo-historial">Historial de partidas</h3>
+        <h2 class="titulo-historial">Historial de partidas</h2>
 
-        <ul class="historial">
-
-            <li class="box">
-                Historial de partidas
-            </li>
-
-            <li class="box">
-                Historial de partidas
-            </li>
-
-            <li class="box">
-                Historial de partidas
-            </li>
-
+        <ul class="historial" id="lista-partidas">
 
         </ul>
 
     </div>
 </div>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='../public/scripts/getGames.js'></script>
 
 <!-- End Page Content -->
 </div>

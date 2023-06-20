@@ -1778,9 +1778,8 @@ body:has(.container-ranking) {
 
 
 
-/* ************************* DESPEUS BORRAR ************************** */
+/* ************************* DESPUES BORRAR ************************** */
 .container-box{
-    background-color: red;
     width: 60%;
     padding: 10px;
     margin-bottom: 20px;
@@ -1788,11 +1787,11 @@ body:has(.container-ranking) {
 
 .titulo-historial{
     margin-top: 0px;
-    background-color: grey;
+    background-color: #800080;
+    color: white;
     width: 100%;
     padding: 20px;
     text-align: center;
-
 }
 
 .historial{
@@ -1805,9 +1804,15 @@ body:has(.container-ranking) {
 }
 
 .box{
-    background-color: grey;
-    width: 30%;
+    border: 6px #800080 solid;
+    border-radius: 10px;
+    width: 12%;
     padding: 15px;
     text-align: center;
     margin: 10px;
+}
+
+.noHayPartidas{
+    width: 100%;
+    text-align: center;
 }
