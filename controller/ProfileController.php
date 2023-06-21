@@ -19,9 +19,9 @@ class ProfileController
 
             $data["owner"] = $this->profileModel->getProfile($id_cuenta);
 
-            $data["owner"] =array_merge ($data["owner"], $this->profileModel->setGenderOnView($data["owner"]));
+            $data["owner"] = $this->profileModel->setGenderOnView($data["owner"]);
 
-            $data["owner"] = array_merge ($data["owner"], $this->profileModel->getCantidadDePartidasJugadas($data["owner"], $id_cuenta));
+            $data["owner"] = $this->profileModel->getCantidadDePartidasJugadas($data["owner"], $id_cuenta);
 
             $data["owner"] = $this->profileModel->getPuntajeMaximoLogrado($data["owner"], $id_cuenta);
 
@@ -35,7 +35,7 @@ class ProfileController
 
             $data["public"] = $this->profileModel->getProfile($id_cuenta);
 
-            $data["public"] = array_merge ($data["public"], $this->profileModel->getCantidadDePartidasJugadas($data["public"], $id_cuenta));
+            $data["public"] = $this->profileModel->getCantidadDePartidasJugadas($data["public"], $id_cuenta);
 
             $data["public"] = $this->profileModel->getPuntajeMaximoLogrado($data["public"], $id_cuenta);
 

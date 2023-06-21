@@ -133,12 +133,12 @@ class ProfileModel
 
 
         if($cantidadDePartidasJugadas != null ){
-            $data['cantidadDePartidas'] = $cantidadDePartidasJugadas;
+            $data['cantidadDePartidas'] = $cantidadDePartidasJugadas['cantidadDePartidas'];
         } else{
             $data['cantidadDePartidas'] = 0;
         }
 
-        return $data['cantidadDePartidas'];
+        return $data;
     }
 
 
