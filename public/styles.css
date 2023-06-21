@@ -1792,6 +1792,8 @@ body:has(.container-ranking) {
     width: 100%;
     padding: 20px;
     text-align: center;
+    font-weight: normal;
+    border-radius: 30px;
 }
 
 .historial{
