@@ -73,14 +73,16 @@ class GameModel
     {
         if($dificultadUsuario <= 70){
             $dificultad = 'dificultad > 30';
-        }else {
+        }
+        else {
             $dificultad = 'dificultad <= 30';
         }
+
         $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
                 WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
                                             FROM respuesta
-                                            WHERE id_cuenta =" . $id_cuenta . ")
-                AND " . $dificultad .
+                                            WHERE id_cuenta = " . $id_cuenta . ")
+                AND " . $dificultad . " AND p.esta_activa = 1 " .
               " ORDER BY RAND() LIMIT 1;";
 
         $result = $this->database->querySelectAll($sql);
@@ -90,7 +92,8 @@ class GameModel
             $sql = "SELECT p.`id_pregunta` FROM `pregunta` p 
                 WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
                                             FROM respuesta
-                                            WHERE id_cuenta = " . $id_cuenta . ")
+                                            WHERE id_cuenta = " . $id_cuenta . ") 
+                AND p.esta_activa = 1 
                 ORDER BY RAND() LIMIT 1;";
 
             $result = $this->database->querySelectAll($sql);
@@ -100,7 +103,8 @@ class GameModel
                 $result = $this->database->querySelectAll($sql);
             }
         }
-        return $result;
+
+        return $result[0][0];
     }
 
     private function resetQuestions($id_cuenta){
@@ -111,10 +115,10 @@ class GameModel
         $this->database->query($sql);
     }
 
-    private function bringQuestions($idString)
+    private function bringQuestions($idQuestion)
     {
         $sql = "SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
-        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idString . ";";
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = " . $idQuestion . ";";
 
         $question = $this->database->query($sql);
 
@@ -152,9 +156,9 @@ class GameModel
     {
         $dificultadUsuario = $this->getUserDifficulty($id_cuenta);
 
-        $questionID= $this->randomQuestionIDs($id_cuenta, $dificultadUsuario);
+        $questionID = $this->randomQuestionIDs($id_cuenta, $dificultadUsuario);
 
-        $questionData = $this->bringQuestions($questionID[0][0]);
+        $questionData = $this->bringQuestions($questionID);
 
         return $questionData;
     }

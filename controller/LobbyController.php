@@ -14,7 +14,6 @@ class LobbyController
 
     public function list()
     {
-
         $mail = $_SESSION['user'];
 
         $id_cuenta = $this->lobbyModel->getID($mail);
@@ -24,7 +23,17 @@ class LobbyController
         $data["rankingPosition"] = $this->lobbyModel->getRankingPosition($id_cuenta);
 
         $this->renderer->render('lobby', $data);
+    }
 
+    public function getGames(){
+
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
+
+        $gamesInfo = $this->lobbyModel->getGames($id_cuenta);
+
+        $gamesInfo = json_encode($gamesInfo, JSON_UNESCAPED_UNICODE);
+
+        echo $gamesInfo;
     }
 
     public function exit()

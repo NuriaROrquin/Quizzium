@@ -74,17 +74,8 @@ class ProfileModel
     }
 
 
-    /*
-    private function setGender($id_genero){
-
-        $sql = "SELECT tipo FROM genero WHERE id_genero = '$id_genero' ;";
-
-        return $this->database->querySelectAssoc($sql)['tipo'];
-
-    }
-    */
-
-    private function getContrasenia($id_cuenta){
+    private function getContrasenia($id_cuenta)
+    {
 
         $sql = "SELECT contrasenia FROM cuenta WHERE id_cuenta = '$id_cuenta' ;";
 
@@ -105,7 +96,7 @@ class ProfileModel
         $fecha_nacimiento = $newDataProfile['fecha_nacimiento'];
         $nombre = $newDataProfile['nombre'];
         $apellido = $newDataProfile['apellido'];
-        $contrasenia="";
+        $contrasenia = "";
         $id_cuenta = $newDataProfile['id_cuenta'];
 
 
@@ -114,7 +105,7 @@ class ProfileModel
             $newDataProfile['contrasenia'] = $this->getContrasenia($id_cuenta);
             $contrasenia = $newDataProfile['contrasenia'];
 
-        } else{
+        } else {
             $contrasenia = md5($newDataProfile['contrasenia']);
         }
         //falta updatear la foto de perfil en la query
@@ -135,5 +126,65 @@ class ProfileModel
 
         return $newDataProfile;
     }
+
+    public function getCantidadDePartidasJugadas( $data , $id_cuenta)
+    {
+        $cantidadDePartidasJugadas = $this->database->querySelectAssoc("SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '$id_cuenta'");
+
+
+        if($cantidadDePartidasJugadas != null ){
+            $data['cantidadDePartidas'] = $cantidadDePartidasJugadas['cantidadDePartidas'];
+        } else{
+            $data['cantidadDePartidas'] = 0;
+        }
+
+        return $data;
+    }
+
+
+    public function getPuntajeMaximoLogrado ( $data , $id_cuenta)
+    {
+        $puntajeMaximo = $this->database->querySelectAssoc("SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '$id_cuenta'
+                                                            GROUP BY j.id_cuenta ");
+
+        if($puntajeMaximo != null ){
+            $data['puntajeMaximo'] = $puntajeMaximo['puntajeMaximo'];
+        } else{
+            $data['puntajeMaximo'] = 0;
+        }
+
+        return $data;
+    }
+
+
+    public function getPosicionDelRanking($data , $id_cuenta)
+    {
+        $statement = $this->database->query("SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;");
+
+        $index = 1;
+
+        while ($fila = $statement->fetch_assoc()) {
+
+
+            if ($id_cuenta == $fila['id_cuenta']) {
+                break;
+            }
+
+            $index++;
+        }
+
+        $data["posicionDelRanking"] = $index;
+
+        return $data;
+    }
+
+
 
 }

@@ -1,0 +1,2077 @@
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  cantidadDePartidas FROM juego GROUP BY j.id_cuenta
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  cantidadDePartidas FROM juego GROUP BY j.id_cuenta WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo FROM juego WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo FROM juego WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo FROM juego WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo FROM juego WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo FROM juego WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo FROM juego j WHERE id_cuenta = '1' GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo 
+                                                                        FROM juego j 
+                                                                        WHERE id_cuenta = '1'
+                                                                        GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo 
+                                                                        FROM juego j 
+                                                                        WHERE id_cuenta = '1'
+                                                                        GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as  puntajeMaximo 
+                                                                        FROM juego j 
+                                                                        WHERE id_cuenta = '1'
+                                                                        GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) 
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntaje_maximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta,
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta,
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta,
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta,
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: 
+        SELECT j.id_cuenta
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY j.puntaje DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 4;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT mail FROM cuenta WHERE mail ='';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT contrasenia FROM cuenta WHERE id_cuenta = '4' ;
+[2023-06-22][INFO]Ejecutando query: UPDATE `cuenta` SET
+                        `id_genero`= '',
+                        `mail`= '',
+                        `ciudad`= '',
+                        `pais`= '',
+                        `usuario`= '',
+                        `contrasenia`= '202cb962ac59075b964b07152d234b70',
+                        `fecha_nacimiento`= '',
+                        `nombre`= '',
+                        `apellido`=''
+                        WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'cocomatias6@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='editor@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='editor@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='editor@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='editor@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_rol FROM cuenta WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT p.id_pregunta, p.id_categoria, p.fecha_creacion, p.pregunta 
+                FROM `pregunta` p 
+                INNER JOIN sugerencia s 
+                ON p.id_pregunta = s.id_pregunta 
+                AND s.fue_visto = 0
+[2023-06-22][INFO]Ejecutando query: SELECT * FROM `pregunta` JOIN `opcion` ON opcion.id_pregunta = pregunta.id_pregunta WHERE pregunta.esta_activa = 0 AND pregunta.id_pregunta = '114';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '3'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '3'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '3'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '3'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '3'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '3'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'editor@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 2;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '4'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '4'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '1'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '2'
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT MAX(j.puntaje) as puntajeMaximo
+                                                            FROM juego j 
+                                                            WHERE id_cuenta = '2'
+                                                            GROUP BY j.id_cuenta 
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
+                                             FROM juego j 
+                                             JOIN cuenta c 
+                                             ON j.id_cuenta = c.id_cuenta
+                                             GROUP BY j.id_cuenta
+                                             ORDER BY puntaje_maximo DESC, id_cuenta DESC;
+[2023-06-22][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-22][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-22][INFO]Ejecutando query: SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-22][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;

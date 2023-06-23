@@ -46,4 +46,23 @@ class LobbyModel
         return $data['rankingPosition'];
     }
 
+
+    public function getGames($id_cuenta)
+    {
+
+        $sql = "SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = " . $id_cuenta . ";";
+
+        $dataOfGames = $this->database->querySelectAll($sql);
+
+        if($dataOfGames == null){
+            $dataOfGames = false;
+        }
+
+        return $dataOfGames;
+    }
+
 }

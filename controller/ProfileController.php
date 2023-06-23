@@ -19,12 +19,27 @@ class ProfileController
 
             $data["owner"] = $this->profileModel->getProfile($id_cuenta);
 
-            $data["owner"] =array_merge($data["owner"], $this->profileModel->setGenderOnView($data["owner"]));
+            $data["owner"] = $this->profileModel->setGenderOnView($data["owner"]);
+
+            $data["owner"] = $this->profileModel->getCantidadDePartidasJugadas($data["owner"], $id_cuenta);
+
+            $data["owner"] = $this->profileModel->getPuntajeMaximoLogrado($data["owner"], $id_cuenta);
+
+            $data["owner"] = $this->profileModel->getPosicionDelRanking($data["owner"], $id_cuenta);
 
             $_SESSION["owner"] = $data["owner"];
 
         } else {
-            $data["public"] = $this->profileModel->getProfile($_GET['id_cuenta']);
+
+            $id_cuenta = $_GET['id_cuenta'];
+
+            $data["public"] = $this->profileModel->getProfile($id_cuenta);
+
+            $data["public"] = $this->profileModel->getCantidadDePartidasJugadas($data["public"], $id_cuenta);
+
+            $data["public"] = $this->profileModel->getPuntajeMaximoLogrado($data["public"], $id_cuenta);
+
+            $data["public"] = $this->profileModel->getPosicionDelRanking($data["public"], $id_cuenta);
         }
 
         $this->renderer->render('profile', $data);
