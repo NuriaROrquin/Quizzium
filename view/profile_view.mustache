@@ -45,11 +45,17 @@
 
         {{#owner}}
 
-            <div class="header">
+            <div class="header f-wrap">
                 <div class="description">
-                    <img src="../public/profile-pictures/{{foto_perfil}}"/>
+                    <img id="profilePhoto" src="../public/profile-pictures/{{foto_perfil}}"/>
                     <h1 id="nombreDeUsuario">{{usuario}}</h1>
                 </div>
+
+                <form class="setProfilePhoto" enctype="multipart/form-data" action="/profile/changePhoto" method="POST">
+                    <button type="submit" id="changePhotoBtn">Cambiar foto de perfil</button>
+                    <input type="file" id="photoProfileInput" name="photoProfileInput">
+                </form>
+
             </div>
 
             <div class="first-container">
@@ -178,7 +184,7 @@
 
                         <p id="operacionExitosa" style="display: none">Cambios realizados correctamente</p>
 
-                        <button id="editProfile" class="button-secondary button-small">Actualizar
+                        <button type="submit" id="editProfile" class="button-secondary button-small">Actualizar
                             perfil</button>
 
                     </div>

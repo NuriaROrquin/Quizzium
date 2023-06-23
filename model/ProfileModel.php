@@ -127,14 +127,14 @@ class ProfileModel
         return $newDataProfile;
     }
 
-    public function getCantidadDePartidasJugadas( $data , $id_cuenta)
+    public function getCantidadDePartidasJugadas($data, $id_cuenta)
     {
         $cantidadDePartidasJugadas = $this->database->querySelectAssoc("SELECT COUNT(id_cuenta) as  cantidadDePartidas FROM juego WHERE id_cuenta = '$id_cuenta'");
 
 
-        if($cantidadDePartidasJugadas != null ){
+        if ($cantidadDePartidasJugadas != null) {
             $data['cantidadDePartidas'] = $cantidadDePartidasJugadas['cantidadDePartidas'];
-        } else{
+        } else {
             $data['cantidadDePartidas'] = 0;
         }
 
@@ -142,16 +142,16 @@ class ProfileModel
     }
 
 
-    public function getPuntajeMaximoLogrado ( $data , $id_cuenta)
+    public function getPuntajeMaximoLogrado($data, $id_cuenta)
     {
         $puntajeMaximo = $this->database->querySelectAssoc("SELECT MAX(j.puntaje) as puntajeMaximo
                                                             FROM juego j 
                                                             WHERE id_cuenta = '$id_cuenta'
                                                             GROUP BY j.id_cuenta ");
 
-        if($puntajeMaximo != null ){
+        if ($puntajeMaximo != null) {
             $data['puntajeMaximo'] = $puntajeMaximo['puntajeMaximo'];
-        } else{
+        } else {
             $data['puntajeMaximo'] = 0;
         }
 
@@ -159,7 +159,7 @@ class ProfileModel
     }
 
 
-    public function getPosicionDelRanking($data , $id_cuenta)
+    public function getPosicionDelRanking($data, $id_cuenta)
     {
         $statement = $this->database->query("SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo 
                                              FROM juego j 
@@ -185,6 +185,24 @@ class ProfileModel
         return $data;
     }
 
+    public function verificateProfilePhoto($profilePhotoName)
+    {
+
+        var_dump($profilePhotoName);
+        exit();
+
+        $temporary_file = $profilePhotoName['tmp_name'];
+
+        $file_name = uniqid() . '_' . $profilePhotoName['name'];
+
+        $destination_folder = "./public/profile-pictures/";
+
+        if (!move_uploaded_file($temporary_file, $destination_folder . $file_name)) {
+            return false;
+        }
+
+        return $file_name;
+    }
 
 
 }

@@ -1829,3 +1829,33 @@ body:has(.container-ranking) {
     width: 100%;
     text-align: center;
 }
+
+.f-wrap{
+    flex-wrap: wrap;
+}
+
+.setProfilePhoto{
+    width: 100%;
+}
+
+.setProfilePhoto input{
+    visibility: hidden;
+    width: 5%;
+}
+
+.setProfilePhoto button{
+    padding: 15px;
+    background-color: #800080;
+    color: white;
+    border-radius: 20px;
+    border: 3px solid #800080;
+    font-family: 'Bangers', cursive;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.setProfilePhoto button:hover{
+    background-color: white;
+    border: 3px solid #800080;
+    color: #800080;
+}

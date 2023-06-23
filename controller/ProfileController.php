@@ -49,6 +49,12 @@ class ProfileController
     {
         $dataProfile = $_POST;
 
+        $dataProfile = json_encode($_FILES, JSON_UNESCAPED_UNICODE);
+        echo $dataProfile;
+        exit();
+
+        $dataProfile = json_encode($dataProfile, JSON_UNESCAPED_UNICODE);
+
         $dataProfile['id_cuenta'] = $_SESSION["owner"]['id_cuenta'];
 
         $dataProfile['mailExistente'] = true;
@@ -59,7 +65,10 @@ class ProfileController
 
         $result = $this->profileModel->checkMail($newMail, $mailUser);
 
-        if($result){
+        $verificatePhoto = $this->profileModel->verificateProfilePhoto($dataProfile['newProfilePhoto']);
+
+        if ($result && $verificatePhoto) {
+
             $dataProfile = $this->profileModel->updateData($dataProfile);
             $_SESSION['user'] = $dataProfile['mail'];
             $dataProfile['mailExistente'] = false;
@@ -69,4 +78,12 @@ class ProfileController
         echo $dataProfile;
 
     }
+
+    public function changePhoto()
+    {
+        header("location: /profile/list");
+        var_dump($_FILES);
+        exit();
+    }
+
 }

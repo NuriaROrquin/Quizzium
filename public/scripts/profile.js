@@ -1,45 +1,129 @@
-$('#editProfile').click(function (event) {
+$(document).ready(function () {
 
-    event.preventDefault();
+    /*
+    const changePhotoBtn = $('#changePhotoBtn');
+    const photoProfileInput = $('#photoProfileInput');
 
-    let usuario = $('#campoUnoFormularioPerfil').val();
-    let contrasenia = $('#campoDosFormularioPerfil').val();
-    let nombre = $('#campoTresFormularioPerfil').val();
-    let apellido = $('#campoCuatroFormularioPerfil').val();
-    let fecha_nacimiento = $('#campoCincoFormularioPerfil').val();
-    let genero = $('#campoSeisFormularioPerfil').val();
-    let pais = $('#campoSieteFormularioPerfil').val();
-    let ciudad = $('#campoOchoFormularioPerfil').val();
-    let mail = $('#campoNueveFormularioPerfil').val();
+    changePhotoBtn.on('click', function () {
 
-    let data = "usuario=" + usuario +
-        "&contrasenia=" + contrasenia +
-        "&nombre=" + nombre +
-        "&apellido=" + apellido +
-        "&fecha_nacimiento=" + fecha_nacimiento +
-        "&genero=" + genero +
-        "&pais=" + pais +
-        "&ciudad=" + ciudad +
-        "&mail=" + mail;
+        console.log("entre aca");
 
-    $.ajax({
-        url: '/profile/edit',
-        type: 'POST',
-        data: data,
-        success: function (response) {
+        photoProfileInput.on('change', function (event) {
 
-            var data = JSON.parse(response);
+            console.log("entre aca2");
 
-            $('#nombreDeUsuario').text(data.usuario);
+            const files = event.target.files;
 
-            mailExistente(data)
+            if (files && files.length > 0) {
 
-        },
-        error: function (xhr, status, error) {
+                const selectedImage = files[0];
+
+                if (selectedImage.type === 'image/png' || selectedImage.type === 'image/jpeg') {
+
+                    photoProfileInput.click();
+
+                } else {
+                    console.log("el archivo ingresado no corresponde");
+                }
+            }
+        });
+
+
+    });
+
+    photoProfileInput.on('change', function (event) {
+
+        const files = event.target.files;
+
+        if (files && files.length > 0) {
+
+            const selectedImage = files[0];
+
+            if (selectedImage.type === 'image/png' || selectedImage.type === 'image/jpeg') {
+
+                newProfilePhoto = selectedImage;
+
+                $('#profilePhoto').attr('src', URL.createObjectURL(selectedImage));
+
+            } else {
+                console.log("el archivo ingresado no corresponde");
+            }
         }
+    });
+    */
+
+
+    const changePhotoBtn = $('#changePhotoBtn');
+    const photoProfileInput = $('#photoProfileInput');
+
+    changePhotoBtn.on('click', function (event) {
+
+       event.preventDefault();
+
+        photoProfileInput.click();
+
+        photoProfileInput.on('change', function (event) {
+
+            const files = event.target.files;
+
+            if (files && files.length > 0) {
+
+                const selectedImage = files[0];
+
+                if (selectedImage.type === 'image/png' || selectedImage.type === 'image/jpeg') {
+
+                    $('.setProfilePhoto').submit();
+
+                } else {
+                    console.log("el archivo ingresado no corresponde");
+                }
+            }
+        });
     });
 
 
+
+    $('#editProfile').click(function (event) {
+
+        event.preventDefault();
+
+        let usuario = $('#campoUnoFormularioPerfil').val();
+        let contrasenia = $('#campoDosFormularioPerfil').val();
+        let nombre = $('#campoTresFormularioPerfil').val();
+        let apellido = $('#campoCuatroFormularioPerfil').val();
+        let fecha_nacimiento = $('#campoCincoFormularioPerfil').val();
+        let genero = $('#campoSeisFormularioPerfil').val();
+        let pais = $('#campoSieteFormularioPerfil').val();
+        let ciudad = $('#campoOchoFormularioPerfil').val();
+        let mail = $('#campoNueveFormularioPerfil').val();
+
+
+        let data = "usuario=" + usuario +
+            "&contrasenia=" + contrasenia +
+            "&nombre=" + nombre +
+            "&apellido=" + apellido +
+            "&fecha_nacimiento=" + fecha_nacimiento +
+            "&genero=" + genero +
+            "&pais=" + pais +
+            "&ciudad=" + ciudad +
+            "&mail=" + mail;
+
+        $.ajax({
+            url: '/profile/edit',
+            type: 'POST',
+            data: data,
+            success: function (response) {
+
+                var data = JSON.parse(response);
+
+                $('#nombreDeUsuario').text(data.usuario);
+
+                mailExistente(data);
+
+            }, error: function (xhr, status, error) {
+            }
+        });
+    });
 });
 
 
@@ -56,24 +140,20 @@ function mailExistente(data) {
     if (data.mailExistente == true) {
 
         $('#campoNueveFormularioPerfil').css({
-            'border-color': 'red',
-            'color': 'red'
+            'border-color': 'red', 'color': 'red'
         });
 
         $('#mailExistente').css({
-            'display': 'block',
-            'color': 'red'
+            'display': 'block', 'color': 'red'
         });
 
         $('#operacionExitosa').css({
             'display': 'none',
         });
 
-    }
-    else {
+    } else {
         $('#campoNueveFormularioPerfil').css({
-            'border-color': '#FFA500',
-            'color': '#FFA500'
+            'border-color': '#FFA500', 'color': '#FFA500'
         });
 
         $('#mailExistente').css({
@@ -87,7 +167,7 @@ function mailExistente(data) {
             'padding': '10px',
             'margin-bottom': '10px',
             'font-size': '16px',
-            'text-align': 'center'
+            'text-align': 'center' + ''
         });
     }
 
