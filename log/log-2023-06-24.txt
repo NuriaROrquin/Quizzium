@@ -3666,3 +3666,69 @@
         ON j.id_cuenta = c.id_cuenta 
         GROUP BY j.id_cuenta
         ORDER BY puntaje_maximo DESC;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-23' GROUP BY pais;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-23'
+        GROUP BY grupo_edad;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-23'
+        GROUP BY grupo_genero;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-24' GROUP BY pais;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-24'
+        GROUP BY grupo_edad;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-24'
+        GROUP BY grupo_genero;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-24][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
