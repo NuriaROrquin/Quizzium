@@ -1,0 +1,78 @@
+{{> header}}
+<!-- Quizzium Lobby -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    google.charts.load('current', {'packages':['corechart']});
+
+    google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country"));
+    google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age"));
+
+
+    async function createPieChart(url, div) {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+
+        var rows = [];
+        var columns = [];
+        var title = "";
+
+        await $.ajax({
+            url: '/admin' + url,
+            type: 'GET',
+            dataType: 'json',
+            async: true,
+            success: function (dataFromPHP) {
+                rows =  dataFromPHP.datos;
+                columns = dataFromPHP.columnas;
+                title = dataFromPHP.title;
+            },
+            error: function (xhr, status, error) {
+                console.log("Error en obtener los datos por AJAX: " + error);
+            }
+        });
+
+        var options = {
+            'title': title,
+            'width': 400,
+            'height': 300
+        };
+
+        createColumns(columns, data);
+        createRows(rows, data);
+
+        var chart = new google.visualization.PieChart(document.getElementById(div));
+        chart.draw(data, options);
+    }
+
+    function createColumns(columns, data){
+        for (var i = 0; i < columns.length; i++) {
+            var tipo = columns[i][0];
+            var nombre = columns[i][1];
+
+            data.addColumn(tipo, nombre);
+        }
+    }
+
+    function createRows(rows, data){
+        data.addRows(rows);
+    }
+
+
+
+</script>
+
+<div class="container">
+
+
+    <div id="by_country"></div>
+    <div id="by_age"></div>
+
+</div>
+
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+
+<!-- End Page Content -->
+</div>
+{{> footer}}
