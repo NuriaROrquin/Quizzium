@@ -28,10 +28,13 @@
     {{/owner}}
 
     <div style="display: flex; gap: 1rem; justify-content: center; align-items: center">
+
         <a href="/factory/list" class="button button-small button-orange mt-1" style="display: block">Ir a fábrica de preguntas</a>
-    {{#editor}}
-        <a href="/report/list" class="button button-small button-orange mt-1" style="display: block">Ir a preguntas reportadas</a>
-    {{/editor}}
+
+        {{#editor}}
+            <a href="/report/list" class="button button-small button-orange mt-1" style="display: block">Ir a preguntas
+                reportadas</a>
+        {{/editor}}
 
         {{#administrador}}
             <a href="/report/list" class="button button-small button-orange mt-1" style="display: block">Sarasa</a>
