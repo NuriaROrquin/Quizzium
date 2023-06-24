@@ -195,8 +195,6 @@ class StatisticsModel
 
         $result = $this->database->querySelectAssoc($sql);
 
-        $result = $this->database->querySelectAssoc($sql);
-
         $users = array();
 
         foreach ($result as $row) {
@@ -210,37 +208,36 @@ class StatisticsModel
             $user->dificultad = $row['dificultad'];
 
             $users[] = $user;
-
         }
 
         return $users;
     }
 
-
     public function getNewUsers()
     {
         $fechaActual = date("Y-m-d");
 
-        $fechaHaceTresDias = date("Y-m-d", strtotime("-7 days"));
+        $fechaHaceTresDias = date("Y-m-d", strtotime("-3 days"));
 
         $sql = "SELECT * FROM cuenta WHERE fecha_creacion BETWEEN '$fechaHaceTresDias' AND '$fechaActual'";
 
         $result = $this->database->querySelectAssoc($sql);
 
-        $message="";
+        $newUsers = array();
 
-        if ($result->num_rows > 0) {
+        foreach ($result as $row) {
 
-            while ($row = $result->fetch_assoc()) {
+            $user = new stdClass();
 
-                $message = $message .
-                    "<br><p>ID de cuenta: " . $row["id_cuenta"] . "<p><br>" .
-                    "<p>Fecha de creación: " . $row["fecha_creacion"] . "</p><br>";
-            }
-        } else {
-            $message = "No se encontraron cuentas nuevas.";
+            $user->id_cuenta = $row['id_cuenta'];
+
+            $user->usuario = $row['usuario'];
+
+            $user->fecha_creacion = $row['fecha_creacion'];
+
+            $newUsers[] = $user;
+
         }
-
-        return $message;
+        return $newUsers;
     }
 }
