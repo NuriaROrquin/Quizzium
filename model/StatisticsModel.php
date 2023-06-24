@@ -16,6 +16,8 @@ class StatisticsModel
         $dateFrom = $filters['dateFrom'];
         $dateTo = $filters['dateTo'];
 
+        //ver el tema de la query de pais, porque ahora lo deberiamos sacar por latitud y longitud
+
         if (!empty($dateFrom) && !empty($dateTo)) {
             $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
         }
