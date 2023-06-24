@@ -1,0 +1,37 @@
+{{> header}}
+<div class="container-ranking">
+    <!--   Tirarlo para la izquierda con ir a lobby en BLANCO -->
+    <div class="redirect">
+        <a href="/lobby/list">Ir al lobby</a>
+    </div>
+    <div class="banner">
+        <img src="/public/assets/ranking.png">
+    </div>
+
+
+    <div class="ranking-list">
+
+        {{#rankingList}}
+            <a href="/profile/list?id_cuenta={{id_cuenta}}" class="container-position" style="{{style}}">
+                <div class="description">
+                    <div class="position">{{index}}</div>
+                    <div class="detail-responsive">
+                        <img src="../public/profile-pictures/{{foto_perfil}}">
+                        <span class="name">{{usuario}}</span>
+                    </div>
+                </div>
+
+                <div class="score">
+                <span class="number">
+                    {{puntaje_maximo}}
+                </span>
+                    <span class="description">Puntos</span>
+                </div>
+            </a>
+        {{/rankingList}}
+
+    </div>
+</div>
+
+<!-- End Page Content -->
+{{> footer}}

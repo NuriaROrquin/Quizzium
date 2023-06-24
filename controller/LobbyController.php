@@ -5,47 +5,49 @@ class LobbyController
 
     private $renderer;
     private $lobbyModel;
-    private $profileModel;
 
-    public function __construct($lobbyModel, $renderer, $profileModel)
+    public function __construct($renderer, $lobbyModel)
     {
         $this->renderer = $renderer;
         $this->lobbyModel = $lobbyModel;
-        $this->profileModel = $profileModel;
-    }
-
-    private function security()
-    {
-        $userIsOn = false;
-        $fileToCompare = "./config/seguridad.txt";
-        $cookie = empty($_COOKIE['seguridad']) ? false : $_COOKIE['seguridad'];
-
-        if (file_exists($fileToCompare) && $cookie == file_get_contents($fileToCompare)) {
-            $userIsOn = true;
-        }
-        return $userIsOn;
     }
 
     public function list()
     {
-        if ($this->security()) {
+        $mail = $_SESSION['user'];
 
-            $id_cuenta = $this->profileModel->getID($_SESSION['user']);
-            $data["owner"] = $this->profileModel->getProfile($id_cuenta);
+        $id_cuenta = $this->lobbyModel->getID($mail);
 
-            $this->renderer->render('lobby', $data);
-        } else {
-            header("location:/login/list");
-            exit();
-        }
+        $data["owner"] = $this->lobbyModel->getProfile($id_cuenta);
+
+        $data["rankingPosition"] = $this->lobbyModel->getRankingPosition($id_cuenta);
+
+        $this->renderer->render('lobby', $data);
+    }
+
+    public function getGames(){
+
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
+
+        $gamesInfo = $this->lobbyModel->getGames($id_cuenta);
+
+        $gamesInfo = json_encode($gamesInfo, JSON_UNESCAPED_UNICODE);
+
+        echo $gamesInfo;
     }
 
     public function exit()
     {
-        if ($this->lobbyModel->exit()) {
+
+        $fileToDelete = "./config/seguridad.txt";
+        setcookie("seguridad", 0, time() - 1800, '/');
+
+        if (file_exists($fileToDelete)) {
+            unlink($fileToDelete);
             header("Location: /login/list");
             exit();
+        } else {
+            $this->renderer->render('lobby');
         }
-        $this->renderer->render('lobby');
     }
 }

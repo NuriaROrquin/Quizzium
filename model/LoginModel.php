@@ -10,90 +10,24 @@ class LoginModel
         $this->database = $database;
     }
 
-
-    private function validateMailOnDatabase($mail)
+    public function searchUserIDOnDB($mail)
     {
-        $result = false;
-
-        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-
-            $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
-
-            $resultDataBase = $this->database->querySelectAssoc($sql);
-
-            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
-                $result = true;
-            }
-            else{
-                $_SESSION['validacion'] = false;
-            }
-        }
-        return $result;
-    }
-
-    private function validatePassword($fields)
-    {
-        $result = false;
-
-        $mail = $fields['mail'];
-        $password = md5($fields['password']);
-
-        $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
-
-        $resultDataBase = $this->database->querySelectAssoc($sql);
-
-        if ($resultDataBase['contrasenia'] == $password) {
-            $result = true;
-
-        }
-
-        return $result;
-    }
-
-    private function searchUserIDOnDB($mail){
         $sql = "SELECT id_cuenta  FROM `cuenta` WHERE mail='$mail';";
         return $this->database->querySelectAssoc($sql);
     }
 
-
-    private function generateSession($fields)
-    {
-        $hash = md5(time());
-
-        $carpeta_destino = "./config/";
-
-        $_SESSION["user"] = $fields['mail'];
-
-        $_SESSION['userID'] = $this->searchUserIDOnDB($fields['mail']);
-
-        file_put_contents($carpeta_destino . "seguridad.txt", $hash);
-        setcookie("seguridad", $hash, time() + 1000, '/');
-        return true;
-    }
-
-
     public function validate($fields)
     {
-        $result = false;
+        $errors = [];
 
-        if ($this->validateMailOnDatabase($fields['mail'])) {
-
-            if ($this->validatePassword($fields)) {
-
-                $result = $this->generateSession($fields);
-
-            } else {
-
-                $fileToDelete = "./config/seguridad.txt";
-                setcookie("seguridad", 0, time() - 1800, '/');
-
-                if (file_exists($fileToDelete)) {
-                    unlink($fileToDelete);
-                }
-                $_SESSION["error"] = true;
+        if ($this->unvalidatedMail($fields['mail'])) {
+            $errors['mail_not_validated'] = true;
+        } else {
+            if (!$this->validateMailOnDatabase($fields['mail']) || !$this->validatePassword($fields)) {
+                $errors['incorrect_data'] = true;
             }
         }
-        return $result;
+        return $errors;
     }
 
     public function validateToken($token)
@@ -112,9 +46,62 @@ class LoginModel
             $sql = "UPDATE `cuenta` SET `esta_activa`='1', `fecha_validacion` = '$formatCurrentDate' WHERE token='$token'";
             $this->database->query($sql);
 
-            $_SESSION['validacion'] = true;
             $result = true;
         }
+        return $result;
+    }
+
+    private function validateMailOnDatabase($mail)
+    {
+        $result = false;
+
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+
+            $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
+
+            $resultDataBase = $this->database->querySelectAssoc($sql);
+
+            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 1) {
+                $result = true;
+            }
+
+        }
+        return $result;
+    }
+
+    private function unvalidatedMail($mail)
+    {
+        $result = false;
+
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+
+            $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
+
+            $resultDataBase = $this->database->querySelectAssoc($sql);
+
+            if (!empty($resultDataBase) && $resultDataBase['esta_activa'] == 0) {
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
+    private
+    function validatePassword($fields)
+    {
+        $result = false;
+
+        $mail = $fields['mail'];
+        $password = md5($fields['password']);
+
+        $sql = "SELECT *  FROM `cuenta` WHERE mail='$mail';";
+
+        $resultDataBase = $this->database->querySelectAssoc($sql);
+
+        if ($resultDataBase['contrasenia'] == $password) {
+            $result = true;
+        }
+
         return $result;
     }
 }

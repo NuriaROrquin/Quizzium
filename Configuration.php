@@ -2,20 +2,27 @@
 include_once('helpers/MySqlDatabase.php');
 include_once("helpers/MustacheRender.php");
 include_once('helpers/Router.php');
+include_once('helpers/Logger.php');
 
 include_once('model/LoginModel.php');
-include_once('model/LobbyModel.php');
 include_once('model/RegisterModel.php');
 include_once('model/MailModel.php');
 include_once('model/ProfileModel.php');
-include_once('model/PlayModel.php');
+include_once('model/GameModel.php');
+include_once('model/RankingModel.php');
+include_once('model/LobbyModel.php');
+include_once('model/FactoryModel.php');
+include_once('model/ReportModel.php');
 
 include_once('controller/LobbyController.php');
 include_once('controller/LoginController.php');
 include_once('controller/RegisterController.php');
 include_once('controller/MailController.php');
 include_once('controller/ProfileController.php');
-include_once('controller/PlayController.php');
+include_once('controller/GameController.php');
+include_once('controller/RankingController.php');
+include_once('controller/FactoryController.php');
+include_once('controller/ReportController.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
@@ -31,19 +38,10 @@ class Configuration
     public function getLobbyController()
     {
         return new LobbyController(
-            new LobbyModel(
-                $this->getDatabase()),
             $this->getRenderer(),
-            new ProfileModel(
-                $this->getDatabase()));
-    }
-
-    public function getPerfilController()
-    {
-        return new PerfilController(
-            new PerfilModel(
-                $this->getDatabase()),
-            $this->getRenderer());
+            new LobbyModel(
+                $this->getDatabase())
+        );
     }
 
     public function getLoginController()
@@ -67,8 +65,7 @@ class Configuration
     public function getMailController()
     {
         return new MailController(
-            new MailModel($this->getDatabase()),
-            $this->getRenderer()
+            new MailModel($this->getDatabase())
         );
     }
 
@@ -80,11 +77,38 @@ class Configuration
         );
     }
 
-    public function getPlayController()
+    public function getGameController()
     {
-        return new PlayController(
+        return new GameController(
             $this->getRenderer(),
-            new PlayModel($this->getDatabase())
+            new GameModel($this->getDatabase())
+        );
+    }
+
+    public function getRankingController()
+    {
+        return new RankingController(
+            $this->getRenderer(),
+            new RankingModel($this->getDatabase()),
+            new ProfileModel($this->getDatabase())
+        );
+    }
+
+    public function getFactoryController()
+    {
+        return new FactoryController(
+            $this->getRenderer(),
+            new FactoryModel($this->getDatabase()),
+            new ProfileModel($this->getDatabase())
+        );
+    }
+
+    public function getReportController()
+    {
+        return new ReportController(
+            $this->getRenderer(),
+            new ReportModel($this->getDatabase()),
+            new ProfileModel($this->getDatabase())
         );
     }
 

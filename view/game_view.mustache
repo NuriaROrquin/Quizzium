@@ -1,0 +1,139 @@
+{{> header}}
+
+<div id="mostrarFinalPartida" style="display: none">
+    <div class="overlay"></div>
+    <div class="popup">
+        <h1>Perdiste!</h1>
+        <p class="emphasis">La respuesta correcta era:</p>
+        <p id="textoOpcionCorrecta">{{textoOpcionCorrecta}}</p>
+
+        <p class="emphasis">Tu puntaje fue:</p>
+        <p class="emphasis" id="puntuacionFinal">{{puntuacion}}</p>
+        <a href="/lobby/list" class="button button-small">Volver al lobby</a>
+    </div>
+</div>
+
+<form id="mostrarReporte" style="display: none" method="POST" action="/game/reportarPregunta" enctype="multipart/form-data">
+    <div class="overlay"></div>
+    <div class="popup">
+        <p class="emphasis">Contanos que está mal en
+            la pregunta</p>
+        <p id="preguntaAReportar">{{question}}</p>
+        <input type="hidden" id="id_question" name="idQuestion" value={{id_question}}>
+        <textarea name="reportText" placeholder="Ingrese su reporte aquí"></textarea>
+        <button type="submit" class="button button-small">Reportar pregunta</button>
+    </div>
+</form>
+
+
+<!-- Quizzium play -->
+
+<div class="game">
+
+    <div class="left-sidebar">
+
+        <div class="profile">
+            <img src="../public/profile-pictures/{{foto_perfil}}">
+            <span>{{usuario}}</span>
+        </div>
+        <div class="answers">
+            <span class="puntuacion">{{puntuacion}}</span>
+            <span>Respuestas Correctas</span>
+        </div>
+    </div>
+
+
+    <div class="block-reverse">
+        <div class="right-sidebar">
+            <div class="timer">
+                <span>Cronómetro</span>
+                <span id="cronometro">20</span>
+            </div>
+        </div>
+
+        <div class="round">
+
+            <div class="redirect-lg">
+                <a href="/lobby/list">
+                    <img src="../public/assets/arrow-right.png"/>
+                    Ir al lobby
+                </a>
+            </div>
+
+            <div class="categoryTitle">
+                <span id="categoryName" style="color:{{categoryColor}}">
+                    {{categoryName}}
+                </span>
+            </div>
+
+            <div id="categoryColor" class="question" style="background-color:{{categoryColor}}">
+                <span id="question">{{question}}</span>
+            </div>
+
+            <form id="form-game">
+                <input type="hidden" id="id_question" name="idQuestion" value={{id_question}}>
+                <button id="option_1" class="answer" name="option" value="{{id_opcion1}}">{{opcion1}}</button>
+                <button id="option_2" class="answer" name="option" value="{{id_opcion2}}">{{opcion2}}</button>
+                <button id="option_3" class="answer" name="option" value="{{id_opcion3}}">{{opcion3}}</button>
+                <button id="option_4" class="answer" name="option" value="{{id_opcion4}}">{{opcion4}}</button>
+            </form>
+
+            <div class="container-link">
+                <button class="report">
+                    Reportar esta pregunta
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+
+<script>
+    function mostrarPopup() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'block';
+        popup.style.display = 'block';
+        disableButton.disabled = true;
+    }
+
+    function cerrarPopup() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'none';
+        popup.style.display = 'none';
+        disableButton.disabled = false;
+    }
+
+    function mostrarReporte() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'block';
+        popup.style.display = 'block';
+        disableButton.disabled = true;
+    }
+
+    function ocultarReporte() {
+        var popupBackground = document.getElementById('popup-background');
+        var popup = document.getElementById('popup');
+        var disableButton = document.getElementById('disable-button');
+
+        popupBackground.style.display = 'none';
+        popup.style.display = 'none';
+        disableButton.disabled = false;
+    }
+</script>
+
+
+<script src='../public/scripts/gameWithAjax.js'></script>
+
+
+{{> footer}}

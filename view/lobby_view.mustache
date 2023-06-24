@@ -3,7 +3,7 @@
 <div class="container">
     <img src="../public/assets/characters.png" class="characters">
     <div class="buttons-game">
-        <a class="button button-big" href="/play/game">Individual</a>
+        <a class="button button-big" href="/game/list">Individual</a>
         <a class="button button-big">Multijugador</a>
     </div>
     {{#owner}}
@@ -14,19 +14,36 @@
                     <span>{{usuario}}</span>
                 </div>
                 <div class="position">
-                    <span>120</span>
+                    <span>{{rankingPosition}}</span>
                     <span>Posición</span>
                 </div>
             </a>
 
             <div class="container-anchor">
-                <a href="/ranking/list" class="button button-small" href="/ranking/list">Ver Ranking</a>
+                <a href="/ranking/list" class="button button-small">Ver Ranking</a>
             </div>
         </div>
     {{/owner}}
 
+    <div style="display: flex; gap: 1rem; justify-content: center; align-items: center">
+        <a href="/factory/list" class="button button-small button-orange mt-1" style="display: block">Ir a fábrica de preguntas</a>
+        <a href="/report/list" class="button button-small button-orange mt-1" style="display: block">Ir a preguntas reportadas</a>
+    </div>
+
     <a class="button button-small mt-2 mb-2" href="/lobby/exit">Cerrar sesión</a>
+
+    <div class="container-box">
+
+        <h2 class="titulo-historial">Historial de partidas</h2>
+
+        <ul class="historial" id="lista-partidas">
+
+        </ul>
+
+    </div>
 </div>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='../public/scripts/getGames.js'></script>
 
 <!-- End Page Content -->
 </div>
