@@ -116,6 +116,8 @@
             map.removeLayer(marker);
         }
 
+        console.log(latlng);
+
         marker = L.marker(latlng).addTo(map);
     });
 
@@ -139,7 +141,6 @@
         var center = map.getBounds().getCenter();
         var lat = center.lat;
         var lng = center.lng;
-
 
         enviarDatos(
             lat, lng,
@@ -181,16 +182,6 @@
 
         console.log(formData);
 
-        // Realizar solicitud AJAX al endpoint en PHP
-        /*var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/register/validate', true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                var respuesta = xhr.responseText;
-                console.log('Respuesta del endpoint:', respuesta);
-            }
-        };
-        xhr.send(formData);*/
     }
 
 

@@ -11,7 +11,7 @@ class ProfileModel
 
     public function getProfile($id_cuenta)
     {
-        $result = $this->database->querySelectAssoc("SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '$id_cuenta'");
+        $result = $this->database->querySelectAssoc("SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, pais, ciudad, mail, contrasenia, g.tipo, g.id_genero, c.lat, c.lng FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '$id_cuenta'");
 
         return $result;
     }
