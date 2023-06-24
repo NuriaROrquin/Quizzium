@@ -42,4 +42,14 @@ class AdminController
 
         echo json_encode($chart);
     }
+
+    public function getPlayersByGender()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getPlayersByGender($filters);
+
+        echo json_encode($chart);
+    }
 }

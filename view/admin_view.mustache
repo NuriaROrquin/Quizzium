@@ -7,6 +7,7 @@
 
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age"));
+    google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByGender", "by_gender"));
 
 
     async function createPieChart(url, div, filters) {
@@ -80,6 +81,7 @@
             }
             google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country", filters));
             google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age", filters));
+            google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByGender", "by_gender", filters));
         }, { passive: true });
     }, { passive: true });
 
@@ -94,6 +96,7 @@
 
     <div id="by_country"></div>
     <div id="by_age"></div>
+    <div id="by_gender"></div>
 
 </div>
 
