@@ -85,8 +85,6 @@ class ProfileModel
 
     public function updateData($newDataProfile)
     {
-
-        //$newDataProfile['tipo_genero'] = $this->setGenderID($newDataProfile['genero']);
         $id_genero = $newDataProfile['genero'];
         $mail = $newDataProfile['mail'];
         $ciudad = $newDataProfile['ciudad'];
@@ -185,23 +183,45 @@ class ProfileModel
         return $data;
     }
 
-    public function verificateProfilePhoto($profilePhotoName)
+    public function checkPhotoPerfil($photo){
+
+        $result = false;
+
+        $allowed_types = array('image/jpeg', 'image/png',);
+        $photo_format = $photo['type'];
+
+        if ( in_array($photo_format, $allowed_types) ) {
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    public function setNewProfilePhoto($newPhoto, $oldPhoto)
     {
 
-        var_dump($profilePhotoName);
-        exit();
+        $temporary_file = $newPhoto['tmp_name'];
 
-        $temporary_file = $profilePhotoName['tmp_name'];
-
-        $file_name = uniqid() . '_' . $profilePhotoName['name'];
+        $file_name = uniqid() . '_' . $newPhoto['name'];
 
         $destination_folder = "./public/profile-pictures/";
 
-        if (!move_uploaded_file($temporary_file, $destination_folder . $file_name)) {
-            return false;
+        if (move_uploaded_file($temporary_file, $destination_folder . $file_name)) {
+            unlink($destination_folder . $oldPhoto);
+            $this->updatePhotoOnDB($file_name, $oldPhoto);
         }
 
-        return $file_name;
+
+
+    }
+
+    private function updatePhotoOnDB($file_name, $oldPhoto ){
+
+        $sql = "UPDATE `cuenta` SET
+                        `foto_perfil`= '$file_name'
+                        WHERE `foto_perfil` = '$oldPhoto'";
+
+        $this->database->query($sql);
     }
 
 

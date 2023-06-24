@@ -19,6 +19,8 @@ class ProfileController
 
             $data["owner"] = $this->profileModel->getProfile($id_cuenta);
 
+            $data["owner"] = $this->setPhotoError($data["owner"]);
+
             $data["owner"] = $this->profileModel->setGenderOnView($data["owner"]);
 
             $data["owner"] = $this->profileModel->getCantidadDePartidasJugadas($data["owner"], $id_cuenta);
@@ -49,12 +51,6 @@ class ProfileController
     {
         $dataProfile = $_POST;
 
-        $dataProfile = json_encode($_FILES, JSON_UNESCAPED_UNICODE);
-        echo $dataProfile;
-        exit();
-
-        $dataProfile = json_encode($dataProfile, JSON_UNESCAPED_UNICODE);
-
         $dataProfile['id_cuenta'] = $_SESSION["owner"]['id_cuenta'];
 
         $dataProfile['mailExistente'] = true;
@@ -65,9 +61,7 @@ class ProfileController
 
         $result = $this->profileModel->checkMail($newMail, $mailUser);
 
-        $verificatePhoto = $this->profileModel->verificateProfilePhoto($dataProfile['newProfilePhoto']);
-
-        if ($result && $verificatePhoto) {
+        if ($result) {
 
             $dataProfile = $this->profileModel->updateData($dataProfile);
             $_SESSION['user'] = $dataProfile['mail'];
@@ -81,9 +75,30 @@ class ProfileController
 
     public function changePhoto()
     {
-        header("location: /profile/list");
-        var_dump($_FILES);
-        exit();
+
+        $oldPhoto = $_SESSION["owner"]['foto_perfil'];
+
+        $newPhoto = $_FILES['photoProfileInput'];
+        unset($_FILES['photoProfileInput']);
+
+        $result = $this->profileModel->checkPhotoPerfil($newPhoto);
+
+        if ($result) {
+            $this->profileModel->setNewProfilePhoto($newPhoto, $oldPhoto);
+            header("location: /profile/list");
+        } else {
+            header("location: /profile/list?photoError=1");
+        }
+    }
+
+    private function setPhotoError($data)
+    {
+        if (isset($_GET["photoError"])) {
+            $data["photoError"] = $_GET["photoError"];
+            unset($_GET["photoError"]);
+        }
+
+        return $data;
     }
 
 }

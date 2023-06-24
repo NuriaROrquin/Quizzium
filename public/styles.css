@@ -2013,3 +2013,8 @@ body:has(.container-ranking) {
     border: 3px solid #800080;
     color: #800080;
 }
+
+.redFont{
+    width: 100%;
+    color: red;
+}

@@ -11,10 +11,12 @@
 
         {{#public}}
             <div class="header">
+
                 <div class="description">
                     <img src="../public/profile-pictures/{{foto_perfil}}"/>
                     <h1>{{usuario}}</h1>
                 </div>
+
             </div>
 
             <div class="first-container">
@@ -58,11 +60,23 @@
         {{/public}}
 
         {{#owner}}
-            <div class="header">
+            <div class="header f-wrap">
+
                 <div class="description">
                     <img src="../public/profile-pictures/{{foto_perfil}}"/>
+
                     <h1 id="nombreDeUsuario">{{usuario}}</h1>
                 </div>
+
+            {{#photoError}}
+                <p id="photoError" class="redFont">Ingrese un archivo "JPEG" o "PNG"</p>
+            {{/photoError}}
+
+                <form class="setProfilePhoto" enctype="multipart/form-data" action="/profile/changePhoto" method="POST">
+                    <button type="submit" id="changePhotoBtn">Cambiar foto de perfil</button>
+                    <input type="file" id="photoProfileInput" name="photoProfileInput">
+                </form>
+
             </div>
 
             <div class="first-container">

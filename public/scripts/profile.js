@@ -1,64 +1,11 @@
 $(document).ready(function () {
 
-    /*
-    const changePhotoBtn = $('#changePhotoBtn');
-    const photoProfileInput = $('#photoProfileInput');
-
-    changePhotoBtn.on('click', function () {
-
-        console.log("entre aca");
-
-        photoProfileInput.on('change', function (event) {
-
-            console.log("entre aca2");
-
-            const files = event.target.files;
-
-            if (files && files.length > 0) {
-
-                const selectedImage = files[0];
-
-                if (selectedImage.type === 'image/png' || selectedImage.type === 'image/jpeg') {
-
-                    photoProfileInput.click();
-
-                } else {
-                    console.log("el archivo ingresado no corresponde");
-                }
-            }
-        });
-
-
-    });
-
-    photoProfileInput.on('change', function (event) {
-
-        const files = event.target.files;
-
-        if (files && files.length > 0) {
-
-            const selectedImage = files[0];
-
-            if (selectedImage.type === 'image/png' || selectedImage.type === 'image/jpeg') {
-
-                newProfilePhoto = selectedImage;
-
-                $('#profilePhoto').attr('src', URL.createObjectURL(selectedImage));
-
-            } else {
-                console.log("el archivo ingresado no corresponde");
-            }
-        }
-    });
-    */
-
-
     const changePhotoBtn = $('#changePhotoBtn');
     const photoProfileInput = $('#photoProfileInput');
 
     changePhotoBtn.on('click', function (event) {
 
-       event.preventDefault();
+        event.preventDefault();
 
         photoProfileInput.click();
 
@@ -68,15 +15,8 @@ $(document).ready(function () {
 
             if (files && files.length > 0) {
 
-                const selectedImage = files[0];
+                $('.setProfilePhoto').submit();
 
-                if (selectedImage.type === 'image/png' || selectedImage.type === 'image/jpeg') {
-
-                    $('.setProfilePhoto').submit();
-
-                } else {
-                    console.log("el archivo ingresado no corresponde");
-                }
             }
         });
     });
@@ -120,7 +60,8 @@ $(document).ready(function () {
 
                 mailExistente(data);
 
-            }, error: function (xhr, status, error) {
+            },
+            error: function (xhr, status, error) {
             }
         });
     });
