@@ -5,7 +5,7 @@
 <div class="container pb-2">
     <img src="../public/assets/characters.png" class="characters-small">
 
-    <form class="login-area" method="post" action="">
+    <form action="/register/validate" method="post" enctype="multipart/form-data" class="login-area">
 
         {{#empty_fields_error}}
             <div class="alert alert-error">
@@ -66,6 +66,9 @@
 
         <div id="map" style="width: 600px; height: 400px;"></div>
 
+        <input id="latInput" name="register[lat]" type="text" style="position: absolute; left: -9999px;" />
+        <input id="lngInput" name="register[lng]" type="text" style="position: absolute; left: -9999px;" />
+
         <div class="field">
             <label>Nombre de usuario</label>
             <input name="register[username]" type="text" placeholder="Ingrese su usuario" required/>
@@ -73,7 +76,7 @@
 
         <div class="field">
             <label>Mail</label>
-            <input name="register[mail]" type="email" placeholder="Ingrese su mail"/>
+            <input name="register[mail]" type="email" placeholder="Ingrese su mail" />
         </div>
 
         <div class="field">
@@ -86,7 +89,7 @@
             <input name="register[verificated_password]" type="password" placeholder="Repita su contraseña" required/>
         </div>
 
-        <button onclick="capturarDatos()" class="button button-small register-button" name="send">
+        <button type="submit" class="button button-small register-button" name="send">
             Registrarme
         </button>
     </form>
@@ -99,6 +102,11 @@
 
 </div>
 
+<!-- End Page Content -->
+</div>
+{{> footer}}
+
+
 <script>
 
     var map = L.map('map').setView([-34.67019736429832, -58.56253720848442], 16);
@@ -110,80 +118,21 @@
     }).addTo(map);
 
     map.on('click', function (e) {
-        var latlng = e.latlng;
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
 
         if (marker) {
             map.removeLayer(marker);
         }
 
-        console.log(latlng);
+        var latInput = document.getElementById('latInput');
+        var lngInput = document.getElementById('lngInput')
 
-        marker = L.marker(latlng).addTo(map);
+        latInput.value = lat;
+        lngInput.value = lng;
+
+        marker = L.marker([lat, lng]).addTo(map);
     });
-
-    function eliminarMarcador() {
-        if (marker) {
-            map.removeLayer(marker);
-            marker = null;
-        }
-    }
-
-    function capturarDatos() {
-        var name = document.getElementById('name').value;
-        var surname = document.getElementById('surname').value;
-        var born_date = document.getElementById('born_date').value;
-        var photo = document.getElementById('photo').value;
-        var gender = document.getElementById('gender').value;
-        var username = document.getElementById('username').value;
-        var mail = document.getElementById('mail').value;
-        var password = document.getElementById('password').value;
-        var verificated_password = document.getElementById('verificated_password').value;
-        var center = map.getBounds().getCenter();
-        var lat = center.lat;
-        var lng = center.lng;
-
-        enviarDatos(
-            lat, lng,
-                name,
-                surname,
-                born_date,
-                photo,
-                gender,
-                username,
-                mail,
-                password,
-                verificated_password);
-    }
-
-    function enviarDatos(lat,
-                               lng,
-                               name,
-                               surname,
-                               born_date,
-                               photo,
-                               gender,
-                               username,
-                               mail,
-                               password,
-                               verificated_password) {
-
-        var formData = new FormData();
-        formData.append('name', name);
-        formData.append('surname', surname);
-        formData.append('born_date', born_date);
-        formData.append('photo', photo);
-        formData.append('gender', gender);
-        formData.append('username', username);
-        formData.append('mail', mail);
-        formData.append('password', password);
-        formData.append('verificated_password', verificated_password);
-        formData.append('latitud', lat);
-        formData.append('longitud', lng);
-
-        console.log(formData);
-
-    }
-
 
 </script>
 <!-- End Page Content -->
