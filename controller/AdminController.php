@@ -21,19 +21,24 @@ class AdminController
         ];
 
         $this->renderer->render("admin", $chart);
-
     }
 
     public function getPlayersByCountry()
     {
-        $chart = $this->statisticsModel->getPlayersByCountry();
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getPlayersByCountry($filters);
 
         echo json_encode($chart);
     }
 
     public function getPlayersByAge()
     {
-        $chart = $this->statisticsModel->getPlayersByAge();
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getPlayersByAge($filters);
 
         echo json_encode($chart);
     }

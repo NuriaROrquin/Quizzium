@@ -10,9 +10,17 @@ class StatisticsModel
         $this->database = $database;
     }
 
-    public function getPlayersByCountry()
+    public function getPlayersByCountry($filters)
     {
-        $sql = "SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta GROUP BY pais;";
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
+
+        $sql = "SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta" . $whereClause . " GROUP BY pais;";
 
         $result = $this->database->querySelectAll($sql);
 
@@ -39,8 +47,16 @@ class StatisticsModel
         return $result;
     }
 
-    public function getPlayersByAge()
+    public function getPlayersByAge($filters)
     {
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
+
         $sql = "SELECT 
         CASE 
         WHEN edad_calculada < 18 THEN 'Menores'
@@ -49,6 +65,7 @@ class StatisticsModel
         END AS grupo_edad,
         COUNT(*) AS cantidad_usuarios
         FROM cuenta
+        " . $whereClause . "
         GROUP BY grupo_edad;";
 
         $result = $this->database->querySelectAll($sql);
