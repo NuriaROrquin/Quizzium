@@ -7,6 +7,8 @@
     </div>
 
     <div class="container-profile">
+
+
         {{#public}}
             <div class="header">
                 <div class="description">
@@ -17,8 +19,20 @@
 
             <div class="first-container">
                 <div class="map">
-                    <img src="../public/assets/map.png"/>
+                    <div id="map"></div>
                 </div>
+
+                <script>
+                    var map = L.map('map').setView([{{lat}},{{lng}}], 16);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                        maxZoom: 18,
+                    }).addTo(map);
+
+
+                    var marker = L.marker([{{lat}}, {{lng}}]).addTo(map);
+                </script>
+
                 <div class="sidebar">
                     <div class="statistic-games">
                         <div class="container-statistic">
@@ -44,25 +58,29 @@
         {{/public}}
 
         {{#owner}}
-
-            <div class="header f-wrap">
+            <div class="header">
                 <div class="description">
-                    <img id="profilePhoto" src="../public/profile-pictures/{{foto_perfil}}"/>
+                    <img src="../public/profile-pictures/{{foto_perfil}}"/>
                     <h1 id="nombreDeUsuario">{{usuario}}</h1>
                 </div>
-
-                <form class="setProfilePhoto" enctype="multipart/form-data" action="/profile/changePhoto" method="POST">
-                    <button type="submit" id="changePhotoBtn">Cambiar foto de perfil</button>
-                    <input type="file" id="photoProfileInput" name="photoProfileInput">
-                </form>
-
             </div>
 
             <div class="first-container">
 
                 <div class="map">
-                    <img src="../public/assets/map.png"/>
+                    <div id="map"></div>
                 </div>
+
+                <script>
+                    var map = L.map('map').setView([{{lat}},{{lng}}], 16);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                        maxZoom: 18,
+                    }).addTo(map);
+
+
+                    var marker = L.marker([{{lat}}, {{lng}}]).addTo(map);
+                </script>
 
                 <div class="sidebar">
 
@@ -184,14 +202,16 @@
 
                         <p id="operacionExitosa" style="display: none">Cambios realizados correctamente</p>
 
-                        <button type="submit" id="editProfile" class="button-secondary button-small">Actualizar
-                            perfil</button>
+                        <button id="editProfile" class="button-secondary button-small">Actualizar
+                            perfil
+                        </button>
 
                     </div>
 
                 </div>
 
             </div>
+
 
         {{/owner}}
 
@@ -202,4 +222,7 @@
 </div>
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script src='../public/scripts/profile.js'></script>
+
+
+
 {{> footer}}

@@ -64,15 +64,10 @@
             </select>
         </div>
 
-        <div class="field">
-            <label>Pais</label>
-            <input name="register[country]" type="text" placeholder="Ingrese su pais" required/>
-        </div>
+        <div id="map" style="width: 600px; height: 400px;"></div>
 
-        <div class="field">
-            <label>Ciudad</label>
-            <input name="register[city]" type="text" placeholder="Ingrese su ciudad" required/>
-        </div>
+        <input id="latInput" name="register[lat]" type="text" style="position: absolute; left: -9999px;" />
+        <input id="lngInput" name="register[lng]" type="text" style="position: absolute; left: -9999px;" />
 
         <div class="field">
             <label>Nombre de usuario</label>
@@ -107,6 +102,39 @@
 
 </div>
 
+<!-- End Page Content -->
+</div>
+{{> footer}}
+
+
+<script>
+
+    var map = L.map('map').setView([-34.67019736429832, -58.56253720848442], 16);
+    var marker = null;
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
+
+    map.on('click', function (e) {
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
+
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        var latInput = document.getElementById('latInput');
+        var lngInput = document.getElementById('lngInput')
+
+        latInput.value = lat;
+        lngInput.value = lng;
+
+        marker = L.marker([lat, lng]).addTo(map);
+    });
+
+</script>
 <!-- End Page Content -->
 </div>
 {{> footer}}

@@ -38,6 +38,7 @@ class Router
             case "ranking":
             case "factory":
             case "report":
+            case "admin":
 
                 if ( !$userIsOn ) {
                     $module = "login";
