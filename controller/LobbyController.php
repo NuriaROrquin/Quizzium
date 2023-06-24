@@ -18,6 +18,12 @@ class LobbyController
 
         $id_cuenta = $this->lobbyModel->getID($mail);
 
+        $idRol = $this->lobbyModel->getRol($id_cuenta);
+
+        $data["editor"] = $this->lobbyModel->setEditorLobbyView($idRol);
+
+        $data["administrador"] = $this->lobbyModel->setAdminLobbyView($idRol);
+
         $data["owner"] = $this->lobbyModel->getProfile($id_cuenta);
 
         $data["rankingPosition"] = $this->lobbyModel->getRankingPosition($id_cuenta);

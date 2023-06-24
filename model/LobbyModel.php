@@ -66,4 +66,37 @@ class LobbyModel
         return $dataOfGames;
     }
 
+
+
+    public function getRol($id_cuenta){
+
+        $sql = "SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '$id_cuenta';";
+
+        return $this->database->querySelectAssoc($sql)['id_rol'];
+    }
+
+    public function setAdminLobbyView($idRol){
+
+        $result = false;
+
+        if($idRol == 1){
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    public function setEditorLobbyView($idRol){
+
+        $result = false;
+
+        if($idRol == 2){
+            $result = true;
+        }
+
+        return $result;
+    }
+
+
+
 }
