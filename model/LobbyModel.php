@@ -48,15 +48,15 @@ class LobbyModel
     }
 
 
-    public function getGames($id_cuenta, $limit)
+    public function getGames($id_cuenta,$start, $limit)
     {
 
         $sql = "SELECT  j.puntaje, c.usuario
                 FROM juego j
                 JOIN cuenta c 
                 ON j.id_cuenta = c.id_cuenta
-                WHERE j.id_cuenta = " . $id_cuenta . "
-                LIMIT " .$limit .";";
+                WHERE j.id_cuenta = $id_cuenta 
+                LIMIT $start, $limit;";
 
         $dataOfGames = $this->database->querySelectAll($sql);
 
@@ -65,6 +65,23 @@ class LobbyModel
         }
 
         return $dataOfGames;
+    }
+
+    public function getNumberOfGames($id_cuenta)
+    {
+
+        $sql = "SELECT count(id_cuenta) as totalJuegos
+                FROM juego
+                WHERE id_cuenta = $id_cuenta;";
+
+        $NumberOfGames = $this->database->querySelectAssoc($sql);
+        return $NumberOfGames["totalJuegos"];
+
+        if($NumberOfGames == null){
+            $NumberOfGames = false;
+        }
+
+        return $NumberOfGames;
     }
 
 
