@@ -46,7 +46,6 @@ class GameController
 
     private function setData($id_cuenta)
     {
-
         $data = $this->gameModel->getQuestion($id_cuenta);
 
         $data['id_juego'] = $_SESSION['id_juego'] ?? null;
@@ -96,6 +95,7 @@ class GameController
                     $_SESSION['old_question'] = $data['id_question'];
                     $_SESSION['respuestaCorrecta'] = $data['textoOpcionCorrecta'];
                     $_SESSION['timestamp'] = time();
+
                 } else {
                     $data['textoOpcionCorrecta'] = $_SESSION['respuestaCorrecta'];
                     $data['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
