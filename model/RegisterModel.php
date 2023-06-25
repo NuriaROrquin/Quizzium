@@ -13,8 +13,8 @@ class RegisterModel
     private function insertUser($fields)
     {
         $sql = "INSERT INTO `cuenta` 
-                (`id_genero`, `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
-                VALUES ('{$fields['gender']}' , '{$fields['mail']}' , '{$fields['username']}' , '{$fields['password']}', '{$fields['photo']['url']}',
+                (`id_genero`,`ciudad`, `pais`,  `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
+                VALUES ('{$fields['gender']}' , '{$fields['city']}' , '{$fields['country']}' , '{$fields['mail']}' , '{$fields['username']}' , '{$fields['password']}', '{$fields['photo']['url']}',
                         '{$fields['born_date']}' , '{$fields['name']}' , '{$fields['surname']}', '{$fields['token']}', '{$fields['lat']}', '{$fields['lng']}' );";
 
         $this->database->query($sql);
@@ -28,7 +28,6 @@ class RegisterModel
             if (empty($field)) {
                 $result = false;
             }
-            break;
         }
         return $result;
     }
