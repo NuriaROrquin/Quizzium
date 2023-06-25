@@ -35,6 +35,13 @@
             </div>
         {{/photo_error}}
 
+        {{#born_date_error}}
+            <div class="alert alert-error">
+                <span class="title">Error en la fecha de nacimiento ingresada.</span>
+                <span class="description">La fecha ingresada no puede ser superior la fecha actual.</span>
+            </div>
+        {{/born_date_error}}
+
         <div class="field">
             <label>Nombre</label>
             <input name="register[name]" type="text" placeholder="Ingrese su nombre" required/>

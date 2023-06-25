@@ -1,0 +1,102 @@
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-26][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-26][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-26][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-26][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-26][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-26][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-26][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-26][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-26][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-26][INFO]getLastInsertedID
+[2023-06-26][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (343,1);
+[2023-06-26][INFO]getLastInsertedID
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-26][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-26][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-26][INFO]Ejecutando query: INSERT INTO `reporte`( `id_cuenta`, `id_pregunta`, `descripcion`) VALUES (1 , 120 , '');
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-26][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-26][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-26][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-26][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-26][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='mailMati@sarasa.com';
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='mailsdad@gmail.com';
+[2023-06-26][INFO]Ejecutando query: INSERT INTO `cuenta` 
+                (`id_genero`,`ciudad`, `pais`,  `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
+                VALUES ('1' , 'Ituzaingo' , 'Argentina' , 'mailsdad@gmail.com' , 'mati123' , '202cb962ac59075b964b07152d234b70', '6498c0e19ef29_foto para probar2.png',
+                        '2023-06-29' , 'Matias Ariel' , 'Coco', '6498c0e19f1a5', '-34.670509873773696', '-58.559129238274195' );
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-26][INFO]Ejecutando query: INSERT INTO `cuenta` 
+                (`id_genero`,`ciudad`, `pais`,  `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
+                VALUES ('1' , 'Ituzaingo' , 'Argentina' , 'cocomatias6@gmail.com' , 'mati123' , '202cb962ac59075b964b07152d234b70', '6498c1a409bf2_messi.png',
+                        '2023-06-29' , 'Matias Ariel' , 'Coco', '6498c1a409e23', '-34.67183343176371', '-58.561320304434055' );
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT token FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='12312133@gmail.com';
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-26][INFO]Ejecutando query: INSERT INTO `cuenta` 
+                (`id_genero`,`ciudad`, `pais`,  `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
+                VALUES ('1' , 'Ituzaingo' , 'Argentina' , 'cocomatias6@gmail.com' , 'mati123' , '202cb962ac59075b964b07152d234b70', '6498c27db9f81_foto para probar.png',
+                        '2023-06-27' , 'Matias Ariel' , 'Coco', '6498c27dba1f2', '-34.6695529768072', '-58.56058835997828' );
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';
+[2023-06-26][INFO]Ejecutando querySelectAssoc: SELECT count(mail)  FROM `cuenta` WHERE mail='cocomatias6@gmail.com';

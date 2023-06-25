@@ -89,6 +89,21 @@ class RegisterModel
         return $file_name;
     }
 
+    private function validateBornDate($fields){
+
+        $result = true;
+
+        $fechaDeNacimientoIngresada = $fields['born_date'];
+        $fechaDeHoy = new DateTime();
+        $fechaDeHoy = $fechaDeHoy->format('Y-m-d');
+
+        if($fechaDeNacimientoIngresada > $fechaDeHoy){
+            $result = false;
+        }
+
+        return $result;
+    }
+
     public function validate($fields)
     {
         $errors = [];
@@ -97,6 +112,11 @@ class RegisterModel
         if (!$this->validateEmptyFields($fields)) {
             $errors['empty_fields_error'] = true;
         }
+
+        if (!$this->validateBornDate($fields)) {
+            $errors['born_date_error'] = true;
+        }
+
 
         if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
             $errors['password_error'] = true;
@@ -121,6 +141,7 @@ class RegisterModel
         if (empty($errors["empty_fields_error"]) && empty($errors["password_error"]) && empty($errors["mail_error"]) && empty($errors["photo_error"])) {
             $this->insertUser($fields);
         }
+
         return $errors;
     }
 }
