@@ -9520,3 +9520,1648 @@
         ON j.id_cuenta = c.id_cuenta 
         GROUP BY j.id_cuenta
         ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '3'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (241,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 118 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (118,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 65 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '5'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 119 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (119,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 65.853658536585 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 116 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (116,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 66.666666666667 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 120 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (120,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 67.441860465116 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 237;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 121 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (121,1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 65.909090909091 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_incorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 0 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (242,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 124 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (124,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 66.666666666667 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 238;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 238;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 117 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (117,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 67.391304347826 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '2'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 238;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 238;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 115 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (115,1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 65.957446808511 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_incorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 0 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (243,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 123 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (123,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 66.666666666667 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 120 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (120,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 67.34693877551 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 116 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (116,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 68 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '5'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 119 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (119,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 68.627450980392 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 124 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (124,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 69.230769230769 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '3'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 118 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (118,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 69.811320754717 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 117 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (117,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 70.37037037037 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '2'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 115 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (115,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 70.909090909091 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 33.333333333333 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 239;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 121 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`) VALUES (121,1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1  WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 69.642857142857 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1, `veces_incorrecta` = `veces_incorrecta` + 1 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 0 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad > 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (244,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 122 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (122,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 70.175438596491 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 50 WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 116 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (116,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 70.689655172414 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 121 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (121,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 71.186440677966 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 33.333333333333 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 124 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (124,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 71.666666666667 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 122 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (122,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 72.131147540984 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 66.666666666667 WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 123 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (123,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 72.58064516129 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 120 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (120,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 73.015873015873 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '5'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 240;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 119 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (119,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 73.4375 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '2'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (245,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 115 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (115,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 73.846153846154 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 50 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '3'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 118 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (118,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 74.242424242424 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 117 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (117,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 74.626865671642 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 121 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (121,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 75 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 50 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 124 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (124,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 75.36231884058 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 120 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (120,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 75.714285714286 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '5'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 119 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (119,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 76.056338028169 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 123 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (123,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 76.388888888889 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 117 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (117,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 76.712328767123 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '3'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 241;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 118 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (118,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 77.027027027027 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta =  AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '2'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (246,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 115 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (115,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 77.333333333333 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 60 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 122 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (122,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 77.631578947368 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 75 WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 116 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (116,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 77.922077922078 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 122 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (122,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 78.205128205128 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =122;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 80 WHERE id_pregunta = 122;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '3'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 242;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 118 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (118,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 78.481012658228 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT foto_perfil, usuario FROM cuenta WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `partida` VALUES ();
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando queryWithID: INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (247,1);
+[2023-06-25][INFO]getLastInsertedID
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 121 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (121,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 78.75 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =121;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 60 WHERE id_pregunta = 121;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 116 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (116,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 79.012345679012 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =116;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 116;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 117 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (117,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 79.268292682927 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 124 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (124,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 79.518072289157 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =124;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 124;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '5'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 119 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (119,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 79.761904761905 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =119;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 119;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 120 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (120,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 80 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '6'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 123 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (123,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 80.232558139535 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =123;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 123;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '2'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 115 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (115,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 80.459770114943 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 66.666666666667 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: DELETE FROM `respuesta` 
+                WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '1'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 117 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (117,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 80.681818181818 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =117;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 117;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '2'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 115 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (115,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 80.898876404494 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =115;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 71.428571428571 WHERE id_pregunta = 115;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '4'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 120 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (120,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 81.111111111111 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =120;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 120;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT dificultad FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1)
+                AND dificultad <= 30 AND p.esta_activa = 1  ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT p.`id_pregunta` FROM `pregunta` p 
+                WHERE id_pregunta NOT IN    (SELECT DISTINCT id_pregunta
+                                            FROM respuesta
+                                            WHERE id_cuenta = 1) 
+                AND p.esta_activa = 1 
+                ORDER BY RAND() LIMIT 1;
+[2023-06-25][INFO]Ejecutando query: SELECT p.`pregunta`, o.`opcion`, o.`es_correcta`, p.`id_pregunta`, o.`id_opcion` , p.`id_categoria` FROM `pregunta` p JOIN `opcion` o
+        ON p.`id_pregunta` = o.`id_pregunta` WHERE p.`id_pregunta` = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `nombre_categoria` FROM `categoria` WHERE `id_categoria` = '3'
+[2023-06-25][INFO]Ejecutando query: UPDATE `juego` SET `puntaje`= puntaje+1 WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `puntaje` FROM `juego` WHERE `id_juego` = 243;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta = 118 AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando query: INSERT INTO `respuesta`(`id_pregunta`, `id_cuenta`, `fue_correcta`) VALUES (118,1, 1);
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `cantidad_respuestas` = `cantidad_respuestas` + 1, `cantidad_correctas` = `cantidad_correctas` + 1 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `cantidad_respuestas` AS cantRtas, `cantidad_correctas` AS cantCorrectas FROM `cuenta` WHERE id_cuenta =1;
+[2023-06-25][INFO]Ejecutando query: UPDATE cuenta SET `dificultad` = 81.318681318681 WHERE id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `veces_respondida` = `veces_respondida` + 1  WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `veces_respondida` AS cantRtas, `veces_incorrecta` AS cantIncorrectas FROM `pregunta` WHERE id_pregunta =118;
+[2023-06-25][INFO]Ejecutando query: UPDATE pregunta SET `dificultad` = 100 WHERE id_pregunta = 118;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_opcion` FROM `pregunta` AS P LEFT JOIN  `opcion` O ON P.id_pregunta = O.id_pregunta WHERE P.id_pregunta =  AND O.es_correcta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
