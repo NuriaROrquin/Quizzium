@@ -8,6 +8,7 @@
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByGender", "by_gender"));
+    var imageChart;
 
     async function getStatistics(url, idTag, filters) {
 
@@ -158,6 +159,7 @@
 
         var chart = new google.visualization.PieChart(document.getElementById(div));
         chart.draw(data, options);
+        imageChart = chart.getImageURI();
     }
 
     function createColumns(columns, data) {
@@ -204,7 +206,7 @@
 
         }, {passive: true});
 
-        pdfButton.addEventListener('click', function(event) {
+        pdfButton.addEventListener('click', function (event) {
             event.preventDefault();
 
             var pdfDataElements = document.getElementsByClassName('pdf-data');
@@ -219,8 +221,9 @@
             data['dateFrom'] = document.getElementById('dateFrom').value;
             data['dateTo'] = document.getElementById('dateTo').value;
 
+            data['image'] = imageChart;
+
             var jsonData = JSON.stringify(data);
-            console.log(jsonData)
 
             var form = document.createElement('form');
             form.method = 'POST';
@@ -250,20 +253,22 @@
 
     <button id="search">Buscar</button>
 
-    <div id="by_country"></div>
-    <div id="by_age"></div>
-    <div id="by_gender"></div>
+    <div id="by_country" class="pdf-data"></div>
+    <div id="by_age" class="pdf-data"></div>
+    <div id="by_gender" class="pdf-data"></div>
 
     <div>
         <h3 style="font-weight: normal">total de jugadores: <span id="total_players" class="pdf-data"> - .</span></h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de partidas jugadas: <span id="total_games" class="pdf-data"> - .</span></h3>
+        <h3 style="font-weight: normal">Cantidad de partidas jugadas: <span id="total_games"
+                                                                            class="pdf-data"> - .</span></h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de preguntas activas: <span id="total_questions_active" class="pdf-data"> - .</span>
+        <h3 style="font-weight: normal">Cantidad de preguntas activas: <span id="total_questions_active"
+                                                                             class="pdf-data"> - .</span>
         </h3>
     </div>
 

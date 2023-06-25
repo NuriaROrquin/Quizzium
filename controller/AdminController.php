@@ -130,9 +130,10 @@ class AdminController
         $totalViewedSuggestions = $data['total_viwed_suggestions'];
         $percentageEffectiveForPlayer = $data['percentage_effective_for_player'];
         $totalNewUsers = $data['total_new_users'];
+        $byCountry = $data['by_country'];
+        $image = $data['image'];
 
-        Logger::info($dateFrom);
-        Logger::info($dateTo);
+        Logger::info($data['image']);
 
         $this->statisticsModel->getPDF($data);
     }

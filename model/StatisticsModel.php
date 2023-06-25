@@ -117,16 +117,6 @@ class StatisticsModel
         return $chart;
     }
 
-
-    private function convertToInt($result)
-    {
-        foreach ($result as &$dato) {
-            $dato[1] = intval($dato[1]);
-        }
-
-        return $result;
-    }
-
     public function getPlayers($filters)
     {
 
@@ -325,31 +315,45 @@ class StatisticsModel
         $pdf->Cell(40, 10, "Efectividad por usuario:");
         $pdf->Cell(0, 20, "", 0, 1, "C");
 
-
         $usersDifficulty = $this->generateArray($data['percentage_effective_for_player']);
-
         foreach ($usersDifficulty as $entry) {
             $pdf->Cell($pageWidth / 4, 10, "ID Cuenta: " . $entry['id_cuenta'], 1, 0, 'L');
             $pdf->Cell($pageWidth / 4, 10, "Usuario: " . $entry['Usuario'], 1, 0, 'L');
             $pdf->Cell($pageWidth / 4, 10, "Dificultad: " . $entry['dificultad'], 1, 1, 'L');
         }
 
+
         $pdf->Cell(0, 20, "", 0, 1, "C");
         $pdf->Cell(40, 10, "Cantidad de usuarios nuevos:");
         $pdf->Cell(0, 20, "", 0, 1, "C");
 
         $newUsers = $this->generateArray($data['total_new_users']);
-
         foreach ($newUsers as $entry) {
             $pdf->Cell($pageWidth / 4, 10, "ID Cuenta: " . $entry['id_cuenta'], 1, 0, 'L');
             $pdf->Cell($pageWidth / 4, 10, "Usuario: " . $entry['Usuario'], 1, 0, 'L');
             $pdf->Cell($pageWidth / 4, 10, "Creada: " . $entry['fecha de creacion'], 1, 1, 'L');
         }
 
+
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por país:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+
+        $lines = explode("\n", $data['by_country']);
+
+        foreach ($lines as $line) {
+            $pdf->Cell($pageWidth / 4, 10, $line, 1, 1, 'L');
+        }
+
+
+        $this->saveChartImage($data, $pdf);
+
+
         $pdf->Output();
     }
 
-    function generateArray($string)
+    private function generateArray($string)
     {
 
         $rows = explode("\n", $string); // Separar por saltos de línea
@@ -371,6 +375,35 @@ class StatisticsModel
         }
 
         return $data;
+
+    }
+
+    private function convertToInt($result)
+    {
+        foreach ($result as &$dato) {
+            $dato[1] = intval($dato[1]);
+        }
+
+        return $result;
+    }
+
+    private function saveChartImage($data, $pdf)
+    {
+        $imageData = $data['image'];
+        $decodedImage = base64_decode(substr($imageData, strpos($imageData, ',') + 1));
+
+        $imagePath = "./public/charts/img.png";
+
+        file_put_contents($imagePath, $decodedImage);
+
+        $x = 10;
+        $y = 10;
+        $width = 50;
+        $height = 50;
+
+        $pdf->Image($imagePath, $x, $y, $width, $height);
+
+        unlink($imagePath);
 
     }
 }
