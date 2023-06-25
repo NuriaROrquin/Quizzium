@@ -70,7 +70,7 @@ class GameController
         $timestampGuardado = $_SESSION['timestamp'] ?? $timestampActual;
         $diferencia = $timestampActual - $timestampGuardado;
 
-        if ($diferencia >= 20) {
+        if ($diferencia >= 20 || $cronometroEnCero == 1) {
 
             $data['textoOpcionCorrecta'] = $_SESSION['respuestaCorrecta'];
             $data['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
@@ -83,21 +83,7 @@ class GameController
 
         } else {
 
-            if ($cronometroEnCero == 1) {
-
-                $data['textoOpcionCorrecta'] = $_SESSION['respuestaCorrecta'];
-                $data['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
-                $data['mostrarFinalPartida'] = true;
-
-                $this->unsetVariables();
-
                 $isCorrect = $this->gameModel->verificateAnswer($id_pregunta, $selectedAnswer);
-                $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
-
-            } else {
-
-                $isCorrect = $this->gameModel->verificateAnswer($id_pregunta, $selectedAnswer);
-
                 $this->gameModel->insertAnswer($isCorrect, $id_cuenta, $oldQuestion);
 
                 if ($isCorrect) {
@@ -109,15 +95,14 @@ class GameController
                     $_SESSION['puntuacion'] = $data['puntuacion'];
                     $_SESSION['old_question'] = $data['id_question'];
                     $_SESSION['respuestaCorrecta'] = $data['textoOpcionCorrecta'];
+                    $_SESSION['timestamp'] = time();
                 } else {
                     $data['textoOpcionCorrecta'] = $_SESSION['respuestaCorrecta'];
                     $data['puntuacion'] = $_SESSION['puntuacion'] ?? 0;
                     $data['mostrarFinalPartida'] = true;
-
                     $this->unsetVariables();
                 }
             }
-        }
 
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
 
