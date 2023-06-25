@@ -116,4 +116,24 @@ class AdminController
 
         echo json_encode($chart);
     }
+
+    public function getPdf()
+    {
+        $data = json_decode($_POST['data'], true);
+
+        $dateFrom = $data['dateFrom'];
+        $dateTo = $data['dateTo'];
+        $totalPlayers = $data['total_players'];
+        $totalGames = $data['total_games'];
+        $totalQuestionsActive = $data['total_questions_active'];
+        $totalSuggestions = $data['total_suggestions'];
+        $totalViewedSuggestions = $data['total_viwed_suggestions'];
+        $percentageEffectiveForPlayer = $data['percentage_effective_for_player'];
+        $totalNewUsers = $data['total_new_users'];
+
+        Logger::info($dateFrom);
+        Logger::info($dateTo);
+
+        $this->statisticsModel->getPDF($data);
+    }
 }
