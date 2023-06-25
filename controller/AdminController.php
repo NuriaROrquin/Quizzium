@@ -131,9 +131,9 @@ class AdminController
         $percentageEffectiveForPlayer = $data['percentage_effective_for_player'];
         $totalNewUsers = $data['total_new_users'];
         $byCountry = $data['by_country'];
-        $image = $data['image'];
-
-        Logger::info($data['image']);
+        $image = $data['by_country'];
+        $image = $data['by_age'];
+        $image = $data['by_gender'];
 
         $this->statisticsModel->getPDF($data);
     }

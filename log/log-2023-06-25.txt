@@ -16092,3 +16092,1003 @@ Brasil	1
         ON j.id_cuenta = c.id_cuenta 
         GROUP BY j.id_cuenta
         ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
+        FROM sugerencia
+        WHERE fue_visto = 1  AND fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
+        FROM pregunta 
+        WHERE esta_activa = 1  AND fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_juego) AS cantidad_de_partidas
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida  WHERE partida.fecha_partida >= '2023-05-01' AND partida.fecha_partida <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia  WHERE fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: 
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]data:image/png;base64,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AiRAAhQQ9gESIAESIAEtAhQQLWw0IgESIAESoICwD5AACZAACWgRoIBoYaMRCZAACZAABYR9gARIgARIQIsABUQLG41IgARIgAQoIOwDJEACJEACWgQoIFrYaEQCJEACJEABYR8gARIgARLQIkAB0cJGIxIgARIgAQoI+wAJkAAJkIAWAQqIFjYakQAJkAAJUEDYB0iABEiABLQIUEC0sNGIBEiABEiAAsI+QAIkQAIkoEWAAqKFjUYkQAIkQAIUEPYBEiABEiABLQIUEC1sNCIBEiABEqCAsA+QAAmQAAloEaCAaGGjEQmQAAmQAAWEfYAESIAESECLAAVECxuNSIAESIAEKCDsAyRAAiRAAloEKCBa2GhEAiRAAiRAAWEfIAESIAES0CJAAdHCRiMSIAESIAEKCPsACZAACZCAFgEKiBY2GpEACZAACVBA2AdIgARIgAS0CFBAtLDRiARIgARIgALCPkACJEACJKBFgAKihY1GJEACJEACFBD2ARIgARIgAS0CFBAtbDQiARIgARKggLAPkAAJkAAJaBGggGhhoxEJkAAJkAAFhH2ABEiABEhAiwAFRAsbjUiABEiABCgg7AMkQAIkQAJaBCggWthoRAIkQAIkQAFhHyABEiABEtAiQAHRwkYjEiABEiABCgj7AAmQAAmQgBYBCogWNhqRAAmQAAlQQNgHSIAESIAEtAhQQLSw0YgESIAESIACwj5AAiRAAiSgRYACooWNRiRAAiRAAhQQ9gESIAESIAEtAhQQLWw0IgESIAESoICwD5AACZAACWgRoIBoYaMRCZAACZAABYR9gARIgARIQIsABUQLG41IgARIgAQoIOwDJEACJEACWgQoIFrYaEQCJEACJEABYR8gARIgARLQIkAB0cJGIxIgARIgAQoI+wAJkAAJkIAWAQqIFjYakQAJkAAJUEDYB0iABEiABLQIUEC0sNGIBEiABEiAAsI+QAIkQAIkoEWAAqKFjUYkQAIkQAIUEPYBEiABEiABLQIUEC1sNCIBEiABEqCAsA+QAAmQAAloEaCAaGGjEQmQAAmQAAWEfYAESIAESECLAAVECxuNSIAESIAEKCDsAyRAAiRAAloE/g94INwSGf+1UQAAAABJRU5ErkJggg==
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_juego) AS cantidad_de_partidas
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida  WHERE partida.fecha_partida >= '2023-05-01' AND partida.fecha_partida <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
+        FROM pregunta 
+        WHERE esta_activa = 1  AND fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia  WHERE fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
+        FROM sugerencia
+        WHERE fue_visto = 1  AND fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAll: 
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
+        FROM cuenta  WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
+        FROM sugerencia
+        WHERE fue_visto = 1  AND fecha_sugerencia >= '2023-06-01' AND fecha_sugerencia <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
+        FROM pregunta 
+        WHERE esta_activa = 1  AND fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_juego) AS cantidad_de_partidas
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida  WHERE partida.fecha_partida >= '2023-06-01' AND partida.fecha_partida <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia  WHERE fecha_sugerencia >= '2023-06-01' AND fecha_sugerencia <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: 
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta  WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta  WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-06-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_juego) AS cantidad_de_partidas
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida  WHERE partida.fecha_partida >= '2023-05-01' AND partida.fecha_partida <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
+        FROM pregunta 
+        WHERE esta_activa = 1  AND fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
+        FROM sugerencia
+        WHERE fue_visto = 1  AND fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia  WHERE fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: 
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
+        FROM cuenta  WHERE fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
+        FROM pregunta 
+        WHERE esta_activa = 1  AND fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_juego) AS cantidad_de_partidas
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida  WHERE partida.fecha_partida >= '2023-04-01' AND partida.fecha_partida <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
+        FROM sugerencia
+        WHERE fue_visto = 1  AND fecha_sugerencia >= '2023-04-01' AND fecha_sugerencia <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia  WHERE fecha_sugerencia >= '2023-04-01' AND fecha_sugerencia <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: 
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta  WHERE fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta  WHERE fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-04-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT *  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta  FROM `cuenta` WHERE mail='administrador@gmail.com';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT  j.puntaje, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta = 1;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+        
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_juego) AS cantidad_de_partidas
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida  WHERE partida.fecha_partida >= '2023-05-01' AND partida.fecha_partida <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
+        FROM pregunta 
+        WHERE esta_activa = 1  AND fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
+        FROM sugerencia
+        WHERE fue_visto = 1  AND fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30' ;
+[2023-06-25][INFO]Ejecutando querySelectAll: 
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAssoc: 
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia  WHERE fecha_sugerencia >= '2023-05-01' AND fecha_sugerencia <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta  WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30';
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT pais, COUNT(*) AS cantidad_usuarios FROM cuenta WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30' GROUP BY pais;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE 
+        WHEN edad_calculada < 18 THEN 'Menores'
+        WHEN edad_calculada >= 18 AND edad_calculada <= 65 THEN 'Medio'
+        ELSE 'Jubilados'
+        END AS grupo_edad,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_edad;
+[2023-06-25][INFO]Ejecutando querySelectAll: SELECT 
+        CASE
+        WHEN id_genero = 1 THEN 'Masculino'
+        WHEN id_genero = 2 THEN 'Femenino'
+        WHEN id_genero = 3 THEN 'Prefiero no decirlo'
+        ELSE 'Desconocido'
+        END AS grupo_genero,
+        COUNT(*) AS cantidad_usuarios
+        FROM cuenta
+         WHERE fecha_creacion >= '2023-05-01' AND fecha_creacion <= '2023-06-30'
+        GROUP BY grupo_genero;
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT id_cuenta FROM cuenta WHERE mail = 'administrador@gmail.com'
+[2023-06-25][INFO]Ejecutando querySelectAssoc: SELECT `id_rol`FROM `cuenta` WHERE `id_cuenta` = '1';
+[2023-06-25][INFO]Ejecutando query: SELECT foto_perfil, usuario, id_cuenta, nombre, apellido, fecha_nacimiento, mail, g.tipo FROM cuenta c JOIN genero g ON c.id_genero = g.id_genero WHERE id_cuenta = '1'
+[2023-06-25][INFO]Ejecutando query: 
+        SELECT j.id_cuenta, MAX(j.puntaje) AS puntaje_maximo, c.id_cuenta,c.usuario, c.foto_perfil, c.nombre, c.apellido 
+        FROM juego j 
+        JOIN cuenta c 
+        ON j.id_cuenta = c.id_cuenta 
+        GROUP BY j.id_cuenta
+        ORDER BY puntaje_maximo DESC;

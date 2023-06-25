@@ -287,6 +287,7 @@ class StatisticsModel
         $pdf->AddPage("P", "A3");
         $pdf->SetFont('Arial', 'B', 14);
         $pageWidth = $pdf->GetPageWidth();
+        $pageHeight = $pdf->GetPageHeight();
 
         $pdf->Cell(40, 10, "Fechas:");
         $pdf->Cell(40, 10, $data['dateFrom'], 1, 0, 'C');
@@ -331,23 +332,29 @@ class StatisticsModel
         foreach ($newUsers as $entry) {
             $pdf->Cell($pageWidth / 4, 10, "ID Cuenta: " . $entry['id_cuenta'], 1, 0, 'L');
             $pdf->Cell($pageWidth / 4, 10, "Usuario: " . $entry['Usuario'], 1, 0, 'L');
-            $pdf->Cell($pageWidth / 4, 10, "Creada: " . $entry['fecha de creacion'], 1, 1, 'L');
+            $pdf->Cell($pageWidth / 4, 10, "Creado: " . $entry['fecha de creacion'], 1, 1, 'L');
         }
 
-
+        $pdf->AddPage("P", "A3");
         $pdf->Cell(0, 20, "", 0, 1, "C");
-        $pdf->Cell(40, 10, "Cantidad de usuarios por país:");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por pais:");
         $pdf->Cell(0, 20, "", 0, 1, "C");
 
-
-        $lines = explode("\n", $data['by_country']);
-
-        foreach ($lines as $line) {
-            $pdf->Cell($pageWidth / 4, 10, $line, 1, 1, 'L');
-        }
+        $this->saveChartImage($data["by_country"], $pdf, $pageWidth/2, $pageHeight/3.70, 0,40, "country");
 
 
-        $this->saveChartImage($data, $pdf);
+        $pdf->Cell(0, 90, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por edad:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $this->saveChartImage($data["by_age"], $pdf, $pageWidth/2, $pageHeight/3.70, 0,150, "age");
+
+
+        $pdf->Cell(0, 90, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por genero:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $this->saveChartImage($data["by_gender"], $pdf, $pageWidth/2, $pageHeight/3.70, 0,260, "gender");
 
 
         $pdf->Output();
@@ -387,19 +394,15 @@ class StatisticsModel
         return $result;
     }
 
-    private function saveChartImage($data, $pdf)
+    private function saveChartImage($chart, $pdf, $width, $height, $x, $y, $key)
     {
-        $imageData = $data['image'];
+        $imageData = $chart;
         $decodedImage = base64_decode(substr($imageData, strpos($imageData, ',') + 1));
 
-        $imagePath = "./public/charts/img.png";
+        $imagePath = "./public/charts/" . $key . ".png";
 
         file_put_contents($imagePath, $decodedImage);
 
-        $x = 10;
-        $y = 10;
-        $width = 50;
-        $height = 50;
 
         $pdf->Image($imagePath, $x, $y, $width, $height);
 

@@ -8,7 +8,7 @@
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByGender", "by_gender"));
-    var imageChart;
+    var imageChart = [];
 
     async function getStatistics(url, idTag, filters) {
 
@@ -159,8 +159,9 @@
 
         var chart = new google.visualization.PieChart(document.getElementById(div));
         chart.draw(data, options);
-        imageChart = chart.getImageURI();
+        imageChart[`${div}`] = chart.getImageURI();
     }
+
 
     function createColumns(columns, data) {
         for (var i = 0; i < columns.length; i++) {
@@ -221,7 +222,9 @@
             data['dateFrom'] = document.getElementById('dateFrom').value;
             data['dateTo'] = document.getElementById('dateTo').value;
 
-            data['image'] = imageChart;
+            data['by_country'] = imageChart['by_country'];
+            data['by_age'] = imageChart['by_age'];
+            data['by_gender'] = imageChart['by_gender'];
 
             var jsonData = JSON.stringify(data);
 
@@ -246,7 +249,6 @@
 <div class="container">
 
     <button id="pdf">PDF</button>
-    <a href="/admin/getPdf" target="_blank" id="a-pdf">PDF</a>
 
     <input type="date" id="dateFrom">
     <input type="date" id="dateTo">
