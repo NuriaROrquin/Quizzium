@@ -38,7 +38,6 @@
         var dateTo = filters && filters.dateTo;
 
 
-
         await $.ajax({
             url: "/admin" + url,
             type: 'POST',
@@ -105,7 +104,7 @@
                     let mes = fecha.getMonth() + 1;
                     let dia = fecha.getDate();
 
-                   fecha_creacion = anio + "-" + mes + "-" + dia;
+                    fecha_creacion = anio + "-" + mes + "-" + dia;
 
                     li.textContent = `id_cuenta: ${id_cuenta} - Usuario: ${usuario} - fecha de creacion: ${fecha_creacion}`;
                     li.style.textDecoration = "none";
@@ -238,28 +237,26 @@
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad total de sugerencias realizadas: <span
-                id="total_suggestions"> - .</span></h3>
+        <h3 style="font-weight: normal">Cantidad total de sugerencias realizadas: <span id="total_suggestions"> - .</span></h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de sugerencias vistas por el editor: <span
-                id="total_viwed_suggestions"> - .</span></h3>
+        <h3 style="font-weight: normal">Cantidad de sugerencias vistas por el editor: <span id="total_viwed_suggestions"> - .</span></h3>
     </div>
 
     <div>
         <h3 style="font-weight: normal">Efectividad por usuario:</h3>
 
         <ul id="percentage_effective_for_player">
-
+            No haz ingresado fechas.
         </ul>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de usuarios nuevos (3 días antes a hoy):</h3>
+        <h3 style="font-weight: normal;">Cantidad de usuarios nuevos (por fechas ingresadas):</h3>
 
         <ul id="total_new_users">
-
+            No haz ingresado fechas.
         </ul>
     </div>
 
