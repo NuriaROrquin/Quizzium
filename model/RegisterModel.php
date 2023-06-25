@@ -13,8 +13,8 @@ class RegisterModel
     private function insertUser($fields)
     {
         $sql = "INSERT INTO `cuenta` 
-                (`id_genero`, `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
-                VALUES ('{$fields['gender']}' , '{$fields['mail']}' , '{$fields['username']}' , '{$fields['password']}', '{$fields['photo']['url']}',
+                (`id_genero`,`ciudad`, `pais`,  `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `token`, `lat`, `lng`)
+                VALUES ('{$fields['gender']}' , '{$fields['city']}' , '{$fields['country']}' , '{$fields['mail']}' , '{$fields['username']}' , '{$fields['password']}', '{$fields['photo']['url']}',
                         '{$fields['born_date']}' , '{$fields['name']}' , '{$fields['surname']}', '{$fields['token']}', '{$fields['lat']}', '{$fields['lng']}' );";
 
         $this->database->query($sql);
@@ -28,7 +28,6 @@ class RegisterModel
             if (empty($field)) {
                 $result = false;
             }
-            break;
         }
         return $result;
     }
@@ -90,6 +89,21 @@ class RegisterModel
         return $file_name;
     }
 
+    private function validateBornDate($fields){
+
+        $result = true;
+
+        $fechaDeNacimientoIngresada = $fields['born_date'];
+        $fechaDeHoy = new DateTime();
+        $fechaDeHoy = $fechaDeHoy->format('Y-m-d');
+
+        if($fechaDeNacimientoIngresada > $fechaDeHoy){
+            $result = false;
+        }
+
+        return $result;
+    }
+
     public function validate($fields)
     {
         $errors = [];
@@ -98,6 +112,11 @@ class RegisterModel
         if (!$this->validateEmptyFields($fields)) {
             $errors['empty_fields_error'] = true;
         }
+
+        if (!$this->validateBornDate($fields)) {
+            $errors['born_date_error'] = true;
+        }
+
 
         if (!$this->validatePassword($fields['password'], $fields['verificated_password'])) {
             $errors['password_error'] = true;
@@ -122,6 +141,7 @@ class RegisterModel
         if (empty($errors["empty_fields_error"]) && empty($errors["password_error"]) && empty($errors["mail_error"]) && empty($errors["photo_error"])) {
             $this->insertUser($fields);
         }
+
         return $errors;
     }
 }

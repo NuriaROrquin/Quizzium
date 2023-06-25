@@ -31,6 +31,10 @@ class RegisterController
             $errors['photo_error'] = true;
         }
 
+        if (isset($_SESSION['born_date_error'])) {
+            $errors['born_date_error'] = true;
+        }
+
         $this->renderer->render('register', $errors);
         $this->unsetErrorsSessions();
     }
@@ -81,6 +85,12 @@ class RegisterController
             $_SESSION["photo_error"] = $errores["photo_error"];
         } else {
             unset($_SESSION["photo_error"]);
+        }
+
+        if (isset($errores['born_date_error'])) {
+            $_SESSION['born_date_error'] = $errores['born_date_error'];
+        } else {
+            unset($_SESSION['born_date_error']);
         }
     }
 

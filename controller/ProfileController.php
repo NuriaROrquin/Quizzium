@@ -75,7 +75,6 @@ class ProfileController
 
     public function changePhoto()
     {
-
         $oldPhoto = $_SESSION["owner"]['foto_perfil'];
 
         $newPhoto = $_FILES['photoProfileInput'];

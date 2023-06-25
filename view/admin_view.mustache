@@ -8,7 +8,7 @@
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByGender", "by_gender"));
-
+    var imageChart = [];
 
     async function getStatistics(url, idTag, filters) {
 
@@ -22,9 +22,7 @@
             async: true,
             data: {dateFrom, dateTo},
             success: function (dataFromPHP) {
-
                 document.getElementById(idTag).textContent = dataFromPHP;
-
             },
             error: function (xhr, status, error) {
                 console.log("Error en obtener los datos por AJAX: " + error);
@@ -71,7 +69,6 @@
         });
 
     }
-
 
     async function getNewUsers(url, ulId, filters) {
 
@@ -120,7 +117,6 @@
 
     }
 
-
     async function createPieChart(url, div, filters) {
 
         var data = new google.visualization.DataTable();
@@ -163,7 +159,9 @@
 
         var chart = new google.visualization.PieChart(document.getElementById(div));
         chart.draw(data, options);
+        imageChart[`${div}`] = chart.getImageURI();
     }
+
 
     function createColumns(columns, data) {
         for (var i = 0; i < columns.length; i++) {
@@ -180,7 +178,7 @@
 
     window.addEventListener('DOMContentLoaded', function () {
         var searchButton = document.querySelector('#search')
-
+        var pdfButton = document.getElementById('pdf');
 
         searchButton.addEventListener('click', function () {
             var inputDateFrom = document.querySelector('#dateFrom');
@@ -208,46 +206,88 @@
             getNewUsers("/getNewUsers", "total_new_users", filters);
 
         }, {passive: true});
+
+        pdfButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var pdfDataElements = document.getElementsByClassName('pdf-data');
+            var data = {};
+
+            for (var i = 0; i < pdfDataElements.length; i++) {
+                var element = pdfDataElements[i];
+                var id = element.getAttribute('id');
+                var value = element.innerText;
+                data[id] = value;
+            }
+            data['dateFrom'] = document.getElementById('dateFrom').value;
+            data['dateTo'] = document.getElementById('dateTo').value;
+
+            data['by_country'] = imageChart['by_country'];
+            data['by_age'] = imageChart['by_age'];
+            data['by_gender'] = imageChart['by_gender'];
+
+            var jsonData = JSON.stringify(data);
+
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/admin/getPdf';
+            form.target = '_blank';
+
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'data';
+            input.value = jsonData;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        });
     }, {passive: true});
 
 </script>
 
 <div class="container">
 
+    <button id="pdf">PDF</button>
+
     <input type="date" id="dateFrom">
     <input type="date" id="dateTo">
 
     <button id="search">Buscar</button>
 
-    <div id="by_country"></div>
-    <div id="by_age"></div>
-    <div id="by_gender"></div>
+    <div id="by_country" class="pdf-data"></div>
+    <div id="by_age" class="pdf-data"></div>
+    <div id="by_gender" class="pdf-data"></div>
 
     <div>
-        <h3 style="font-weight: normal">total de jugadores: <span id="total_players"> - .</span></h3>
+        <h3 style="font-weight: normal">total de jugadores: <span id="total_players" class="pdf-data"> - .</span></h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de partidas jugadas: <span id="total_games"> - .</span></h3>
+        <h3 style="font-weight: normal">Cantidad de partidas jugadas: <span id="total_games"
+                                                                            class="pdf-data"> - .</span></h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de preguntas activas: <span id="total_questions_active"> - .</span>
+        <h3 style="font-weight: normal">Cantidad de preguntas activas: <span id="total_questions_active"
+                                                                             class="pdf-data"> - .</span>
         </h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad total de sugerencias realizadas: <span id="total_suggestions"> - .</span></h3>
+        <h3 style="font-weight: normal">Cantidad total de sugerencias realizadas: <span
+                id="total_suggestions" class="pdf-data"> - .</span></h3>
     </div>
 
     <div>
-        <h3 style="font-weight: normal">Cantidad de sugerencias vistas por el editor: <span id="total_viwed_suggestions"> - .</span></h3>
+        <h3 style="font-weight: normal">Cantidad de sugerencias vistas por el editor: <span
+                id="total_viwed_suggestions" class="pdf-data"> - .</span></h3>
     </div>
 
     <div>
         <h3 style="font-weight: normal">Efectividad por usuario:</h3>
 
-        <ul id="percentage_effective_for_player">
+        <ul id="percentage_effective_for_player" class="pdf-data">
             No haz ingresado fechas.
         </ul>
     </div>
@@ -255,7 +295,7 @@
     <div>
         <h3 style="font-weight: normal;">Cantidad de usuarios nuevos (por fechas ingresadas):</h3>
 
-        <ul id="total_new_users">
+        <ul id="total_new_users" class="pdf-data">
             No haz ingresado fechas.
         </ul>
     </div>

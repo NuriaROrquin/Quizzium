@@ -1,5 +1,7 @@
 <?php
 
+require('third-party/fpdf/fpdf.php');
+
 class StatisticsModel
 {
 
@@ -115,16 +117,6 @@ class StatisticsModel
         return $chart;
     }
 
-
-    private function convertToInt($result)
-    {
-        foreach ($result as &$dato) {
-            $dato[1] = intval($dato[1]);
-        }
-
-        return $result;
-    }
-
     public function getPlayers($filters)
     {
 
@@ -138,7 +130,7 @@ class StatisticsModel
 
         $sql = "
         SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
-        FROM cuenta ". $whereClause .";";
+        FROM cuenta " . $whereClause . ";";
 
         $result = $this->database->querySelectAssoc($sql);
 
@@ -153,12 +145,12 @@ class StatisticsModel
         $dateTo = $filters['dateTo'];
 
         if (!empty($dateFrom) && !empty($dateTo)) {
-            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+            $whereClause = " WHERE partida.fecha_partida >= '" . $dateFrom . "' AND partida.fecha_partida <= '" . $dateTo . "'";
         }
 
         $sql = "
         SELECT COUNT(id_juego) AS cantidad_de_partidas
-        FROM juego ". $whereClause .";";
+        FROM juego JOIN partida ON juego.id_partida = partida.id_partida " . $whereClause . ";";
 
         $result = $this->database->querySelectAssoc($sql);
 
@@ -193,7 +185,7 @@ class StatisticsModel
         $dateTo = $filters['dateTo'];
 
         if (!empty($dateFrom) && !empty($dateTo)) {
-            $whereClause = " AND fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+            $whereClause = " AND fecha_sugerencia >= '" . $dateFrom . "' AND fecha_sugerencia <= '" . $dateTo . "'";
         }
 
         $sql = "
@@ -214,12 +206,12 @@ class StatisticsModel
         $dateTo = $filters['dateTo'];
 
         if (!empty($dateFrom) && !empty($dateTo)) {
-            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+            $whereClause = " WHERE fecha_sugerencia >= '" . $dateFrom . "' AND fecha_sugerencia <= '" . $dateTo . "'";
         }
 
         $sql = "
         SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
-        FROM sugerencia ". $whereClause .";";
+        FROM sugerencia " . $whereClause . ";";
 
         $result = $this->database->querySelectAssoc($sql);
 
@@ -238,7 +230,7 @@ class StatisticsModel
 
         $sql = "
         SELECT id_cuenta , usuario , dificultad
-        FROM cuenta ". $whereClause .";";
+        FROM cuenta " . $whereClause . ";";
 
         $result = $this->database->querySelectAll($sql);
 
@@ -269,7 +261,7 @@ class StatisticsModel
             $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
         }
 
-        $sql = "SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta ". $whereClause.";";
+        $sql = "SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta " . $whereClause . ";";
 
         $result = $this->database->querySelectAll($sql);
 
@@ -286,5 +278,135 @@ class StatisticsModel
         }
 
         return $usersData;
+    }
+
+    public function getPDF($data)
+    {
+
+        $pdf = new FPDF();
+        $pdf->AddPage("P", "A3");
+        $pdf->SetFont('Arial', 'B', 14);
+        $pageWidth = $pdf->GetPageWidth();
+        $pageHeight = $pdf->GetPageHeight();
+
+        $pdf->Cell(40, 10, "Fechas:");
+        $pdf->Cell(40, 10, $data['dateFrom'], 1, 0, 'C');
+        $pdf->Cell(10, 10, " - ", 1, 0, 'C');
+        $pdf->Cell(40, 10, $data['dateTo'], 1, 1, 'C');
+
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $pdf->Cell($pageWidth / 2, 10, "Total de jugadores", 1, 0, 'C');
+        $pdf->Cell($pageWidth / 3, 10, $data['total_players'], 1, 1, 'C');
+
+        $pdf->Cell($pageWidth / 2, 10, "Total de partidas", 1, 0, 'C');
+        $pdf->Cell($pageWidth / 3, 10, $data['total_games'], 1, 1, 'C');
+
+        $pdf->Cell($pageWidth / 2, 10, "Preguntas activas", 1, 0, 'C');
+        $pdf->Cell($pageWidth / 3, 10, $data['total_questions_active'], 1, 1, 'C');
+
+        $pdf->Cell($pageWidth / 2, 10, "Total de sugerencias", 1, 0, 'C');
+        $pdf->Cell($pageWidth / 3, 10, $data['total_suggestions'], 1, 1, 'C');
+
+        $pdf->Cell($pageWidth / 2, 10, "Total de sugerencias vistas", 1, 0, 'C');
+        $pdf->Cell($pageWidth / 3, 10, $data['total_viwed_suggestions'], 1, 1, 'C');
+
+
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Efectividad por usuario:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $usersDifficulty = $this->generateArray($data['percentage_effective_for_player']);
+        foreach ($usersDifficulty as $entry) {
+            $pdf->Cell($pageWidth / 4, 10, "ID Cuenta: " . $entry['id_cuenta'], 1, 0, 'L');
+            $pdf->Cell($pageWidth / 4, 10, "Usuario: " . $entry['Usuario'], 1, 0, 'L');
+            $pdf->Cell($pageWidth / 4, 10, "Dificultad: " . $entry['dificultad'], 1, 1, 'L');
+        }
+
+
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios nuevos:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $newUsers = $this->generateArray($data['total_new_users']);
+        foreach ($newUsers as $entry) {
+            $pdf->Cell($pageWidth / 4, 10, "ID Cuenta: " . $entry['id_cuenta'], 1, 0, 'L');
+            $pdf->Cell($pageWidth / 4, 10, "Usuario: " . $entry['Usuario'], 1, 0, 'L');
+            $pdf->Cell($pageWidth / 4, 10, "Creado: " . $entry['fecha de creacion'], 1, 1, 'L');
+        }
+
+        $pdf->AddPage("P", "A3");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por pais:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $this->saveChartImage($data["by_country"], $pdf, $pageWidth/2, $pageHeight/3.70, 0,40, "country");
+
+
+        $pdf->Cell(0, 90, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por edad:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $this->saveChartImage($data["by_age"], $pdf, $pageWidth/2, $pageHeight/3.70, 0,150, "age");
+
+
+        $pdf->Cell(0, 90, "", 0, 1, "C");
+        $pdf->Cell(40, 10, "Cantidad de usuarios por genero:");
+        $pdf->Cell(0, 20, "", 0, 1, "C");
+
+        $this->saveChartImage($data["by_gender"], $pdf, $pageWidth/2, $pageHeight/3.70, 0,260, "gender");
+
+
+        $pdf->Output();
+    }
+
+    private function generateArray($string)
+    {
+
+        $rows = explode("\n", $string); // Separar por saltos de línea
+
+        $data = array();
+
+        foreach ($rows as $row) {
+            $fields = explode(" - ", $row); // Separar cada campo en la línea por el delimitador " - "
+
+            $entry = array();
+
+            foreach ($fields as $field) {
+                list($key, $value) = explode(": ", $field); // Separar la clave y el valor por el delimitador ": "
+
+                $entry[$key] = $value;
+            }
+
+            $data[] = $entry;
+        }
+
+        return $data;
+
+    }
+
+    private function convertToInt($result)
+    {
+        foreach ($result as &$dato) {
+            $dato[1] = intval($dato[1]);
+        }
+
+        return $result;
+    }
+
+    private function saveChartImage($chart, $pdf, $width, $height, $x, $y, $key)
+    {
+        $imageData = $chart;
+        $decodedImage = base64_decode(substr($imageData, strpos($imageData, ',') + 1));
+
+        $imagePath = "./public/charts/" . $key . ".png";
+
+        file_put_contents($imagePath, $decodedImage);
+
+
+        $pdf->Image($imagePath, $x, $y, $width, $height);
+
+        unlink($imagePath);
+
     }
 }
