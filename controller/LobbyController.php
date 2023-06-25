@@ -35,7 +35,9 @@ class LobbyController
 
         $id_cuenta = $_SESSION['userID']['id_cuenta'];
 
-        $gamesInfo = $this->lobbyModel->getGames($id_cuenta);
+        $limit = $_POST['limit'] ?? 5;
+
+        $gamesInfo = $this->lobbyModel->getGames($id_cuenta, $limit);
 
         $gamesInfo = json_encode($gamesInfo, JSON_UNESCAPED_UNICODE);
 

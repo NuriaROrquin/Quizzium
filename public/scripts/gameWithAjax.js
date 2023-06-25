@@ -3,6 +3,7 @@ $(window).on('load', function () {
     let tiempo = 19;
     let cronometro;
 
+
     function iniciarCronometro() {
 
         cronometro = setInterval(function () {

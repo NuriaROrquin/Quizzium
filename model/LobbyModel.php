@@ -48,14 +48,15 @@ class LobbyModel
     }
 
 
-    public function getGames($id_cuenta)
+    public function getGames($id_cuenta, $limit)
     {
 
         $sql = "SELECT  j.puntaje, c.usuario
                 FROM juego j
                 JOIN cuenta c 
                 ON j.id_cuenta = c.id_cuenta
-                WHERE j.id_cuenta = " . $id_cuenta . ";";
+                WHERE j.id_cuenta = " . $id_cuenta . "
+                LIMIT " .$limit .";";
 
         $dataOfGames = $this->database->querySelectAll($sql);
 
