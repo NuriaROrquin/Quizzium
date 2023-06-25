@@ -24,11 +24,7 @@
             success: function (dataFromPHP) {
 
                 document.getElementById(idTag).textContent = dataFromPHP;
-                /*
-                rows =  dataFromPHP.datos;
-                columns = dataFromPHP.columnas;
-                title = dataFromPHP.title;
-                */
+
             },
             error: function (xhr, status, error) {
                 console.log("Error en obtener los datos por AJAX: " + error);
@@ -36,7 +32,49 @@
         });
     }
 
-    async function getStatisticsArray(url, idTag, filters) {
+    async function getPercentageOfEffectivenessPerUser(url, ulId, filters) {
+
+        var dateFrom = filters && filters.dateFrom;
+        var dateTo = filters && filters.dateTo;
+
+
+
+        await $.ajax({
+            url: "/admin" + url,
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            data: {dateFrom, dateTo},
+            success: function (dataFromPHP) {
+
+                var ul = document.getElementById(ulId);
+                ul.style.listStyle = "none";
+                ul.textContent = "";
+
+                dataFromPHP.forEach(dato => {
+
+                    var li = document.createElement('li');
+
+                    var id_cuenta = dato.id_cuenta;
+                    var usuario = dato.usuario;
+                    var dificultad = dato.dificultad;
+
+                    li.textContent = `id_cuenta: ${id_cuenta} - Usuario: ${usuario} - dificultad: ${dificultad}`;
+                    li.style.textDecoration = "none";
+                    ul.appendChild(li);
+
+                });
+
+            },
+            error: function (xhr, status, error) {
+                console.log("Error en obtener los datos por AJAX: " + error);
+            }
+        });
+
+    }
+
+
+    async function getNewUsers(url, ulId, filters) {
 
         var dateFrom = filters && filters.dateFrom;
         var dateTo = filters && filters.dateTo;
@@ -49,14 +87,32 @@
             data: {dateFrom, dateTo},
             success: function (dataFromPHP) {
 
-                console.log(dataFromPHP);
+                const ul = document.getElementById(ulId);
+                ul.style.listStyle = "none";
+                ul.textContent = "";
 
-                /*
-                document.getElementById(idTag).textContent = dataFromPHP;
-                rows =  dataFromPHP.datos;
-                columns = dataFromPHP.columnas;
-                title = dataFromPHP.title;
-                */
+                dataFromPHP.forEach(dato => {
+
+                    const li = document.createElement('li');
+
+                    const id_cuenta = dato.id_cuenta;
+                    const usuario = dato.usuario;
+                    var fecha_creacion = dato.fecha_creacion;
+
+                    let fecha = new Date(fecha_creacion);
+
+                    let anio = fecha.getFullYear();
+                    let mes = fecha.getMonth() + 1;
+                    let dia = fecha.getDate();
+
+                   fecha_creacion = anio + "-" + mes + "-" + dia;
+
+                    li.textContent = `id_cuenta: ${id_cuenta} - Usuario: ${usuario} - fecha de creacion: ${fecha_creacion}`;
+                    li.style.textDecoration = "none";
+                    ul.appendChild(li);
+
+                });
+
             },
             error: function (xhr, status, error) {
                 console.log("Error en obtener los datos por AJAX: " + error);
@@ -123,7 +179,6 @@
         data.addRows(rows);
     }
 
-
     window.addEventListener('DOMContentLoaded', function () {
         var searchButton = document.querySelector('#search')
 
@@ -149,7 +204,9 @@
 
             getStatistics("/getNumberOfTotalSuggestions", "total_suggestions", filters);
 
-            getStatisticsArray("/getPercentageOfEffectivenessPerUser", "percentage_effective_for_player", filters);
+            getPercentageOfEffectivenessPerUser("/getPercentageOfEffectivenessPerUser", "percentage_effective_for_player", filters);
+
+            getNewUsers("/getNewUsers", "total_new_users", filters);
 
         }, {passive: true});
     }, {passive: true});

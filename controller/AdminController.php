@@ -106,4 +106,14 @@ class AdminController
 
         echo json_encode($chart);
     }
+
+    public function getNewUsers()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getNewUsers($filters);
+
+        echo json_encode($chart);
+    }
 }

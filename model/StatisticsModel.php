@@ -145,107 +145,146 @@ class StatisticsModel
         return $result['cantidad_de_jugadores'];
     }
 
-    public function getNumberOfGames()
+    public function getNumberOfGames($filters)
     {
+
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
 
         $sql = "
         SELECT COUNT(id_juego) AS cantidad_de_partidas
-        FROM juego ;";
+        FROM juego ". $whereClause .";";
 
         $result = $this->database->querySelectAssoc($sql);
 
         return $result['cantidad_de_partidas'];
     }
 
-    public function getNumberOfActiveQuestions()
+    public function getNumberOfActiveQuestions($filters)
     {
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " AND fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
 
         $sql = "
         SELECT COUNT(id_pregunta) AS cantidad_de_preguntas_activas
         FROM pregunta 
-        WHERE esta_activa = 1;";
+        WHERE esta_activa = 1 " . $whereClause . " ;";
 
         $result = $this->database->querySelectAssoc($sql);
 
         return $result['cantidad_de_preguntas_activas'];
     }
 
-    public function getNumberOfViwedSuggestions()
+    public function getNumberOfViwedSuggestions($filters)
     {
+
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " AND fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
 
         $sql = "
         SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
         FROM sugerencia
-        WHERE fue_visto = 1;";
+        WHERE fue_visto = 1 " . $whereClause . " ;";
 
         $result = $this->database->querySelectAssoc($sql);
 
         return $result['cantidad_de_sugerencias_vistas'];
     }
 
-    public function getNumberOfTotalSuggestions()
+    public function getNumberOfTotalSuggestions($filters)
     {
+
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
 
         $sql = "
         SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
-        FROM sugerencia;";
+        FROM sugerencia ". $whereClause .";";
 
         $result = $this->database->querySelectAssoc($sql);
 
         return $result['cantidad_de_sugerencias'];
     }
 
-    public function getPercentageOfEffectivenessPerUser()
+    public function getPercentageOfEffectivenessPerUser($filters)
     {
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
+
         $sql = "
-        SELECT id_cuenta AS id_cuenta, usuario AS usuario, dificultad AS dificultad2
-        FROM cuenta;";
+        SELECT id_cuenta , usuario , dificultad
+        FROM cuenta ". $whereClause .";";
 
         $result = $this->database->querySelectAll($sql);
 
-        /*
-        $result[0];
-        $data = array();
+        $usersData = array();
 
         foreach ($result as $row) {
-            $item = array(
-                'id_cuenta' => $row['id_cuenta'],
-                'usuario' => $row['usuario'],
-                'dificultad' => $row['dificultad']
+
+            $userData = array(
+                'id_cuenta' => $row[0],
+                'usuario' => $row[1],
+                'dificultad' => $row[2]
             );
 
-            $data[] = $item;
+            $usersData[] = $userData;
         }
-        */
 
-        return $result;
+
+        return $usersData;
     }
 
-    public function getNewUsers()
+    public function getNewUsers($filters)
     {
-        $fechaActual = date("Y-m-d");
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
 
-        $fechaHaceTresDias = date("Y-m-d", strtotime("-3 days"));
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
 
-        $sql = "SELECT * FROM cuenta WHERE fecha_creacion BETWEEN '$fechaHaceTresDias' AND '$fechaActual'";
+        $sql = "SELECT id_cuenta, usuario, fecha_creacion  FROM cuenta ". $whereClause.";";
 
-        $result = $this->database->querySelectAssoc($sql);
+        $result = $this->database->querySelectAll($sql);
 
-        $newUsers = array();
+        $usersData = array();
 
         foreach ($result as $row) {
 
-            $user = new stdClass();
-
-            $user->id_cuenta = $row['id_cuenta'];
-
-            $user->usuario = $row['usuario'];
-
-            $user->fecha_creacion = $row['fecha_creacion'];
-
-            $newUsers[] = $user;
-
+            $userData = array(
+                'id_cuenta' => $row[0],
+                'usuario' => $row[1],
+                'fecha_creacion' => $row[2]
+            );
+            $usersData[] = $userData;
         }
-        return $newUsers;
+
+        return $usersData;
     }
 }
