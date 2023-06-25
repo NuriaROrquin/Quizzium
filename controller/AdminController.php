@@ -14,13 +14,7 @@ class AdminController
 
     public function list()
     {
-        $chart['datos'] = [
-            ['Argentina', 5],
-            ['Peru', 2],
-            ['Brasil', 1],
-        ];
-
-        $this->renderer->render("admin", $chart);
+        $this->renderer->render("admin");
     }
 
     public function getPlayersByCountry()
@@ -49,6 +43,66 @@ class AdminController
         $filters['dateTo'] = $_POST['dateTo'] ?? "";;
 
         $chart = $this->statisticsModel->getPlayersByGender($filters);
+
+        echo json_encode($chart);
+    }
+
+    public function getTotalPlayers()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getPlayers($filters);
+
+        echo json_encode($chart);
+    }
+
+    public function getNumberOfGames()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getNumberOfGames($filters);
+
+        echo json_encode($chart);
+    }
+
+    public function getNumberOfActiveQuestions()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getNumberOfActiveQuestions($filters);
+
+        echo json_encode($chart);
+    }
+
+    public function getNumberOfViwedSuggestions()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getNumberOfViwedSuggestions($filters);
+
+        echo json_encode($chart);
+    }
+
+    public function getNumberOfTotalSuggestions()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getNumberOfTotalSuggestions($filters);
+
+        echo json_encode($chart);
+    }
+
+    public function getPercentageOfEffectivenessPerUser()
+    {
+        $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
+        $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
+        $chart = $this->statisticsModel->getPercentageOfEffectivenessPerUser($filters);
 
         echo json_encode($chart);
     }

@@ -125,12 +125,20 @@ class StatisticsModel
         return $result;
     }
 
-    public function getPlayers()
+    public function getPlayers($filters)
     {
+
+        $whereClause = '';
+        $dateFrom = $filters['dateFrom'];
+        $dateTo = $filters['dateTo'];
+
+        if (!empty($dateFrom) && !empty($dateTo)) {
+            $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
+        }
 
         $sql = "
         SELECT COUNT(id_cuenta) AS cantidad_de_jugadores
-        FROM cuenta ;";
+        FROM cuenta ". $whereClause .";";
 
         $result = $this->database->querySelectAssoc($sql);
 
@@ -162,57 +170,55 @@ class StatisticsModel
         return $result['cantidad_de_preguntas_activas'];
     }
 
-    public function getNumberOfQuestionsViwed()
+    public function getNumberOfViwedSuggestions()
     {
 
         $sql = "
-        SELECT COUNT(id_sugerencia) AS cantidad_de_preguntas_vistas
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias_vistas
         FROM sugerencia
-        WHERE fue_vista=1;";
+        WHERE fue_visto = 1;";
 
         $result = $this->database->querySelectAssoc($sql);
 
-        return $result['cantidad_de_preguntas_vistas'];
+        return $result['cantidad_de_sugerencias_vistas'];
     }
 
-    public function getNumberOfUnseenQuestions()
+    public function getNumberOfTotalSuggestions()
     {
 
         $sql = "
-        SELECT COUNT(id_sugerencia) AS cantidad_de_preguntas_sin_ver
-        FROM sugerencia
-        WHERE fue_vista=0;";
+        SELECT COUNT(id_sugerencia) AS cantidad_de_sugerencias
+        FROM sugerencia;";
 
         $result = $this->database->querySelectAssoc($sql);
 
-        return $result['cantidad_de_preguntas_sin_ver'];
+        return $result['cantidad_de_sugerencias'];
     }
 
     public function getPercentageOfEffectivenessPerUser()
     {
-
         $sql = "
-        SELECT dificultad
+        SELECT id_cuenta AS id_cuenta, usuario AS usuario, dificultad AS dificultad2
         FROM cuenta;";
 
-        $result = $this->database->querySelectAssoc($sql);
+        $result = $this->database->querySelectAll($sql);
 
-        $users = array();
+        /*
+        $result[0];
+        $data = array();
 
         foreach ($result as $row) {
+            $item = array(
+                'id_cuenta' => $row['id_cuenta'],
+                'usuario' => $row['usuario'],
+                'dificultad' => $row['dificultad']
+            );
 
-            $user = new stdClass();
-
-            $user->usuario = $row['id_cuenta'];
-
-            $user->usuario = $row['usuario'];
-
-            $user->dificultad = $row['dificultad'];
-
-            $users[] = $user;
+            $data[] = $item;
         }
+        */
 
-        return $users;
+        return $result;
     }
 
     public function getNewUsers()
