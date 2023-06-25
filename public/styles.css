@@ -794,6 +794,20 @@ body {
     align-items: center;
 }
 
+#reportBtn{
+    background-color: red;
+    border: none;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#reportBtn:hover{
+    background-color: #800080;
+}
+
 /**************************************RANKING******************************************/
 
 body:has(.container-ranking) {
@@ -1609,6 +1623,21 @@ body:has(.container-ranking) {
         justify-content: normal;
     }
 
+    #reportBtn{
+        background-color: red;
+        border: 3px solid red;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+    }
+
+    #reportBtn:hover{
+        background-color: unset;
+        border: 3px solid red;
+        color: red;
+    }
+
     /**************************************RANKING******************************************/
     .container-position .description .position {
         font-size: 32px;
@@ -1627,7 +1656,7 @@ body:has(.container-ranking) {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 799px) {
 
 
     /**************************************LOBBY******************************************/
@@ -1759,6 +1788,20 @@ body:has(.container-ranking) {
     .game .round .question span {
         display: flex;
         justify-content: normal;
+    }
+
+    #reportBtn{
+        background-color: red;
+        border: none;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #reportBtn:hover{
+        background-color: #800080;
     }
 
     /**************************************PROFILE******************************************/
