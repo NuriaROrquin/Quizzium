@@ -33,7 +33,7 @@ $(window).on('load', function () {
 
                             var listItem = $('<li>').addClass('box');
                             var puntaje = $('<p>').text('Puntaje: ' + data[0]);
-                            var nombreJugador = $('<h3>').text(data[1]);
+                            var nombreJugador = $('<h3>').text(data[1]).addClass("box-title");
 
                             listItem.append(nombreJugador, puntaje);
                             listaPartidas.append(listItem);
