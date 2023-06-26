@@ -1,0 +1,8 @@
+administrador@gmail.com
+123
+
+editor@gmail.com
+123
+
+jugador@gmail.com
+123

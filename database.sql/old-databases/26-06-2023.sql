@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2023 a las 00:08:07
+-- Tiempo de generación: 26-06-2023 a las 23:04:21
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `quizzium`
 --
+CREATE DATABASE IF NOT EXISTS `quizzium` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `quizzium`;
 
 -- --------------------------------------------------------
 
@@ -80,9 +82,9 @@ CREATE TABLE `cuenta` (
 --
 
 INSERT INTO `cuenta` (`id_cuenta`, `id_genero`, `id_rol`, `fecha_creacion`, `mail`, `usuario`, `contrasenia`, `foto_perfil`, `fecha_nacimiento`, `nombre`, `apellido`, `esta_activa`, `fecha_validacion`, `token`, `cantidad_respuestas`, `cantidad_correctas`, `dificultad`, `lat`, `lng`, `pais`, `ciudad`) VALUES
-(1, 1, 1, '2023-05-23 23:34:56', 'administrador@gmail.com', 'Matias', '202cb962ac59075b964b07152d234b70', '649a012e816b0_fondo 1.png', '1997-12-14', 'Matías', 'Coco', 1, '2023-05-23 23:34:56', NULL, 39, 25, 64.1026, -34.6699, -58.5619, 'Argentina', ''),
-(2, 2, 2, '2023-04-23 23:38:01', 'editor@gmail.com', 'victoria', '202cb962ac59075b964b07152d234b70', '649a013b92774_fondo 2.png', '2021-11-21', 'Victoria', 'Gambaro', 1, '2023-05-23 23:38:01', NULL, 21, 15, 71.4286, -34.6596, -58.6665, 'Argentina', ''),
-(3, 3, 3, '2023-05-05 23:38:01', 'jugador@gmail.com', 'Nuria', '202cb962ac59075b964b07152d234b70', '649a01496c2d7_fondo 3.png', '1997-06-24', 'Nuria', 'Orquin', 1, '2023-05-23 23:38:01', NULL, 0, 0, 100, -34.6364, -58.5287, 'Argentina', '');
+(1, 1, 1, '2023-05-23 23:34:56', 'administrador@gmail.com', 'Matias', '202cb962ac59075b964b07152d234b70', '6497565baee4d_foto para probar2.png', '1997-12-14', 'Matías', 'Coco', 1, '2023-05-23 23:34:56', NULL, 39, 25, 64.1026, -34.6699, -58.5619, 'Argentina', ''),
+(2, 2, 2, '2023-04-23 23:38:01', 'editor@gmail.com', 'victoria', '202cb962ac59075b964b07152d234b70', '64975683582b1_messi.png', '2021-11-21', 'Victoria', 'Gambaro', 1, '2023-05-23 23:38:01', NULL, 17, 12, 70.5882, -34.6596, -58.6665, 'Argentina', ''),
+(3, 3, 3, '2023-05-05 23:38:01', 'jugador@gmail.com', 'Nuria', '202cb962ac59075b964b07152d234b70', '649756972e1aa_foto para probar.png', '1997-06-24', 'Nuria', 'Orquin', 1, '2023-05-23 23:38:01', NULL, 0, 0, 100, -34.6364, -58.5287, 'Argentina', '');
 
 -- --------------------------------------------------------
 
@@ -125,10 +127,8 @@ CREATE TABLE `juego` (
 INSERT INTO `juego` (`id_juego`, `id_partida`, `id_cuenta`, `puntaje`, `id_desafiador`) VALUES
 (1, 1, 1, 4, NULL),
 (2, 2, 2, 3, NULL),
-(3, 3, 3, 2, NULL),
-(237, 241, 2, 3, NULL),
-(238, 241, 1, 0, 2),
-(239, 242, 2, 0, NULL);
+(3, 3, 3, 2, NULL);
+
 
 -- --------------------------------------------------------
 
@@ -616,11 +616,7 @@ INSERT INTO `opcion` (`id_opcion`, `id_pregunta`, `opcion`, `es_correcta`) VALUE
 (486, 124, 'Santa Rosa', 0),
 (487, 124, 'Santa Fe', 0),
 (488, 124, 'Rosario', 1),
-(489, 124, 'Tandil', 0),
-(490, 125, '1', 0),
-(491, 125, '2', 0),
-(492, 125, '3', 1),
-(493, 125, '4', 0);
+(489, 124, 'Tandil', 0);
 
 -- --------------------------------------------------------
 
@@ -643,9 +639,7 @@ CREATE TABLE `partida` (
 INSERT INTO `partida` (`id_partida`, `fecha_partida`, `fue_aceptada`, `fue_visto`, `multiplayer`) VALUES
 (1, '2023-06-10 11:39:46', 1, 1, 0),
 (2, '2023-06-10 11:42:15', 1, 1, 0),
-(3, '2023-06-10 11:43:10', 1, 1, 0),
-(241, '2023-06-26 21:43:21', 0, 0, 1),
-(242, '2023-06-26 21:43:52', 1, 1, 0);
+(3, '2023-06-10 11:43:10', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -772,17 +766,16 @@ INSERT INTO `pregunta` (`id_pregunta`, `id_categoria`, `fecha_creacion`, `esta_a
 (112, 4, '2023-06-19 18:32:54', 0, 'zzz', 0, 0, 100),
 (113, 6, '2023-06-19 18:33:45', 0, 'ccc', 0, 0, 100),
 (114, 3, '2023-06-19 03:00:00', 0, 'vvv', 0, 0, 100),
-(115, 2, '2023-06-24 21:31:16', 1, ' ¿Quién fue el líder de la Revolución Rusa en 1917?', 2, 1, 50),
+(115, 2, '2023-06-24 21:31:16', 1, ' ¿Quién fue el líder de la Revolución Rusa en 1917?', 1, 1, 0),
 (116, 6, '2023-06-24 21:34:28', 1, '¿Quién es considerado el mejor jugador de fútbol de todos los tiempos?', 0, 0, 100),
 (117, 1, '2023-06-24 21:37:24', 1, '¿Cuál es el elemento químico más abundante en el universo?', 1, 0, 100),
 (118, 3, '2023-06-24 21:38:26', 1, '¿Quién pintó la famosa obra \"La Mona Lisa\"?', 0, 0, 100),
-(119, 5, '2023-06-24 21:39:30', 1, '¿Quién es el creador de la exitosa serie de televisión \"Game of Thrones\"?', 2, 1, 50),
+(119, 5, '2023-06-24 21:39:30', 1, '¿Quién es el creador de la exitosa serie de televisión \"Game of Thrones\"?', 1, 0, 100),
 (120, 4, '2023-06-24 21:40:31', 1, '¿Cuál es el río más largo del mundo?', 0, 0, 100),
-(121, 6, '2023-06-24 21:41:16', 1, '¿Cuál es el evento deportivo más grande y prestigioso del tenis?', 1, 0, 100),
-(122, 1, '2023-06-24 21:47:57', 1, '¿Cuál es la partícula subatómica con carga negativa?', 2, 1, 50),
+(121, 6, '2023-06-24 21:41:16', 1, '¿Cuál es el evento deportivo más grande y prestigioso del tenis?', 0, 0, 100),
+(122, 1, '2023-06-24 21:47:57', 1, '¿Cuál es la partícula subatómica con carga negativa?', 1, 1, 0),
 (123, 6, '2023-06-24 21:50:31', 1, '¿Quién es el último campeón mundial de 2022?', 2, 0, 100),
-(124, 4, '2023-06-24 21:53:02', 1, '¿En qué ciudad nació Lionel Andrés Messi?', 0, 0, 100),
-(125, 1, '2023-06-26 21:45:18', 0, 'Pregunta de Pueba', 0, 0, 100);
+(124, 4, '2023-06-24 21:53:02', 1, '¿En qué ciudad nació Lionel Andrés Messi?', 0, 0, 100);
 
 -- --------------------------------------------------------
 
@@ -803,8 +796,7 @@ CREATE TABLE `reporte` (
 -- Volcado de datos para la tabla `reporte`
 --
 
-INSERT INTO `reporte` (`id_reporte`, `id_cuenta`, `id_pregunta`, `fecha_reporte`, `descripcion`, `fue_visto`) VALUES
-(14, 2, 123, '2023-06-26 21:44:02', '2DO FRANCIA', 0);
+
 
 -- --------------------------------------------------------
 
@@ -824,11 +816,6 @@ CREATE TABLE `respuesta` (
 -- Volcado de datos para la tabla `respuesta`
 --
 
-INSERT INTO `respuesta` (`id_respuesta`, `id_pregunta`, `id_cuenta`, `fecha_respuesta`, `fue_correcta`) VALUES
-(277, 122, 2, '2023-06-26 21:43:23', 1),
-(278, 115, 2, '2023-06-26 21:43:25', 1),
-(279, 121, 2, '2023-06-26 21:43:26', 1),
-(280, 119, 2, '2023-06-26 21:43:27', 0);
 
 -- --------------------------------------------------------
 
@@ -888,8 +875,7 @@ CREATE TABLE `sugerencia` (
 -- Volcado de datos para la tabla `sugerencia`
 --
 
-INSERT INTO `sugerencia` (`id_sugerencia`, `id_cuenta`, `id_pregunta`, `fecha_sugerencia`, `fue_visto`) VALUES
-(12, 1, 125, '2023-06-26 21:45:18', 0);
+
 
 -- --------------------------------------------------------
 
@@ -1027,37 +1013,37 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `id_juego` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+  MODIFY `id_juego` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
 
 --
 -- AUTO_INCREMENT de la tabla `opcion`
 --
 ALTER TABLE `opcion`
-  MODIFY `id_opcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=494;
+  MODIFY `id_opcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=490;
 
 --
 -- AUTO_INCREMENT de la tabla `partida`
 --
 ALTER TABLE `partida`
-  MODIFY `id_partida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `id_partida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `id_reporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_reporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=281;
+  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -1081,7 +1067,7 @@ ALTER TABLE `stock_cuenta`
 -- AUTO_INCREMENT de la tabla `sugerencia`
 --
 ALTER TABLE `sugerencia`
-  MODIFY `id_sugerencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_sugerencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_de_trampita`
