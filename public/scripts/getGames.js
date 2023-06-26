@@ -6,13 +6,20 @@ $(window).on('load', function () {
             fetchData();
         });
 
+    $('.accept-question').click(function (event) {
+        console.log("accept")
+       acceptChallenge($(this).attr('name'))
+    })
+
+    $('.deny-question').click(function (event) {
+        console.log("deny")
+        denyChallenge($(this).attr('name'))
+    })
+
     $(document).on('click', '.paginatorButton', function ()  {
             ActualPage = $(this).attr('value');
             fetchData();
         });
-
-
-
         fetchData();
 
         function fetchData() {
@@ -26,7 +33,6 @@ $(window).on('load', function () {
                 success: function (response) {
                     var historialPartidas = JSON.parse(response);
                     data = historialPartidas.players;
-                    console.log(data);
 
 
                     var listaPartidas = $('#lista-partidas');
@@ -80,7 +86,66 @@ $(window).on('load', function () {
             });
         }
 
+
+
 });
+
+function denyChallenge(id, action) {
+    var url = '/lobby/denyChallenge&id=' + encodeURIComponent(id);
+
+    let data = "id=" + id
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        success: function (response) {
+            var data = JSON.parse(response);
+            console.log(response);
+
+            if (!data) {
+                console.log('error')
+            } else {
+                console.log("Se rechazó el desafío")
+                setTimeout(function() {
+                    window.location.reload("/lobby/list");
+                }, 3000);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log(error)
+        }
+    });
+}
+
+function acceptChallenge(id, action) {
+    var url = '/lobby/acceptChallenge&id=' + encodeURIComponent(id);
+
+    let data = "id=" + id
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        success: function (response) {
+
+            var data = JSON.parse(response);
+            data.idJuego = data.id
+
+            if (!data) {
+                console.log('error')
+            } else {
+                console.log(id)
+                setTimeout(function() {
+                    window.location.href = '/game/list&idPartida='+id;
+                }, 3000);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log(error)
+        }
+    });
+}
 
 function chooseYourPlayer(data) {
 

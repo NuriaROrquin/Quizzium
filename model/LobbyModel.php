@@ -92,6 +92,66 @@ class LobbyModel
         return $players;
     }
 
+    public function getChallengedGames($id_cuenta)
+    {
+
+        $sql = "SELECT      p.`id_partida`, j.`id_desafiador`, c.usuario AS desafiador, j2.puntaje AS resultado
+                FROM        partida p 
+                INNER JOIN  juego j 
+                ON          p.id_partida = j.id_partida 
+                INNER JOIN  cuenta c
+                ON          c.id_cuenta = j.id_desafiador
+                INNER JOIN  juego j2
+                ON          j.id_desafiador = j2.id_cuenta
+                AND         p.id_partida = j2.id_partida
+                WHERE       p.fue_visto = 0 
+                AND         p.fue_aceptada = 0 
+                AND         j.id_desafiador IS NOT NULL
+                AND         j.id_cuenta = $id_cuenta";
+
+        $result = $this->database->query($sql);
+
+        $challengedGames = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $challengedGames[] = $row;
+        }
+
+        if($challengedGames == null){
+            $challengedGames = false;
+        }
+
+        return $challengedGames;
+    }
+
+    public function denyChallenge($id_partida){
+        $sql = "UPDATE `partida` 
+                SET     `fue_aceptada`= 0,
+                        `fue_visto`= 1
+                WHERE   id_partida = $id_partida";
+        $result = $this->database->query($sql);
+
+        return $result;
+    }
+
+    public function acceptChallenge($id_partida, $id_cuenta){
+        $sql = "UPDATE  `partida` 
+                SET     `fue_aceptada`= 1,
+                        `fue_visto`= 1
+                WHERE   id_partida = $id_partida";
+
+        $this->database->query($sql);
+
+        $sql = "SELECT  id_juego
+                FROM    juego
+                WHERE   id_partida = $id_partida
+                AND     id_cuenta = $id_cuenta;";
+
+        $result = $this->database->querySelectAssoc($sql);
+
+        return $result;
+    }
+
     public function getNumberOfGames($id_cuenta)
     {
 

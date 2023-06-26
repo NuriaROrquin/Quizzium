@@ -28,6 +28,8 @@ class LobbyController
 
         $data["rankingPosition"] = $this->lobbyModel->getRankingPosition($id_cuenta);
 
+        $data["challengedGames"] = $this->lobbyModel->getChallengedGames($id_cuenta);
+
 
         $this->renderer->render('lobby', $data);
     }
@@ -59,6 +61,29 @@ class LobbyController
         $gamesInfo = json_encode($gamesInfo, JSON_UNESCAPED_UNICODE);
 
         echo $gamesInfo;
+    }
+
+    public function denyChallenge()
+    {
+        $id_partida = $_POST['id'] ?? "";
+
+        $denyChallenge = $this->lobbyModel->denyChallenge($id_partida);
+
+        $data = json_encode($denyChallenge, JSON_UNESCAPED_UNICODE);
+
+        echo $data;
+    }
+
+    public function acceptChallenge()
+    {
+        $id_partida = $_POST['id'] ?? "";
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
+
+        $acceptChallenge = $this->lobbyModel->acceptChallenge($id_partida, $id_cuenta);
+
+        $data = json_encode($acceptChallenge, JSON_UNESCAPED_UNICODE);
+
+        echo $data;
     }
 
     public function exit()

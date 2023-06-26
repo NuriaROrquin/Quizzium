@@ -35,11 +35,21 @@ class GameController
 
             if($_POST['idContrincante']){
                 $idContrincante = $_POST['idContrincante'];
+                unset($_POST['idContrincante']);
                 $_SESSION['id_juego'] = $this->gameModel->startMultiplayerGame($id_cuenta, $idContrincante);
 
-                var_dump($_SESSION['id_juego']);
             }else{
-                $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
+                if($_GET['idPartida'] ){
+                    $isValidGame = $this->gameModel->isValidGame($_GET['idPartida'], $id_cuenta);
+
+                    if($isValidGame){
+                        $_SESSION['id_juego'] = $isValidGame;
+                    }else{
+                        header('location:/game/list');
+                    }
+                }else{
+                    $_SESSION['id_juego'] = $this->gameModel->startGame($id_cuenta);
+                }
             }
             $_SESSION['old_question'] = $data['id_question'];
 

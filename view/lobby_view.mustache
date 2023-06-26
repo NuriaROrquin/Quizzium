@@ -20,11 +20,24 @@
                 </div>
             </a>
 
+            {{#challengedGames}}
+            <div>
+                <form method="post" class="form-container-question" id="form-question-editor">
+                    <p style="display: inline-block">{{desafiador}} te ha desafiado y ha obtenido {{resultado}} puntos!</p>
+                    <div style="display: inline-block">
+                        <button class="button button-xsmall deny-question" type="button" id="deny-question{{id_partida}}" name={{id_partida}}>Rechazar</button>
+                        <button class="button button-xsmall accept-question" type="button" id="accept-question{{id_partida}}" name={{id_partida}}>Aceptar</button>
+                    </div>
+                </form>
+            </div>
+            {{/challengedGames}}
+
             <div class="container-anchor">
                 <a href="/ranking/list" class="button button-small">Ver Ranking</a>
             </div>
         </div>
     {{/owner}}
+
 
     <div style="display: flex; gap: 1rem; justify-content: center; align-items: center">
 
@@ -73,35 +86,12 @@
         <div id="nav-paginator"></div>
         <button id="openPopup">Abrir Popup</button>
 
-        <!--<div id="popup" style="display: none;">
-            <h2>Selecciona una opción:</h2>
-            <ul id="optionList">
-                <li>Opción 1</li>
-                <li>Opción 2</li>
-                <li>Opción 3</li>
-            </ul>
-        </div>-->
     </div>
 </div>
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script src='../public/scripts/getGames.js'></script>
-<!--<script>
-    $(document).ready(function() {
-        // Abrir el popup al hacer clic en el botón
-        $('#openPopup').on('click', function() {
-            $('#popup').show();
-        });
 
-        // Capturar la opción seleccionada al hacer clic en un elemento de la lista
-        $('#optionList').on('click', 'li', function() {
-            var selectedOption = $(this).text();
-            // Aquí puedes utilizar la opción seleccionada en tu solicitud AJAX
-            console.log('Opción seleccionada:', selectedOption);
-            $('#popup').hide(); // Cerrar el popup
-        });
-    });
-</script>
 
- End Page Content -->
+<!--End Page Content -->
 </div>
 {{> footer}}

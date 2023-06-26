@@ -221,10 +221,35 @@ class GameModel
 
         $id_juego = $this->database->queryWithID("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
 
-        $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_Contrincante . ");");
+        $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`, `id_desafiador`) VALUES (" . $id_partida . "," . $id_Contrincante . ", $id_cuenta);");
 
         return $id_juego;
     }
+
+    public function isValidGame($id_partida, $id_cuenta){
+        $result = false;
+        $sql = "SELECT      j.id_juego, j.id_partida
+                FROM        juego j
+                INNER JOIN  partida p
+                ON          j.id_partida = p.id_partida
+                WHERE       j.id_partida = $id_partida
+                AND         j.id_cuenta =$id_cuenta
+                AND         j.id_desafiador IS NOT NULL
+                AND         p.fue_aceptada = 1";
+       $id_juego =$this->database->querySelectAssoc($sql)['id_juego'];
+       $this->deleteDesafiador($id_juego);
+        if($id_juego){
+            $result = $id_juego;
+        }
+        return $result;
+
+    }
+
+    public function deleteDesafiador($id_juego)
+    {
+        $this->database->query("UPDATE `juego` SET `id_desafiador`= NULL WHERE `id_juego` = " .$id_juego .";");
+    }
+
 
     public function updateScore($id_juego)
     {
