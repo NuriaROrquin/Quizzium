@@ -8,6 +8,14 @@
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByCountry", "by_country"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByAge", "by_age"));
     google.charts.setOnLoadCallback(() => createPieChart("/getPlayersByGender", "by_gender"));
+    getStatistics("/getTotalPlayers", "total_players");
+    getStatistics("/getNumberOfGames", "total_games");
+    getStatistics("/getNumberOfActiveQuestions", "total_questions_active");
+    getStatistics("/getNumberOfViwedSuggestions", "total_viwed_suggestions");
+    getStatistics("/getNumberOfTotalSuggestions", "total_suggestions");
+    getPercentageOfEffectivenessPerUser("/getPercentageOfEffectivenessPerUser", "percentage_effective_for_player");
+    getNewUsers("/getNewUsers", "total_new_users");
+
     var imageChart = [];
 
     async function getStatistics(url, idTag, filters) {
@@ -43,6 +51,7 @@
             async: true,
             data: {dateFrom, dateTo},
             success: function (dataFromPHP) {
+
 
                 var ul = document.getElementById(ulId);
                 ul.style.listStyle = "none";
