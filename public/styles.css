@@ -2070,11 +2070,26 @@ body:has(.statistics) {
     }
 
     /* ************************* DESPUES BORRAR ************************** */
-    .max-width-phone{
+    .btn-mid {
+        font-size: 24px;
+    }
+    .btn-high {
+        width: 100%;
+    }
+    .buttons-game {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 35px 0;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .max-width-phone {
         max-width: 350px;
         margin: auto;
     }
-
     .container-cantidad-partidas {
         text-align: center;
         padding: 10px;
@@ -2082,16 +2097,14 @@ body:has(.statistics) {
         align-content: center;
         justify-content: space-around;
     }
-
     .container-cantidad-partidas label {
         width: 30%;
         font-size: 20px;
         padding: 5px;
     }
-    .container-cantidad-partidas div{
+    .container-cantidad-partidas div {
         width: 30%;
     }
-
     .container-cantidad-partidas select {
         font-size: 20px;
         background-color: #800080;
@@ -2099,13 +2112,11 @@ body:has(.statistics) {
         border-radius: 20px;
         padding: 3px;
     }
-
     .container-box {
         width: 90%;
         margin-bottom: 20px;
         padding: 0px;
     }
-
     .titulo-historial {
         margin-top: 16px;
         background-color: #800080;
@@ -2114,8 +2125,8 @@ body:has(.statistics) {
         padding: 10px;
         text-align: center;
         font-weight: normal;
+        border-radius: 30px;
     }
-
     .historial {
         display: flex;
         flex-wrap: wrap;
@@ -2124,7 +2135,9 @@ body:has(.statistics) {
         list-style: none;
         padding: 0px;
     }
-
+    .mainBtn-container a {
+        width: 100%;
+    }
     .box-title {
         padding: 8px;
         width: 100%;
@@ -2137,7 +2150,6 @@ body:has(.statistics) {
         font-weight: normal;
         border-radius: 10px 10px 0px 0px;
     }
-
     .box {
         width: 100%;
         text-align: center;
@@ -2147,23 +2159,19 @@ body:has(.statistics) {
         border: none;
         border-radius: 10px;
     }
-
     .box p {
         padding: 10px;
     }
-
     .noHayPartidas {
         width: 100%;
         text-align: center;
     }
-
     .paginator-container {
         display: flex;
         flex-wrap: wrap;
         align-content: center;
         justify-content: space-around;
     }
-
     .paginator-container ul {
         padding: 0px;
         margin: 0px;
@@ -2174,7 +2182,6 @@ body:has(.statistics) {
         justify-content: space-around;
         align-items: center;
     }
-
     .paginator-container ul li {
         width: 8%;
         margin: 2%;
@@ -2185,7 +2192,6 @@ body:has(.statistics) {
         justify-content: center;
         text-align: center;
     }
-
     .paginator-container ul li button {
         width: 100%;
         background-color: #800080;
