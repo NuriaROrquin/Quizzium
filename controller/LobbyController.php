@@ -30,7 +30,6 @@ class LobbyController
 
         $data["challengedGames"] = $this->lobbyModel->getChallengedGames($id_cuenta);
 
-
         $this->renderer->render('lobby', $data);
     }
 
@@ -41,9 +40,10 @@ class LobbyController
         $limit = $_POST['limit'] ?? 5;
 
         $page = $_POST['page'] ?? 0;
+
         if(!$page){
             $start = 0;
-            $page = 1;
+            $page = 1;// creo que esto se puede borrar
         }else{
             $start = ($page-1)*$limit;
         }
@@ -53,7 +53,6 @@ class LobbyController
 
         if( $gamesInfo['numbersOfGames'] > 0){
             $gamesInfo['pages']= ceil($gamesInfo['numbersOfGames'] / $limit);
-
         }
 
         $gamesInfo['games'] = $this->lobbyModel->getGames($id_cuenta, $start, $limit);
