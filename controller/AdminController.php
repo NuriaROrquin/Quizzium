@@ -49,8 +49,12 @@ class AdminController
 
     public function getTotalPlayers()
     {
+
+        Logger::info("LLEGA");
+
         $filters['dateFrom'] = $_POST['dateFrom'] ?? "";;
         $filters['dateTo'] = $_POST['dateTo'] ?? "";;
+
 
         $chart = $this->statisticsModel->getPlayers($filters);
 
