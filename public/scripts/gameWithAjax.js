@@ -3,6 +3,24 @@ $(window).on('load', function () {
     let tiempo = 19;
     let cronometro;
 
+    var audioPlayer = document.getElementById('audio-player');
+    var isPlaying = !audioPlayer.paused;
+
+    if (isPlaying) {
+        $('#audio-player').css('background-image', 'url(../public/audio/jugar.png)');
+    }
+
+    $('#audio-player').on('click', function() {
+        if (isPlaying) {
+            audioPlayer.pause();
+            $(this).css('background-image', 'url(../public/audio/jugar.png)');
+            isPlaying = false;
+        } else {
+            audioPlayer.play();
+            $(this).css('background-image', 'url(../public/audio/boton-de-pausa.png)');
+            isPlaying = true;
+        }
+    });
 
     function iniciarCronometro() {
 
