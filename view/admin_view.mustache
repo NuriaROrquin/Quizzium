@@ -2,58 +2,78 @@
 <!-- Quizzium Lobby -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<div class="container">
+<div class="statistics container">
 
-    <button id="pdf">PDF</button>
-
-    <input type="date" id="dateFrom">
-    <input type="date" id="dateTo">
-
-    <button id="search">Buscar</button>
-
-    <div id="by_country" class="pdf-data"></div>
-    <div id="by_age" class="pdf-data"></div>
-    <div id="by_gender" class="pdf-data"></div>
-
-    <div>
-        <h3 style="font-weight: normal">total de jugadores: <span id="total_players" class="pdf-data"> - .</span></h3>
+    <div class="banner">
+        <img src="/public/assets/estadisticas.png">
     </div>
 
-    <div>
-        <h3 style="font-weight: normal">Cantidad de partidas jugadas: <span id="total_games"
-                                                                            class="pdf-data"> - .</span></h3>
+    <div class="filters">
+        <div class="container-date">
+            <input type="date" id="dateFrom" class="input-date">
+            <input type="date" id="dateTo" class="input-date">
+        </div>
+
+        <button id="search" class="button button-small button-orange">Buscar</button>
     </div>
 
-    <div>
-        <h3 style="font-weight: normal">Cantidad de preguntas activas: <span id="total_questions_active"
-                                                                             class="pdf-data"> - .</span>
-        </h3>
-    </div>
+    <div class="charts">
 
-    <div>
-        <h3 style="font-weight: normal">Cantidad total de sugerencias realizadas: <span
-                id="total_suggestions" class="pdf-data"> - .</span></h3>
-    </div>
+        <div class="statics">
+            <div class="static-number">
+                <span id="total_players" class="pdf-data"> - .</span>
+                <h3 style="font-weight: normal">Jugadores</h3>
+            </div>
 
-    <div>
-        <h3 style="font-weight: normal">Cantidad de sugerencias vistas por el editor: <span
-                id="total_viwed_suggestions" class="pdf-data"> - .</span></h3>
-    </div>
+            <div class="static-number">
+                <span id="total_games" class="pdf-data"> - .</span>
+                <h3 style="font-weight: normal">Partidas Jugadas</h3>
+            </div>
 
-    <div>
-        <h3 style="font-weight: normal">Efectividad por usuario:</h3>
+            <div class="static-number">
+                <span id="total_questions_active" class="pdf-data"> - .</span>
+                <h3 style="font-weight: normal">Preguntas Activas</h3>
+            </div>
 
-        <ul id="percentage_effective_for_player" class="pdf-data">
-            No haz ingresado fechas.
-        </ul>
-    </div>
+            <div class="static-number">
+                <span id="total_suggestions" class="pdf-data"> - .</span>
+                <h3 style="font-weight: normal">Preguntas Sugeridas</h3>
+            </div>
 
-    <div>
-        <h3 style="font-weight: normal;">Cantidad de usuarios nuevos (por fechas ingresadas):</h3>
+            <div class="static-number">
+                <span id="total_viwed_suggestions" class="pdf-data"> - .</span>
+                <h3 style="font-weight: normal">Preguntas Sugeridas Vistas</h3>
+            </div>
+        </div>
 
-        <ul id="total_new_users" class="pdf-data">
-            No haz ingresado fechas.
-        </ul>
+        <div class="container-list">
+            <div class="title-container">
+            <h3 style="font-weight: normal">Efectividad por usuario:</h3>
+            </div>
+
+            <ul id="percentage_effective_for_player" class="pdf-data list">
+                No haz ingresado fechas.
+            </ul>
+        </div>
+
+        <div class="container-list">
+            <div class="title-container">
+            <h3 style="font-weight: normal;">Cantidad de usuarios nuevos (por fechas ingresadas):</h3>
+            </div>
+
+            <ul id="total_new_users" class="pdf-data list">
+                No haz ingresado fechas.
+            </ul>
+        </div>
+
+        <div class="google">
+            <div id="by_country" class="pdf-data container-chart"></div>
+            <div id="by_age" class="pdf-data container-chart"></div>
+            <div id="by_gender" class="pdf-data container-chart"></div>
+        </div>
+
+
+        <button id="pdf" class="button button-small mt-2">PDF</button>
     </div>
 
 </div>
@@ -213,8 +233,9 @@
 
         var options = {
             'title': title,
-            'width': 400,
-            'height': 300,
+            'width': 500,
+            'height': 400,
+            colors: ['#FF9400', '#FFA830', '#FFB652'],
             animation: {
                 duration: 1000,
                 easing: 'out',
@@ -228,7 +249,6 @@
         chart.draw(data, options);
         imageChart[`${div}`] = chart.getImageURI();
     }
-
 
     function createColumns(columns, data) {
         for (var i = 0; i < columns.length; i++) {
