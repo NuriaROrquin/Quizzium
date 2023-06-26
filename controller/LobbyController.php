@@ -65,9 +65,11 @@ class LobbyController
 
     public function denyChallenge()
     {
-        $id_partida = $_POST['id'] ?? "";
 
-        $denyChallenge = $this->lobbyModel->denyChallenge($id_partida);
+        $id_partida = $_POST['id'] ?? "";
+        $id_cuenta = $_SESSION['userID']['id_cuenta'];
+
+        $denyChallenge = $this->lobbyModel->denyChallenge($id_partida,$id_cuenta);
 
         $data = json_encode($denyChallenge, JSON_UNESCAPED_UNICODE);
 

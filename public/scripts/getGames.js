@@ -32,21 +32,34 @@ $(window).on('load', function () {
                 data: data,
                 success: function (response) {
                     var historialPartidas = JSON.parse(response);
+
+                    console.log(historialPartidas.games)
                     data = historialPartidas.players;
 
 
                     var listaPartidas = $('#lista-partidas');
                     listaPartidas.empty();
 
+
+
                     if(historialPartidas != false){
+
 
                         historialPartidas.games.forEach(function(data) {
 
                             var listItem = $('<li>').addClass('box');
                             var puntaje = $('<p>').text('Puntaje: ' + data[0]);
                             var nombreJugador = $('<h3>').text(data[1]).addClass("box-title");
+                            var multiplayer;
 
-                            listItem.append(nombreJugador, puntaje);
+                            if (data[2] === '1') {
+                                console.log('entre')
+                                multiplayer = $('<h5>').text('Partida entre jugadores');
+                            } else {
+                                multiplayer = '';
+                            }
+
+                            listItem.append(nombreJugador, puntaje,multiplayer);
                             listaPartidas.append(listItem);
                         });
 

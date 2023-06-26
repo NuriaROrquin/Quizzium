@@ -51,11 +51,14 @@ class LobbyModel
     public function getGames($id_cuenta,$start, $limit)
     {
 
-        $sql = "SELECT  j.puntaje, c.usuario
-                FROM juego j
-                JOIN cuenta c 
-                ON j.id_cuenta = c.id_cuenta
-                WHERE j.id_cuenta = $id_cuenta 
+        $sql = "SELECT  j.puntaje, c.usuario, p.multiplayer
+                FROM    juego j
+                JOIN    cuenta c 
+                ON      j.id_cuenta = c.id_cuenta
+                JOIN    partida p
+                on      j.id_partida = p.id_partida
+                WHERE   j.id_cuenta = $id_cuenta 
+                AND     p.fue_aceptada = 1
                 LIMIT $start, $limit;";
 
         $dataOfGames = $this->database->querySelectAll($sql);
@@ -124,14 +127,39 @@ class LobbyModel
         return $challengedGames;
     }
 
-    public function denyChallenge($id_partida){
+    public function denyChallenge($id_partida, $id_cuenta){
         $sql = "UPDATE `partida` 
                 SET     `fue_aceptada`= 0,
                         `fue_visto`= 1
                 WHERE   id_partida = $id_partida";
+
         $result = $this->database->query($sql);
 
+        $sql = "SELECT      j.id_juego, j.id_partida
+                FROM        juego j
+                INNER JOIN  partida p
+                ON          j.id_partida = p.id_partida
+                WHERE       j.id_partida = $id_partida
+                AND         j.id_cuenta =$id_cuenta
+                AND         j.id_desafiador IS NOT NULL
+                AND         p.fue_aceptada = 0
+                AND         p.fue_visto = 1";
+
+        $id_juego =$this->database->querySelectAssoc($sql)['id_juego'];
+
+        $this->deleteDesafiador($id_juego);
+
+        if($id_juego){
+            $result = $id_juego;
+        }
         return $result;
+
+        return $result;
+    }
+
+    public function deleteDesafiador($id_juego)
+    {
+        $this->database->query("UPDATE `juego` SET `id_desafiador`= NULL WHERE `id_juego` = " .$id_juego .";");
     }
 
     public function acceptChallenge($id_partida, $id_cuenta){
@@ -155,9 +183,12 @@ class LobbyModel
     public function getNumberOfGames($id_cuenta)
     {
 
-        $sql = "SELECT count(id_cuenta) as totalJuegos
-                FROM juego
-                WHERE id_cuenta = $id_cuenta;";
+        $sql = "SELECT      count(id_cuenta) as totalJuegos
+                FROM        juego j
+                INNER JOIN  partida p 
+                ON          j.id_partida = p.id_partida
+                AND         p.fue_aceptada = 1
+                WHERE       id_cuenta = $id_cuenta;";
 
         $NumberOfGames = $this->database->querySelectAssoc($sql);
         return $NumberOfGames["totalJuegos"];

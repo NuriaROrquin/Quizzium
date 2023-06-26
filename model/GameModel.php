@@ -215,7 +215,7 @@ class GameModel
     public function startMultiplayerGame($id_cuenta, $id_Contrincante)
     {
 
-        $id_partida = $this->database->queryWithID("INSERT INTO `partida` (`fue_aceptada`, `fue_visto`) VALUES (0, 0);");
+        $id_partida = $this->database->queryWithID("INSERT INTO `partida` (`fue_aceptada`, `fue_visto`, `multiplayer`) VALUES (0, 0, 1);");
 
 
         $id_juego = $this->database->queryWithID("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
