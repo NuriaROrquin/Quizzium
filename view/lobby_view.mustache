@@ -47,9 +47,31 @@
 
         <h2 class="titulo-historial">Historial de partidas</h2>
 
+        <div style="display: inline-block">
+            <label for="games_quantity">Mostrar:  </label>
+        </div>
+        <div style="display: inline-block; padding: 0px 10px">
+            <select name="games_quantity" id="games_quantity">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <div style="display: inline-block">
+            <label for="games_quantity"> partidas</label>
+        </div>
+
+
         <ul class="historial" id="lista-partidas">
 
         </ul>
+        <div>
+            <div>
+                <label id="paginator"></label>
+            </div>
+        </div>
+
+        <div id="nav-paginator"></div>
 
     </div>
 </div>
