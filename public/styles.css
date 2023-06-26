@@ -5,7 +5,7 @@
     max-height: 100%;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -144,6 +144,28 @@ body {
     max-width: none;
 }
 
+.redirect-to-lobby {
+    align-self: baseline;
+    margin-left: 2rem;
+}
+
+.redirect-to-lobby a {
+    font-size: 16px;
+    font-family: 'Poppins';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.redirect-to-lobby img {
+    transform: rotate(180deg);
+    width: 20px;
+    height: 25px;
+}
+
 /**************************************LOBBY******************************************/
 
 .go-to-ranking {
@@ -211,6 +233,157 @@ body {
     font-size: 24px;
     color: #FFA500;
     font-weight: lighter;
+}
+
+/* ************************* DESPUES BORRAR ************************** */
+.max-width-phone {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.buttons-game {
+    width: 80%;
+}
+
+.btn-mid {
+    font-size: 24px;
+    width: 40%;
+    padding: 10px;
+    padding-left: 38px;
+    padding-right: 38px;
+}
+
+.mainBtn-container a {
+    width: 45%;
+}
+
+.container-cantidad-partidas {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: auto;
+}
+
+.container-cantidad-partidas label {
+    width: 30%;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.container-cantidad-partidas div {
+    width: 30%;
+}
+
+.container-cantidad-partidas select {
+    font-size: 20px;
+    background-color: #800080;
+    color: white;
+    border-radius: 20px;
+    padding: 3px;
+}
+
+.container-box {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+.titulo-historial {
+    margin-top: 16px;
+    background-color: #800080;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-weight: normal;
+    border-radius: 30px;
+}
+
+.historial {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+}
+
+.box-title {
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: #800080;
+    margin: 0px;
+    border: none;
+    border-radius: 0px;
+    color: white;
+    font-weight: normal;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.box {
+    width: 15%;
+    text-align: center;
+    margin: 10px;
+    padding: 0px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.box p {
+    padding: 10px;
+}
+
+.noHayPartidas {
+    width: 100%;
+    text-align: center;
+}
+
+.paginator-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.paginator-container label {
+    width: 100%;
+    text-align: center;
+}
+
+.paginator-container ul {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.paginator-container ul li {
+    width: 30px;
+    margin: 2%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.paginator-container ul li button {
+    width: 100%;
+    background-color: #800080;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 
@@ -370,6 +543,10 @@ body {
 
 .button {
     width: 70%;
+}
+
+.btn-high {
+    width: 40%;
 }
 
 /**************************************PROFILE******************************************/
@@ -606,13 +783,16 @@ body {
 /**************************************PARTIDA******************************************/
 
 #audio-player {
-    margin-top: 5%;
-    margin-left: 75%;
     background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto 2rem auto;
 }
 
 
@@ -625,6 +805,10 @@ body {
     align-items: center;
     min-height: 100vh;
     position: relative;
+}
+
+.game .redirect-md {
+    display: none;
 }
 
 .game .left-sidebar {
@@ -805,7 +989,7 @@ body {
     align-items: center;
 }
 
-#reportBtn{
+#reportBtn {
     background-color: red;
     border: none;
     margin-bottom: 30px;
@@ -815,7 +999,7 @@ body {
     cursor: pointer;
 }
 
-#reportBtn:hover{
+#reportBtn:hover {
     background-color: #800080;
 }
 
@@ -1008,46 +1192,25 @@ body:has(.container-ranking) {
     font-family: Poppins;
 }
 
-.factory .msg-success{
+.factory .msg-success {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.factory .msg-success h3{
+.factory .msg-success h3 {
     font-weight: 400;
     font-size: 32px;
     font-family: Bangers;
     color: white;
 }
 
-.factory .msg-success p{
+.factory .msg-success p {
     font-weight: 400;
     font-size: 22px;
     font-family: Poppins;
     color: white;
-}
-.factory .redirect-to-lobby {
-    align-self: baseline;
-    margin-left: 2rem;
-}
-
-.factory .redirect-to-lobby a {
-    font-size: 16px;
-    font-family: 'Poppins';
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 0.5rem;
-}
-
-.factory .redirect-to-lobby img {
-    transform: rotate(180deg);
-    width: 20px;
-    height: 25px;
 }
 
 .factory .container-form {
@@ -1124,7 +1287,7 @@ body:has(.container-ranking) {
 
 /**************************************Preguntas pendientes******************************************/
 
-.approval{
+.approval {
     width: 100%;
     height: 100%;
     display: block;
@@ -1134,9 +1297,10 @@ body:has(.container-ranking) {
     padding-top: 3rem;
     padding-bottom: 3rem;
     text-align: -webkit-center;
+    min-height: 100vh;
 }
 
-.list{
+.list {
     overflow-y: auto;
     width: 85%;
     display: block;
@@ -1147,6 +1311,7 @@ body:has(.container-ranking) {
     opacity: 0;
     z-index: -1;
 }
+
 .accordion {
     background-color: #FFA500;
     text-decoration: none;
@@ -1156,6 +1321,7 @@ body:has(.container-ranking) {
     overflow: hidden;
     box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
 }
+
 .accordion-label {
     display: flex;
     justify-content: space-between;
@@ -1167,6 +1333,7 @@ body:has(.container-ranking) {
     background: white;
     color: #FFA500;
 }
+
 .accordion-content {
     max-height: 0;
     padding: 0 1em;
@@ -1174,6 +1341,7 @@ body:has(.container-ranking) {
     transition: all 0.35s;
     display: flex;
 }
+
 .approval .list .accordion input[type="checkbox"]:checked ~ .accordion-content {
     max-height: 100vh;
     padding: 1em;
@@ -1240,7 +1408,7 @@ body:has(.container-ranking) {
 
 /**************************************Preguntas reportadas******************************************/
 
-.approval{
+.approval {
     width: 100%;
     height: 100%;
     display: block;
@@ -1252,7 +1420,7 @@ body:has(.container-ranking) {
     text-align: -webkit-center;
 }
 
-.list{
+.list {
     overflow-y: auto;
     width: 85%;
     display: block;
@@ -1263,6 +1431,7 @@ body:has(.container-ranking) {
     opacity: 0;
     z-index: -1;
 }
+
 .accordion {
     background-color: #FFA500;
     text-decoration: none;
@@ -1272,6 +1441,7 @@ body:has(.container-ranking) {
     overflow: hidden;
     box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
 }
+
 .accordion-label {
     display: flex;
     justify-content: space-between;
@@ -1283,6 +1453,7 @@ body:has(.container-ranking) {
     background: white;
     color: #FFA500;
 }
+
 .accordion-content {
     max-height: 0;
     padding: 0 1em;
@@ -1291,6 +1462,7 @@ body:has(.container-ranking) {
     display: flex;
     flex-direction: column;
 }
+
 .approval .list .accordion input[type="checkbox"]:checked ~ .accordion-content {
     max-height: 100vh;
     padding: 1em;
@@ -1355,7 +1527,7 @@ body:has(.container-ranking) {
     justify-self: center;
 }
 
-.accordion-content .report{
+.accordion-content .report {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1364,18 +1536,199 @@ body:has(.container-ranking) {
     margin: 0 auto;
 }
 
-.accordion-content .report .report-title{
+.accordion-content .report .report-title {
     font-size: 18px;
     font-family: Poppins;
     font-weight: bold;
     color: white;
 }
 
-.accordion-content .report .description{
+.accordion-content .report .description {
     font-size: 18px;
     font-family: Poppins;
     font-weight: 400;
     color: white;
+}
+
+/**************************************ADMIN STATISTICS******************************************/
+body:has(.statistics) {
+    background: linear-gradient(180deg, #FFA500 39.06%, #FFD700 75.52%);
+}
+
+.statistics.container {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0;
+    justify-content: center;
+}
+
+.statistics.container .charts {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 85%
+}
+
+.statistics.container .charts .google {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.statistics.container .charts .google #by_country {
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.statistics.container .charts .google #by_country rect {
+    fill: white;
+}
+
+.statistics.container .charts .google #by_age {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.statistics.container .charts .google #by_age rect {
+    fill: white;
+}
+
+.statistics.container .charts .google #by_gender {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.statistics.container .charts .google #by_gender rect {
+    fill: white;
+}
+
+.statistics.container .input-date {
+    display: inline-block;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.statistics.container .input-date::after {
+    color: white;
+    fill: white;
+}
+
+.statistics.container .input-date:focus {
+    outline: none;
+    box-shadow: 0 0 5px #99c5ff;
+}
+
+.statistics.container .container-date {
+    display: flex;
+    gap: 3rem;
+}
+
+.statistics.container .filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 85%;
+    background-color: #800080;
+    padding: 3rem;
+}
+
+.statistics.container .charts .google svg g text {
+    font-size: 1rem;
+    fill: #676767;
+    font-family: Poppins;
+}
+
+.statistics.container .static-number {
+    background-color: #800080;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 18rem;
+}
+
+.statistics.container .statics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.statistics.container .statics h3 {
+    margin: 0;
+    padding: 1rem;
+    color: white;
+    font-family: Poppins;
+}
+
+.statistics.container .statics span {
+    margin: 0;
+    padding: 1rem;
+    color: #800080;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    font-family: Poppins;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.statistics .container-list {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #FFA500;
+    margin-bottom: 2rem;
+}
+
+.statistics .container-list .title-container {
+    border-radius: 20px 20px 0 0;
+    background-color: purple;
+    color: white;
+    padding: 0.25rem 1rem;
+}
+
+.statistics .container-list h3 {
+    font-size: 2rem;
+}
+
+.statistics .container-list ul {
+    font-size: 1.25rem;
+    font-family: Poppins;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.statistics .container-list li {
+
+
 }
 
 
@@ -1584,15 +1937,13 @@ body:has(.container-ranking) {
     .game .redirect-md {
         display: flex;
         flex-direction: row;
-        position: absolute;
-        top: 0.5rem;
-        left: 48%;
+        margin-top: 1rem;
     }
 
     .game .redirect-md a {
         font-size: 16px;
         font-family: 'Poppins';
-        color: #FFA500;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1633,7 +1984,7 @@ body:has(.container-ranking) {
         justify-content: normal;
     }
 
-    #reportBtn{
+    #reportBtn {
         background-color: red;
         border: 3px solid red;
         margin-bottom: 30px;
@@ -1642,7 +1993,7 @@ body:has(.container-ranking) {
         color: white;
     }
 
-    #reportBtn:hover{
+    #reportBtn:hover {
         background-color: unset;
         border: 3px solid red;
         color: red;
@@ -1663,6 +2014,23 @@ body:has(.container-ranking) {
 
     .container-position .score .description {
         font-size: 26px;
+    }
+
+    /**************************************FACTORY******************************************/
+    .factory {
+        flex-direction: column;
+    }
+
+    .factory .left-sidebar {
+        width: 80%;
+        border-radius: 20px 20px 0 0;
+        margin: 2rem 0 0 0;
+    }
+
+    .factory .container-form {
+        background-color: rgb(0, 134, 57);
+        width: 80%;
+        border-radius: 0px 0px 20px 20px;
     }
 }
 
@@ -1705,6 +2073,157 @@ body:has(.container-ranking) {
 
     .go-to-ranking .position span:nth-of-type(1) {
         font-size: 36px;
+    }
+
+    /* ************************* DESPUES BORRAR ************************** */
+    .btn-mid {
+        font-size: 24px;
+    }
+
+    .btn-high {
+        width: 100%;
+    }
+
+    .buttons-game {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 35px 0;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .max-width-phone {
+        max-width: 350px;
+        margin: auto;
+    }
+
+    .container-cantidad-partidas {
+        text-align: center;
+        padding: 10px;
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
+    }
+
+    .container-cantidad-partidas label {
+        width: 30%;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .container-cantidad-partidas div {
+        width: 30%;
+    }
+
+    .container-cantidad-partidas select {
+        font-size: 20px;
+        background-color: #800080;
+        color: white;
+        border-radius: 20px;
+        padding: 3px;
+    }
+
+    .container-box {
+        width: 90%;
+        margin-bottom: 20px;
+        padding: 0px;
+    }
+
+    .titulo-historial {
+        margin-top: 16px;
+        background-color: #800080;
+        color: white;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        font-weight: normal;
+        border-radius: 30px;
+    }
+
+    .historial {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        list-style: none;
+        padding: 0px;
+    }
+
+    .mainBtn-container a {
+        width: 100%;
+    }
+
+    .box-title {
+        padding: 8px;
+        width: 100%;
+        text-align: center;
+        background-color: #800080;
+        margin: 0px;
+        border: none;
+        border-radius: 0px;
+        color: white;
+        font-weight: normal;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .box {
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+        padding: 0px;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .box p {
+        padding: 10px;
+    }
+
+    .noHayPartidas {
+        width: 100%;
+        text-align: center;
+    }
+
+    .paginator-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-around;
+    }
+
+    .paginator-container ul {
+        padding: 0px;
+        margin: 0px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .paginator-container ul li {
+        width: 8%;
+        margin: 2%;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .paginator-container ul li button {
+        width: 100%;
+        background-color: #800080;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
     }
 
     /**************************************PARTIDA******************************************/
@@ -1769,12 +2288,13 @@ body:has(.container-ranking) {
     .game .redirect-md {
         display: flex;
         flex-direction: row;
+        margin-top: 1rem;
     }
 
     .game .redirect-md a {
         font-size: 16px;
         font-family: 'Poppins';
-        color: #FFA500;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1800,7 +2320,7 @@ body:has(.container-ranking) {
         justify-content: normal;
     }
 
-    #reportBtn{
+    #reportBtn {
         background-color: red;
         border: none;
         margin-bottom: 30px;
@@ -1810,7 +2330,7 @@ body:has(.container-ranking) {
         cursor: pointer;
     }
 
-    #reportBtn:hover{
+    #reportBtn:hover {
         background-color: #800080;
     }
 
@@ -1915,7 +2435,6 @@ body:has(.container-ranking) {
     }
 
 
-
     .container-data {
         width: 90%;
         max-width: 1000px;
@@ -1961,6 +2480,10 @@ body:has(.container-ranking) {
         color: white;
     }
 
+    .container-position .description img {
+        padding: 0.25rem;
+    }
+
     .container-position .description {
         justify-content: space-between;
         width: 100%;
@@ -1978,79 +2501,55 @@ body:has(.container-ranking) {
         margin-left: 1rem;
         width: 25%;
     }
+
+    /**************************************ADMIN STATISTICS******************************************/
+    .statistics.container .filters {
+        flex-direction: column;
+        gap: 2rem;
+        margin: 0 0 2rem 0;
+    }
+
+    .statistics.container .container-date {
+        flex-direction: column;
+    }
+
+    .statistics.container .charts {
+        flex-wrap: nowrap;
+    }
+
+    /**************************************FACTORY******************************************/
+    .factory {
+        flex-direction: column;
+    }
+
+    .factory .left-sidebar {
+        width: 80%;
+        border-radius: 20px 20px 0 0;
+        margin: 2rem 0 0 0;
+    }
+
+    .factory .container-form {
+        background-color: rgb(0, 134, 57);
+        width: 80%;
+        border-radius: 0px 0px 20px 20px;
+    }
+
 }
 
-
-
-
-
-
-/* ************************* DESPUES BORRAR ************************** */
-.container-box{
-    width: 60%;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.titulo-historial{
-    margin-top: 0px;
-    background-color: #800080;
-    color: white;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    font-weight: normal;
-    border-radius: 30px;
-}
-
-.historial{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    list-style: none;
-    padding: 0px;
-}
-
-.box-title{
-    border: 6px #800080 solid;
-    border-radius: 10px;
-    width: 12%;
-    padding: 15px;
-    text-align: center;
-    margin: 10px;
-    background-color: white;
-}
-
-.box{
-    border: 6px #800080 solid;
-    border-radius: 10px;
-    width: 12%;
-    padding: 15px;
-    text-align: center;
-    margin: 10px;
-    background-color: white;
-}
-
-.noHayPartidas{
-    width: 100%;
-    text-align: center;
-}
-
-.f-wrap{
+.f-wrap {
     flex-wrap: wrap;
 }
 
-.setProfilePhoto{
+.setProfilePhoto {
     width: 100%;
 }
 
-.setProfilePhoto input{
+.setProfilePhoto input {
     visibility: hidden;
     width: 5%;
 }
 
-.setProfilePhoto button{
+.setProfilePhoto button {
     padding: 15px;
     background-color: #800080;
     color: white;
@@ -2061,13 +2560,13 @@ body:has(.container-ranking) {
     cursor: pointer;
 }
 
-.setProfilePhoto button:hover{
+.setProfilePhoto button:hover {
     background-color: white;
     border: 3px solid #800080;
     color: #800080;
 }
 
-.redFont{
+.redFont {
     width: 100%;
     color: red;
 }

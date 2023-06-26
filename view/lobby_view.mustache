@@ -1,6 +1,6 @@
 {{> header}}
 <!-- Quizzium Lobby -->
-<div class="container">
+<div class="container max-width-phone">
     <img src="../public/assets/characters.png" class="characters">
     <div class="buttons-game">
         <a class="button button-big" href="/game/list">Individual</a>
@@ -8,7 +8,7 @@
     </div>
 
     {{#owner}}
-        <div class="go-to-ranking">
+        <div class="go-to-ranking" style="max-width: none;">
             <a href="/profile/list" class="profile">
                 <div class="description">
                     <img src="../public/profile-pictures/{{foto_perfil}}">
@@ -41,46 +41,59 @@
 
     <div style="display: flex; gap: 1rem; justify-content: center; align-items: center">
 
-        <a href="/factory/list" class="button button-small button-orange mt-1" style="display: block">Ir a fábrica de preguntas</a>
+        <a href="/factory/list" class="button button-small button-orange mt-1"
+           style="display: block; max-width: none; background-color: #800080">Ir
+            a fábrica de preguntas</a>
 
         {{#editor}}
-            <a href="/report/list" class="button button-small button-orange mt-1" style="display: block">Ir a preguntas
+            <a href="/report/list" class="button button-small button-orange mt-1"
+               style="display: block; max-width: none; background-color: #800080">Ir a preguntas
                 reportadas</a>
         {{/editor}}
 
         {{#administrador}}
-            <a href="/admin/list" class="button button-small button-orange mt-1" style="display: block">Vista administrador</a>
+            <a href="/admin/list" class="button button-small button-orange mt-1"
+               style="display: block; max-width: none; background-color: #800080">Vista
+                administrador</a>
         {{/administrador}}
+
+        <a class="button button-small mt-2 mb-2"
+           style="max-width: none; margin-top: 16px; margin-bottom: 16px; background-color: red"
+           href="/lobby/exit">Cerrar
+            sesión</a>
     </div>
 
-    <a class="button button-small mt-2 mb-2" href="/lobby/exit">Cerrar sesión</a>
 
     <div class="container-box">
 
         <h2 class="titulo-historial">Historial de partidas</h2>
 
-        <div style="display: inline-block">
-            <label for="games_quantity">Mostrar:  </label>
-        </div>
-        <div style="display: inline-block; padding: 0px 10px">
-            <select name="games_quantity" id="games_quantity">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-        </div>
-        <div style="display: inline-block">
-            <label for="games_quantity"> partidas</label>
-        </div>
+        <div class="container-cantidad-partidas">
+            <label for="games_quantity">Mostrar: </label>
 
+            <div style="display: inline-block; padding: 0px 10px">
+                <select name="games_quantity" id="games_quantity">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+
+
+            <label for="games_quantity"> partidas</label>
+
+        </div>
 
         <ul class="historial" id="lista-partidas">
 
         </ul>
-        <div>
-            <div>
-                <label id="paginator"></label>
-            </div>
+
+        <div class="paginator-container">
+
+            <label id="paginator"></label>
+
+            <div id="nav-paginator"></div>
+
         </div>
 
         <div id="nav-paginator"></div>

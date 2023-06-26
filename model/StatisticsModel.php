@@ -119,10 +119,10 @@ class StatisticsModel
 
     public function getPlayers($filters)
     {
-
         $whereClause = '';
         $dateFrom = $filters['dateFrom'];
         $dateTo = $filters['dateTo'];
+
 
         if (!empty($dateFrom) && !empty($dateTo)) {
             $whereClause = " WHERE fecha_creacion >= '" . $dateFrom . "' AND fecha_creacion <= '" . $dateTo . "'";
@@ -133,6 +133,7 @@ class StatisticsModel
         FROM cuenta " . $whereClause . ";";
 
         $result = $this->database->querySelectAssoc($sql);
+
 
         return $result['cantidad_de_jugadores'];
     }
@@ -288,6 +289,11 @@ class StatisticsModel
         $pdf->SetFont('Arial', 'B', 14);
         $pageWidth = $pdf->GetPageWidth();
         $pageHeight = $pdf->GetPageHeight();
+
+        if(empty($data['dateFrom']) || empty($data['dateTo'])){
+            $data['dateFrom'] = "desde el inicio";
+            $data['dateTo'] = "hasta hoy";
+        }
 
         $pdf->Cell(40, 10, "Fechas:");
         $pdf->Cell(40, 10, $data['dateFrom'], 1, 0, 'C');
