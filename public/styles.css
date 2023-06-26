@@ -214,18 +214,67 @@ body {
 }
 
 /* ************************* DESPUES BORRAR ************************** */
-.container-box {
-    width: 60%;
+.max-width-phone {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.buttons-game {
+    width: 80%;
+}
+
+.btn-mid {
+    font-size: 24px;
+    width: 40%;
     padding: 10px;
+    padding-left: 38px;
+    padding-right: 38px;
+}
+
+.mainBtn-container a {
+    width: 45%;
+}
+
+.container-cantidad-partidas {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: auto;
+}
+
+.container-cantidad-partidas label {
+    width: 30%;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.container-cantidad-partidas div {
+    width: 30%;
+}
+
+.container-cantidad-partidas select {
+    font-size: 20px;
+    background-color: #800080;
+    color: white;
+    border-radius: 20px;
+    padding: 3px;
+}
+
+.container-box {
+    width: 90%;
     margin-bottom: 20px;
+    padding: 0px;
 }
 
 .titulo-historial {
-    margin-top: 0px;
+    margin-top: 16px;
     background-color: #800080;
     color: white;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     font-weight: normal;
     border-radius: 30px;
@@ -241,28 +290,78 @@ body {
 }
 
 .box-title {
-    border: 6px #800080 solid;
-    border-radius: 10px;
-    width: 12%;
-    padding: 15px;
+    padding: 8px;
+    width: 100%;
     text-align: center;
-    margin: 10px;
-    background-color: white;
+    background-color: #800080;
+    margin: 0px;
+    border: none;
+    border-radius: 0px;
+    color: white;
+    font-weight: normal;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .box {
-    border: 6px #800080 solid;
-    border-radius: 10px;
-    width: 12%;
-    padding: 15px;
+    width: 15%;
     text-align: center;
     margin: 10px;
+    padding: 0px;
     background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.box p {
+    padding: 10px;
 }
 
 .noHayPartidas {
     width: 100%;
     text-align: center;
+}
+
+.paginator-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.paginator-container label{
+    width: 100%;
+    text-align: center;
+}
+
+.paginator-container ul {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.paginator-container ul li {
+    width: 30px;
+    margin: 2%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.paginator-container ul li button {
+    width: 100%;
+    background-color: #800080;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 
@@ -422,6 +521,10 @@ body {
 
 .button {
     width: 100%;
+}
+
+.btn-high {
+    width: 40%;
 }
 
 /**************************************PROFILE******************************************/
@@ -1475,6 +1578,152 @@ body:has(.container-ranking) {
         font-size: 36px;
     }
 
+    /* ************************* DESPUES BORRAR ************************** */
+    .max-width-phone {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .buttons-game {
+        width: 100%;
+    }
+
+    .btn-mid {
+        font-size: 24px;
+        width: 45%;
+        padding: 10px;
+        padding-left: 38px;
+        padding-right: 38px;
+    }
+
+    .mainBtn-container a {
+        width: 45%;
+    }
+
+    .container-cantidad-partidas {
+        text-align: center;
+        padding: 10px;
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .container-cantidad-partidas label {
+        width: 30%;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .container-cantidad-partidas div {
+        width: 30%;
+    }
+
+    .container-cantidad-partidas select {
+        font-size: 20px;
+        background-color: #800080;
+        color: white;
+        border-radius: 20px;
+        padding: 3px;
+    }
+
+    .container-box {
+        width: 90%;
+        margin-bottom: 20px;
+        padding: 0px;
+    }
+
+    .titulo-historial {
+        margin-top: 16px;
+        background-color: #800080;
+        color: white;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        font-weight: normal;
+        border-radius: 30px;
+    }
+
+    .historial {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        list-style: none;
+        padding: 0px;
+    }
+
+    .box-title {
+        padding: 8px;
+        width: 100%;
+        text-align: center;
+        background-color: #800080;
+        margin: 0px;
+        border: none;
+        border-radius: 0px;
+        color: white;
+        font-weight: normal;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .box {
+        width: 15%;
+        text-align: center;
+        margin: 10px;
+        padding: 0px;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .box p {
+        padding: 10px;
+    }
+
+    .noHayPartidas {
+        width: 100%;
+        text-align: center;
+    }
+
+    .paginator-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-around;
+    }
+
+    .paginator-container ul {
+        padding: 0px;
+        margin: 0px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .paginator-container ul li {
+        width: 30px;
+        margin: 2%;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .paginator-container ul li button {
+        width: 100%;
+        background-color: #800080;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
     /**************************************PROFILE******************************************/
     .container.profile {
         width: 100%;
@@ -1769,7 +2018,26 @@ body:has(.container-ranking) {
     }
 
     /* ************************* DESPUES BORRAR ************************** */
-    .max-width-phone{
+    .btn-mid {
+        font-size: 24px;
+    }
+
+    .btn-high {
+        width: 100%;
+    }
+
+    .buttons-game {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 35px 0;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .max-width-phone {
         max-width: 350px;
         margin: auto;
     }
@@ -1787,7 +2055,8 @@ body:has(.container-ranking) {
         font-size: 20px;
         padding: 5px;
     }
-    .container-cantidad-partidas div{
+
+    .container-cantidad-partidas div {
         width: 30%;
     }
 
@@ -1813,6 +2082,7 @@ body:has(.container-ranking) {
         padding: 10px;
         text-align: center;
         font-weight: normal;
+        border-radius: 30px;
     }
 
     .historial {
@@ -1822,6 +2092,10 @@ body:has(.container-ranking) {
         align-items: center;
         list-style: none;
         padding: 0px;
+    }
+
+    .mainBtn-container a {
+        width: 100%;
     }
 
     .box-title {

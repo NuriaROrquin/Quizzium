@@ -2,9 +2,9 @@
 <!-- Quizzium Lobby -->
 <div class="container max-width-phone">
     <img src="../public/assets/characters.png" class="characters">
-    <div class="buttons-game">
-        <a class="button button-big" href="/game/list" style="max-width: 90%;">Individual</a>
-        <a class="button button-big" style="max-width: none;max-width: 90%">Multijugador</a>
+    <div class="buttons-game" style="max-width: 90%">
+        <a class="button btn-mid btn-high" href="/game/list" style="max-width: 90%;">Individual</a>
+        <a class="button btn-mid btn-high" style="max-width: none;max-width: 90%">Multijugador</a>
     </div>
 
 
@@ -30,27 +30,26 @@
         </div>
     {{/owner}}
 
-    <div class="container-anchor"
-         style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; max-width: 90%">
+    <div class="container-anchor mainBtn-container" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; max-width: 90%">
 
         <a href="/factory/list" class="button button-small button-orange mt-1"
-           style="display: block; max-width: none; width: 100%; background-color: #800080">Ir
+           style="display: block; max-width: none; background-color: #800080">Ir
             a fábrica de preguntas</a>
 
         {{#editor}}
             <a href="/report/list" class="button button-small button-orange mt-1"
-               style="display: block; max-width: none; width: 100%; background-color: #800080">Ir a preguntas
+               style="display: block; max-width: none; background-color: #800080">Ir a preguntas
                 reportadas</a>
         {{/editor}}
 
         {{#administrador}}
             <a href="/admin/list" class="button button-small button-orange mt-1"
-               style="display: block; max-width: none; width: 100%; background-color: #800080">Vista
+               style="display: block; max-width: none; background-color: #800080">Vista
                 administrador</a>
         {{/administrador}}
 
         <a class="button button-small mt-2 mb-2"
-           style="max-width: none; width: 100%; margin-top: 16px; margin-bottom: 16px; background-color: red"
+           style="max-width: none; margin-top: 16px; margin-bottom: 16px; background-color: red"
            href="/lobby/exit">Cerrar
             sesión</a>
     </div>
