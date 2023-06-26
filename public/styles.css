@@ -1853,6 +1853,24 @@ body:has(.statistics) {
     .container-position .score .description {
         font-size: 26px;
     }
+
+    /**************************************FACTORY******************************************/
+
+    .factory{
+        flex-direction: column;
+    }
+
+    .factory .left-sidebar{
+        width: 80%;
+        border-radius: 20px 20px 0 0;
+        margin: 2rem 0 0 0;
+    }
+
+    .factory .container-form{
+        background-color: rgb(0, 134, 57);
+        width: 80%;
+        border-radius: 0px 0px 20px 20px;
+    }
 }
 
 @media (max-width: 799px) {
@@ -2293,6 +2311,8 @@ body:has(.statistics) {
         width: 25%;
     }
 
+    /**************************************ADMIN STATISTICS******************************************/
+
     .statistics.container .filters {
         flex-direction: column;
         gap: 2rem;
@@ -2305,6 +2325,24 @@ body:has(.statistics) {
 
     .statistics.container .charts{
         flex-wrap: nowrap;
+    }
+
+    /**************************************FACTORY******************************************/
+
+    .factory{
+        flex-direction: column;
+    }
+
+    .factory .left-sidebar{
+        width: 80%;
+        border-radius: 20px 20px 0 0;
+        margin: 2rem 0 0 0;
+    }
+
+    .factory .container-form{
+        background-color: rgb(0, 134, 57);
+        width: 80%;
+        border-radius: 0px 0px 20px 20px;
     }
 
 }
