@@ -187,6 +187,8 @@ body {
     text-decoration: none;
 }
 
+
+
 .go-to-ranking .container-anchor {
     width: 100%;
     display: flex;
@@ -543,6 +545,18 @@ body {
 
 .button {
     width: 70%;
+}
+
+.boton-partidas{
+    font-family: 'Bangers', cursive;
+    font-size: small;
+    display: inline-block;
+    padding: 7px;
+}
+
+.desafiador{
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-high {

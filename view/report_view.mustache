@@ -11,10 +11,10 @@
     </div>
     <div class="list">
         {{#questions}}
-            <div class="accordion" id="accordion-report">
+            <div class="accordion" id="accordion-report{{id_pregunta}}">
                 <input type="checkbox" id='{{id_pregunta}}'/>
                 <label class="accordion-label" for='{{id_pregunta}}' name={{id_pregunta}}>{{pregunta}}</label>
-                <div class="accordion-content">
+                <div class="accordion-content" id="accordion-content{{id_pregunta}}">
 
                     <div class="report">
                         <span class="report-title">Razon del reporte:</span>

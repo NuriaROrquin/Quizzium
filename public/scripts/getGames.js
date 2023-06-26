@@ -173,8 +173,8 @@ function chooseYourPlayer(data) {
     $.each(data, function(index, item) {
         var listItem = $('<div>');
         var clase = $('<p>').attr('class', 'users').text('Usuario:' + item.usuario);
-        var puntaje = $('<h4>').text('Puntaje: ' + item.puntaje);
-        var button = $('<button>').attr('id', item.id_cuenta).attr('type', 'submit').text('Seleccionar');
+        var puntaje = $('<h2>').text('Puntaje: ' + item.puntaje);
+        var button = $('<button>').attr('id', item.id_cuenta).attr('type', 'submit').attr('class', 'button button-small button-orange mt-1').text('Seleccionar');
 
         listItem.append(clase);
         listItem.append(puntaje);

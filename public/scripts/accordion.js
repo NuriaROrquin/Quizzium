@@ -61,8 +61,46 @@ function setData(data) {
 
         if (index === 0) {
             document.getElementById("categoria-question" + element.id_pregunta).value = element.id_categoria;
+            let InitialvalueCategory = parseInt(parseInt(document.getElementById("categoria-question" + element.id_pregunta).value))
+            changeCategoryColor(InitialvalueCategory, element.id_pregunta)
         }
+
+        document.getElementById("categoria-question" + element.id_pregunta).onchange = function(event) {
+            let valueCategory = parseInt(document.getElementById("categoria-question" + element.id_pregunta).value);
+            parseInt(valueCategory);
+            changeCategoryColor(valueCategory,element.id_pregunta);
+
+
+        };
+
     });
+
+
+}
+
+
+function changeCategoryColor(valueCategory, id_pregunta) {
+    let divCategory = document.getElementById("accordion-content" + id_pregunta)
+    switch (valueCategory) {
+        case 1:
+            divCategory.style.backgroundColor = '#008639';
+            break;
+        case 2:
+            divCategory.style.backgroundColor = '#BEA821';
+            break;
+        case 3:
+            divCategory.style.backgroundColor = '#DC0000';
+            break;
+        case 4:
+            divCategory.style.backgroundColor = '#0176D2';
+            break;
+        case 5:
+            divCategory.style.backgroundColor = '#FF69B4';
+            break;
+        case 6:
+            divCategory.style.backgroundColor = '#FF9400';
+            break;
+    }
 }
 
 function updateQuestionInfo(id, action) {

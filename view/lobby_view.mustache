@@ -23,10 +23,10 @@
             {{#challengedGames}}
                 <div>
                     <form method="post" class="form-container-question" id="form-question-editor">
-                        <p style="display: inline-block">{{desafiador}} te ha desafiado y ha obtenido {{resultado}} puntos!</p>
+                        <p class="desafiador">{{desafiador}} te desafió y obtuvo {{resultado}} puntos!</p>
                         <div style="display: inline-block">
-                            <button class="button button-xsmall deny-question" type="button" id="deny-question{{id_partida}}" name={{id_partida}}>Rechazar</button>
-                            <button class="button button-xsmall accept-question" type="button" id="accept-question{{id_partida}}" name={{id_partida}}>Aceptar</button>
+                            <button class="boton-partidas button deny-question" type="button" id="deny-question{{id_partida}}" name={{id_partida}}>Rechazar</button>
+                            <button class="boton-partidas button accept-question" type="button" id="accept-question{{id_partida}}" name={{id_partida}}> Aceptar </button>
                         </div>
                     </form>
                 </div>
@@ -60,7 +60,7 @@
         {{/administrador}}
 
         <a class="button button-small mt-2 mb-2"
-           style="max-width: none; margin-top: 16px; margin-bottom: 16px; background-color: red"
+           style="max-width: none; margin-top: 16px; margin-bottom: 16px; background-color: red; box-sizing: content-box;"
            href="/lobby/exit">Cerrar
             sesión</a>
     </div>

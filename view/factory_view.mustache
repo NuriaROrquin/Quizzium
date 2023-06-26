@@ -15,10 +15,10 @@
         </div>
         <div class="list">
             {{#questions}}
-            <div class="accordion" id="accordion">
+            <div class="accordion" id="accordion{{id_pregunta}}">
                 <input type="checkbox" id='{{id_pregunta}}'/>
                 <label class="accordion-label" for='{{id_pregunta}}' name={{id_pregunta}}>{{pregunta}}</label>
-                <div class="accordion-content">
+                <div class="accordion-content" id="accordion-content{{id_pregunta}}">
                     <form method="post" class="form-container-question" id="form-question-editor">
                         <div class="form-field">
                             <label class="form-label" for="categoria-question{{id_pregunta}}">Categoría:</label>
