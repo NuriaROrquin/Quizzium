@@ -151,6 +151,8 @@ function chooseYourPlayer(data) {
 
     var chooseYourPlayer = $('<div>').attr('id', 'elegirJugador');
 
+    console.log("entrè")
+
 
     var overlay = $('<div>').addClass('overlay');
 

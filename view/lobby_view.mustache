@@ -2,9 +2,9 @@
 <!-- Quizzium Lobby -->
 <div class="container max-width-phone">
     <img src="../public/assets/characters.png" class="characters">
-    <div class="buttons-game">
-        <a class="button button-big" href="/game/list">Individual</a>
-        <a class="button button-big" id="multiplayer">Multijugador</a>
+    <div class="buttons-game" style="max-width: 90%">
+        <a class="button btn-mid btn-high" href="/game/list" style="max-width: 90%;">Individual</a>
+        <a class="button btn-mid btn-high" id="multiplayer" style="max-width: none;max-width: 90%">Multijugador</a>
     </div>
 
     {{#owner}}
@@ -21,25 +21,27 @@
             </a>
 
             {{#challengedGames}}
-            <div>
-                <form method="post" class="form-container-question" id="form-question-editor">
-                    <p style="display: inline-block">{{desafiador}} te ha desafiado y ha obtenido {{resultado}} puntos!</p>
-                    <div style="display: inline-block">
-                        <button class="button button-xsmall deny-question" type="button" id="deny-question{{id_partida}}" name={{id_partida}}>Rechazar</button>
-                        <button class="button button-xsmall accept-question" type="button" id="accept-question{{id_partida}}" name={{id_partida}}>Aceptar</button>
-                    </div>
-                </form>
-            </div>
+                <div>
+                    <form method="post" class="form-container-question" id="form-question-editor">
+                        <p style="display: inline-block">{{desafiador}} te ha desafiado y ha obtenido {{resultado}} puntos!</p>
+                        <div style="display: inline-block">
+                            <button class="button button-xsmall deny-question" type="button" id="deny-question{{id_partida}}" name={{id_partida}}>Rechazar</button>
+                            <button class="button button-xsmall accept-question" type="button" id="accept-question{{id_partida}}" name={{id_partida}}>Aceptar</button>
+                        </div>
+                    </form>
+                </div>
             {{/challengedGames}}
 
-            <div class="container-anchor">
-                <a href="/ranking/list" class="button button-small">Ver Ranking</a>
+            <div class="container-anchor" style="max-width: none">
+                <a href="/ranking/list" class="button button-small"
+                   style="margin-top: 20px; margin-bottom: 20px; max-width: none; width: 100%">
+                    Ver Ranking
+                </a>
             </div>
         </div>
     {{/owner}}
 
-
-    <div style="display: flex; gap: 1rem; justify-content: center; align-items: center">
+    <div class="container-anchor mainBtn-container" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; max-width: 90%">
 
         <a href="/factory/list" class="button button-small button-orange mt-1"
            style="display: block; max-width: none; background-color: #800080">Ir
@@ -96,15 +98,12 @@
 
         </div>
 
-        <div id="nav-paginator"></div>
-        <button id="openPopup">Abrir Popup</button>
 
     </div>
 </div>
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script src='../public/scripts/getGames.js'></script>
 
-
-<!--End Page Content -->
+<!-- End Page Content -->
 </div>
 {{> footer}}

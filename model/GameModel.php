@@ -217,7 +217,6 @@ class GameModel
 
         $id_partida = $this->database->queryWithID("INSERT INTO `partida` (`fue_aceptada`, `fue_visto`) VALUES (0, 0);");
 
-        var_dump($id_partida);
 
         $id_juego = $this->database->queryWithID("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
 
@@ -296,7 +295,6 @@ class GameModel
 
         $sql = "INSERT INTO `reporte`( `id_cuenta`, `id_pregunta`, `descripcion`) VALUES (" .$userID ." , "  .$idQuestion ." , '$reportText');";
 
-        var_dump($sql);
         if($this->database->query($sql)){
             $result = true;
         }
