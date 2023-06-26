@@ -217,7 +217,6 @@ class GameModel
 
         $id_partida = $this->database->queryWithID("INSERT INTO `partida` (`fue_aceptada`, `fue_visto`, `multiplayer`) VALUES (0, 0, 1);");
 
-
         $id_juego = $this->database->queryWithID("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
 
         $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`, `id_desafiador`) VALUES (" . $id_partida . "," . $id_Contrincante . ", $id_cuenta);");
@@ -235,20 +234,21 @@ class GameModel
                 AND         j.id_cuenta =$id_cuenta
                 AND         j.id_desafiador IS NOT NULL
                 AND         p.fue_aceptada = 1";
+
        $id_juego =$this->database->querySelectAssoc($sql)['id_juego'];
+
        $this->deleteDesafiador($id_juego);
+
         if($id_juego){
             $result = $id_juego;
         }
         return $result;
 
     }
-
     public function deleteDesafiador($id_juego)
     {
         $this->database->query("UPDATE `juego` SET `id_desafiador`= NULL WHERE `id_juego` = " .$id_juego .";");
     }
-
 
     public function updateScore($id_juego)
     {
