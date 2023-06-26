@@ -212,6 +212,20 @@ class GameModel
         return $id_juego;
     }
 
+    public function startMultiplayerGame($id_cuenta, $id_Contrincante)
+    {
+
+        $id_partida = $this->database->queryWithID("INSERT INTO `partida` (`fue_aceptada`, `fue_visto`) VALUES (0, 0);");
+
+        var_dump($id_partida);
+
+        $id_juego = $this->database->queryWithID("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_cuenta . ");");
+
+        $this->database->query("INSERT INTO `juego`(`id_partida`, `id_cuenta`) VALUES (" . $id_partida . "," . $id_Contrincante . ");");
+
+        return $id_juego;
+    }
+
     public function updateScore($id_juego)
     {
 

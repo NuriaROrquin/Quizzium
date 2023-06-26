@@ -4,9 +4,8 @@
     <img src="../public/assets/characters.png" class="characters">
     <div class="buttons-game">
         <a class="button button-big" href="/game/list">Individual</a>
-        <a class="button button-big">Multijugador</a>
+        <a class="button button-big" id="multiplayer">Multijugador</a>
     </div>
-
 
     {{#owner}}
         <div class="go-to-ranking">
@@ -72,12 +71,37 @@
         </div>
 
         <div id="nav-paginator"></div>
+        <button id="openPopup">Abrir Popup</button>
 
+        <!--<div id="popup" style="display: none;">
+            <h2>Selecciona una opción:</h2>
+            <ul id="optionList">
+                <li>Opción 1</li>
+                <li>Opción 2</li>
+                <li>Opción 3</li>
+            </ul>
+        </div>-->
     </div>
 </div>
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script src='../public/scripts/getGames.js'></script>
+<!--<script>
+    $(document).ready(function() {
+        // Abrir el popup al hacer clic en el botón
+        $('#openPopup').on('click', function() {
+            $('#popup').show();
+        });
 
-<!-- End Page Content -->
+        // Capturar la opción seleccionada al hacer clic en un elemento de la lista
+        $('#optionList').on('click', 'li', function() {
+            var selectedOption = $(this).text();
+            // Aquí puedes utilizar la opción seleccionada en tu solicitud AJAX
+            console.log('Opción seleccionada:', selectedOption);
+            $('#popup').hide(); // Cerrar el popup
+        });
+    });
+</script>
+
+ End Page Content -->
 </div>
 {{> footer}}

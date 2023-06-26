@@ -67,6 +67,31 @@ class LobbyModel
         return $dataOfGames;
     }
 
+    public function getAllPlayers($id_cuenta)
+    {
+
+        $sql = "SELECT MAX(j.puntaje) as puntaje, c.id_cuenta, c.usuario
+                FROM juego j
+                JOIN cuenta c 
+                ON j.id_cuenta = c.id_cuenta
+                WHERE j.id_cuenta <> '$id_cuenta'
+                GROUP BY c.id_cuenta, c.usuario";
+
+        $result = $this->database->query($sql);
+
+        $players = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $players[] = $row;
+        }
+
+        if($players == null){
+            $players = false;
+        }
+
+        return $players;
+    }
+
     public function getNumberOfGames($id_cuenta)
     {
 
@@ -83,8 +108,6 @@ class LobbyModel
 
         return $NumberOfGames;
     }
-
-
 
     public function getRol($id_cuenta){
 

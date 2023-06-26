@@ -1,6 +1,7 @@
 $(window).on('load', function () {
     let totalGamesShownPerPage = 5;
     let ActualPage = 1;
+    let data = [];
         $('#games_quantity').on('change', function () {
             fetchData();
         });
@@ -9,6 +10,8 @@ $(window).on('load', function () {
             ActualPage = $(this).attr('value');
             fetchData();
         });
+
+
 
         fetchData();
 
@@ -22,6 +25,8 @@ $(window).on('load', function () {
                 data: data,
                 success: function (response) {
                     var historialPartidas = JSON.parse(response);
+                    data = historialPartidas.players;
+                    console.log(data);
 
 
                     var listaPartidas = $('#lista-partidas');
@@ -63,6 +68,10 @@ $(window).on('load', function () {
                         listaPartidas.append(listItem);
                     }
 
+                    $(document).on('click', '#multiplayer', function (){
+                        chooseYourPlayer(data);
+                    });
+
 
                 },
                 error: function () {
@@ -72,3 +81,56 @@ $(window).on('load', function () {
         }
 
 });
+
+function chooseYourPlayer(data) {
+
+    var chooseYourPlayer = $('<div>').attr('id', 'elegirJugador');
+
+
+    var overlay = $('<div>').addClass('overlay');
+
+    var popup = $('<div>').addClass('popup');
+
+    var titulo = $('<h2>').text('Elije tu contrinncante:');
+    var optionList = $('<div>').attr('id', 'optionList');
+
+    $.each(data, function(index, item) {
+        var listItem = $('<div>');
+        var clase = $('<p>').attr('class', 'users').text('Usuario:' + item.usuario);
+        var puntaje = $('<h4>').text('Puntaje: ' + item.puntaje);
+        var button = $('<button>').attr('id', item.id_cuenta).attr('type', 'submit').text('Seleccionar');
+
+        listItem.append(clase);
+        listItem.append(puntaje);
+        listItem.append(button);
+        optionList.append(listItem);
+
+        button.on('click', function() {
+            var idContrincante = $(this).attr('id');
+            var form = $('<form>').attr({
+                method: 'POST',
+                action: '/game/list'
+            });
+            var input = $('<input>').attr({
+                type: 'hidden',
+                name: 'idContrincante',
+                value: idContrincante
+            });
+            form.append(input);
+            $('body').append(form);
+            form.submit();
+        });
+    });
+
+    var lobby = $('<button>').addClass('button button-small').text('Volver al lobby');
+
+    lobby.on('click', function() {
+        chooseYourPlayer.remove();
+
+    });
+
+    popup.append(titulo, optionList, lobby);
+    chooseYourPlayer.append(overlay,popup);
+    $('body').append(chooseYourPlayer);
+
+}

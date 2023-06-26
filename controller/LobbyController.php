@@ -28,6 +28,7 @@ class LobbyController
 
         $data["rankingPosition"] = $this->lobbyModel->getRankingPosition($id_cuenta);
 
+
         $this->renderer->render('lobby', $data);
     }
 
@@ -45,6 +46,7 @@ class LobbyController
             $start = ($page-1)*$limit;
         }
 
+        $gamesInfo["players"] = $this->lobbyModel->getAllPlayers($id_cuenta);
         $gamesInfo['numbersOfGames'] = $this->lobbyModel->getNumberOfGames($id_cuenta);
 
         if( $gamesInfo['numbersOfGames'] > 0){

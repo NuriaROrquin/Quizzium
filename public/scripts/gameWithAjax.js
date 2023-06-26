@@ -6,8 +6,6 @@ $(window).on('load', function () {
     var audioPlayer = document.getElementById('audio-player');
     var isPlaying = !audioPlayer.paused;
 
-
-
     $('#audio-player').on('click', function() {
         if (isPlaying) {
             audioPlayer.pause();
@@ -48,6 +46,7 @@ $(window).on('load', function () {
             }
         }, 1000);
     }
+
 
     iniciarCronometro();
 
