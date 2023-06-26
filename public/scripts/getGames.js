@@ -120,9 +120,7 @@ function denyChallenge(id, action) {
                 console.log('error')
             } else {
                 console.log("Se rechazó el desafío")
-                setTimeout(function() {
-                    window.location.reload("/lobby/list");
-                }, 3000);
+                window.location.reload("/lobby/list");
             }
         },
         error: function (xhr, status, error) {
@@ -148,10 +146,8 @@ function acceptChallenge(id, action) {
             if (!data) {
                 console.log('error')
             } else {
-                console.log(id)
-                setTimeout(function() {
-                    window.location.href = '/game/list&idPartida='+id;
-                }, 3000);
+                console.log("se acepto el desafío en la partida " + id)
+                window.location.href = '/game/list&idPartida='+id;
             }
         },
         error: function (xhr, status, error) {

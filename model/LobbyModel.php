@@ -59,6 +59,7 @@ class LobbyModel
                 on      j.id_partida = p.id_partida
                 WHERE   j.id_cuenta = $id_cuenta 
                 AND     p.fue_aceptada = 1
+                ORDER BY j.id_juego desc
                 LIMIT $start, $limit;";
 
         $dataOfGames = $this->database->querySelectAll($sql);

@@ -33,13 +33,13 @@ class GameController
 
         if ($newQuestion == $oldQuestion || !$selectedAnswer) {
 
-            if($_POST['idContrincante']){
+            if(isset($_POST['idContrincante'])){
                 $idContrincante = $_POST['idContrincante'];
                 unset($_POST['idContrincante']);
                 $_SESSION['id_juego'] = $this->gameModel->startMultiplayerGame($id_cuenta, $idContrincante);
 
             }else{
-                if($_GET['idPartida'] ){
+                if(isset($_GET['idPartida'])){
                     $isValidGame = $this->gameModel->isValidGame($_GET['idPartida'], $id_cuenta);
 
                     if($isValidGame){
