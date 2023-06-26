@@ -605,12 +605,23 @@ body {
 
 /**************************************PARTIDA******************************************/
 
+#audio-player {
+    margin-top: 5%;
+    margin-left: 75%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-size: cover;
+}
+
+
 .game {
     display: flex;
     flex-direction: row;
     margin: auto;
     width: 90%;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     min-height: 100vh;
     position: relative;
@@ -1534,7 +1545,6 @@ body:has(.container-ranking) {
 
     .game {
         flex-direction: column;
-        justify-content: center;
     }
 
     .game .profile {

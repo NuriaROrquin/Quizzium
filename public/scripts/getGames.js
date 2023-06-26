@@ -45,7 +45,7 @@ $(window).on('load', function () {
                         var paginatorHTML = '<ul>';
 
                         for (var i = 1; i <= historialPartidas.pages; i++) {
-                            paginatorHTML += '<li><button class="paginatorButton" style="text-decoration: none;" value="' + i + '">' + i + '</button></li>';
+                            paginatorHTML += '<li style="display: inline-block"><button class="paginatorButton" style="text-decoration: none;" value="' + i + '">' + i + '</button></li>';
                         }
 
                         paginatorHTML += '</ul>';

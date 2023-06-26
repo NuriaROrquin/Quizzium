@@ -3,6 +3,20 @@ $(window).on('load', function () {
     let tiempo = 19;
     let cronometro;
 
+    var audioPlayer = document.getElementById('audio-player');
+    var isPlaying = !audioPlayer.paused;
+
+
+
+    $('#audio-player').on('click', function() {
+        if (isPlaying) {
+            audioPlayer.pause();
+            isPlaying = false;
+        } else {
+            audioPlayer.play();
+            isPlaying = true;
+        }
+    });
 
     function iniciarCronometro() {
 
